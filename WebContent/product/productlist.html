@@ -8,6 +8,11 @@
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 		<style>
+			*{
+				margin:0px;
+				padding:0px;
+				box-sizing: border-box;
+			}
 			img{
 				width:100%;
 				heigt:100%;
@@ -15,17 +20,87 @@
 			#wrapper{
 				width:1000px;
 			}
+			menu, #menu1{
+				border:1.5px solid grey;
+				border-style:none none solid none ;
+			}
+			#menu .col-0{
+				font-size:0;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="container-fluid">
-			<div class="row border"></div>
-			<div class="row bg-success border"></div>
-			<div id="wrapper" class="row border">
-				<div class="col-0 col-md-1 border"></div>
-				<div class="col-0 col-md-2 border"></div>
-				<div class="col-12 col-md-8 border"></div>
-				<div class="col-0 border"></div>
+			<div class="row"></div>
+			<div class="row bg-success"></div>
+			<div id="wrapper" class="row">
+				<div class="col-0 col-md-1"></div>
+				<div id="menu" class="d-sm-none d-md-inline col-md-2">
+					<div class="row">
+						<div id="menu1" class="menus container-fluid my-3 p-0"><h5><b>그래픽 카드</b></h5>
+							<div class="col">
+								<input id="graphicCard1" name="graphicCard" type="radio" value="graphicCard3060"/>
+								<label for="graphicCard1">3060</label>
+							</div>
+							<div class="col">
+								<input id="graphicCard2" name="graphicCard" type="radio" value="graphicCard3040"/>
+								<label for="graphicCard2">3040</label>
+							</div>
+							<div class="col">
+								<input id="graphicCard3" name="graphicCard" type="radio" value="graphicCard3080"/>
+								<label for="graphicCard3">3080</label>
+							</div>
+						</div>
+						
+						<div id="menu1" class="container-fluid my-3 p-0"><h5><b>CPU</b></h5>
+							<div class="col">
+								<input id="CPU1" name="CPU" type="radio" value="Intel-i3"/>
+								<label for="CPU1">Intel-i3</label>
+							</div>
+							<div class="col">
+								<input id="CPU2" name="CPU" type="radio" value="Intel-i5"/>
+								<label for="CPU2">Intel-i5</label>
+							</div>
+							<div class="col">
+								<input id="CPU3" name="CPU" type="radio" value="Intel-i7"/>
+								<label for="CPU4">Intel-i7</label>
+							</div>
+						</div>
+						
+						<div id="menu1" class="container-fluid my-3 p-0"><h5><b>메모리 카드</b></h5>
+							<div class="col">
+								<input id="memoryCard1" name="memoryCard" type="radio" value="memoryCard128"/>
+								<label for="gmemoryCard1">128GB</label>
+							</div>
+							<div class="col">
+								<input id="memoryCard2" name="memoryCard" type="radio" value="memoryCard256"/>
+								<label for="memoryCard2">256GB</label>
+							</div>
+							<div class="col">
+								<input id="memoryCard3" name="memoryCard" type="radio" value="memoryCard512"/>
+								<label for="memoryCard3">512GB</label>
+							</div>
+						</div>
+						
+						<div id="menu1" class="container-fluid my-3 p-0"><h5><b>가격</b></h5>
+							<div class="col">
+								<input id="price1" name="price" type="radio" value="price50"/>
+								<label for="price1">0 ~ 50만원</label>
+							</div>
+							<div class="col">
+								<input  id="price2" name="price" type="radio" value="price100"/>
+								<label for="price2">50 ~ 100만원</label>
+							</div>
+							<div class="col">
+								<input id="price3" name="price" type="radio" value="price_over"/>
+								<label for="price4">100만원 ~ </label>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<div class="col-12 col-md-8"></div>
+				<div class="col-0"></div>
 			</div>
 		</div>
 	</body>
