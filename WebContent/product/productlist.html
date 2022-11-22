@@ -40,6 +40,33 @@
 			col-0{
 				font-
 			}
+			
+			.w-btn {
+			    position: relative;
+			    border: none;
+			    display: inline-block;
+			    padding: 15px 30px;
+			    border-radius: 15px;
+			    font-family: "paybooc-Light", sans-serif;
+			    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+			    text-decoration: none;
+			    font-weight: 600;
+			    transition: 0.25s;
+			}
+			
+			.w-btn-indigo {
+		    background-color: aliceblue;
+		    color: #1e6b7b;
+		    
+		}
+		
+		.w-btn-indigo:hover {
+		 
+    		background-color: black;
+   			 color: #d4dfe6;
+		    
+		}
+		
 		</style>
 	</head>
 	<body>
@@ -70,7 +97,7 @@
 					<div class="logo display-4">DeskTop</div>
 				</div>	
 			</div>
-			<div class="row bg-success"></div>
+		
 			<div id="wrapper" class="row mt-5">
 				<div class="col-0 col-md-1"></div>
 				<div id="menu" class="d-sm-none d-md-inline col-md-2">
@@ -142,12 +169,12 @@
 						<div class="col-12 col-sm-6 col-md-4 p-3">
 							<div class="card text-center p-3 " style="background-color:#f1f1f1">
 								<div class="card-header ">
-									<img src="../images/computer1.png"/>
+									<div class="ml-5"  style="width:150px;"><img src="../images/computer1.png"/></div>
 								</div>
 								<div class="card-body">
 									<form>
 										<div>
-										<label for="color1-1" class="border rounded-circle " style="background-color:blue; width:15px; height:15px "></label>
+										<label for="color1-1" class="border rounded-circle " style="background-color:steelblue; width:15px; height:15px "></label>
 										<label for="color1-2" class="border rounded-circle " style="background-color:black; width:15px; height:15px "></label>
 										<label for="color1-3" class="border rounded-circle " style="background-color:white; width:15px; height:15px "></label>
 										
@@ -182,7 +209,7 @@
 									<p>
 										500,000원
 									</p>
-									<button class="btn btn-primary">구매하기</button>
+									<button class="w-btn w-btn-indigo">구매하기</button>
 								</div>
 								<div class="card-footer">
 								
@@ -192,12 +219,12 @@
 						<div class=" col-0 col-sm-6  col-md-4 p-3">
 							<div class="card text-center p-3" style="background-color:#f1f1f1">
 								<div class="card-header ">
-									<img src="../images/computer1.png"/>
+									<div class="ml-5" style="width:150px"><img src="../images/computer1.png"/></div>
 								</div>
 								<div class="card-body">
 									<form>
 										<div>
-										<label for="color2-1" class="border rounded-circle " style="background-color:blue; width:15px; height:15px "></label>
+										<label for="color2-1" class="border rounded-circle " style="background-color:steelblue; width:15px; height:15px "></label>
 										<label for="color2-2" class="border rounded-circle " style="background-color:black; width:15px; height:15px "></label>
 										<label for="color2-3" class="border rounded-circle " style="background-color:white; width:15px; height:15px "></label>
 										
@@ -232,7 +259,7 @@
 									<p>
 										500,000원
 									</p>
-									<button class="btn btn-primary">구매하기</button>
+									<button class="w-btn w-btn-indigo">구매하기</button>
 								</div>
 								<div class="card-footer">
 								
@@ -242,12 +269,12 @@
 						<div class=" col-0 col-sm-6  col-md-4 p-3">
 							<div class="card text-center p-3" style="background-color:#f1f1f1">
 								<div class="card-header">
-									<img src="../images/computer1.png"/>
+									<div class="ml-5" style="width:150px"><img src="../images/computer1.png"/></div>
 								</div>
 								<div class="card-body border">
 									<form>
 										<div>
-										<label for="color3-1" class="border rounded-circle " style="background-color:blue; width:15px; height:15px "></label>
+										<label for="color3-1" class="border rounded-circle " style="background-color:steelblue; width:15px; height:15px "></label>
 										<label for="color3-2" class="border rounded-circle " style="background-color:black; width:15px; height:15px "></label>
 										<label for="color3-3" class="border rounded-circle " style="background-color:white; width:15px; height:15px "></label>
 										
@@ -282,7 +309,7 @@
 									<p>
 										500,000원
 									</p>
-									<button class="btn btn-primary">구매하기</button>
+									<button class="w-btn w-btn-indigo">구매하기</button>
 								</div>
 								<div class="card-footer">
 								
@@ -290,8 +317,16 @@
 							</div>
 						</div>	
 					</div>
+					<div class="row ">
+						 <ul class="pagination">
+						    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+						    <li class="page-item"><a class="page-link" href="#">1</a></li>
+						    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+						    <li class="page-item"><a class="page-link" href="#">3</a></li>
+						    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+						  </ul>
+					</div>
 				</div>
-				<div class="col-0"></div>
 			</div>
 		</div>
 	</body>
