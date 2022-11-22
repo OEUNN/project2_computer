@@ -55,18 +55,37 @@
 			}
 			
 			.w-btn-indigo {
-		    background-color: white;
-		    color: navy;
+		   		 background-color: white;
+		    	color: navy;
 		    
-		}
+			}
 		
-		.w-btn-indigo:hover {
+			.w-btn-indigo:hover {
 		 
-    		background-color: black;
-   			 color: #d4dfe6;
+    			background-color: black;
+   			 	color: #d4dfe6;
 		    
-		}
-		
+			}
+			.colorRadio input{
+				display:none;
+			}
+			.colorRadio input+label{
+				width:15px;
+				height:15px;
+			}
+			.colorRadio input:checked+label{
+				width:20px;
+				height:20px;
+			}
+			.capaRadio input{
+				display:none;
+			}
+			.capaRadio input+label{
+				background-color:white;
+			}
+			.capaRadio input:checked+label{
+				background-color:gray;
+			}
 		</style>
 		
 	</head>
@@ -75,7 +94,7 @@
 			<div class="row m-3"> 
 			<div class=" col-1 "></div>
 			<div id="typo" class="col-4 display-5">			
-					<div class="visible-md">제품</div>
+					<div class="visible-md"><a href="#">제품</a></div>
 					<div class="visible-md">자유게시판</div>			
 				</div>
 			
@@ -174,30 +193,28 @@
 								</div>
 								<div class="card-body">
 									<form id="color1select">
-										<div class="colorLabel">
-										<label for="color1-1" class="border rounded-circle " style="background-color:steelblue; width:15px; height:15px "></label>
-										<label for="color1-2" class="border rounded-circle " style="background-color:black; width:15px; height:15px "></label>
-										<label for="color1-3" class="border rounded-circle " style="background-color:white; width:15px; height:15px "></label>
 										
-										</div>
 										<div class = "colorRadio">
-										<input id="color1-1" name="color1" type="radio" value="blue" checked="checked">
-										<input id="color1-2" name="color1" type="radio" value="black" >
-										<input id="color1-3" name="color1" type="radio" value="white" >
+										
+											<input id="color1-1" name="color1" type="radio" value="blue" checked="checked">
+											<label for="color1-1" class="border rounded-circle " style="background-color:steelblue;  "></label>
+											<input id="color1-2" name="color1" type="radio" value="black" >
+											<label for="color1-2" class="border rounded-circle " style="background-color:black;  "></label>
+											<input id="color1-3" name="color1" type="radio" value="white" >
+											<label for="color1-3" class="border rounded-circle " style="background-color:white;  "></label>
 										</div>
 										
 									</form>
 									<form id="capa1select">
-										<div class="capaLabel">
-											<label for="capa1-1" class="border rounded " style="background-color:white">512GB</label>
-											<label for="capa1-2" class="border rounded" style="background-color:white">256GB</label>
-											<label for="capa1-3" class="border rounded" style="background-color:white">1TB</label>
-											
-										</div>
+										
 										<div class="capaRadio">
 											<input id="capa1-1" name="capa1" type="radio" value="512GB" checked="checked">
+											<label for="capa1-1" class="border rounded " >512GB</label>
 											<input id="capa1-2" name="capa1" type="radio" value="256GB" >
+											<label for="capa1-2" class="border rounded" >256GB</label>
 											<input id="capa1-3" name="capa1" type="radio" value="1TB" >
+											<label for="capa1-3" class="border rounded" >1TB</label>
+											
 										</div>
 										
 									</form>
@@ -222,30 +239,26 @@
 								</div>
 								<div class="card-body">
 									<form id="color2select">
-										<div class="colorLabel">
-										<label for="color2-1" class="border rounded-circle " style="background-color:steelblue; width:15px; height:15px "></label>
-										<label for="color2-2" class="border rounded-circle " style="background-color:black; width:15px; height:15px "></label>
-										<label for="color2-3" class="border rounded-circle " style="background-color:white; width:15px; height:15px "></label>
 										
-										</div>
 										<div class="colorRadio">
-										<input id="color2-1" name="color2" type="radio" value="blue" checked="checked" >
-										<input id="color2-2" name="color2" type="radio" value="black" >
-										<input id="color2-3" name="color2" type="radio" value="white" >
+											<input id="color2-1" name="color2" type="radio" value="blue" checked="checked" >
+											<label for="color2-1" class="border rounded-circle " style="background-color:steelblue; "></label>
+											<input id="color2-2" name="color2" type="radio" value="black" >
+											<label for="color2-2" class="border rounded-circle " style="background-color:black;  "></label>
+											<input id="color2-3" name="color2" type="radio" value="white" >
+											<label for="color2-3" class="border rounded-circle " style="background-color:white;"></label>
 										</div>
 										
 									</form>
 									<form id="capa2select">
-										<div class="capaLabel">
-											<label for="capa2-1" class="border rounded " style="background-color:white">512GB</label>
-											<label for="capa2-2" class="border rounded" style="background-color:white">256GB</label>
-											<label for="capa2-3" class="border rounded" style="background-color:white">1TB</label>
-											
-										</div>
+										
 										<div class="capaRadio">
 											<input id="capa2-1" name="capa2" type="radio" value="512GB" checked="checked">
+											<label for="capa2-1" class="border rounded " >512GB</label>
 											<input id="capa2-2" name="capa2" type="radio" value="256GB" >
+											<label for="capa2-2" class="border rounded" >256GB</label>
 											<input id="capa2-3" name="capa2" type="radio" value="1TB" >
+											<label for="capa2-3" class="border rounded" >1TB</label>
 										</div>
 										
 									</form>
@@ -270,30 +283,24 @@
 								</div>
 								<div class="card-body border">
 									<form id="color3select">
-										<div class="colorLabel">
-										<label for="color3-1" class="border rounded-circle " style="background-color:steelblue; width:15px; height:15px "></label>
-										<label for="color3-2" class="border rounded-circle " style="background-color:black; width:15px; height:15px "></label>
-										<label for="color3-3" class="border rounded-circle " style="background-color:white; width:15px; height:15px "></label>
-										
-										</div>
 										<div class="colorRadio">
-										<input id="color3-1" name="color3" type="radio" value="blue" checked="checked" >
-										<input id="color3-2" name="color3" type="radio" value="black" >
-										<input id="color3-3" name="color3" type="radio" value="white" >
+											<input id="color3-1" name="color3" type="radio" value="blue" checked="checked" >
+											<label for="color3-1" class="border rounded-circle " style="background-color:steelblue; "></label>
+											<input id="color3-2" name="color3" type="radio" value="black" >
+											<label for="color3-2" class="border rounded-circle " style="background-color:black;  "></label>
+											<input id="color3-3" name="color3" type="radio" value="white" >
+											<label for="color3-3" class="border rounded-circle " style="background-color:white;  "></label>
 										</div>
 										
 									</form>
 									<form id="capa3select">
-										<div class="capaLabel">
-											<label for="capa3-1" class="border rounded " style="background-color:white">512GB</label>
-											<label for="capa3-2" class="border rounded" style="background-color:white">256GB</label>
-											<label for="capa3-3" class="border rounded" style="background-color:white">1TB</label>
-											
-										</div>
 										<div class="capaRadio">
 											<input id="capa3-1" name="capa3" type="radio" value="512GB" checked="checked">
+											<label for="capa3-1" class="border rounded " >512GB</label>
 											<input id="capa3-2" name="capa3" type="radio" value="256GB" >
+											<label for="capa3-2" class="border rounded" >256GB</label>
 											<input id="capa3-3" name="capa3" type="radio" value="1TB" >
+											<label for="capa3-3" class="border rounded" >1TB</label>
 										</div>
 										
 									</form>
@@ -312,7 +319,7 @@
 							</div>
 						</div>	
 					</div>
-					<div class="row ">
+					<div class="row text-center">
 						 <ul class="pagination">
 						    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
 						    <li class="page-item"><a class="page-link" href="#">1</a></li>
