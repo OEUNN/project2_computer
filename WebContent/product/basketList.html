@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+		<style>
+			*{
+	            margin:0px;
+	            padding:0px;
+	            box-sizing: border-box;
+	            
+	         }
+	         
+	        
+	        #logo{
+	            background-color:black;
+	            height:100px;
+	         }
+	        #logo .logo{
+	            margin:25px 100px;
+	            text-align:left;
+	            color:white;
+	         }
+	        #basketWrapper{
+	        	width:1200px;
+	        	margin: 100px auto;
+	        	padding: 10px 20px;
+	        	background-color:#f3f3f3;
+	        	border:1px solid black;
+	        }
+	        .basketTable{
+	        	text-align:center;
+	        	margin-top: 20px
+	        }
+	        .basketTable th{
+	        	
+	       		font-size: 24px;
+				font-weight: bold; 
+				 
+	        }
+	        .basketTable td{
+	        	
+	       		font-size: 24px;
+				
+	        }
+	        .basketTable td div{
+				
+				padding-top:25px;
+	        }
+	        .basketTable td span{
+	       		font-size: 8px;
+				color:gray;
+	        }
+	        #totalPrice{
+	        	text-align:right;
+	        	font-weight: bold;  
+	        	border-top:1px solid black;
+	        	padding-top:10px;
+	        }
+	        #submit{
+	        	text-align:center;
+	        }
+	        .basketTable img{
+	        	width:100px;
+	        	
+	        }
+	    </style>
+	</head>
+	<body>
+		<div class="container-fluid" style="background-color:white; height:1000px">
+         	<div id="logo" class="row">
+            	<div class="logo" style="font-size:200%"><b>장바구니</b></div>
+         	</div>
+         	<div id="basketWrapper" class="rounded">
+         		<form>
+	         		<table class="basketTable table table-hover">
+	         			<tr>
+	         				<th><input type="checkbox" id="basketAll" name="basketAll"/></th>
+	         				<th>이미지</th>
+	         				<th>상품</th>
+	         				<th>가격</th>
+	         				<th>수량</th>
+	         				<th>총액</th>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div>
+	         						<input type="checkbox" id="basket1" name="basket1"/>
+	         					</div>
+	         				</td>
+	         				<td >
+	         					<img src="../images/monitor.png"/>
+	         				</td>
+	         				<td>
+	         					<div >
+	         						컴퓨터1	
+	         						<span>(black,512GB 택)</span>
+	         					</div>
+	         				</td>
+	         				<td><div>500,000원</div></td>
+	         				<td><div>2</div></td>
+	         				<td><div>1,000,000원</div></td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div>
+	         						<input type="checkbox" id="basket2" name="basket2"/>
+	         					</div>
+	         				</td>
+	         				<td >
+	         						<img src="../images/monitor.png"/>
+	         				</td>
+	         				<td>
+	         					<div>컴퓨터2
+	         						<span>(white,512GB 택)</span>
+	         					</div>
+	         				</td>
+	         				<td><div>500,000원</div></td>
+	         				<td><div>3</div></td>
+	         				<td><div>1,500,000원</div></td>
+	         			</tr>
+	         			
+	         		</table>
+	         		
+					<h3 id="totalPrice">총액 : <span>2,500,000</span>원</h3>
+         			<div id="submit">
+         				<button class="btn" style="background-color: #0c1c32; color:#f8f8f8">선택항목 주문하기</button>
+         				<button class="btn" style="background-color: #0c1c32; color:#f8f8f8">선택항목 삭제하기</button>
+         			
+         			</div>
+         		</form>
+         	</div>
+        </div>
+	</body>
+</html>
