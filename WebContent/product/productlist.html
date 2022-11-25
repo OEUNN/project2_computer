@@ -8,57 +8,372 @@
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 		<style>
+<<<<<<< HEAD
 			img{
 				height : 100%;
+=======
+			*{
+				margin:0px;
+				padding:0px;
+				box-sizing: border-box;
+>>>>>>> refs/heads/master
 			}
-			
-			#typo { 
+			img{
+				width:100%;
+				heigt:100%;
+			}
+			#wrapper{
+				width:100%;
+			}
+			#typo {
 				column-width : 100px;
 			}
 			.logo{
 				color : white;
 				
 			}
-			
 			#title {
-				background-color : black;
+				background-color  : #0c1c32;
 				height : 350px;
 			}
+			menu, #menu1{
+				border:1.5px solid grey;
+				border-style:none none solid none ;
+				margin-right:20px;
+			}
+			
+			.w-btn {
+			    position: relative;
+			    border: none;
+			    display: inline-block;
+			    padding: 15px 30px;
+			    border-radius: 15px;
+			    font-family: "paybooc-Light", sans-serif;
+			   
+			    text-decoration: none;
+			    font-weight: 600;
+			    transition: 0.25s;
+			}
+			
+			.w-btn-indigo {
+		   		 background-color: white;
+		    	color: navy;
+		    
+			}
+		
+			.w-btn-indigo:hover {
+    			background-color: #0c1c32;
+   			 	color: #d4dfe6;
+		    
+			}
+			.colorRadio input{
+				display:none;
+			}
+			.colorRadio input+label{
+				width:15px;
+				height:15px;
+			}
+			.colorRadio input:checked+label{
+				width:20px;
+				height:20px;
+			}
+			.capaRadio input{
+				display:none;
+			}
+			.capaRadio input+label{
+				background-color:white;
+			}
+			.capaRadio input:checked+label{
+				background-color:gray;
+			}
+		   		background-color: white;
+		    	color: navy;
+			}
+			
+			.w-btn-indigo:hover {
+	    		background-color: black;
+	   			color: #d4dfe6;
+			}
+			
+			.icon {
+				 display : flex;
+			}
+			
+			 .submenu{ 
+                display : none; /* 소메뉴 안보이게 하기 none | block */
+                background-color : white;
+            }
+            
+            #menuBtn:checked ~ .submenu{
+                display : block;
+            }
+            
+            ul{
+  				 list-style:none;
+  				border: 1px solid black;
+   				}
+		
 		</style>
+		
 	</head>
 	<body>
 		<div class="container-fluid">
 			<div class="row m-3"> 
 			<div class=" col-1 "></div>
 			<div id="typo" class="col-4 display-5">			
-					<div class="visible-md">제품</div>
-					<div class="visible-md">자유게시판</div>			
-				</div>
-			
-				<div class=" col-3 "></div>
+					<div class="visible-md"><a href="#">제품</a></div>
 				
-				<div style="width:25px;height:25px">
-					<img src="../images/search.png" />
 				</div>
-				<div class = "mx-4" style="width:25px;height:25px">
-					<img src="../images/basket.png" />
+				
+				<div class=" col-3 "></div>
+			
+				<div class=" col-3 icon">
+				
+				<div style="flex-grow:3;text-align : right">
+					<img src="../images/search.png" style="width:25px;height:25px" />
 				</div>
-				<div class = "mx-2" style="width:25px;height:25px">
-					<img src="../images/Human icon.png" />
+				<div class = "mx-4" style="flex-grow:3;text-align : center">
+					<a href="../user/mypage.html">
+						<img src="../images/basket.png" style="width:25px;height:25px" />
+					</a>
+				</div>
+				
+				
+				
+				<div class = "mx-2" style="flex-grow:3">
+
+                <input type="checkbox" id="menuBtn" style="display : none">
+                <label for="menuBtn" class="labelBtn" onclick=""><img src="../images/Human icon.png" style="width:25px;height:25px" /></label>
+                <ul class="submenu" style="width:90px">
+                    <li ><a href="../user/join.html">회원가입</a></li>
+                    <li ><a href="../user/loginForm.html">로그인</a></li>
+                    <li ><a href="../user/mypage.html">마이페이지</a></li>
+                
+                </ul>
+                 
+						
+					
+				</div>
+				
+              
 				</div>
 			</div>
 			<div id="title" class="row" >
-				<div class=" col-md-1"></div>
+				<div class="d-none d-md-inline col-md-1"></div>
 				<div class="logo col-5 col-md-5 ">
-					<div class="display-2"><B><i>Samsung</i></B></div>
+					<div class="display-2"><B><i>SAMSUNG</i></B></div>
 					<div class="logo display-4">DeskTop</div>
-				</div>	
+				</div>
+				<div class="d-none d-md-inline col-md-6"></div>	
 			</div>
-			<div id="wrapper" class="row ">
+		
+			<div id="wrapper" class="row mt-5">
 				<div class="col-0 col-md-1 "></div>
-				<div class="col-0 col-md-2 "></div>
-				<div class="col-12 col-md-8 "></div>
-				<div class="col-0 "></div>
+				<div id="menu" class="d-none d-md-inline col-md-2 mt-5">
+					<div id="menu1" class="my-4"><h5><b>그래픽 카드</b></h5>
+						<div class="row m-1">
+							<input id="graphicCard1" name="graphicCard" type="radio" value="graphicCard3060"/>
+							<label for="graphicCard1" class="my-auto">3060</label>
+						</div>
+						<div class="row m-1">
+							<input id="graphicCard2" name="graphicCard" type="radio" value="graphicCard3040"/>
+							<label for="graphicCard2"class="my-auto">3040</label>
+						</div>
+						<div class="row m-1">
+							<input id="graphicCard3" name="graphicCard" type="radio" value="graphicCard3080"/>
+							<label for="graphicCard3"class="my-auto">3080</label>
+						</div>
+					</div>
+					
+					<div id="menu1" class="my-4"><h5><b>CPU</b></h5>
+						<div class="row m-1">
+							<input id="CPU1" name="CPU" type="radio" value="Intel-i3"/>
+							<label for="CPU1"class="my-auto">Intel-i3</label>
+						</div>
+						<div class="row m-1">
+							<input id="CPU2" name="CPU" type="radio" value="Intel-i5"/>
+							<label for="CPU2"class="my-auto">Intel-i5</label>
+						</div>
+						<div class="row m-1">
+							<input id="CPU3" name="CPU" type="radio" value="Intel-i7"/>
+							<label for="CPU4"class="my-auto">Intel-i7</label>
+						</div>
+					</div>
+
+					<div id="menu1" class="my-4"><h5><b>메모리 카드</b></h5>
+						<div class="row m-1">
+							<input id="memoryCard1" name="memoryCard" type="radio" value="memoryCard128"/>
+							<label for="gmemoryCard1"class="my-auto">128GB</label>
+						</div>
+						<div class="row m-1">
+							<input id="memoryCard2" name="memoryCard" type="radio" value="memoryCard256"/>
+							<label for="memoryCard2"class="my-auto">256GB</label>
+						</div>
+						<div class="row m-1">
+							<input id="memoryCard3" name="memoryCard" type="radio" value="memoryCard512"/>
+							<label for="memoryCard3"class="my-auto">512GB</label>
+						</div>
+					</div>
+					
+					<div id="menu1" class="my-4"><h5><b>가격</b></h5>
+						<div class="row m-1">
+							<input id="price1" name="price" type="radio" value="price50"/>
+							<label for="price1"class="my-auto">0 ~ 50만원</label>
+						</div>
+						<div class="row m-1">
+							<input  id="price2" name="price" type="radio" value="price100"/>
+							<label for="price2"class="my-auto">50 ~ 100만원</label>
+						</div>
+						<div class="row m-1">
+							<input id="price3" name="price" type="radio" value="price_over"/>
+							<label for="price4"class="my-auto">100만원 ~ </label>
+						</div>
+					</div>
+					</div>
+				<div class="col-12 col-md-8">
+					<div class="row ">
+						<div class="col-12 col-md-6 col-lg-4 p-3">
+							<div class="card text-center p-3 " style="background-color:#f1f1f1">
+								<div class="card-header ">
+									<div   style="width:100%;"><img src="../images/monitor3.png"/></div>
+								</div>
+								<div class="card-body">
+									<form id="color1select">
+										
+										<div class = "colorRadio">
+										
+											<input id="color1-1" name="color1" type="radio" value="blue" checked="checked">
+											<label for="color1-1" class="border rounded-circle my-auto" style="background-color:steelblue;  "></label>
+											<input id="color1-2" name="color1" type="radio" value="black" >
+											<label for="color1-2" class="border rounded-circle my-auto" style="background-color:black;  "></label>
+											<input id="color1-3" name="color1" type="radio" value="white" >
+											<label for="color1-3" class="border rounded-circle my-auto" style="background-color:white;  "></label>
+										</div>
+										
+									</form>
+									<form id="capa1select">
+										
+										<div class="capaRadio">
+											<input id="capa1-1" name="capa1" type="radio" value="512GB" checked="checked">
+											<label for="capa1-1" class="border rounded my-auto" >512GB</label>
+											<input id="capa1-2" name="capa1" type="radio" value="256GB" >
+											<label for="capa1-2" class="border rounded my-auto" >256GB</label>
+											<input id="capa1-3" name="capa1" type="radio" value="1TB" >
+											<label for="capa1-3" class="border rounded my-auto"  >1TB</label>
+											
+										</div>
+										
+									</form>
+									<h4 class="my-2">
+										컴퓨터1
+									</h4>
+									<p>
+										pro01
+									</p>
+									<p>
+										500,000원
+									</p>
+									<a href="../product/productDetail.html" class="w-btn w-btn-indigo">구매하기</a>
+								</div>
+								
+							</div>
+						</div>
+						<div class=" col-0 col-md-6  col-lg-4 p-3">
+							<div class="card text-center p-3" style="background-color:#f1f1f1">
+								<div class="card-header ">
+									<div  style="width:100%"><img src="../images/monitor2.png"/></div>
+								</div>
+								<div class="card-body">
+									<form id="color2select">
+										
+
+										<div class="colorRadio">
+											<input id="color2-1" name="color2" type="radio" value="blue" checked="checked" >
+											<label for="color2-1" class="border rounded-circle my-auto" style="background-color:steelblue; "></label>
+											<input id="color2-2" name="color2" type="radio" value="black" >
+											<label for="color2-2" class="border rounded-circle my-auto" style="background-color:black;  "></label>
+											<input id="color2-3" name="color2" type="radio" value="white" >
+											<label for="color2-3" class="border rounded-circle my-auto" style="background-color:white;"></label>
+
+										</div>			
+									</form>
+									<form>
+										<div class="capaRadio ">
+											<input id="capa2-1" name="capa2" type="radio" value="512GB" checked="checked">
+											<label for="capa2-1" class="border rounded my-auto" >512GB</label>
+											<input id="capa2-2" name="capa2" type="radio" value="256GB" >
+											<label for="capa2-2" class="border rounded my-auto" >256GB</label>
+											<input id="capa2-3" name="capa2" type="radio" value="1TB" >
+											<label for="capa2-3" class="border rounded my-auto" >1TB</label>
+										</div>
+									</form>
+									<h4 class="my-2">
+										컴퓨터2
+									</h4>
+									<p>
+										pro02
+									</p>
+									<p>
+										500,000원
+									</p>
+									<a href="../product/productDetail.html" class="w-btn w-btn-indigo">구매하기</a>
+								</div>
+								
+							</div>
+						</div>
+						<div class=" col-0 col-md-6  col-lg-4 p-3">
+							<div class="card text-center p-3" style="background-color:#f1f1f1">
+								<div class="card-header">
+									<div style="width:100%"><img src="../images/monitor.png"/></div>
+								</div>
+								<div class="card-body border">
+									<form id="color3select">
+										<div class="colorRadio">
+											<input id="color3-1" name="color3" type="radio" value="blue" checked="checked" >
+											<label for="color3-1" class="border rounded-circle my-auto" style="background-color:steelblue; "></label>
+											<input id="color3-2" name="color3" type="radio" value="black" >
+											<label for="color3-2" class="border rounded-circle my-auto" style="background-color:black;  "></label>
+											<input id="color3-3" name="color3" type="radio" value="white" >
+											<label for="color3-3" class="border rounded-circle my-auto" style="background-color:white;  "></label>
+										</div>
+										
+									</form>
+									<form id="capa3select">
+										<div class="capaRadio">
+											<input id="capa3-1" name="capa3" type="radio" value="512GB" checked="checked">
+											<label for="capa3-1" class="border rounded my-auto" >512GB</label>
+											<input id="capa3-2" name="capa3" type="radio" value="256GB" >
+											<label for="capa3-2" class="border rounded my-auto" >256GB</label>
+											<input id="capa3-3" name="capa3" type="radio" value="1TB" >
+											<label for="capa3-3" class="border rounded my-auto" >1TB</label>
+										</div>
+										
+									</form>
+									<h4 class="my-2">
+										컴퓨터3
+									</h4>
+									<p>
+										pro03
+									</p>
+									<p>
+										500,000원
+									</p>
+									<a href="../product/productDetail.html" class="w-btn w-btn-indigo">구매하기</a>
+								</div>
+							
+							</div>
+						</div>	
+					</div>
+					<div class="row ">
+						 <ul class="pagination m-auto ">
+						    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+						    <li class="page-item"><a class="page-link" href="#">1</a></li>
+						    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+						    <li class="page-item"><a class="page-link" href="#">3</a></li>
+						    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+						  </ul>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
