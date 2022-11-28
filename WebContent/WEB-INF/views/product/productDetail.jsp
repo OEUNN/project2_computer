@@ -228,12 +228,12 @@
       
          <div id="menu" class="row" style="height:50px">
             <div class=" col-md-1"></div>
-            <div class="col-4 text-grey my-auto"><a href="../product/productlist.html">>Home</a></div>
+            <div class="col-4 text-grey my-auto"><a href="/product/ProductListController">>Home</a></div>
          </div>
          <div id="detail" class="row">
             <div class=" col-1 col-md-1"></div>
             <div class=" col-12 col-md-12 col-lg-6 ">
-               <div class="pt-4" style="width:100%" ><img src="../images/monitor3_d.png" /></div>
+               <div class="pt-4" style="width:100%" ><img src="../resources/images/monitor3_d.png" /></div>
             
             
             </div>
@@ -372,7 +372,7 @@
          </div>
          <div class="row">
             <div class = "col-1"></div>
-            <div class = "col-10"><img src="../images/ad.png" /><img src="../images/ad2.png" /></div>
+            <div class = "col-10"><img src="../resources/images/ad.png" /><img src="../resources/images/ad2.png" /></div>
             <div class = "col-1"></div>
          
          </div>
@@ -501,7 +501,7 @@
    
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary"
+                  <button type="submit" onClick="/product/ProductDetailController" class="btn btn-secondary"
                         >등록</button>
                          <button type="button" class="btn btn-secondary"
                         data-dismiss="modal">Close</button>
