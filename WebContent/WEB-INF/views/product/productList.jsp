@@ -169,7 +169,7 @@
 				<!-- 아이콘 -->
 				<div id="icon" class=" col-2">
 					<div class = "mt-3">
-						<a href="/project2_computer/product/BasketListController">
+						<a href="../product/BasketListController">
 							<img src="../resources/images/basket.png" style="width:40px;height:40px;" />
 						</a>
 					</div>
@@ -180,9 +180,9 @@
 	                		<img src="../resources/images/Human icon.png" style="width:40px;height:40px;" />
 	                	</label>
 	                	<ul class="submenu" style="width:90px;">
-	                    	<li ><a href="/project2_computer/user/JoinController">회원가입</a></li>
-	                    	<li ><a href="/project2_computer/user/LoginController">로그인</a></li>
-	                    	<li ><a href="/project2_computer/user/MypageController">마이페이지</a></li>
+	                    	<li ><a href="../project2_computer/user/JoinController">회원가입</a></li>
+	                    	<li ><a href="../project2_computer/user/LoginController">로그인</a></li>
+	                    	<li ><a href="../project2_computer/user/MypageController">마이페이지</a></li>
 	                	</ul>
 					</div>
 				</div>
@@ -332,7 +332,7 @@
 									<p>pro01</p>
 									<p>500,000원</p>
 									
-									<a href="/project2_computer/product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
+									<a href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
 								</div>
 							</div>
 						</div>
@@ -358,7 +358,7 @@
 									<p>pro01</p>
 									<p>500,000원</p>
 									
-									<a href="/project2_computer/product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
+									<a href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
 								</div>
 							</div>
 						</div>
@@ -384,7 +384,7 @@
 									<p>pro01</p>
 									<p>500,000원</p>
 									
-									<a href="/project2_computer/product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
+									<a href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
 								</div>
 							</div>
 						</div>
@@ -410,7 +410,7 @@
 									<p>pro01</p>
 									<p>500,000원</p>
 									
-									<a href="/project2_computer/product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
+									<a href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
 								</div>
 							</div>
 						</div>
@@ -436,7 +436,7 @@
 									<p>pro01</p>
 									<p>500,000원</p>
 									
-									<a href="/project2_computer/product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
+									<a href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
 								</div>
 							</div>
 						</div>

@@ -63,32 +63,39 @@
 		<div class="container-fluid">
 			<!-- 가장위 logo -->
 			<div id="top" class="row">
-				<div id="logo" class="btn mt-3" onclick="/product/ProductListController">
-					<b>SAMSUNG</b>
+				<div id="logo" class="btn mt-3">
+					<a href="../product/ProductListController"><b>SAMSUNG</b></a>
 				</div>
 			</div>
 			
 			<!-- home가는 버튼 -->
-			<div id="blank" class="row" style="height:50px"></div>
+			<div id="blank" class="row" style="height:50px;background-color:white; "></div>
 			
 			<!-- 몸통 -->
 			<div id="body" class="row">
-				<div class="col-0 col-md-1" ></div>
 				
 				<!-- menu -->
-				<div id="menu" class=" d-none d-md-inline col-md-2 mt-5 mr-5 " >
+				<div id="menu" class=" d-none d-md-inline col-md-2 mt-5 mr-5 ">
 					<div class="ml-5 mt-5" style="font-size:200%;">마이페이지
 						<div class="row m-3">
-							<div id="userUpdate" onclick="/product/UserUpdataController" class="btn btn-black btn-sm">>개인정보</div>
+							<div id="userUpdate"class="btn btn-black btn-sm">
+								<a  href="../user/UserUpdataController" >>개인정보</a>
+							</div>
 						</div>
 						<div class="row m-3">
-							<div id="orderList" onclick="/product/OrderListController" class="btn btn-black btn-sm">>주문내역</div>
+							<div id="orderList" class="btn btn-black btn-sm">
+								<a href="../user/OrderListController">>주문내역</a>
+							</div>
 						</div>
 						<div class="row m-3">
-							<div id="cartList" onclick="/product/BasketListController" class="btn btn-black btn-sm">>장바구니</div>
+							<div id="cartList" class="btn btn-black btn-sm">
+								<a  href="../product/BasketListController">>장바구니</a>
+							</div>
 						</div>
 						<div class="row m-3">
-							<div id="content" onclick="/product/QnaBoardController" class="btn btn-black btn-sm">>1:1 문의</div>
+							<div id="content" class="btn btn-black btn-sm">
+							<a href="../board/QnaBoardController">>1:1 문의</a>
+						</div>
 						</div>
 					</div>
 				</div>

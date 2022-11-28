@@ -23,7 +23,6 @@
          body, h1, h2, h3, h4, h5, h6, p, span {
            	font-family: 'Gothic A1'!important;
            	}
-         
          img{
             width:100%;
             heigt:100%;
@@ -42,68 +41,45 @@
             text-align:left;
             color:white;
          }
-         
          #icon {
            column-width : 15px;
            margin-top : 25px;
-
-         
          }
          
          
          .item-detail {
-           background-color : #f3f3f3;
-        border-radius: 6%;
-        box-sizing : border-box;
-     
-     
-         
+         background-color : #f3f3f3;
+         border-radius: 6%;
+         box-sizing : border-box;
          }
          
          #p-name {
             height : 70px;
             background-color : #0c1c32;
             color:white;
-         
-         
          }
          
          .flex-container {
             display : flex;
-            
-            
-         
          }
          
          
            .flex-container-button {
             display : flex;
-            
-
-            
-            
-         
          }
          
           .flex-container-button>div {
           text-align : center;
-       
-            
-         
          }
          
          .w-btn-indigo {
           background-color: white;
           color: navy;
-          
-      }
-      
+      	}
       .w-btn-indigo:hover {
-       
           background-color: black;
-             color: #d4dfe6;
-          
-      }
+          color: #d4dfe6;
+      	}
       
        .w-btn {
              position: relative;
@@ -116,37 +92,29 @@
              text-decoration: none;
              font-weight: 600;
              transition: 0.25s;
-            
-         }
-         
+         	}
          .option {
             background-color: white;
-            
-            
-   
-         }
+         	}
          
          .option-mini {
             display : flex;
-            
-   
-         }
+        	 }
          
          .price {
             display : flex;
-         }
+         	}
          
          .quan {
             display : flex;
-         }
-         
+         	}
          table {
               width: 100%;
             font-size:20px;
             text-align: center;
          
                 border-collapse: collapse;
-         }
+         	}
           td {
                 border-bottom: 1px solid #444444;
                 padding: 15px;
@@ -154,53 +122,43 @@
               
            .colorRadio input{
             display:none;
-         }
+         	}
          .colorRadio input+label{
             width:25px;
             height:25px;
-         }
+         	}
          .colorRadio input:checked+label{
             width:30px;
             height:30px;
-         }
-         
+         	}
          
          .capaRadio input{
             display:none;
             width:70px;
             height:40px;
-       
-         }
+         	}
          .capaRadio input+label{
             background-color:white;
             width:70px;
             height:40px;
-           
-         }
+         	}
          .capaRadio input:checked+label{
             background-color:gray;
-         }
+         	}
          
          .quan-icon {
          	display : flex;
-         }
-         
+         	}
          #icon {
          	 display : flex;
-         
-         }
-         
+         	}
          button {
-         
          	border : none;
-          border-radius: 30%;
-         
-         }
+          	border-radius: 30%;
+         	}
          
          #adminMenu {
-          background-color : #f3f3f3;
- 
-         
+         	background-color : #f3f3f3;
          }
          
          #sidebar ul li a{
@@ -210,21 +168,12 @@
 		    color: black;
 		    font-size: 16px;
 		    position: relative;
-		}
-		
-	
-         
-         
+			}
       </style>
    </head>
    
     
    <body>
-    
-     
-     
-        
-  
       <div class="container-fluid">
            <div id="logo" class="row">
             <div class="logo col-4 col-md-4 " style="font-size:200%"><b>SAMSUNG</b> admin</div>
@@ -233,13 +182,13 @@
     
             <div id="icon" class="col-3 my-auto" >
                <div style="flex-grow:3;text-align : right">
-                  <img src="../images/search_w.png"style="width:25px;height:25px"/>
+                  <img src="../resources/images/search_w.png"style="width:25px;height:25px"/>
                </div>
                <div style="flex-grow:3;text-align : center">
-                  <img src="../images/cart_w.png" style="width:25px;height:25px"/>
+                  <img src="../resources/images/cart_w.png" style="width:25px;height:25px"/>
                </div>
                <div style="flex-grow:3;text-align : left">
-                  <img src="../images/Human_w.png" style="width:25px;height:25px"/>
+                  <img src="../resources/images/Human_w.png" style="width:25px;height:25px"/>
                </div>
             </div>
          </div>

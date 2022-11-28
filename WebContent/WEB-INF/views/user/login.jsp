@@ -42,11 +42,14 @@
 	</head>
 	<body>
 		<div class="container-fluid">
-			<div id="logo" class="row">
-				<div class="logo btn" style="font-size:200%" onclick="/product/ProductListController">
-				<b>SAMSUNG</b>
+			<!-- 가장위 logo -->
+			<div id="top" class="row">
+				<div id="logo" class="btn mt-3">
+				<a href="../product/ProductListController"><b>SAMSUNG</b></a>
 				</div>
 			</div>
+			
+			
 			<div id="blank" class="row" style="height:50px"></div>
 			<div id="body" class="row">
 				<div class="col-0 col-md-3"></div>

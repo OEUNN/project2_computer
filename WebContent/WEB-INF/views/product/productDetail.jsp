@@ -215,20 +215,20 @@
     
             <div id="icon" class="col-3 my-auto" >
                <div style="flex-grow:3;text-align : right">
-                  <img src="../images/search_w.png"style="width:25px;height:25px"/>
+                  <img src="../resources/images/search_w.png"style="width:25px;height:25px"/>
                </div>
                <div style="flex-grow:3;text-align : center">
-                  <img src="../images/cart_w.png" style="width:25px;height:25px"/>
+                  <img src="../resources/images/cart_w.png" style="width:25px;height:25px"/>
                </div>
                <div style="flex-grow:3;text-align : left">
-                  <img src="../images/Human_w.png" style="width:25px;height:25px"/>
+                  <img src="../resources/images/Human_w.png" style="width:25px;height:25px"/>
                </div>
             </div>
          </div>
       
          <div id="menu" class="row" style="height:50px">
             <div class=" col-md-1"></div>
-            <div class="col-4 text-grey my-auto"><a href="/product/ProductListController">>Home</a></div>
+            <div class="col-4 text-grey my-auto"><a href="../product/ProductListController">>Home</a></div>
          </div>
          <div id="detail" class="row">
             <div class=" col-1 col-md-1"></div>
@@ -501,7 +501,7 @@
    
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                  <button type="submit" onClick="/product/ProductDetailController" class="btn btn-secondary"
+                  <button type="submit" onClick="../product/ProductDetailController" class="btn btn-secondary"
                         >등록</button>
                          <button type="button" class="btn btn-secondary"
                         data-dismiss="modal">Close</button>

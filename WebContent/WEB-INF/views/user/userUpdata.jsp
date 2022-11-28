@@ -60,9 +60,9 @@
 		<div class="container-fluid" style="background-color: #f3f3f3;">
 		
 			<!-- 가장위 logo -->
-			<div id="logo" class="row">
-				<div class="logo btn" style="font-size:200%"  onclick="/product/ProductListController">
-				<b>SAMSUNG</b>
+			<div id="top" class="row">
+				<div id="logo" class="btn mt-3">
+				<a href="../product/ProductListController"><b>SAMSUNG</b></a>
 				</div>
 			</div>
 			

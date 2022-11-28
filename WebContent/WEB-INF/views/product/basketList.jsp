@@ -88,8 +88,8 @@
 		
          	<!-- 가장위 logo -->
 			<div id="top" class="row">
-				<div id="logo" class="btn mt-3" onclick="/product/ProductListController">
-					<b>SAMSUNG</b>
+				<div id="logo" class="btn mt-3">
+					<a href="../product/ProductListController"><b>SAMSUNG</b></a>
 				</div>
 			</div>
 			
