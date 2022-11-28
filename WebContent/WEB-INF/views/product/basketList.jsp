@@ -8,25 +8,33 @@
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap" rel="stylesheet">
+		
 		<!-- 부트스트랩 아이콘 -->
 		<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+		
 		<style>
 			*{
 	            margin:0px;
 	            padding:0px;
 	            box-sizing: border-box;
 	            border:1px solid black;
+	            font-family: 'Jua', sans-serif;
 	         }
 	         
-	        #logo{
-	            background-color:black;
-	            height:100px;
-	         }
-	        #logo .logo{
-	            margin:25px 100px;
-	            text-align:left;
-	            color:white;
-	         }
+	        #top{
+				background:#0c1c32;
+				height:100px;
+			}
+			#logo b{
+				background-color:#0c1c32;
+				color:white;
+				font-size:300%;
+				font-family: 'Black Han Sans', sans-serif;
+			}
 	        #basketWrapper{
 	        	width:1200px;
 	        	margin: 100px auto;
@@ -77,11 +85,15 @@
 	</head>
 	<body>
 		<div class="container-fluid" style="background-color:#f3f3f3; height:1000px">
-         	<div id="logo" class="row">
-				<div class="logo btn" style="font-size:200%" onclick="location.href='../product/productlist.html'">
-				<b>SAMSUNG</b>
+		
+         	<!-- 가장위 logo -->
+			<div id="top" class="row">
+				<div id="logo" class="btn mt-3" onclick="/product/ProductListController">
+					<b>SAMSUNG</b>
 				</div>
 			</div>
+			
+			<!-- 몸통 -->
          	<div id="basketWrapper" >
          		<h3 style="text-align:left; font-weight: bold; ">장바구니</h3>
          		<hr/>
@@ -107,7 +119,7 @@
 		         					</div>
 		         				</td>
 		         				<td >
-		         					<img src="../images/monitor.png"/>
+		         					<img src="../resources/images/monitor.png"/>
 		         				</td>
 		         				<td>
 		         					<div >
@@ -126,7 +138,7 @@
 		         					</div>
 		         				</td>
 		         				<td >
-		         						<img src="../images/monitor.png"/>
+		         						<img src="../resources/images/monitor.png"/>
 		         				</td>
 		         				<td>
 		         					<div>컴퓨터2
