@@ -97,7 +97,7 @@
          	<div id="basketWrapper" >
          		<h3 style="text-align:left; font-weight: bold; ">장바구니</h3>
          		<hr/>
-         		<form style="width:100%" class="row">
+         		<form style="width:100%" class="row" action="../product/OrderController">
          			<div class="basketTable col-9">
 	         			<div id=deleteBasket style="text-align:right"><span>선택항목 삭제</span></div>
 		         		<table class=" table table-hover">
@@ -169,9 +169,8 @@
          					<h4 id="totalPrice">총액 : <span>2,500,000</span>원</h4>
          				</div>
          				<div class="card-footer">
-         					<button class="btn rounded-0" style="background-color: #0c1c32; color:#f8f8f8; width:100%">선택항목 주문하기</button>
+         					<button class="btn rounded-0" type="submit" style="background-color: #0c1c32; color:#f8f8f8; width:100% ">선택항목 주문하기</button>
          				</div>
-         			
          			</div>
          		</form>
          	</div>
