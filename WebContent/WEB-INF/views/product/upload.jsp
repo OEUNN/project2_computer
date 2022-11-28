@@ -1,53 +1,46 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
    <head>
       <meta charset="UTF-8">
-      <title>Insert title here</title>
+      <title>관리자메뉴</title>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
       <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
- <link href="https://fonts.googleapis.com/css?family=Gothic+A1:100,400,500" rel="stylesheet">
+      
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap" rel="stylesheet">
       <style>
       
          *{
-
-
             margin:0px;
             padding:0px;
             box-sizing: border-box;
          }
-         
-         body, h1, h2, h3, h4, h5, h6, p, span {
-           	font-family: 'Gothic A1'!important;
-           	}
          img{
             width:100%;
             heigt:100%;
          }
          
-         #typo {
-            column-width : 100px;
-         }
-          #logo{
-             background-color :#0c1c32;
-            height:100px;
-         }
-         
-         #logo .logo{
-            margin:25px 0px 25px 50px;
-            text-align:left;
-            color:white;
-         }
-         #icon {
+         #top{
+			background:#0c1c32;
+			height:100px;
+		}
+	
+		#logo b{
+			background-color:#0c1c32;
+			color:white;
+			font-size:300%;
+			font-family: 'Black Han Sans', sans-serif;
+		}
+        #icon {
            column-width : 15px;
            margin-top : 25px;
-         }
+        }
          
-         
-         .item-detail {
+        .item-detail {
          background-color : #f3f3f3;
          border-radius: 6%;
          box-sizing : border-box;
@@ -63,12 +56,11 @@
             display : flex;
          }
          
-         
-           .flex-container-button {
+         .flex-container-button {
             display : flex;
          }
          
-          .flex-container-button>div {
+         .flex-container-button>div {
           text-align : center;
          }
          
@@ -76,7 +68,7 @@
           background-color: white;
           color: navy;
       	}
-      .w-btn-indigo:hover {
+      	.w-btn-indigo:hover {
           background-color: black;
           color: #d4dfe6;
       	}
@@ -175,8 +167,11 @@
     
    <body>
       <div class="container-fluid">
-           <div id="logo" class="row">
-            <div class="logo col-4 col-md-4 " style="font-size:200%"><b>SAMSUNG</b> admin</div>
+      	<!-- 로고 -->
+           <div id="top" class="row">
+            <div id="logo col-4 col-md-4 " style="font-size:200%">
+            	<a href="../product/ProductListController"><b>SAMSUNG</b></a>
+			</div>
             
             <div class=" col-3 "></div>
     

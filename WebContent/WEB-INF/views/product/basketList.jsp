@@ -1,9 +1,9 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>장바구니</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -21,7 +21,6 @@
 	            margin:0px;
 	            padding:0px;
 	            box-sizing: border-box;
-	            border:1px solid black;
 	            font-family: 'Jua', sans-serif;
 	         }
 	         
@@ -40,14 +39,14 @@
 	        	margin: 100px auto;
 	        	padding: 10px 20px;
 	        	background-color:white;
-	        	border:1px solid black;
+	        	border-radius: 15px;
+				box-shadow: 5px 5px 10px grey;
 	        }
 	        .basketTable{
 	        	text-align:center;
 	        	margin-top: 20px
 	        }
 	        .basketTable th{
-	        	
 	       		font-size: 24px;
 				font-weight: bold; 
 				 
