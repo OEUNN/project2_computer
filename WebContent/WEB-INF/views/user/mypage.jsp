@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 	<html>
 	<head>
@@ -88,7 +89,7 @@
 		
 			<!-- 가장위 logo -->
 			<div id="top" class="row">
-				<div id="logo" class="btn mt-3" onclick="location.href='../product/productlist.html'">
+				<div id="logo" class="btn mt-3" onclick="/product/ProductListController">
 					<b>SAMSUNG</b>
 				</div>
 			</div>
@@ -103,16 +104,16 @@
 				<div id="menu" class=" d-none d-md-inline col-md-2 mt-5 mr-5 ">
 					<div class="ml-5 mt-5" style="font-size:200%;">마이페이지
 						<div class="row m-3">
-							<div id="userUpdate" onclick="#" class="btn btn-black btn-sm">>개인정보</div>
+							<div id="userUpdate" onclick="/product/UserUpdataController" class="btn btn-black btn-sm">>개인정보</div>
 						</div>
 						<div class="row m-3">
-							<div id="orderList" onclick="#" class="btn btn-black btn-sm">>주문내역</div>
+							<div id="orderList" onclick="/product/OrderListController" class="btn btn-black btn-sm">>주문내역</div>
 						</div>
 						<div class="row m-3">
-							<div id="cartList" onclick="#" class="btn btn-black btn-sm">>장바구니</div>
+							<div id="cartList" onclick="/product/BasketListController" class="btn btn-black btn-sm">>장바구니</div>
 						</div>
 						<div class="row m-3">
-							<div id="content" onclick="#" class="btn btn-black btn-sm">>1:1 문의</div>
+							<div id="content" onclick="/product/QnaBoardController" class="btn btn-black btn-sm">>1:1 문의</div>
 						</div>
 					</div>
 				</div>
@@ -129,7 +130,7 @@
 								<div class="row">
 									<div class="col-md-12 col-lg-5">
 										<div class="ml-3 p-2"style="height:300px; width:250px;">
-											<img src="../images/woman.png" alt="woman" style="border-radius:70%;"/>
+											<img src="../resources/images/woman.png" alt="woman" style="border-radius:70%;"/>
 										</div>
 									</div>
 									<div class="col-lg-5">
@@ -165,31 +166,31 @@
 										<div id="product" class="grid-container">
 										  <div class="card">
 										  	<div class="card-head">
-										  		<img src="../images/woman.png" alt="woman"/>
+										  		<img src="../resources/images/woman.png" alt="woman"/>
 										  	</div>
 											<div class="card-body"></div>
 										  </div>
 										  <div class="card">
 										  	<div class="card-head">
-										  		<img src="../images/woman.png" alt="woman"/>
+										  		<img src="../resources/images/woman.png" alt="woman"/>
 										  	</div>
 											<div class="card-body"></div>
 										  </div>
 										  <div class="card">
 										  	<div class="card-head">
-										  		<img src="../images/woman.png" alt="woman"/>
+										  		<img src="../resources/images/woman.png" alt="woman"/>
 										  	</div>
 											<div class="card-body"></div>
 										  </div> 
 										  <div class="card">
 										  	<div class="card-head">
-										  		<img src="../images/woman.png" alt="woman"/>
+										  		<img src="../resources/images/woman.png" alt="woman"/>
 										  	</div>
 											<div class="card-body"></div>
 										  </div>
 										  <div class="card">
 										  	<div class="card-head">
-										  		<img src="../images/woman.png" alt="woman"/>
+										  		<img src="../resources/images/woman.png" alt="woman"/>
 										  	</div>
 											<div class="card-body"></div>
 										  </div>
