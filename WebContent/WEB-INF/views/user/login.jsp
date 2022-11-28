@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 	<html>
 	<head>
@@ -41,7 +43,7 @@
 	<body>
 		<div class="container-fluid">
 			<div id="logo" class="row">
-				<div class="logo btn" style="font-size:200%" onclick="location.href='../product/productlist.html'">
+				<div class="logo btn" style="font-size:200%" onclick="/product/ProductListController">
 				<b>SAMSUNG</b>
 				</div>
 			</div>

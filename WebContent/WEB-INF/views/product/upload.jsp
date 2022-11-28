@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
    <head>
@@ -359,7 +361,7 @@
          
             <div id="upload" class="row">
             <div class = "col-1"></div>
-            <div class="col-10"><button style="width:150px;height:70px;margin:auto; display:block "type="submit"
+            <div class="col-10"><button style="width:150px;height:70px;margin:auto; display:block" onClick="#" type="submit"
                 class="btn btn-secondary"data-toggle="modal" data-target="#uploadModal"
                         >상품등록</button></div>
   		
