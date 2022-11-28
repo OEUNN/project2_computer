@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -45,13 +47,13 @@
 	<body>
 		 <div class="container-fluid">
          	<div id="logo" class="row">
-				<div class="logo btn" style="font-size:200%" onclick="location.href='../product/productlist.html'">
+				<div class="logo btn" style="font-size:200%" onclick="/product/ProductListController">
 				<b>SAMSUNG</b>
 				</div>
 			</div>
 
 			<div id="join_Wrapper" class="row">
-				<form class="join_main col-8 col-md-12">
+				<form class="join_main col-8 col-md-12" action='login_page.php'>
 					<!-- 아이디입력 -->
 					<div class="form-group ">
 						<label for="user_id" class="join_title">아이디</label>
@@ -107,8 +109,8 @@
 						<p id="address_message"></p>
 					</div>
 					<!-- submit -->
-					<div class="text-center mt-4">
-						<input id="join_submit" type="submit" class="btn btn-dark" value="Join"/>
+					<div class="text-center mt-4"> <a href="#">
+						<input id="join_submit" type="submit" class="btn btn-dark" value="Join"/></a>
 					</div>
 				</form>
 			</div>
