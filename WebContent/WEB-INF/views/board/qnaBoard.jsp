@@ -107,31 +107,51 @@
 						<button class="btn btn-info btn-dark rounded-1" style="width:100%">문의하기</button>
 					</div>
 					<div class="card-body border-top qnaList">
-						<div class="row">
-							<div class="col-1">
+						<div  class="row qnaList">
+							
+							<div class="col-1 qnaNum" >
 								<!-- <i class="btn fas" >&#xf00d;</i> -->
+								1
 							</div>
-							<div class="col-11">
-								<a href="#">컴퓨터가 안켜져요. 환불해주세요<span>(답변완료)</span></a>
+							<div class="col-11 qnaTitle"  >
+								<a href="#qnaDetail1" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
 								<p>작성일자<span>2022.11.24.</span></p>
+							</div>
+							
+							<div class="qnaDetail collapse" id="qnaDetail1">
+								<p>환불해주세요. 보상금도 요구할게요.</p>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-1">
+						<div  class="row qnaList">
+							
+							<div class="col-1 qnaNum" >
 								<!-- <i class="btn fas" >&#xf00d;</i> -->
+								2
 							</div>
-							<div class="col-11">
-								<a href="#">컴퓨터가 안켜져요. 환불해주세요<span>(답변완료)</span></a>
+							<div class="col-11 qnaTitle"  >
+								<a href="#qnaDetail2" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
 								<p>작성일자<span>2022.11.24.</span></p>
+							</div>
+							
+							<div class="qnaDetail collapse" id="qnaDetail2">
+								<p>보상금도 요구할게요.</p>
+								<hr/>
+								<p>사랑하는 고객님 안녕하십니까. 당신의 영원한 파트너 입니다. 감사합니다.</p>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-1">
+						<div  class="row qnaList">
+							
+							<div class="col-1 qnaNum" >
 								<!-- <i class="btn fas" >&#xf00d;</i> -->
+								1
 							</div>
-							<div class="col-11">
-								<a href="#">컴퓨터가 안켜져요. 환불해주세요<span>(답변완료)</span></a>
+							<div class="col-11 qnaTitle"  >
+								<a href="#qnaDetail3" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
 								<p>작성일자<span>2022.11.24.</span></p>
+							</div>
+							
+							<div class="qnaDetail collapse" id="qnaDetail3">
+								<p>환불해주세요. 보상금도 요구할게요.</p>
 							</div>
 						</div>
 						
