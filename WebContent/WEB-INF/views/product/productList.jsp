@@ -332,7 +332,7 @@
 									<p>pro01</p>
 									<p>500,000원</p>
 									
-									<a href="../product/productDetail.html" class="w-btn w-btn-indigo">구매하기</a>
+									<a href="/project2_computer/product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
 								</div>
 							</div>
 						</div>
@@ -340,7 +340,7 @@
 						<div class="col-12 col-md-6 col-lg-4 p-3">
 							<div id ="cardStyle" class="card text-center p-4 ">
 								<div class="card-head">
-									<div><img src="../images/monitor3.png"/></div>
+									<div><img src="../resources/images/monitor3.png"/></div>
 								</div>
 								<div class="card-body">
 									<form id="color1select">
@@ -358,7 +358,7 @@
 									<p>pro01</p>
 									<p>500,000원</p>
 									
-									<a href="../product/productDetail.html" class="w-btn w-btn-indigo">구매하기</a>
+									<a href="/project2_computer/product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
 								</div>
 							</div>
 						</div>
@@ -366,7 +366,7 @@
 						<div class="col-12 col-md-6 col-lg-4 p-3">
 							<div id ="cardStyle" class="card text-center p-4 ">
 								<div class="card-head">
-									<div ><img src="../images/monitor3.png"/></div>
+									<div ><img src="../resources/images/monitor3.png"/></div>
 								</div>
 								<div class="card-body">
 									<form id="color1select">
@@ -384,7 +384,7 @@
 									<p>pro01</p>
 									<p>500,000원</p>
 									
-									<a href="../product/productDetail.html" class="w-btn w-btn-indigo">구매하기</a>
+									<a href="/project2_computer/product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
 								</div>
 							</div>
 						</div>
@@ -392,7 +392,7 @@
 						<div class="col-12 col-md-6 col-lg-4 p-3">
 							<div id ="cardStyle" class="card text-center p-4 ">
 								<div class="card-head">
-									<div ><img src="../images/monitor3.png"/></div>
+									<div ><img src="../resources/images/monitor3.png"/></div>
 								</div>
 								<div class="card-body">
 									<form id="color1select">
@@ -410,7 +410,7 @@
 									<p>pro01</p>
 									<p>500,000원</p>
 									
-									<a href="../product/productDetail.html" class="w-btn w-btn-indigo">구매하기</a>
+									<a href="/project2_computer/product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
 								</div>
 							</div>
 						</div>
@@ -418,7 +418,7 @@
 						<div class="col-12 col-md-6 col-lg-4 p-3">
 							<div id ="cardStyle" class="card text-center p-4 ">
 								<div class="card-head">
-									<div><img src="../images/monitor3.png"/></div>
+									<div><img src="../resources/images/monitor3.png"/></div>
 								</div>
 								<div class="card-body">
 									<form id="color1select">
@@ -436,7 +436,7 @@
 									<p>pro01</p>
 									<p>500,000원</p>
 									
-									<a href="../product/productDetail.html" class="w-btn w-btn-indigo">구매하기</a>
+									<a href="/project2_computer/product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
 								</div>
 							</div>
 						</div>
