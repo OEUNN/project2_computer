@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -43,8 +43,9 @@
 				border-radius: 0px 50px 0px 0px;
 				box-shadow: 5px 5px 10px grey;
 			}
-			#menu div{
+			#menu div,a{
 				background-color: white;
+				color:black;
 			}
 			a{
 				text-decoration: none;
@@ -75,8 +76,8 @@
 			<div id="body" class="row">
 				
 				<!-- menu -->
-				<div id="menu" class=" d-none d-md-inline col-md-2 mt-5 mr-5 ">
-					<div class="ml-5 mt-5" style="font-size:200%;">마이페이지
+				<div class="ml-5 mt-5 btn btn-black btn-sm" style="font-size:200%;">
+						<a href="../user/MypageController">마이페이지</a>
 						<div class="row m-3">
 							<div id="userUpdate"class="btn btn-black btn-sm">
 								<a  href="../user/UserUpdataController" >>개인정보</a>
