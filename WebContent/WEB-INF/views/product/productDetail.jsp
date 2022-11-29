@@ -396,28 +396,73 @@
          </tr>   
          <tr >
          <td >1</td>
-         <td ><a href="#">초겨울</a></td>
+         <td >
+         <div>
+	         	<a role="button"data-toggle="collapse" href="#reivew1Content" aria-expanded="false" aria-controls="collapseExample">웹 프로그래밍</a>
+	         </div>
+	          <div class="collapse" id="reivew1Content">
+	      		<div class="well">
+	     			<br/>
+	      				축구 졌어잉
+	      			<br/>
+	      		</div>
+	    	 </div>
+         
+         </td>
          <td >ys1**</td>
          <td >2022.11.15</td>
          </tr> 
            
          <tr>
          <td >2</td>
-         <td ><a href="#">웹 프로그래밍</a></td>
+         <td > 
+         	<div>
+	         	<a role="button"data-toggle="collapse" href="#reivew2Content" aria-expanded="false" aria-controls="collapseExample">웹 프로그래밍</a>
+	         </div>
+	          <div class="collapse" id="reivew2Content">
+	      		<div class="well">
+	     			<br/>
+	      				축구 졌어잉
+	      			<br/>
+	      		</div>
+	    	 </div>
+	    </td>
          <td >tmd***</td>
          <td >2022.11.15</td>
          </tr>   
          
          <tr>
          <td >3</td>
-         <td ><a href="#">웹 웹웹웹</a></td>
+         <td >
+         <div>
+	         	<a role="button"data-toggle="collapse" href="#reivew3Content" aria-expanded="false" aria-controls="collapseExample">웹 프로그래밍</a>
+	         </div>
+	          <div class="collapse" id="reivew3Content">
+	      		<div class="well">
+	     			<br/>
+	      				축구 졌어잉
+	      			<br/>
+	      		</div>
+	    	 </div>
+         </td>
          <td >tmd***</td>
          <td >2022.11.15</td>
          </tr>   
          
          <tr>
          <td >4</td>
-         <td ><a href="#">밍밍밍</a></td>
+         <td >
+         	<div>
+	         	<a role="button"data-toggle="collapse" href="#reivew4Content" aria-expanded="false" aria-controls="collapseExample">웹 프로그래밍</a>
+	         </div>
+	          <div class="collapse" id="reivew4Content">
+	      		<div class="well">
+	     			<br/>
+	      				축구 졌어잉
+	      			<br/>
+	      		</div>
+	    	 </div>
+         </td>
          <td >tmd***</td>
          <td >2022.11.15</td>
          </tr>  
