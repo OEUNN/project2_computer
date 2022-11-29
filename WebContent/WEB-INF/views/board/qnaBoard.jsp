@@ -21,7 +21,6 @@
 				padding:0px;
 				box-sizing: border-box;
 				font-family: 'Jua', sans-serif;
-				background-color: #f3f3f3;
 			}
 			img{
 				width:100%;
@@ -37,6 +36,11 @@
 				font-size:300%;
 				font-family: 'Black Han Sans', sans-serif;
 			}
+			#back{
+				background-color:#f0f0f0;
+				padding-bottom: 300px;
+			}
+			
 			#menu{
 				background-color: white;
 				border-radius: 0px 50px 0px 0px;
@@ -55,7 +59,7 @@
 				box-shadow: 5px 5px 10px grey;
 			}
 			
-			#contentText div,a,p{
+			#contentText *{
 				background-color:white;
 			}
 			#contentButton{
@@ -72,10 +76,18 @@
 			.qnaList div:hover{
 				background-color: #f0f0f0;
 			}
+			#qnaModal *{
+				background-color: white;
+				
+			}
+			
+			#qnaModal button{
+				background-color:#0c1c32;
+			}
 		</style>
 	</head>
 	<body>
-		<div class="container-fluid">
+		<div id="back" class="container-fluid">
 		
 			<!-- 가장위 logo -->
 			<div id="top" class="row">
@@ -121,7 +133,7 @@
 				<!-- 1대1문의 내역 -->
 				<div id="centerBoard" class="col-12 col-md mt-5">
 					<div class="container-fluid">
-						<div id="centerText" class="row mt-5 ml-3">1대1 문의</div>
+						<div id="centerText" class="row mt-5 ml-3">1:1 문의</div>
 						
 						<!-- 빈공간 -->
 						<div class="row m-3"></div>
@@ -201,7 +213,7 @@
    
                   <!-- Modal Header -->
                   <div class="modal-header">
-                     <h4 class="modal-title">리뷰 작성</h4>
+                     <h4 class="modal-title">1:1 문의 작성</h4>
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
    
