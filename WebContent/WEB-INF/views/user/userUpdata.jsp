@@ -3,33 +3,37 @@
 	<html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>개인정보 수정</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap" rel="stylesheet">
 		<style>
 			*{
 				border:1px solid black;
 				margin:0px;
 				padding:0px;
 				box-sizing: border-box;
+				font-family: 'Jua', sans-serif;
 			}
 			img{
 				width:100%;
 				height:100%;
 			}
-			
-
-			#logo{
-				background-color:#0c1c32;
+			#top{
+				background:#0c1c32;
 				height:100px;
 			}
-			#logo .logo{
-				margin:25px 100px;
-				text-align:left;
-				color:#f8f8f8 ;
-				
+		
+			#logo b{
+				background-color:#0c1c32;
+				color:white;
+				font-size:300%;
+				font-family: 'Black Han Sans', sans-serif;
 			}
 			#update{
 				text-color:black;
@@ -60,9 +64,9 @@
 		<div class="container-fluid" style="background-color: #f3f3f3;">
 		
 			<!-- 가장위 logo -->
-			<div id="logo" class="row">
-				<div class="logo btn" style="font-size:200%"  onclick="/product/ProductListController">
-				<b>SAMSUNG</b>
+			<div id="top" class="row">
+				<div id="logo" class="btn mt-3">
+					<a href="../product/ProductListController"><b>SAMSUNG</b></a>
 				</div>
 			</div>
 			

@@ -3,9 +3,9 @@
 	<html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>마이페이지 메인</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 		
@@ -41,9 +41,11 @@
 				box-shadow: 5px 5px 10px grey;
 			}
 			
-			#menu div{
+			#menu div,a{
 				background-color: white;
+				color:black;
 			}
+			
 			#centerText{
 				color:black;
 				font-size: 250%;
@@ -89,8 +91,8 @@
 		
 			<!-- 가장위 logo -->
 			<div id="top" class="row">
-				<div id="logo" class="btn mt-3" onclick="/product/ProductListController">
-					<b>SAMSUNG</b>
+				<div id="logo" class="btn mt-3">
+					<a href="../product/ProductListController"><b>SAMSUNG</b></a>
 				</div>
 			</div>
 			
@@ -102,18 +104,27 @@
 				
 				<!-- menu -->
 				<div id="menu" class=" d-none d-md-inline col-md-2 mt-5 mr-5 ">
-					<div class="ml-5 mt-5" style="font-size:200%;">마이페이지
+					<div class="ml-5 mt-5 btn btn-black btn-sm" style="font-size:200%;">
+						<a href="../user/MypageController">마이페이지</a>
 						<div class="row m-3">
-							<div id="userUpdate" onclick="/product/UserUpdataController" class="btn btn-black btn-sm">>개인정보</div>
+							<div id="userUpdate"class="btn btn-black btn-sm">
+								<a  href="../user/UserUpdataController" >>개인정보</a>
+							</div>
 						</div>
 						<div class="row m-3">
-							<div id="orderList" onclick="/product/OrderListController" class="btn btn-black btn-sm">>주문내역</div>
+							<div id="orderList" class="btn btn-black btn-sm">
+								<a href="../user/OrderListController">>주문내역</a>
+							</div>
 						</div>
 						<div class="row m-3">
-							<div id="cartList" onclick="/product/BasketListController" class="btn btn-black btn-sm">>장바구니</div>
+							<div id="cartList" class="btn btn-black btn-sm">
+								<a  href="../product/BasketListController">>장바구니</a>
+							</div>
 						</div>
 						<div class="row m-3">
-							<div id="content" onclick="/product/QnaBoardController" class="btn btn-black btn-sm">>1:1 문의</div>
+							<div id="content" class="btn btn-black btn-sm">
+							<a href="../board/QnaBoardController">>1:1 문의</a>
+						</div>
 						</div>
 					</div>
 				</div>
