@@ -25,6 +25,9 @@
 				width:100%;
 				height:100%;
 			}
+			#back{
+				padding-bottom: 100px;
+			}
 			#top{
 				background:#0c1c32;
 				height:100px;
@@ -83,7 +86,7 @@
 		</style>
 	</head>
 	<body>
-		<div class="container-fluid">
+		<div id="back" class="container-fluid">
 		
 			<!-- 가장위 logo -->
 			<div id="top" class="row">
@@ -195,8 +198,6 @@
 				
 				<div class="col-0 col-md-1 "></div>
 			</div>
-			<!-- 다리 -->
-			<div id="blank" class="row"></div>
 		</div>
 	</body>
 </html>

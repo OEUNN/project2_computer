@@ -23,15 +23,22 @@
             width:100%;
             heigt:100%;
          }
+         
          #top{
 			background:#0c1c32;
 			height:100px;
+			
 		}
 		#logo b{
 			background-color:#0c1c32;
 			color:white;
 			font-size:300%;
 			font-family: 'Black Han Sans', sans-serif;
+			text-align: left;
+		}
+		#menu{
+			color:#0c1c32;
+			border-bottom : 1px solid #f3f3f3;
 		}
          #icon {
          	column-width : 15px;
@@ -44,7 +51,7 @@
          }
          #p-name {
             height : 70px;
-            background-color : black;
+            background-color : #0c1c32;
             color:white;
          }
          
@@ -62,7 +69,7 @@
          	color: navy;
          }
          .w-btn-indigo:hover {
-         	background-color: black;
+         	background-color: #0c1c32;
             color: #d4dfe6;
          }
       
@@ -141,26 +148,28 @@
    <body>
     
       <div class="container-fluid">
-           <div id="top" class="row">
-            <div id="logo col-4 col-md-4 " style="font-size:200%">
-            	<a href="../product/ProductListController"><b>SAMSUNG</b></a>
-			</div>
+      		<!-- 상단 -->
+      		<div id="top" class="row">
+	            <div id="logo" class="col-4 col-md-1 btn mt-3">
+	            	<a href="../product/ProductListController"><b>SAMSUNG</b></a>
+				</div>
             
-            <div class=" col-3 "></div>
+            	<div class=" col "></div>
     
-            <div id="icon" class="col-3 my-auto" >
-               <div style="flex-grow:3;text-align : right">
-                  <img src="../resources/images/search_w.png"style="width:25px;height:25px"/>
-               </div>
-               <div style="flex-grow:3;text-align : center">
-                  <img src="../resources/images/cart_w.png" style="width:25px;height:25px"/>
-               </div>
-               <div style="flex-grow:3;text-align : left">
-                  <img src="../resources/images/Human_w.png" style="width:25px;height:25px"/>
-               </div>
-            </div>
-         </div>
+	            <div id="icon" class="col-3 my-auto" >
+	               <div style="flex-grow:3;text-align : right">
+	                  <img src="../resources/images/search_w.png"style="width:40px;height:40px"/>
+	               </div>
+	               <div style="flex-grow:3;text-align : center">
+	                  <img src="../resources/images/cart_w.png" style="width:40px;height:40px"/>
+	               </div>
+	               <div style="flex-grow:3;text-align : left">
+	                  <img src="../resources/images/Human_w.png" style="width:40px;height:40px"/>
+	               </div>
+	            </div>
+         	</div>
       
+      	<!-- 상단바 메뉴 -->
          <div id="menu" class="row" style="height:50px">
             <div class=" col-md-1"></div>
             <div class="col-4 text-grey my-auto"><a href="../product/ProductListController">>Home</a></div>
