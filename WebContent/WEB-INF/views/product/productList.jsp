@@ -184,9 +184,9 @@
 	                		<img src="../resources/images/Human icon.png" style="width:40px;height:40px;" />
 	                	</label>
 	                	<ul class="submenu" style="width:90px;">
-	                    	<li ><a href="../project2_computer/user/JoinController">회원가입</a></li>
-	                    	<li ><a href="../project2_computer/user/LoginController">로그인</a></li>
-	                    	<li ><a href="../project2_computer/user/MypageController">마이페이지</a></li>
+	                    	<li ><a href="../user/JoinController">회원가입</a></li>
+	                    	<li ><a href="../user/LoginController">로그인</a></li>
+	                    	<li ><a href="../user/MypageController">마이페이지</a></li>
 	                	</ul>
 					</div>
 				</div>

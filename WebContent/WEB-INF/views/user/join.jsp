@@ -59,7 +59,7 @@
 			</div>
 
 			<div id="join_Wrapper" class="row">
-				<form class="join_main col-8 col-md-12" action='login_page.php'>
+				<form class="join_main col-8 col-md-12" action="../product/ProductListController">
 					<!-- 아이디입력 -->
 					<div class="form-group ">
 						<label for="user_id" class="join_title">아이디</label>
