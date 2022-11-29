@@ -15,7 +15,7 @@
 		
 		<!-- 부트스트랩 아이콘 -->
 		<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-		
+		<script src="../resources/javascript/basketUpdate.js"></script>
 		<style>
 			*{
 	            margin:0px;
