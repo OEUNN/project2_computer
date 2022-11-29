@@ -17,12 +17,11 @@
 		<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 		<style>
 			*{
-				
 				margin:0px;
 				padding:0px;
 				box-sizing: border-box;
 				font-family: 'Jua', sans-serif;
-				/*background-color: #f3f3f3;*/ 
+				background-color: #f3f3f3;
 			}
 			img{
 				width:100%;
@@ -47,6 +46,21 @@
 				background-color: white;
 				color:black;
 			}
+			#centerText{
+				color:black;
+				font-size: 250%;
+			}
+			#contentBox{
+				border-radius: 15px;
+				box-shadow: 5px 5px 10px grey;
+			}
+			
+			#contentText div,a,p{
+				background-color:white;
+			}
+			#contentButton{
+				border-radius: 15px;
+			}
 			a{
 				text-decoration: none;
 				color:black;
@@ -62,6 +76,7 @@
 	</head>
 	<body>
 		<div class="container-fluid">
+		
 			<!-- 가장위 logo -->
 			<div id="top" class="row">
 				<div id="logo" class="btn mt-3">
@@ -76,7 +91,8 @@
 			<div id="body" class="row">
 				
 				<!-- menu -->
-				<div class="ml-5 mt-5 btn btn-black btn-sm" style="font-size:200%;">
+				<div id="menu" class=" d-none d-md-inline col-md-2 mt-5 mr-5 ">
+					<div class="ml-5 mt-5 btn btn-black btn-sm" style="font-size:200%;">
 						<a href="../user/MypageController">마이페이지</a>
 						<div class="row m-3">
 							<div id="userUpdate"class="btn btn-black btn-sm">
@@ -101,64 +117,73 @@
 					</div>
 				</div>
 				
-				<!-- 1대1문의 내역 -->
-				<div class="col card rounded-0" style="background-color:white">
-					<div class="card-header" style="background-color:white">
-						<h4 style="text-align:left">1대1 문의</h4>
-						<button class="btn btn-info btn-dark rounded-1" 
-						data-toggle="modal" data-target="#qnaModal" style="width:100%">문의하기</button>
-					</div>
-					<div class="card-body border-top qnaList">
-						<div  class="row qnaList">
-							
-							<div class="col-1 qnaNum" >
-								<!-- <i class="btn fas" >&#xf00d;</i> -->
-								1
-							</div>
-							<div class="col-11 qnaTitle"  >
-								<a href="#qnaDetail1" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
-								<p>작성일자<span>2022.11.24.</span></p>
-							</div>
-							
-							<div class="qnaDetail collapse" id="qnaDetail1">
-								<p>환불해주세요. 보상금도 요구할게요.</p>
-							</div>
-						</div>
-						<div  class="row qnaList">
-							
-							<div class="col-1 qnaNum" >
-								<!-- <i class="btn fas" >&#xf00d;</i> -->
-								2
-							</div>
-							<div class="col-11 qnaTitle"  >
-								<a href="#qnaDetail2" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
-								<p>작성일자<span>2022.11.24.</span></p>
-							</div>
-							
-							<div class="qnaDetail collapse" id="qnaDetail2">
-								<p>보상금도 요구할게요.</p>
-								<hr/>
-								<p>사랑하는 고객님 안녕하십니까. 당신의 영원한 파트너 입니다. 감사합니다.</p>
-							</div>
-						</div>
-						<div  class="row qnaList">
-							
-							<div class="col-1 qnaNum" >
-								<!-- <i class="btn fas" >&#xf00d;</i> -->
-								1
-							</div>
-							<div class="col-11 qnaTitle"  >
-								<a href="#qnaDetail3" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
-								<p>작성일자<span>2022.11.24.</span></p>
-							</div>
-							
-							<div class="qnaDetail collapse" id="qnaDetail3">
-								<p>환불해주세요. 보상금도 요구할게요.</p>
-							</div>
-						</div>
-						
-					</div> 
 				
+				<!-- 1대1문의 내역 -->
+				<div id="centerBoard" class="col-12 col-md mt-5">
+					<div class="container-fluid">
+						<div id="centerText" class="row mt-5 ml-3">1대1 문의</div>
+						
+						<!-- 빈공간 -->
+						<div class="row m-3"></div>
+						
+						<!-- 버튼 -->
+						<div id="contentButton" class="row m-3" >
+							<button class="btn btn-#0c1c32 btn-dark rounded-1" style="width:100%;"data-toggle="modal" data-target="#qnaModal">문의하기</button>
+						</div>
+					
+						<!-- 빈공간 -->
+						<div class="row m-3"></div>
+						
+						<!-- 문의글 -->
+						<div id="contentText" class="row m-3 border-top">
+							<div id="contentBox" class="container-fluid">
+								<div id="qnaList" class="row m-1">
+									<div id="qnaNum" class="col-1" >
+										<!-- <i class="btn fas" >&#xf00d;</i> -->
+										1
+									</div>
+									<div class="col-11 qnaTitle">
+										<a href="#qnaDetail1" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
+										<p>작성일자<span>2022.11.24.</span></p>
+									</div>
+									<div class="qnaDetail collapse" id="qnaDetail1">
+										<p>환불해주세요. 보상금도 요구할게요.</p>
+									</div>
+								</div>
+							
+								<div id="qnaList" class="row m-1">
+									<div id="qnaNum" class="col-1 " >
+										<!-- <i class="btn fas" >&#xf00d;</i> -->
+										2
+									</div>
+									<div class="col-11 qnaTitle"  >
+										<a href="#qnaDetail2" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
+										<p>작성일자<span>2022.11.24.</span></p>
+									</div>
+									<div class="qnaDetail collapse" id="qnaDetail2">
+										<p>보상금도 요구할게요.</p>
+										<hr/>
+										<p>사랑하는 고객님 안녕하십니까. 당신의 영원한 파트너 입니다. 감사합니다.</p>
+									</div>
+								</div>
+							
+								<div id="qnaList" class="row m-1">
+									<div id="qnaNum" class="col-1" >
+										<!-- <i class="btn fas" >&#xf00d;</i> -->
+										1
+									</div>
+									<div class="col-11 qnaTitle"  >
+										<a href="#qnaDetail3" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
+										<p>작성일자<span>2022.11.24.</span></p>
+									</div>
+								
+									<div class="qnaDetail collapse" id="qnaDetail3">
+										<p>환불해주세요. 보상금도 요구할게요.</p>
+									</div>
+								</div>
+							</div> 
+						</div>
+					</div>
 				</div>
 				
 				<div class="col-0 col-md-1 "></div>
@@ -166,6 +191,8 @@
 			<!-- 다리 -->
 			<div id="blank" class="row"></div>
 		</div>
+		
+		
 		
 		<!-- The Modal -->
          <div class="modal fade"  id="qnaModal">
