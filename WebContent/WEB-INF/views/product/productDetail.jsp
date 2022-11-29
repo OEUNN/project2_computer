@@ -1,156 +1,105 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
    <head>
       <meta charset="UTF-8">
-      <title>Insert title here</title>
+      <title>상품 디테일</title>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
       <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
- <link href="https://fonts.googleapis.com/css?family=Gothic+A1:100,400,500" rel="stylesheet">
-      <style>
       
-         *{
- 
-            margin:0px;
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap" rel="stylesheet">
+      <style>
+      	*{
+      		margin:0px;
             padding:0px;
             box-sizing: border-box;
+            font-family: 'Jua', sans-serif;
          }
-         
-         body, h1, h2, h3, h4, h5, h6, p, span {
-           	font-family: 'Gothic A1'!important;
-           	}
-         
          img{
             width:100%;
             heigt:100%;
          }
-         
-         #typo {
-            column-width : 100px;
-         }
-          #logo{
-             background-color :#0c1c32;
-            height:100px;
-         }
-         
-         #logo .logo{
-            margin:25px 0px 25px 50px;
-            text-align:left;
-            color:white;
-         }
-         
+         #top{
+			background:#0c1c32;
+			height:100px;
+		}
+		#logo b{
+			background-color:#0c1c32;
+			color:white;
+			font-size:300%;
+			font-family: 'Black Han Sans', sans-serif;
+		}
          #icon {
-           column-width : 15px;
-           margin-top : 25px;
-
-         
+         	column-width : 15px;
+          	margin-top : 25px;
          }
-         
-         
          .item-detail {
-           background-color : #f3f3f3;
-        border-radius: 6%;
-        box-sizing : border-box;
-     
-     
-         
+         	background-color : #f3f3f3;
+        	border-radius: 6%;
+        	box-sizing : border-box;
          }
-         
          #p-name {
             height : 70px;
             background-color : black;
             color:white;
-         
-         
          }
          
          .flex-container {
             display : flex;
-            
-            
-         
          }
-         
-         
-           .flex-container-button {
+         .flex-container-button {
             display : flex;
-            
-
-            
-            
-         
          }
-         
-          .flex-container-button>div {
-          text-align : center;
-       
-            
-         
+         .flex-container-button>div {
+         	text-align : center;
          }
-         
          .w-btn-indigo {
-          background-color: white;
-          color: navy;
-          
-      }
-      
-      .w-btn-indigo:hover {
-       
-          background-color: black;
-             color: #d4dfe6;
-          
-      }
-      
-       .w-btn {
-             position: relative;
-             border: none;
-             display: inline-block;
-             padding: 20px 50px;
-             border-radius: 15px;
-             font-family: "paybooc-Light", sans-serif;
-            
-             text-decoration: none;
-             font-weight: 600;
-             transition: 0.25s;
-            
+         	background-color: white;
+         	color: navy;
          }
-         
+         .w-btn-indigo:hover {
+         	background-color: black;
+            color: #d4dfe6;
+         }
+      
+		.w-btn {
+			position: relative;
+            border: none;
+            display: inline-block;
+            padding: 20px 50px;
+            border-radius: 15px;
+            font-family: "paybooc-Light", sans-serif;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.25s;
+         }
          .option {
             background-color: white;
-            
-            
-   
          }
-         
          .option-mini {
             display : flex;
-            
-   
          }
-         
          .price {
             display : flex;
          }
-         
          .quan {
             display : flex;
          }
-         
          table {
-              width: 100%;
+         	width: 100%;
             font-size:20px;
             text-align: center;
-         
-                border-collapse: collapse;
+            border-collapse: collapse;
          }
-          td {
-                border-bottom: 1px solid #444444;
-                padding: 15px;
-              }
-              
-           .colorRadio input{
+         td{
+         	border-bottom: 1px solid #444444;
+           	padding: 15px;
+         }
+         .colorRadio input{
             display:none;
          }
          .colorRadio input+label{
@@ -161,41 +110,29 @@
             width:30px;
             height:30px;
          }
-         
-         
          .capaRadio input{
             display:none;
             width:70px;
             height:40px;
-       
          }
          .capaRadio input+label{
             background-color:white;
             width:70px;
             height:40px;
-           
          }
          .capaRadio input:checked+label{
             background-color:gray;
          }
-         
          .quan-icon {
          	display : flex;
          }
-         
          #icon {
-         	 display : flex;
-         
+         	display : flex;
          }
-         
          button {
-         
          	border : none;
-          border-radius: 30%;
-         
+          	border-radius: 30%;
          }
-         
-         
          
       </style>
    </head>
@@ -203,13 +140,11 @@
     
    <body>
     
-     
-     
-        
-  
       <div class="container-fluid">
-           <div id="logo" class="row">
-            <div class="logo col-4 col-md-4 " style="font-size:200%"><b>SAMSUNG</b></div>
+           <div id="top" class="row">
+            <div id="logo col-4 col-md-4 " style="font-size:200%">
+            	<a href="../product/ProductListController"><b>SAMSUNG</b></a>
+			</div>
             
             <div class=" col-3 "></div>
     

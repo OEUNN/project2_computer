@@ -1,9 +1,9 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>주문</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -21,25 +21,26 @@
 	            border:1px solid black;
 	            font-family: 'Jua', sans-serif;
 	         }
+	        #top{
+				background:#0c1c32;
+				height:100px;
+			}
+		
+			#logo b{
+				background-color:#0c1c32;
+				color:white;
+				font-size:300%;
+				font-family: 'Black Han Sans', sans-serif;
+			}
 	        #body > .card{
 	            background-color:black;
 	            width:1000px;
 	         }
-	        #logo{
-             	background-color :#0c1c32;
-            	height:100px;
-         	}
-         
-        	#logo .logo{
-            	margin:25px 0px 25px 50px;
-            	text-align:left;
-            	color:white;
-         	}
 			#order_Wrapper{
 				width:1200px;
 				margin: 50px auto;
 				background-color:"#f3f3f3";
-				
+				box-shadow: 5px 5px 10px grey;
 			}
 			
 			#order_main{
@@ -90,6 +91,7 @@
 	</head>
 	<body>
 		 <div class="container-fluid" style="background-color:#f3f3f3">
+		 	<!-- 로고 -->
          	<div id="top" class="row">
 				<div id="logo" class="btn mt-3">
 					<a href="../product/ProductListController"><b>SAMSUNG</b></a>
