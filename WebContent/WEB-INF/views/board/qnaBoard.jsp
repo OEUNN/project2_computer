@@ -22,7 +22,7 @@
 				padding:0px;
 				box-sizing: border-box;
 				font-family: 'Jua', sans-serif;
-				background-color: #f3f3f3;
+				/*background-color: #f3f3f3;*/ 
 			}
 			img{
 				width:100%;
@@ -55,7 +55,7 @@
 				
 			}
 			.qnaList div:hover{
-				background-color: #f3f3f3;
+				background-color: #f0f0f0;
 			}
 		</style>
 	</head>
@@ -101,37 +101,58 @@
 				</div>
 				
 				<!-- 1대1문의 내역 -->
-				<div class="col card rounded-0">
-					<div class="card-header">
+				<div class="col card rounded-0" style="background-color:white">
+					<div class="card-header" style="background-color:white">
 						<h4 style="text-align:left">1대1 문의</h4>
-						<button class="btn btn-info btn-dark rounded-1" style="width:100%">문의하기</button>
+						<button class="btn btn-info btn-dark rounded-1" 
+						data-toggle="modal" data-target="#qnaModal" style="width:100%">문의하기</button>
 					</div>
 					<div class="card-body border-top qnaList">
-						<div class="row">
-							<div class="col-1">
+						<div  class="row qnaList">
+							
+							<div class="col-1 qnaNum" >
 								<!-- <i class="btn fas" >&#xf00d;</i> -->
+								1
 							</div>
-							<div class="col-11">
-								<a href="#">컴퓨터가 안켜져요. 환불해주세요<span>(답변완료)</span></a>
+							<div class="col-11 qnaTitle"  >
+								<a href="#qnaDetail1" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
 								<p>작성일자<span>2022.11.24.</span></p>
+							</div>
+							
+							<div class="qnaDetail collapse" id="qnaDetail1">
+								<p>환불해주세요. 보상금도 요구할게요.</p>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-1">
+						<div  class="row qnaList">
+							
+							<div class="col-1 qnaNum" >
 								<!-- <i class="btn fas" >&#xf00d;</i> -->
+								2
 							</div>
-							<div class="col-11">
-								<a href="#">컴퓨터가 안켜져요. 환불해주세요<span>(답변완료)</span></a>
+							<div class="col-11 qnaTitle"  >
+								<a href="#qnaDetail2" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
 								<p>작성일자<span>2022.11.24.</span></p>
+							</div>
+							
+							<div class="qnaDetail collapse" id="qnaDetail2">
+								<p>보상금도 요구할게요.</p>
+								<hr/>
+								<p>사랑하는 고객님 안녕하십니까. 당신의 영원한 파트너 입니다. 감사합니다.</p>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-1">
+						<div  class="row qnaList">
+							
+							<div class="col-1 qnaNum" >
 								<!-- <i class="btn fas" >&#xf00d;</i> -->
+								1
 							</div>
-							<div class="col-11">
-								<a href="#">컴퓨터가 안켜져요. 환불해주세요<span>(답변완료)</span></a>
+							<div class="col-11 qnaTitle"  >
+								<a href="#qnaDetail3" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
 								<p>작성일자<span>2022.11.24.</span></p>
+							</div>
+							
+							<div class="qnaDetail collapse" id="qnaDetail3">
+								<p>환불해주세요. 보상금도 요구할게요.</p>
 							</div>
 						</div>
 						
@@ -144,5 +165,51 @@
 			<!-- 다리 -->
 			<div id="blank" class="row"></div>
 		</div>
+		
+		<!-- The Modal -->
+         <div class="modal fade"  id="qnaModal">
+            <div class="modal-dialog modal-lg" >
+               <div class="modal-content" >
+   
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                     <h4 class="modal-title">리뷰 작성</h4>
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+   
+                  <!-- Modal body -->
+                  <div class="modal-body">
+             
+   
+                     <form action="#" >
+                        <div class="form-group">
+                			<input type="text" class="form-control" placeholder="제목을 입력해주세요" id="title">
+                        </div>
+                        
+                        <div class="form-group" style="height:100%">
+                			<textarea  style="height:300px;width:100%"
+                                          name="inquiryContent" id="inquiryContent"
+                                          placeholder="리뷰 내용을 입력해 주세요. (500자 이내)"></textarea >
+                        </div>
+                        <div><button type="button" class="btn btn-secondary">사진 업로드</button></div>
+                        <br/>
+                        <div class="qnaNoti">
+                           <p>상품과 무관한 사진/동영상을 첨부한 리뷰는 통보없이 삭제될 수 있습니다.</p>
+                        </div>
+                 
+                     </form>
+   
+                  </div>
+   
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                  <button type="submit" onClick="../product/ProductListController" class="btn btn-secondary">등록</button>
+                  <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">Close</button>
+                
+           			</div>
+           		</div>
+           	</div>
+        </div>
 	</body>
 </html>
