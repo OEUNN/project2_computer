@@ -1,21 +1,55 @@
+$(document).ready(function(){
+	for(let i=0;i<3;i++){
+		appendBasket();
+		console.log("ready");
+	}
+});
 function appendBasket(){
-	let div = document.querySelector(".basketTable table");
+	let div = $(".basketTable table tbody");
+	//console.log(div);
+	let num=div.children().length;
+	let src="../resources/images/monitor.png";
+	let proName="컴퓨터";
+	let color="black";
+	let capacity="512GB";
+	let price=50000;
+	let qnt=2;
+	let totalPrice=$("#totalPrice span");
+	let rowPrice=$(".rowPrice hr");
+	$(".rowPrice h5>span").text(num);
+	div.append( "<tr class='basketRow'>"+
+						"<td>"+
+							"<div><input type='checkbox' id='basket"+num+"' name='basket"+num+"'/></div>"+
+						"</td>"+
+						"<td ><img src='"+src+"'/></td>"+
+						"<td><div >"+proName+"<span>("+color+","+capacity+" 택)</span></div></td>"+
+						"<td><div>"+price+"원</div></td>"+
+						"<td><div>"+qnt+"</div></td>"+	
+					"</tr>");	
+	rowPrice.before("<div id='row"+num+"Price'><span>"+price*qnt+"</span>원</div>");
+	
+	totalPrice.text(parseInt(totalPrice.text())+(price*qnt));
 	//console.log(div);
 	
-	div.innerHTML += "<tr>"+
-						"<td>"+
-							"<div><input type='checkbox' id='basket1' name='basket1'/></div>"+
-						"</td>"+
-						"<td ><img src='../resources/images/monitor.png'/></td>"+
-						"<td><div >컴퓨터1<span>(black,512GB 택)</span></div></td>"+
-						"<td><div>500,000원</div></td>"+
-						"<td><div>2</div></td>"+	
-					"</tr>";	
 }
 
 function deleteBasket(){
-	let div = document.querySelector(".basketTable table>");
+	let basketRow = $(".basketRow input:checked");
 	
-	div.removeChild(div.lastElementChild);
+	let basketNum=basketRow.attr("id").replace(/[^0-9]/g,"");
+	let totalPrice=$("#totalPrice span");
+	let rowPrice=$("#row"+basketNum+"Price");
+	//console.log(basketNum);
+	totalPrice.text(parseInt(totalPrice.text())-parseInt(rowPrice.children().text()));
+	rowPrice.remove();
+	basketRow.parent().parent().parent().remove();
+	$(".rowPrice h5 span").text($(".basketTable table tbody").length);
+}
+
+function selectAll(){
+	let checkbox=$("#basketAll:checked");
+	if(checkbox!==null){
+		$("#basketRow input").prop("checked",true);
+	}
 	
 }
