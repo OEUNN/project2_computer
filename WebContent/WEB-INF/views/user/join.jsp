@@ -8,7 +8,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-		
+		<script src="../resources/javascript/joinValidation.js"></script>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap" rel="stylesheet">
@@ -97,7 +97,7 @@
 						<div class="form-group m-4">
 							<label for="userEd" class="joinTitle">아이디</label>
 							
-							<input id="userId" type="text" class="form-control " />
+							<input onfocusout="idValidate()" id="userId" type="text" class="form-control " />
 							<small id="userIdHelp" class="form-text text-muted">알파벳 대소문자, 숫자를 혼용해서 6자 이상 10장 이하</small>
 							<p id="idMessage"></p>
 						</div>
@@ -105,13 +105,13 @@
 						<!-- 비밀번호 입력및 비밀번호 확인 -->
 						<div class="form-group m-4">
 							<label for="userPwd" class="joinTitle">비밀번호</label>
-							<input id="userPwd" type="text" class="form-control" />
+							<input onfocusout="pwdValidate()" id="userPwd" type="text" class="form-control" />
 							<small id="userPwdHelp" class="form-text text-muted">알파벳 대소문자, 숫자를 혼용해서 8자 이상 15장 이하</small>
 							<p id="pwdMessage"></p>
 						</div>
 						<div class="form-group m-4">
 							<label for="userPwdCheck" class="joinTitle">비밀번호 확인</label>
-							<input id="userPwdChedk" type="text" class="form-control" />
+							<input onfocusout="pwdCheckValidate()" id="userPwdCheck" type="text" class="form-control" />
 							<p id="pwdCheckMessage"></p>
 						</div>
 						<!-- 이름 -->
@@ -125,14 +125,14 @@
 						<!-- 전화번호 -->
 						<div class="form-group m-4">
 							<label for="userPhone" class="join_title">전화번호</label>
-							<input id="userPhone" type="text" class="form-control"/>
+							<input onfocusout="phoneValidate()" id="userPhone" type="text" class="form-control"/>
 							<small id="userPhoneHelp" class="form-text text-muted">예) 010-123-1234, 010-1234-1234</small>
 							<p id="phoneMessage"></p>
 						</div>
 						<!-- 이메일 -->
 						<div class="form-group m-4">	
 							<label for="userEmail" class="joinTitle">이메일</label>
-							<input id="userEmail" type="text" class="form-control"/>
+							<input onfocusout="emailValidate()" id="userEmail" type="text" class="form-control"/>
 							<p id="emailMessage"></p>
 						</div>
 						<!-- 닉네임 -->
