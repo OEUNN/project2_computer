@@ -26,6 +26,9 @@
 				width:100%;
 				height:100%;
 			}
+			#back{
+				padding-bottom: 100px;
+			}
 			#top{
 				background:#0c1c32;
 				height:100px;
@@ -35,10 +38,6 @@
 				color:white;
 				font-size:300%;
 				font-family: 'Black Han Sans', sans-serif;
-			}
-			#back{
-				background-color:#f0f0f0;
-				padding-bottom: 300px;
 			}
 			
 			#menu{
@@ -200,8 +199,6 @@
 				
 				<div class="col-0 col-md-1 "></div>
 			</div>
-			<!-- 다리 -->
-			<div id="blank" class="row"></div>
 		</div>
 		
 		

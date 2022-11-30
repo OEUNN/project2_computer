@@ -18,9 +18,13 @@
 	            margin:0px;
 	            padding:0px;
 	            box-sizing: border-box;
-	            border:1px solid black;
 	            font-family: 'Jua', sans-serif;
+	            background-color:#f3f3f3;
 	         }
+	         
+	         #back{
+				padding-bottom: 100px;
+			}
 	        #top{
 				background:#0c1c32;
 				height:100px;
@@ -74,7 +78,6 @@
 	       		font-size: 24px;
 	        }
 	        .orderTable td div{
-				
 				padding-top:25px;
 	        }
 	        .orderTable td span, #deleteBasket{
@@ -90,7 +93,7 @@
 		</style>
 	</head>
 	<body>
-		 <div class="container-fluid" style="background-color:#f3f3f3">
+		 <div id="back" class="container-fluid" >
 		 	<!-- 로고 -->
          	<div id="top" class="row">
 				<div id="logo" class="btn mt-3">

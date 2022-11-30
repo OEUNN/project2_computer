@@ -22,8 +22,11 @@
 	            padding:0px;
 	            box-sizing: border-box;
 	            font-family: 'Jua', sans-serif;
+	            background-color:#f3f3f3;
 	         }
-	         
+	         #back{
+				padding-bottom: 100px;
+			}
 	        #top{
 				background:#0c1c32;
 				height:100px;
@@ -41,6 +44,11 @@
 	        	background-color:white;
 	        	border-radius: 15px;
 				box-shadow: 5px 5px 10px grey;
+	        }
+	        
+	        #basketLogo{
+	        	font-size: 250%;
+	        	text-align: left;
 	        }
 	        .basketTable{
 	        	text-align:center;
@@ -83,7 +91,7 @@
 	    </style>
 	</head>
 	<body>
-		<div class="container-fluid" style="background-color:#f3f3f3; height:1000px">
+		<div id="back" class="container-fluid">
 		
          	<!-- 가장위 logo -->
 			<div id="top" class="row">
@@ -92,9 +100,12 @@
 				</div>
 			</div>
 			
+			<!-- 화이트바 -->
+			<div id="blank" class="row" style="height:50px;background-color:white; "></div>
+			
 			<!-- 몸통 -->
          	<div id="basketWrapper" >
-         		<h3 style="text-align:left; font-weight: bold; ">장바구니</h3>
+         		<h3 id="basketLogo" class="m-3">장바구니</h3>
          		<hr/>
          		<form style="width:100%" class="row" action="../product/OrderController">
          			<div class="basketTable col-9">

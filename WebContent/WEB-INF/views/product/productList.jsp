@@ -26,6 +26,9 @@
 				margin: auto;
     			display: block;
 			}
+			#back{
+				padding-bottom: 100px;
+			}
 			#top{
 				background:#0c1c32;
 				height:100px;
@@ -46,6 +49,9 @@
 				font-size:150%;
 				text-align: center;
 			}
+			#topMenu a{
+				color:#c2c6cd;
+			}
 			
 			#mainBoard div{
 				text-align: center;
@@ -54,7 +60,6 @@
 			
 			#mainImg{
 				height:350px;
-				
 			}
 			
 			#mainImg img{
@@ -131,7 +136,9 @@
 			#icon {
 				 display : flex;
 			}
-			
+			#detailButton{
+				box-shadow: 2px 2px 3px grey;
+			}
 			 .submenu{ 
                 display : none; /* 소메뉴 안보이게 하기 none | block */
                 background-color : white;
@@ -149,7 +156,7 @@
 		
 	</head>
 	<body>
-		<div class="container-fluid">
+		<div id="back" class="container-fluid">
 		
 			<div id="top" class="row"> 
 				<!-- 상단 메뉴 나오기전 빈공간 -->
@@ -162,31 +169,31 @@
 						<div class="row">
 							<div class="col"><a href="#">제품</a></div>			
 							<div class="col"><a href="#">게시판</a></div>		
-							<div  class="col"><a href="#">관리자</a></div>	
+							<div  class="col"><a href="../product/UploadController">관리자</a></div>	
 						</div>
 					</div>
 				</div>
 				
 				<!-- 상단 빈공간 -->
-				<div class=" col"></div>
+				<div class="col"></div>
 				
 				<!-- 아이콘 -->
-				<div id="icon" class=" col-2">
+				<div id="icon" class=" col-2 mt-3">
 					<div class = "mt-3">
 						<a href="../product/BasketListController">
-							<img src="../resources/images/basket.png" style="width:40px;height:40px;" />
+							<img src="../resources/images/cart_w.png" style="width:40px;height:40px;" />
 						</a>
 					</div>
 					<!-- 아이콘안 메뉴 -->
 					<div class = "mt-3 ml-5">
 	                	<input type="checkbox" id="menuBtn" style="display:none;"/>
 	                	<label for="menuBtn" class="labelBtn" onclick="">
-	                		<img src="../resources/images/Human icon.png" style="width:40px;height:40px;" />
+	                		<img src="../resources/images/Human_w.png" style="width:40px;height:40px;" />
 	                	</label>
 	                	<ul class="submenu" style="width:90px;">
+	                		<li ><a href="../user/MypageController">마이페이지</a></li>
 	                    	<li ><a href="../user/JoinController">회원가입</a></li>
 	                    	<li ><a href="../user/LoginController">로그인</a></li>
-	                    	<li ><a href="../user/MypageController">마이페이지</a></li>
 	                	</ul>
 					</div>
 				</div>
@@ -217,19 +224,19 @@
 				</div>
 				<div id="mainLogin" class="col-lg-4 p-5" style="height:550px;">
 					<div class="container-fluid">
-						<div class="row">
+						<div class="row mb-5">
 							<!-- 이미지 센터 -->
 							<div style="width:250px;height:250px;">
 								<img src="../resources/images/pngwing.com.png" alt="image Error"/>
 							</div>
 						</div>
-						<div class="row">
+						<div class="row m-5">
 							<div>
 								<div id="loginButton" style="width:400px; height:60px" class="btn btn-black btn-sm">
 									<a href="../user/LoginController">로그인</a>
 								</div>
 							</div>
-							<div class = "button-flex">
+							<div class = "button-flex mt-3 mb-5 mx-auto">
 								<div class="mt-3" style ="flex-grow: 3"></div>
 								<div class="btn" style ="flex-grow:2;"><u>아이디 찾기</u></div>
 								<div class="btn" style ="flex-grow:2;"><u>비밀번호 찾기</u></div>
@@ -332,7 +339,7 @@
 									<p>pro01</p>
 									<p>500,000원</p>
 									
-									<a href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
+									<a id="detailButton" href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
 								</div>
 							</div>
 						</div>
@@ -357,8 +364,7 @@
 									<h4 class="my-2">컴퓨터1</h4>
 									<p>pro01</p>
 									<p>500,000원</p>
-									
-									<a href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
+									<a id="detailButton" href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
 								</div>
 							</div>
 						</div>
@@ -384,7 +390,7 @@
 									<p>pro01</p>
 									<p>500,000원</p>
 									
-									<a href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
+									<a id="detailButton" href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
 								</div>
 							</div>
 						</div>
@@ -410,7 +416,7 @@
 									<p>pro01</p>
 									<p>500,000원</p>
 									
-									<a href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
+									<a id="detailButton" href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
 								</div>
 							</div>
 						</div>
@@ -436,7 +442,7 @@
 									<p>pro01</p>
 									<p>500,000원</p>
 									
-									<a href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
+									<a id="detailButton" href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
 								</div>
 							</div>
 						</div>
