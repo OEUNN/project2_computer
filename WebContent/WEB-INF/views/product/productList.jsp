@@ -232,7 +232,7 @@
 						</div>
 						<div class="row m-5">
 							<div>
-								<div id="loginButton" style="width:400px; height:60px" class="btn btn-black btn-sm">
+								<div id="loginButton" style="width:300px; height:60px" class="btn btn-black btn-sm">
 									<a href="../user/LoginController">로그인</a>
 								</div>
 							</div>

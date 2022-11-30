@@ -21,6 +21,7 @@
 				padding:0px;
 				box-sizing: border-box;
 				font-family: 'Jua', sans-serif;
+				background-color:#f3f3f3;
 			}
 			img{
 				width:100%;
@@ -146,8 +147,8 @@
 						<div class="row m-3"></div>
 						
 						<!-- 문의글 -->
-						<div id="contentText" class="row m-3 border-top">
-							<div id="contentBox" class="container-fluid">
+						<div id="contentText" class="row m-3">
+							<div id="contentBox" class="container-fluid p-5">
 								<div id="qnaList" class="row m-1">
 									<div id="qnaNum" class="col-1" >
 										<!-- <i class="btn fas" >&#xf00d;</i> -->

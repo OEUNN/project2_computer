@@ -57,7 +57,6 @@
 	        .basketTable th{
 	       		font-size: 24px;
 				font-weight: bold; 
-				 
 	        }
 	        .basketTable td{
 	       		font-size: 24px;
@@ -81,7 +80,6 @@
 	        }
 	        .basketTable img{
 	        	width:100px;
-	        	
 	        }
 	        #submit .card-body div{
 	        	text-align:right;
