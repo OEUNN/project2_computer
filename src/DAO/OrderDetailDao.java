@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import util.ConnectionProvider;
 
-public class OrderDatailDao {
+public class OrderDetailDao {
 
 	public Boolean insertOrderDetail(String orderId, int qnt, int price, String productDetailId) {
 		Connection conn=ConnectionProvider.getConnection();

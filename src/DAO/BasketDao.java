@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+
+import javax.servlet.ServletContext;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,28 +17,27 @@ import util.ConnectionProvider;
 
 public class BasketDao {
 	String Output;
+	
+	private ServletContext application;
+	
+	public BasketDao(ServletContext application) {
+		this.application=application;
+	}
 
-	public String Create (Basket basket) {
-		String sql = "insert into basket (user_id)  values  ( ? ) ";
-		Connection conn = ConnectionProvider.getConnection();
-		
+
+	public boolean Create (Basket basket, Connection conn) {	
+		boolean result=false;
 		try {
+			String sql = "insert into basket (user_id)  values  ( ? ) ";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, basket.getUserId());
 			pstmt.executeUpdate();
-			pstmt.close();
-			Output = "success";
-			
+			result=true;
 		} catch (SQLException e) {
-			Output = "fail";
-		}finally {
-			try {
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return Output;
+			result=false;
+		} 
+		
+		return result;
 	}
 	
 	
@@ -59,7 +61,10 @@ public class BasketDao {
 	}
 
 	public Basket selectBasket(String basketId) {
+		BasketDetailDao basketDetailDao = (BasketDetailDao)application.getAttribute("basketDetailDao");
+		List<BasketDetail> list = basketDetailDao.selectBasketDetails(basketId,null);
 		Basket basket = new Basket();
+		basket.setBasketDetail(list);
 		PreparedStatement pstmt;
 		Connection conn = ConnectionProvider.getConnection();
 		String sql="select user_id, total_price from basket where user_id=?";

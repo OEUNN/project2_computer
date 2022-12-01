@@ -5,14 +5,14 @@ import org.json.JSONObject;
 
 import DAO.BasketDetailDao;
 import DAO.OrderDao;
-import DAO.OrderDatailDao;
+import DAO.OrderDetailDao;
 
 public class OrderService {
 
 	public String takeOrder(JSONArray insertData, String userId, JSONObject receiveData,int totalPrice) {
 		
 		OrderDao orderDao=new OrderDao();
-		OrderDatailDao orderDetailDao = new OrderDatailDao();
+		OrderDetailDao orderDetailDao = new OrderDetailDao();
 		String orderId=orderDao.insertOrder(userId, totalPrice,receiveData);
 		boolean check=true;
 		for(int i=0;i<insertData.length();i++) {

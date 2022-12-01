@@ -13,7 +13,6 @@ import util.Pager;
 
 public class UsersDao {
 	String Output;
-	Map<String, String> map;
 	
 	//ID 유무 확인
 	public String Select(String id) {
