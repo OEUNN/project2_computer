@@ -12,6 +12,7 @@ import DTO.ProductDetail;
 import util.ConnectionProvider;
 
 public class ProductDetailDao {
+	
 	public List<ProductDetail> selectProductDetails(String productId) {
 		PreparedStatement pstmt;
 		Connection conn = ConnectionProvider.getConnection();

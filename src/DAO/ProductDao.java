@@ -7,7 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import DTO.OrderDetail;
 import DTO.Product;
+import DTO.ProductDetail;
 import util.ConnectionProvider;
 import util.Pager;
 
@@ -160,6 +162,7 @@ public class ProductDao {
 
 		return product;
 	}
+
 
 	public void insertProduct(Product product) {
 		/*String sql = "insert into product(product_id,product_name,product_price,"

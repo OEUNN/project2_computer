@@ -4,28 +4,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import DAO.BasketDao;
-import DAO.BasketDetailDao;
 import DAO.ProductDao;
 import DTO.Basket;
-import DTO.BasketDetail;
 import DTO.Product;
 
 public class BasketService {
-	BasketDao Db = new BasketDao();
+	
 	String Output;
 
-	public BasketDetail addBasketProduct(String userId, String productDetailId, int qnt) {
-		BasketDetailDao basketDetailDao = new BasketDetailDao();
-
+	public Basket addBasketProduct(String userId, String productId, int qnt) {
 		ProductDao productDao = new ProductDao();
-		BasketDetail bd = new BasketDetail();
-		if (productDetailId.contains("proD")) {
+		Basket bd = new Basket();
+		if (productId.contains("proD")) {
 
-			Product pro = productDao.selectProductSubQuery(productDetailId);
+			Product pro = productDao.selectProductSubQuery(productId);
 
 			if (pro.getProdcutId() != null) {
-				bd = basketDetailDao.insertBasketPro(userId, productDetailId, qnt, pro.getProductPrice());
-				if (bd.getBasketDetailId() != null) {
+				bd = basketDao.insertBasketPro(userId, productId, qnt, pro.getProductPrice());
+				if (bd.getBasketId() != null) {
 					BasketDao basketDao = new BasketDao();
 					basketDao.updateBasket(userId, bd);
 				}
@@ -38,11 +34,11 @@ public class BasketService {
 		return bd;
 	}
 
-//상품명, 옵션1,옵션2, 수량,가격,주문가격
+	//상품명, 옵션1,옵션2, 수량,가격,주문가격
 	public JSONObject printBasket(String userId) {
 		JSONObject root = new JSONObject();
-		BasketDetailDao basketDao = new BasketDetailDao();
-		JSONArray bdList = basketDao.selectBasketDetails(userId);
+		BasketDao basketDao = new BasketDao();
+		JSONArray bdList = basketDao.selectBaskets(userId);
 		root.put("data", bdList);
 		return root;
 	}
@@ -53,9 +49,9 @@ public class BasketService {
 		return Output;
 	}
 
-	public String deleteBasketDetailAll(Basket basket) {
-		BasketDetailDao bdd = new BasketDetailDao();
-		Output = (bdd.deleteBasketDetail(basket.getUserId())) ? "success" : "fail";
+	public String deleteBasketAll(Basket basket) {
+		BasketDao bdd = new BasketDao();
+		Output = (bdd.deleteBasket(basket.getUserId())) ? "success" : "fail";
 		return Output;
 	}
 
