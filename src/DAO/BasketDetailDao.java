@@ -13,9 +13,8 @@ import util.ConnectionProvider;
 
 public class BasketDetailDao {
 
-	public BasketDetail insertBasketPro(String userId, String productId, int qnt,int price) {
+	public BasketDetail insertBasketPro(String userId, String productId, int qnt,int price, Connection conn) {
 		PreparedStatement pstmt;
-		Connection conn = ConnectionProvider.getConnection();
 		BasketDetail basketDetail=new BasketDetail();
 		try {
 			
@@ -45,8 +44,6 @@ public class BasketDetailDao {
 				basketDetail.setPrice(price);
 				basketDetail.setProductQnt(qnt);
 			}
-				
-			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -55,9 +52,8 @@ public class BasketDetailDao {
 		return basketDetail;
 	}
 
-	public JSONArray selectBasketDetails(String userId) {
+	public JSONArray selectBasketDetails(String userId, Connection conn) {
 		PreparedStatement pstmt;
-		Connection conn = ConnectionProvider.getConnection();
 		JSONArray list = new JSONArray();
 		String sql="select p.product_name, d.detail_color, d.detail_capacity, b.price, b.product_qnt, "
 				+ "(b.price*b.product_qnt )as sum, b.basket_detail_id ,d.detail_id "
@@ -89,30 +85,23 @@ public class BasketDetailDao {
 		return list;
 	}
 
-	public boolean deleteBasketDetail(String userId) {
+	public boolean deleteBasketDetail(String userId, Connection conn ) {
 		PreparedStatement pstmt;
-		Connection conn = ConnectionProvider.getConnection();
 		boolean result=false;
 		try {
 			
 			String sql ="delete from basket_detail where basket_users_user_id=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
-			
 			if(pstmt.executeUpdate()!=0) {
-				
 				result=true;
-				
 			}
-				
-			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
 			ConnectionProvider.exit(conn);
 		}
 		return result;
-		
 	}
 	
 }

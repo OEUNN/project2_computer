@@ -4,7 +4,14 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import DAO.BasketDao;
+import DAO.BasketDetailDao;
+import DAO.OrderDao;
+import DAO.OrderDetailDao;
+import DAO.ProductDao;
+import DAO.ProductDetailDao;
 import DAO.QnaBoardDao;
+import DAO.ReviewBoardDao;
 import DAO.UsersDao;
 import Service.BasketService;
 import Service.OrderService;
@@ -12,6 +19,7 @@ import Service.ProductService;
 import Service.QnaBoardService;
 import Service.ReviewBoardService;
 import Service.UserService;
+
 
 //servletContextPath : web app의 실행환경 정보를 가지고 있는 객체
 public class WebAppContext implements ServletContextListener {
@@ -32,11 +40,11 @@ public class WebAppContext implements ServletContextListener {
 		
 		application.setAttribute("usersDao", new UsersDao());
 		application.setAttribute("basketDao", new BasketDao());
-		application.setAttribute("basketDeatilDao", new BasketDeatilDao());
+		application.setAttribute("basketDetailDao", new BasketDetailDao());
 		application.setAttribute("orderDao", new OrderDao());
-		application.setAttribute("orderDeatilDao", new OrderDeatilDao());
+		application.setAttribute("orderDetailDao", new OrderDetailDao());
 		application.setAttribute("productDao", new ProductDao());
-		application.setAttribute("productDeatilDao", new ProductDeatilDao());
+		application.setAttribute("productDetailDao", new ProductDetailDao());
 		application.setAttribute("qnaBoardDao", new QnaBoardDao());
 		application.setAttribute("reviewBoardDao", new ReviewBoardDao());
 		

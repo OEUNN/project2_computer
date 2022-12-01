@@ -1,16 +1,16 @@
 package Service;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
 
 import DAO.UsersDao;
 import DTO.Users;
+import util.ConnectionProvider;
 import util.Pager;
 
 public class UserService {
-	String Output;
-	ArrayList<String> list;
 	int number;
 	private ServletContext application;
 	
@@ -18,63 +18,75 @@ public class UserService {
 		this.application=application;
 	}
 	
-	public String UserIDConfirm(Users users) {
+	//로그인
+	public Users userLogin(String id, String pwd) {
+		Connection conn=ConnectionProvider.getConnection();
 		UsersDao userDao= (UsersDao)application.getAttribute("usersDao");
-		Output = userDao.Select(users.getUserId());
-		return Output;
-	}
-	public String UserLogIn(Users users) {
-		UsersDao userDao= (UsersDao)application.getAttribute("usersDao");
-		Output = userDao.Select(users.getUserId(), users.getUserPwd());
-		return Output;
-	}
-	public String UserCheck(Users users) {
-		UsersDao userDao= (UsersDao)application.getAttribute("usersDao");
-		Output = userDao.Select(users.getUserId(), users.getUserPwd());
-		return Output;
+		Users usersDto= new Users();
+		boolean result=userDao.compareIdLoginSelect(id, conn);
+		if(result==true) {
+			usersDto= userDao.loginSelect(id, conn);
+			if(usersDto.getUserId().equals(id) &&usersDto.getUserPwd().equals(pwd)) {
+				result=true;
+			}else {
+				result=false;
+			}
+		}
+		else {
+			result=false;
+		}
+		return usersDto;
 	}
 	
-	public String UserUpdate(Users users) {
+	public boolean UserUpdate(Users users) {
+		Connection conn=ConnectionProvider.getConnection();
 		UsersDao userDao= (UsersDao)application.getAttribute("usersDao");
-		Output = userDao.UserUpdate(users);
-		return Output;
+		boolean result = userDao.UserUpdate(users,conn);
+		return result;
 	}
 	
 	public Users UserInfo(Users users) {
+		Connection conn=ConnectionProvider.getConnection();
 		UsersDao userDao= (UsersDao)application.getAttribute("usersDao");
-		return userDao.SelectAll(users.getUserId());
-	}
-	public String UserDelete(Users users) {
-		UsersDao userDao= (UsersDao)application.getAttribute("usersDao");
-		Output = userDao.Delete(users);
-		return Output;
+		return userDao.SelectAll(users.getUserId(),conn);
 	}
 	
-	public String UserJoin(Users users) {
+	public boolean UserDelete(Users users) {
+		Connection conn=ConnectionProvider.getConnection();
 		UsersDao userDao= (UsersDao)application.getAttribute("usersDao");
-		Output = userDao.UserJoin(users);
-		return Output;
+		boolean result = userDao.Delete(users,conn);
+		return result;
+	}
+	
+	public boolean UserJoin(Users users) {
+		Connection conn=ConnectionProvider.getConnection();
+		UsersDao userDao= (UsersDao)application.getAttribute("usersDao");
+		boolean result= userDao.UserJoin(users,conn);
+		return result;
 	}
 	
 	// 유저 전체 List 불러오기 ----------------------------------------
 	
 	public ArrayList<Users> readAllUser(Users users, Pager pager) {
+		Connection conn=ConnectionProvider.getConnection();
 		UsersDao userDao= (UsersDao)application.getAttribute("usersDao");
 		ArrayList<Users> list = new ArrayList<>();
-		list = userDao.ReadAllUser(users, pager);
+		list = userDao.ReadAllUser(users, pager,conn);
 		return list;
 	}
 	
 	public int getTotalUserRow() {
+		Connection conn=ConnectionProvider.getConnection();
 		UsersDao userDao= (UsersDao)application.getAttribute("usersDao");
-		number = userDao.getTotalUserRow();
+		number = userDao.getTotalUserRow(conn);
 		return number;
 	}
 	
-	public String ManagerUserDelete(Users uesre) {
+	public boolean ManagerUserDelete(Users uesre) {
+		Connection conn=ConnectionProvider.getConnection();
 		UsersDao userDao= (UsersDao)application.getAttribute("usersDao");
-		Output = userDao.ManagerUserDelete(uesre);
-		return Output;
+		boolean result = userDao.ManagerUserDelete(uesre,conn);
+		return result;
 	}
 	
 	

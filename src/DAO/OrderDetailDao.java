@@ -6,10 +6,9 @@ import java.sql.SQLException;
 
 import util.ConnectionProvider;
 
-public class OrderDatailDao {
+public class OrderDetailDao {
 
-	public Boolean insertOrderDetail(String orderId, int qnt, int price, String productDetailId) {
-		Connection conn=ConnectionProvider.getConnection();
+	public Boolean insertOrderDetail(String orderId, int qnt, int price, String productDetailId, Connection conn) {
 		String sql ="insert into order_detail "
 				+ "(ORDER_DETAIL_ID,ORDERS_ORDER_ID,PRODUCT_QNT,PRICE,PRODUCT_DETAIL_DETAIL_ID)"
 				+ "values('OrdD'||order_detail_id.nextval,?,?,?,?)";
@@ -23,7 +22,6 @@ public class OrderDatailDao {
 			if(pstmt.executeUpdate()!=1) {
 				result=false;
 			}
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			result=false;
