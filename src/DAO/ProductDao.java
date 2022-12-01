@@ -29,14 +29,13 @@ public class ProductDao {
 			while (rs.next()) {
 				Product pro = new Product();
 
-				pro.setProduct_Id(rs.getString("product_id"));
-				pro.setProduct_Name(rs.getString("product_name"));
-				pro.setProduct_Price(rs.getInt("product_price"));
+				pro.setProdcutId(rs.getString("product_id"));
+				pro.setProductName(rs.getString("product_name"));
+				pro.setProductPrice(rs.getInt("product_price"));
 				list.add(pro);
 
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			ConnectionProvider.exit(conn);
@@ -61,15 +60,12 @@ public class ProductDao {
 
 			while (rs.next()) {
 				Product pro = new Product();
-
-				pro.setProduct_Id(rs.getString("product_id"));
-				pro.setProduct_Name(rs.getString("product_name"));
-				pro.setProduct_Price(rs.getInt("product_price"));
+				pro.setProdcutId(rs.getString("product_id"));
+				pro.setProductName(rs.getString("product_name"));
+				pro.setProductPrice(rs.getInt("product_price"));
 				list.add(pro);
-
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			ConnectionProvider.exit(conn);
@@ -85,25 +81,19 @@ public class ProductDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-
 			ResultSet rs = pstmt.executeQuery();
-
 			if (rs.next()) {
-
 				return rs.getInt("count");
-
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			ConnectionProvider.exit(conn);
 		}
-
 		return 0;
 	}
 
-	public Product selectProduct(String product_Id) {
+	public Product selectProduct(String productId) {
 		PreparedStatement pstmt;
 		Connection conn = ConnectionProvider.getConnection();
 		Product product = new Product();
@@ -112,18 +102,18 @@ public class ProductDao {
 					+ "product_graphic_card,product_cpu,product_mainboard,product_os,product_memory "
 					+ "from product where product_id= ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, product_Id);
+			pstmt.setString(1, productId);
 			ResultSet rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				product.setProduct_Id(rs.getString("product_id"));
-				product.setProduct_Name(rs.getString("product_name"));
-				product.setProduct_Price(rs.getInt("product_price"));
-				product.setProduct_Content(rs.getString("product_content"));
-				product.setProduct_Graphic_Card(rs.getString("product_graphic_card"));
+				product.setProdcutId(rs.getString("product_id"));
+				product.setProductName(rs.getString("product_name"));
+				product.setProductPrice(rs.getInt("product_price"));
+				product.setProductContent(rs.getString("product_content"));
+				product.setProductGraphicCard(rs.getString("product_graphic_card"));
 				product.setCPU(rs.getString("product_cpu"));
 				product.setMainboard(rs.getString("product_mainboard"));
-				product.setOS(rs.getString("product_os"));
+				product.setOs(rs.getString("product_os"));
 				product.setMemory(rs.getString("product_memory"));
 
 			}
@@ -137,7 +127,7 @@ public class ProductDao {
 		return product;
 	}
 
-	public Product selectProductSubQuery(String productDetail_id) {
+	public Product selectProductSubQuery(String productDetailId) {
 		PreparedStatement pstmt;
 		Connection conn = ConnectionProvider.getConnection();
 		Product product = new Product();
@@ -147,20 +137,19 @@ public class ProductDao {
 					+ "from product where product_id= "
 					+ "(select product_product_id from product_detail where detail_id= ? )";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, productDetail_id);
+			pstmt.setString(1, productDetailId);
 			ResultSet rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				product.setProduct_Id(rs.getString("product_id"));
-				product.setProduct_Name(rs.getString("product_name"));
-				product.setProduct_Price(rs.getInt("product_price"));
-				product.setProduct_Content(rs.getString("product_content"));
-				product.setProduct_Graphic_Card(rs.getString("product_graphic_card"));
+				product.setProdcutId(rs.getString("product_id"));
+				product.setProductName(rs.getString("product_name"));
+				product.setProductPrice(rs.getInt("product_price"));
+				product.setProductContent(rs.getString("product_content"));
+				product.setProductGraphicCard(rs.getString("product_graphic_card"));
 				product.setCPU(rs.getString("product_cpu"));
 				product.setMainboard(rs.getString("product_mainboard"));
-				product.setOS(rs.getString("product_os"));
+				product.setOs(rs.getString("product_os"));
 				product.setMemory(rs.getString("product_memory"));
-
 			}
 
 		} catch (Exception e) {

@@ -9,22 +9,22 @@ import DAO.OrderDatailDao;
 
 public class OrderService {
 
-	public String takeOrder(JSONArray insertData, String user_id, JSONObject receiveData,int total_price) {
+	public String takeOrder(JSONArray insertData, String userId, JSONObject receiveData,int totalPrice) {
 		
 		OrderDao orderDao=new OrderDao();
 		OrderDatailDao orderDetailDao = new OrderDatailDao();
-		String order_id=orderDao.insertOrder(user_id, total_price,receiveData);
+		String orderId=orderDao.insertOrder(userId, totalPrice,receiveData);
 		boolean check=true;
 		for(int i=0;i<insertData.length();i++) {
 			JSONObject detailData =insertData.getJSONObject(i);
-			check=orderDetailDao.insertOrderDetail(order_id,detailData.getInt("product_qnt"),detailData.getInt("price"),detailData.getString("product_detail_id"));
+			check=orderDetailDao.insertOrderDetail(orderId,detailData.getInt("product_qnt"),detailData.getInt("price"),detailData.getString("productDetailId"));
 			if(check==false) {
 				System.out.println("insert 실패 "+i+"번째");
 				return "fail";
 			}
 		}
 		BasketDetailDao basketDetailDao = new BasketDetailDao();
-		check=basketDetailDao.deleteBasketDetail(user_id);
+		check=basketDetailDao.deleteBasketDetail(userId);
 		if(check==false) {
 			System.out.println("바구니 삭제 실패");
 			return"fail";

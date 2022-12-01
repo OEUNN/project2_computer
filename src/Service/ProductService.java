@@ -5,7 +5,7 @@ import java.util.List;
 import DAO.ProductDao;
 import DAO.ProductDetailDao;
 import DTO.Product;
-import DTO.Product_Detail;
+import DTO.ProductDetail;
 import util.Pager;
 
 public class ProductService {
@@ -26,15 +26,15 @@ public class ProductService {
 		return productDao.selectCountProduct();
 	}
 
-	public Product getProductContent(String product_Id) {
+	public Product getProductContent(String productId) {
 		
 		ProductDao productDao = new ProductDao();
-		return productDao.selectProduct(product_Id);
+		return productDao.selectProduct(productId);
 	}
 
-	public List<Product_Detail> getProductDetailList(String product_Id) {
+	public List<ProductDetail> getProductDetailList(String productId) {
 		ProductDetailDao productDetailDao = new ProductDetailDao();
-		return productDetailDao.selectProductDetails(product_Id);
+		return productDetailDao.selectProductDetails(productId);
 	}
 
 }

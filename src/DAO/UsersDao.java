@@ -11,7 +11,7 @@ import DTO.Users;
 import util.ConnectionProvider;
 import util.Pager;
 
-public class DAO_Users {
+public class UsersDao {
 	String Output;
 	Map<String, String> map;
 	
@@ -80,18 +80,18 @@ public class DAO_Users {
 	}
 	
 	//Modify (update)
-	public String User_Update(Users users) {
+	public String UserUpdate(Users users) {
 			String sql = "update users set user_pwd = ? , user_phone = ? , user_email= ?  , user_nickname = ? , user_address = ? "
 					+ " where user_id = ? ";
 			Connection conn = ConnectionProvider.getConnection();
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, users.getUser_Pwd());
-				pstmt.setString(2, users.getUser_Phone());
-				pstmt.setString(3, users.getUser_Email());
-				pstmt.setString(4, users.getUser_Nickname());
-				pstmt.setString(5, users.getUser_Address());
-				pstmt.setString(6, users.getUser_Id());
+				pstmt.setString(1, users.getUserPwd());
+				pstmt.setString(2, users.getUserPhone());
+				pstmt.setString(3, users.getUserEmail());
+				pstmt.setString(4, users.getUserNickname());
+				pstmt.setString(5, users.getUserAddress());
+				pstmt.setString(6, users.getUserId());
 				Output = "success";
 				pstmt.executeUpdate();
 				pstmt.close();
@@ -122,13 +122,13 @@ public class DAO_Users {
 				ResultSet rs = pstmt.executeQuery();
 				
 				while (rs.next()) {
-					users.setUser_Id(rs.getString(1));
-					users.setUser_Name(rs.getString(2));
-					users.setUser_Phone(rs.getString(3));
-					users.setUser_Email(rs.getString(4));
-					users.setUser_Nickname(rs.getString(5));
-					users.setUser_Insertdate(rs.getString(6));
-					users.setUser_Address(rs.getString(7));
+					users.setUserId(rs.getString(1));
+					users.setUserName(rs.getString(2));
+					users.setUserPhone(rs.getString(3));
+					users.setUserEmail(rs.getString(4));
+					users.setUserNickname(rs.getString(5));
+					users.setUserInsertdate(rs.getString(6));
+					users.setUserAddress(rs.getString(7));
 				} 
 				// 정보 없는 경우 처리
 				pstmt.close();
@@ -151,16 +151,16 @@ public class DAO_Users {
 		Connection conn = ConnectionProvider.getConnection();
 		try {
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, users.getUser_Id());
+		pstmt.setString(1, users.getUserId());
 		ResultSet rs = pstmt.executeQuery();
 		if(rs.next()) {
 			String password = rs.getString("user_pwd");
 			String ID = rs.getString("user_id");
-			if (users.getUser_Pwd().equals(password) && users.getUser_Id().equals(ID))  { 
+			if (users.getUserPwd().equals(password) && users.getUserId().equals(ID))  { 
 				String sql2 = "delete from users where user_id = ? ";
 				
 				pstmt = conn.prepareStatement(sql2);
-				pstmt.setString(1, users.getUser_Id());
+				pstmt.setString(1, users.getUserId());
 				pstmt.executeUpdate();
 				Output = "success";
 			} else {
@@ -185,20 +185,20 @@ public class DAO_Users {
 	}
 	
 	//User Join
-	public String User_Join(Users users) {
+	public String UserJoin(Users users) {
 		String sql = "insert into users (user_id, user_pwd, user_name, user_phone, user_email, user_nickname, user_address) " +
 				"values(?, ?, ?, ?, ?, ?, ?)";
 		Connection conn = ConnectionProvider.getConnection();
 		try {
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, users.getUser_Id());
-			pstmt.setString(2, users.getUser_Pwd());
-			pstmt.setString(3, users.getUser_Name());
-			pstmt.setString(4, users.getUser_Phone());
-			pstmt.setString(5, users.getUser_Email());
-			pstmt.setString(6, users.getUser_Nickname());
-			pstmt.setString(7, users.getUser_Address());
+			pstmt.setString(1, users.getUserId());
+			pstmt.setString(2, users.getUserPwd());
+			pstmt.setString(3, users.getUserName());
+			pstmt.setString(4, users.getUserPhone());
+			pstmt.setString(5, users.getUserEmail());
+			pstmt.setString(6, users.getUserNickname());
+			pstmt.setString(7, users.getUserAddress());
 			
 			pstmt.executeUpdate();
 			pstmt.close();
@@ -239,14 +239,14 @@ public ArrayList<Users> ReadAllUser(Users users, Pager pager) {
 			while (rs.next()) {
 				Users users1 = new Users();
 				
-				users1.setUser_Id(rs.getString(1));
-				users1.setUser_Pwd(rs.getString(2));
-				users1.setUser_Name(rs.getString(3));
-				users1.setUser_Phone(rs.getString(4));
-				users1.setUser_Email(rs.getString(5));
-				users1.setUser_Nickname(rs.getString(6));
-				users1.setUser_Insertdate(rs.getString(7));
-				users1.setUser_Address(rs.getString(8));
+				users1.setUserId(rs.getString(1));
+				users1.setUserPwd(rs.getString(2));
+				users1.setUserName(rs.getString(3));
+				users1.setUserPhone(rs.getString(4));
+				users1.setUserEmail(rs.getString(5));
+				users1.setUserNickname(rs.getString(6));
+				users1.setUserInsertdate(rs.getString(7));
+				users1.setUserAddress(rs.getString(8));
 
 				list1.add(users1);
 			}
@@ -293,20 +293,20 @@ public ArrayList<Users> ReadAllUser(Users users, Pager pager) {
 		}
 		return countRow;
 	}
-	public String Manager_UserDelete(Users users) {
+	public String ManagerUserDelete(Users users) {
 	      String sql = "select  user_id, user_pwd from users where user_id =? ";
 	         
 	      Connection conn = ConnectionProvider.getConnection();
 	      try {
 	         PreparedStatement pstmt = conn.prepareStatement(sql);
-	         pstmt.setString(1, users.getUser_Id());
+	         pstmt.setString(1, users.getUserId());
 	         ResultSet rs = pstmt.executeQuery();
 	         
 	         if (rs.next())  { 
 	            sql = "Delete from users where user_id = ? and user_pwd = ? ";
 	            pstmt = conn.prepareStatement(sql);
-	            pstmt.setString(1, users.getUser_Id());
-	            pstmt.setString(2, users.getUser_Pwd());
+	            pstmt.setString(1, users.getUserId());
+	            pstmt.setString(2, users.getUserPwd());
 	            
 	            Output = "success";
 	            pstmt.executeUpdate();

@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Grade {
-	 private String grade_Name;
-	 private int low_Purchase;
-	 private int high_Purchase;
+	 private String gradeName;
+	 private int lowPurchase;
+	 private int highPurchase;
 }

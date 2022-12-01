@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class Basket {
-	private String user_Id;
-	private int total_price;
+	private String userId;
+	private int totalPrice;
 }

@@ -6,12 +6,12 @@ import lombok.Data;
 
 @Data
 public class Orders {
-	   private String order_Id;
-	   private Date order_Date;
-	   private String order_Status;
-	   private int total_Price;
-	   private String user_Id;
-	   private String receiver_name;
-	   private String receiver_address;
-	   private String receiver_phone;
+	   private String orderId;
+	   private Date orderDate;
+	   private String orderStatus;
+	   private int totalPrice;
+	   private String userId;
+	   private String receiverName;
+	   private String receiverAddress;
+	   private String receiverPhone;
 }
