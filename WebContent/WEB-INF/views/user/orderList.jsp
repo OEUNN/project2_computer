@@ -25,6 +25,9 @@
 				width:100%;
 				height:100%;
 			}
+			#back{
+				padding-bottom: 100px;
+			}
 			#top{
 				background:#0c1c32;
 				height:100px;
@@ -83,7 +86,7 @@
 		</style>
 	</head>
 	<body>
-		<div class="container-fluid">
+		<div id="back" class="container-fluid">
 		
 			<!-- 가장위 logo -->
 			<div id="top" class="row">
@@ -99,7 +102,8 @@
 			<div id="body" class="row">
 				
 				<!-- menu -->
-				<div class="ml-5 mt-5 btn btn-black btn-sm" style="font-size:200%;">
+				<div id="menu" class=" d-none d-md-inline col-md-2 mt-5 mr-5 ">
+					<div class="ml-5 mt-5 btn btn-black btn-sm" style="font-size:200%;">
 						<a href="../user/MypageController">마이페이지</a>
 						<div class="row m-3">
 							<div id="userUpdate"class="btn btn-black btn-sm">
@@ -194,8 +198,6 @@
 				
 				<div class="col-0 col-md-1 "></div>
 			</div>
-			<!-- 다리 -->
-			<div id="blank" class="row"></div>
 		</div>
 	</body>
 </html>

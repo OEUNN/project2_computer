@@ -24,6 +24,9 @@
 				width:100%;
 				height:100%;
 			}
+			#back{
+				padding-bottom: 100px;
+			}
 			#top{
 				background:#0c1c32;
 				height:100px;
@@ -50,35 +53,36 @@
 				color:black;
 				font-size: 250%;
 			}
+			
 			#mypage{
 				background-color: white;
 				border-radius:15px;
 				box-shadow: 5px 5px 10px grey;
 			}
 			
-			#mypage div,p,h3{
+			#mypage *{
 				background-color: white;
 			}
 			
 			#id{
-			  display: grid;
-			  grid-template-rows: auto auto auto auto;
-			  gap: 10px;
-			  padding: 10px;
+				display: grid;
+				grid-template-rows: auto auto auto auto;
+				gap: 10px;
+				padding: 10px;
 			}
 			
 			#product {
-			  display: grid;
-			  grid-template-columns: auto auto auto auto;
-			  gap: 10px;
-			  padding: 10px;
+			  	display:grid;
+			  	grid-template-columns: auto auto auto auto;
+			  	gap: 10px;
+			  	padding: 10px;
 			}
 			
 			.grid-container > div {
-			  background-color: rgba(255, 255, 255, 0.8);
-			  border: 1px solid black;
-			  text-align: center;
-			  font-size: 30px;
+				background-color: rgba(255, 255, 255, 0.8);
+			  	border: 1px solid black;
+			  	text-align: center;
+			  	font-size: 30px;
 			}
 			.card-head{
 				font-size : 80%;
@@ -87,7 +91,7 @@
 		</style>
 	</head>
 	<body>
-		<div class="container-fluid">
+		<div id="back" class="container-fluid">
 		
 			<!-- 가장위 logo -->
 			<div id="top" class="row">
@@ -136,9 +140,9 @@
 					
 						<div id="centerText" class="row mt-5 ml-3">나의 정보</div>
 						
-						<div id="mypage" class="row m-3" >
-							<div class="container-fluid">
-								<div class="row">
+						<div  class="row m-3" >
+							<div  class="container-fluid">
+								<div id="mypage" class="row">
 									<div class="col-md-12 col-lg-5">
 										<div class="ml-3 p-2"style="height:300px; width:250px;">
 											<img src="../resources/images/woman.png" alt="woman" style="border-radius:70%;"/>
@@ -175,31 +179,31 @@
 									
 									<div id="mypage" class="col-lg-5">
 										<div id="product" class="grid-container">
-										  <div class="card">
+										  <div class="card m-2">
 										  	<div class="card-head">
 										  		<img src="../resources/images/woman.png" alt="woman"/>
 										  	</div>
 											<div class="card-body"></div>
 										  </div>
-										  <div class="card">
+										  <div class="card m-2">
 										  	<div class="card-head">
 										  		<img src="../resources/images/woman.png" alt="woman"/>
 										  	</div>
 											<div class="card-body"></div>
 										  </div>
-										  <div class="card">
+										  <div class="card m-2">
 										  	<div class="card-head">
 										  		<img src="../resources/images/woman.png" alt="woman"/>
 										  	</div>
 											<div class="card-body"></div>
 										  </div> 
-										  <div class="card">
+										  <div class="card m-2">
 										  	<div class="card-head">
 										  		<img src="../resources/images/woman.png" alt="woman"/>
 										  	</div>
 											<div class="card-body"></div>
 										  </div>
-										  <div class="card">
+										  <div class="card m-2">
 										  	<div class="card-head">
 										  		<img src="../resources/images/woman.png" alt="woman"/>
 										  	</div>
@@ -211,15 +215,11 @@
 								</div>
 							</div>
 						</div>
-						
-						<div class="row m-3" style="height:10px;"></div>
-						
 					</div>
 				</div>
+				<!-- 오른쪽 상단 빈칸 -->
 				<div class="col-0 col-md-1 "></div>
 			</div>
-			<!-- 다리 -->
-			<div id="blank" class="row"></div>
 		</div>
 	</body>
 </html>

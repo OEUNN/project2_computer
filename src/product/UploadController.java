@@ -1,6 +1,7 @@
 package product;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +17,7 @@ public class UploadController extends HttpServlet {
 		System.out.println("Upload service() 실행");
 		
 		//JSP로 이동
-		request.getRequestDispatcher("/WEB-INF/views/product/upload.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/product/upload2.jsp").forward(request, response);
 	}
 
 }
