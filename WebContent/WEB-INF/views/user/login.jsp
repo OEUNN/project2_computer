@@ -76,6 +76,7 @@
 				<!-- 왼쪽 빈공간 -->
 				<div class="col-0 col-md-3"></div>
 				
+				<!-- 메인 -->
 				<div id="loginMain" class="col-12 col-md mt-5 mr-5">
 					<div id="loginBody" class="container-fluid">
 					

@@ -8,42 +8,42 @@ import java.sql.SQLException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import DTO.Basket_Detail;
+import DTO.BasketDetail;
 import util.ConnectionProvider;
 
 public class BasketDetailDao {
 
-	public Basket_Detail insertBasketPro(String user_id, String product_id, int qnt,int price) {
+	public BasketDetail insertBasketPro(String userId, String productId, int qnt,int price) {
 		PreparedStatement pstmt;
 		Connection conn = ConnectionProvider.getConnection();
-		Basket_Detail basket_Detail=new Basket_Detail();
+		BasketDetail basketDetail=new BasketDetail();
 		try {
 			
 			String sql ="insert into basket_detail"
-					+ "(basket_detail_id,PRODUCT_DETAIL_DETAIL_ID ,basket_users_user_id, price,PRODUCT_QNT ) "
+					+ "(basket_detail_id,PRODUCT_DETAIL_DETAIL_ID ,basket_id, price,PRODUCT_QNT ) "
 					+ "values('basD'||basket_detail_id.nextval,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,  product_id);
-			pstmt.setString(2, user_id);
+			pstmt.setString(1,  productId);
+			pstmt.setString(2, userId);
 			pstmt.setInt(3,price);
 			pstmt.setInt(4,qnt);
 			if(pstmt.executeUpdate()==1) {
 				sql="select rownum,basket_detail_id from (select * from basket_detail order by rownum desc) "
 						+ "where rownum=1 and basket_users_user_id= ?";
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, user_id);
+				pstmt.setString(1, userId);
 				
 				ResultSet rs=pstmt.executeQuery();
 				if(rs.next()) {
-					basket_Detail.setBasket_Detail_Id(rs.getString("basket_detail_id"));
+					basketDetail.setBasketDetailId(rs.getString("basket_detail_id"));
 					
 				}else {
-					return basket_Detail;
+					return basketDetail;
 				}
-				basket_Detail.setProduct_Detail_Id(product_id);
-				basket_Detail.setUser_Id(user_id);
-				basket_Detail.setPrice(price);
-				basket_Detail.setProduct_Qnt(qnt);
+				basketDetail.setProductDetailId(productId);
+				basketDetail.setUserId(userId);
+				basketDetail.setPrice(price);
+				basketDetail.setProductQnt(qnt);
 			}
 				
 			
@@ -52,10 +52,10 @@ public class BasketDetailDao {
 		}finally {
 			ConnectionProvider.exit(conn);
 		}
-		return basket_Detail;
+		return basketDetail;
 	}
 
-	public JSONArray selectBasketDetails(String user_id) {
+	public JSONArray selectBasketDetails(String userId) {
 		PreparedStatement pstmt;
 		Connection conn = ConnectionProvider.getConnection();
 		JSONArray list = new JSONArray();
@@ -67,7 +67,7 @@ public class BasketDetailDao {
 				+ "and b.basket_users_user_id=?";
 		try {
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, user_id);
+			pstmt.setString(1, userId);
 			ResultSet rs=pstmt.executeQuery();
 			while(rs.next()) {
 				JSONObject bd=new JSONObject();
@@ -82,7 +82,6 @@ public class BasketDetailDao {
 				list.put(bd);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			ConnectionProvider.exit(conn);
@@ -90,7 +89,7 @@ public class BasketDetailDao {
 		return list;
 	}
 
-	public boolean deleteBasketDetail(String user_id) {
+	public boolean deleteBasketDetail(String userId) {
 		PreparedStatement pstmt;
 		Connection conn = ConnectionProvider.getConnection();
 		boolean result=false;
@@ -98,7 +97,7 @@ public class BasketDetailDao {
 			
 			String sql ="delete from basket_detail where basket_users_user_id=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, user_id);
+			pstmt.setString(1, userId);
 			
 			if(pstmt.executeUpdate()!=0) {
 				

@@ -8,7 +8,7 @@ import util.ConnectionProvider;
 
 public class OrderDatailDao {
 
-	public Boolean insertOrderDetail(String order_id, int qnt, int price, String product_detail_id) {
+	public Boolean insertOrderDetail(String orderId, int qnt, int price, String productDetailId) {
 		Connection conn=ConnectionProvider.getConnection();
 		String sql ="insert into order_detail "
 				+ "(ORDER_DETAIL_ID,ORDERS_ORDER_ID,PRODUCT_QNT,PRICE,PRODUCT_DETAIL_DETAIL_ID)"
@@ -16,18 +16,15 @@ public class OrderDatailDao {
 		Boolean result=true;
 				try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, order_id);
+			pstmt.setString(1, orderId);
 			pstmt.setInt(2, qnt);
 			pstmt.setInt(3, price);
-			pstmt.setString(4, product_detail_id);
+			pstmt.setString(4, productDetailId);
 			if(pstmt.executeUpdate()!=1) {
 				result=false;
-				
-				
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			result=false;
 		}finally {

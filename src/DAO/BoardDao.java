@@ -9,27 +9,27 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import DTO.Free_Board;
-import DTO.Review_Board;
+import DTO.FreeBoard;
+import DTO.ReviewBoard;
 import util.ConnectionProvider;
 import util.Pager;
 
-public class DAO_Board {
+public class BoardDao {
 	String Output;
 	int countRow;
 	int totalRow;
 	Pager pager = new Pager();
 	
-	public String Insert(Free_Board free_Board) {
+	public String Insert(FreeBoard freeBoard) {
 		String sql = "insert into free_board (free_bno, free_btitle, free_bcontent, free_date, free_comment_num, users_User_Id) "
 				+ " values ('17', ?, ?, sysdate, free_conum.nextval, ? ) ";
 		Connection conn = ConnectionProvider.getConnection();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			//입력됨.
-			pstmt.setString(1, free_Board.getFree_Btitle());
-			pstmt.setString(2, free_Board.getFree_Bcontent());
-			pstmt.setString(3, free_Board.getUser_Id());
+			pstmt.setString(1, freeBoard.getFreeBtitle());
+			pstmt.setString(2, freeBoard.getFreeBcontent());
+			pstmt.setString(3, freeBoard.getUserId());
 			pstmt.executeUpdate();
 			pstmt.close();
 			Output = "success";
@@ -45,23 +45,23 @@ public class DAO_Board {
 		}
 		return Output;	
 	}
-	public Free_Board ReadFb(Free_Board free_Board) {
+	public FreeBoard ReadFb(FreeBoard freeBoard) {
 		String sql = "select Free_Btitle, Free_Bcontent, Free_Date, users_user_id,  free_bno "
 				+ "from free_board "
 				+ "where free_bno = ? ";
-		Free_Board free_Board2 = new Free_Board();
+		FreeBoard free_Board2 = new FreeBoard();
 		Connection conn = ConnectionProvider.getConnection();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, free_Board.getFree_Bno());
+			pstmt.setString(1, freeBoard.getFreeBno());
 			ResultSet rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
-				free_Board2.setFree_Btitle(rs.getString(1));
-				free_Board2.setFree_Bcontent(rs.getString(2));
-				free_Board2.setFree_Date(rs.getString(3));
-				free_Board2.setUser_Id(rs.getString(4));
-				free_Board2.setFree_Bno(rs.getString(5));
+				free_Board2.setFreeBtitle(rs.getString(1));
+				free_Board2.setFreeBcontent(rs.getString(2));
+				free_Board2.setFreeDate(rs.getString(3));
+				free_Board2.setUserId(rs.getString(4));
+				free_Board2.setFreeBno(rs.getString(5));
 			}
 			pstmt.close();
 			rs.close();
@@ -81,9 +81,9 @@ public class DAO_Board {
 	
 	
 	
-	public ArrayList<Free_Board> ReadAll(String readFb) {
+	public ArrayList<FreeBoard> ReadAll(String readFb) {
 		
-		ArrayList<Free_Board> list = new ArrayList<>();
+		ArrayList<FreeBoard> list = new ArrayList<>();
 		String sql = "select rnum, Free_Btitle, Free_Bcontent, Free_Date, users_user_id,  free_bno "
 				+" from ( "
 						+" select rownum as rnum, Free_Btitle, Free_Bcontent, Free_Date, users_user_id,  free_bno "
@@ -98,12 +98,12 @@ public class DAO_Board {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				Free_Board free_Board = new Free_Board();
-				free_Board.setFree_Btitle(rs.getString(2));
-				free_Board.setFree_Bcontent(rs.getString(3));
-				free_Board.setFree_Date(rs.getString(4));
-				free_Board.setUser_Id(rs.getString(5));
-				free_Board.setFree_Bno(rs.getString(6));
+				FreeBoard free_Board = new FreeBoard();
+				free_Board.setFreeBtitle(rs.getString(2));
+				free_Board.setFreeBcontent(rs.getString(3));
+				free_Board.setFreeDate(rs.getString(4));
+				free_Board.setUserId(rs.getString(5));
+				free_Board.setFreeBno(rs.getString(6));
 				list.add(free_Board);
 			}
 			pstmt.close();
@@ -146,9 +146,9 @@ public class DAO_Board {
 	}
 	
 	
-	public ArrayList<Free_Board> ReadFbpager(Pager pager) {
+	public ArrayList<FreeBoard> ReadFbpager(Pager pager) {
 		
-		ArrayList<Free_Board> list = new ArrayList<>();
+		ArrayList<FreeBoard> list = new ArrayList<>();
 		String sql = "select rnum, Free_Btitle, Free_Bcontent, Free_Date, users_user_id,  free_bno "
 			+" from ( "
 					+" select rownum as rnum, Free_Btitle, Free_Bcontent, Free_Date, users_user_id,  free_bno "
@@ -169,12 +169,12 @@ public class DAO_Board {
 			ResultSet rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
-				Free_Board free_Board = new Free_Board();
-				free_Board.setFree_Btitle(rs.getString(2));
-				free_Board.setFree_Bcontent(rs.getString(3));
-				free_Board.setFree_Date(rs.getString(4));
-				free_Board.setUser_Id(rs.getString(5));
-				free_Board.setFree_Bno(rs.getString(6));
+				FreeBoard free_Board = new FreeBoard();
+				free_Board.setFreeBtitle(rs.getString(2));
+				free_Board.setFreeBcontent(rs.getString(3));
+				free_Board.setFreeDate(rs.getString(4));
+				free_Board.setUserId(rs.getString(5));
+				free_Board.setFreeBno(rs.getString(6));
 				
 				
 				list.add(free_Board);
@@ -194,8 +194,8 @@ public class DAO_Board {
 		return list;
 	}
 	
-	public ArrayList<Free_Board> readMyPost(Free_Board free_Board, Pager pager) {
-	ArrayList<Free_Board> list = new ArrayList<>();
+	public ArrayList<FreeBoard> readMyPost(FreeBoard freeBoard, Pager pager) {
+	ArrayList<FreeBoard> list = new ArrayList<>();
 	String sql = "select rnum, Free_Btitle, Free_Bcontent, Free_Date, users_user_id,  free_bno "
 			+" from ( "
 			+" select rownum as rnum, Free_Btitle, Free_Bcontent, Free_Date, users_user_id,  free_bno "
@@ -211,20 +211,20 @@ public class DAO_Board {
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		
 		pstmt.setInt(1, pager.getEndRowNo());
-		pstmt.setString(2, free_Board.getUser_Id());
+		pstmt.setString(2, freeBoard.getUserId());
 		pstmt.setInt(3, pager.getStartRowNo());
 
 		ResultSet rs = pstmt.executeQuery();
 		
 		while (rs.next()) {
-			Free_Board free_Board1 = new Free_Board();
-			free_Board1.setFree_Btitle(rs.getString(2));
-			free_Board1.setFree_Bcontent(rs.getString(3));
-			free_Board1.setFree_Date(rs.getString(4));
-			free_Board1.setUser_Id(rs.getString(5));
-			free_Board1.setFree_Bno(rs.getString(6));
+			FreeBoard freeBoard1 = new FreeBoard();
+			freeBoard1.setFreeBtitle(rs.getString(2));
+			freeBoard1.setFreeBcontent(rs.getString(3));
+			freeBoard1.setFreeDate(rs.getString(4));
+			freeBoard1.setUserId(rs.getString(5));
+			freeBoard1.setFreeBno(rs.getString(6));
 			
-			list.add(free_Board1);
+			list.add(freeBoard1);
 		}
 		
 		pstmt.close();
@@ -240,12 +240,12 @@ public class DAO_Board {
 	}
 	return list;
 }
-	public int getUser_ID_Board_Count(Free_Board free_Board) {
+	public int getUserIDBoardCount(FreeBoard free_Board) {
 		String sql = "select count (*) as count from free_board where users_user_id = ? ";
 		Connection conn = ConnectionProvider.getConnection();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, free_Board.getUser_Id());
+			pstmt.setString(1, free_Board.getUserId());
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				countRow = rs.getInt("count");
@@ -265,14 +265,14 @@ public class DAO_Board {
 	}
 	
 	
-	public String DeleteFb(Free_Board free_Board) {
+	public String DeleteFb(FreeBoard freeBoard) {
 		String answer = "";
 		String sql = "delete from free_board where users_user_id = ? and free_bno = ? ";
 		Connection conn = ConnectionProvider.getConnection();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, free_Board.getUser_Id());
-			pstmt.setString(2, free_Board.getFree_Bno());
+			pstmt.setString(1, freeBoard.getUserId());
+			pstmt.setString(2, freeBoard.getFreeBno());
 			pstmt.executeUpdate();
 			
 			answer = "success";
@@ -290,7 +290,7 @@ public class DAO_Board {
 		}
 		return answer;
 	}
-		public String ordered(String user_Id) {  
+		public String ordered(String userId) {  
 			String sql="select ORDER_DETAIL_ID, PRODUCT_NAME from ORDER_DETAIL, PRODUCT "
 					+ "where ORDERS_ORDER_ID in (select ORDER_ID from ORDERS where USER_USER_ID = ? ) "
 					+ "and PRODUCT_ID=(select PRODUCT_PRODUCT_ID from PRODUCT_DETAIL where DETAIL_ID=PRODUCT_DETAIL_DETAIL_ID)"; //얘도 필드로
@@ -299,7 +299,7 @@ public class DAO_Board {
 			JSONArray ja = new JSONArray();
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, user_Id);
+				pstmt.setString(1, userId);
 				ResultSet rs = pstmt.executeQuery();
 				
 				if(rs.next()) {
@@ -324,17 +324,17 @@ public class DAO_Board {
 			return returnjson.toString();
 		}
 		
-		public String Insert(Review_Board rb) {
+		public String Insert(ReviewBoard rb) {
 			String sql = "insert into REVIEW_BOARD (review_bno, Review_Btitle,Review_Bcontent, REVIEW_DATE, Review_Rate, USER_USER_ID, ORDER_DETAIL_ORDER_DETAIL_ID, PRODUCT_NAME )  values('28', ? , ? , SYSDATE, ? , ? , ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, rb.getReview_Btitle());
-				pstmt.setString(2, rb.getReview_Bcontent());
-				pstmt.setInt(3, rb.getReview_Rate());
-				pstmt.setString(4, rb.getUser_Id());
-				pstmt.setString(5, rb.getOrder_Detail_Id());
-				pstmt.setString(6, rb.getProduct_Name());
+				pstmt.setString(1, rb.getReviewBtitle());
+				pstmt.setString(2, rb.getReviewBcontent());
+				pstmt.setInt(3, rb.getReviewRate());
+				pstmt.setString(4, rb.getUserId());
+				pstmt.setString(5, rb.getOrderDetailId());
+				pstmt.setString(6, rb.getProductName());
 				pstmt.executeUpdate();
 				pstmt.close();
 				Output = "success";
@@ -375,9 +375,9 @@ public class DAO_Board {
 			return totalRow;
 		}
 		
-		public ArrayList<Review_Board> readRb(int pageNo) {
+		public ArrayList<ReviewBoard> readRb(int pageNo) {
 			Connection conn = ConnectionProvider.getConnection();
-			ArrayList<Review_Board> list = new ArrayList<>();
+			ArrayList<ReviewBoard> list = new ArrayList<>();
 			try {
 				getTRRb();			
 				 String sql = "select REVIEW_BNO, REVIEW_BTITLE, REVIEW_BCONTENT, REVIEW_DATE, REVIEW_RATE, USER_USER_ID, PRODUCT_NAME from ("
@@ -392,14 +392,14 @@ public class DAO_Board {
 				ResultSet rs = pstmt.executeQuery();
 				
 				while (rs.next()) {
-					Review_Board rb = new Review_Board();
-					rb.setReview_Bno(rs.getString(1));
-					rb.setReview_Btitle(rs.getString(2));
-					rb.setReview_Bcontent(rs.getString(3));
-					rb.setReview_Date(rs.getString(4));
-					rb.setReview_Rate(rs.getInt(5));
-					rb.setUser_Id(rs.getString(6));
-					rb.setProduct_Name(rs.getString(7));
+					ReviewBoard rb = new ReviewBoard();
+					rb.setReviewBno(rs.getString(1));
+					rb.setReviewBtitle(rs.getString(2));
+					rb.setReviewBcontent(rs.getString(3));
+					rb.setReviewDate(rs.getString(4));
+					rb.setReviewRate(rs.getInt(5));
+					rb.setUserId(rs.getString(6));
+					rb.setProductName(rs.getString(7));
 					
 					list.add(rb);
 				}
@@ -475,15 +475,15 @@ public class DAO_Board {
 			return Output;			
 		}
 		
-		public String updateRb(Review_Board rb) {		
+		public String updateRb(ReviewBoard rb) {		
 			String sql = "update REVIEW_BOARD set REVIEW_BTITLE = ?, REVIEW_BCONTENT = ?, REVIEW_DATE = sysdate, REVIEW_RATE = ? where REVIEW_BNO = ? ";
 			Connection conn = ConnectionProvider.getConnection();
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, rb.getReview_Btitle());
-				pstmt.setString(2, rb.getReview_Bcontent());
-				pstmt.setInt(3, rb.getReview_Rate());
-				pstmt.setString(4, rb.getReview_Bno());
+				pstmt.setString(1, rb.getReviewBtitle());
+				pstmt.setString(2, rb.getReviewBcontent());
+				pstmt.setInt(3, rb.getReviewRate());
+				pstmt.setString(4, rb.getReviewBno());
 				pstmt.executeUpdate();
 				pstmt.close();
 				Output = "success";

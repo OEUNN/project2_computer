@@ -215,11 +215,9 @@
 								</div>
 							</div>
 						</div>
-						
-						<div class="row m-3" style="height:10px;"></div>
-						
 					</div>
 				</div>
+				<!-- 오른쪽 상단 빈칸 -->
 				<div class="col-0 col-md-1 "></div>
 			</div>
 		</div>
