@@ -15,17 +15,14 @@ import util.ConnectionProvider;
 public class BasketDao {
 	String Output;
 
-	public String Create (Basket basket) {
+	public String Create (Basket basket, Connection conn) {
 		String sql = "insert into basket (user_id)  values  ( ? ) ";
-		Connection conn = ConnectionProvider.getConnection();
-		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, basket.getUserId());
 			pstmt.executeUpdate();
 			pstmt.close();
 			Output = "success";
-			
 		} catch (SQLException e) {
 			Output = "fail";
 		}finally {
@@ -39,16 +36,15 @@ public class BasketDao {
 	}
 	
 	
-	public Basket updateBasket(String userId, BasketDetail bd) {
+	public Basket updateBasket(String userId, BasketDetail bd, Connection conn) {
 		PreparedStatement pstmt;
-		Connection conn = ConnectionProvider.getConnection();
 		String sql="update basket set total_price=total_price+? ";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, bd.getPrice());
 			if(pstmt.executeUpdate()==1) {
-				return selectBasket(userId);
+				return selectBasket(userId,conn);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -58,10 +54,9 @@ public class BasketDao {
 		return null;
 	}
 
-	public Basket selectBasket(String basketId) {
+	public Basket selectBasket(String basketId, Connection conn) {
 		Basket basket = new Basket();
 		PreparedStatement pstmt;
-		Connection conn = ConnectionProvider.getConnection();
 		String sql="select user_id, total_price from basket where user_id=?";
 		
 		try {
@@ -72,7 +67,6 @@ public class BasketDao {
 				basket.setUserId(rs.getString("user_id"));
 				basket.setTotalPrice(rs.getInt("total_price"));
 			}
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {

@@ -1,6 +1,5 @@
 package DTO;
 
-
 import lombok.Data;
 
 @Data
@@ -13,5 +12,5 @@ public class Users {
 	private String userNickname;
 	private String userInsertdate;
 	private String userAddress;
-	private int userPurchase;
+	private boolean isAdmin;
 }

@@ -11,8 +11,7 @@ import util.ConnectionProvider;
 
 public class OrderDao {
 
-	public String insertOrder(String userId, int totalPrice, JSONObject receiveData) {
-		Connection conn=ConnectionProvider.getConnection();
+	public String insertOrder(String userId, int totalPrice, JSONObject receiveData, Connection conn) {
 		String sql = "insert into orders values('Ord'||order_id.NEXTVAL,sysdate,'주문완료',?,?,?,?,?)";
 		String result=null;
 				try {
@@ -24,10 +23,7 @@ public class OrderDao {
 			pstmt.setString(5, receiveData.getString("receiverPhone"));
 			if(pstmt.executeUpdate()==1) {
 				result=selectOrderId(userId,conn);
-				
-				
 			}
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -51,7 +47,6 @@ public class OrderDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-				
 		return result;
 	}
 
