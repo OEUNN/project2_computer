@@ -3,17 +3,15 @@ package DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-
-import javax.servlet.ServletContext;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import DTO.QnaBoard;
+import DTO.OrderDetail;
+import DTO.Product;
 import DTO.ReviewBoard;
-import util.ConnectionProvider;
 import util.Pager;
 
 public class ReviewBoardDao {
@@ -27,6 +25,7 @@ public class ReviewBoardDao {
 				+ "where ORDERS_ORDER_ID in (select ORDER_ID from ORDERS where USER_USER_ID = ? ) "
 				+ "and PRODUCT_ID=(select PRODUCT_PRODUCT_ID from PRODUCT_DETAIL where DETAIL_ID=PRODUCT_DETAIL_DETAIL_ID)"; // 얘도
 																																// 필드로
+		List<OrderDetail> orderDetailList=new ArrayList<>();
 		
 		JSONObject returnjson = new JSONObject().put("sf", "fail");
 		JSONArray ja = new JSONArray();
@@ -39,9 +38,13 @@ public class ReviewBoardDao {
 				do {
 					returnjson.put("sf", "success");
 					JSONObject jo = new JSONObject();
-					jo.put("ORDER_DETAIL_ID", rs.getString("ORDER_DETAIL_ID"));
-					jo.put("PRODUCT_NAME", rs.getString("PRODUCT_NAME"));
-					ja.put(jo);
+					OrderDetail orderDetail=new OrderDetail();
+					orderDetail.setOrderDetailId(rs.getString("ORDER_DETAIL_ID"));
+					
+					orderDetail.setProduct(new Product());
+					//jo.put("ORDER_DETAIL_ID", rs.getString("ORDER_DETAIL_ID"));
+					//jo.put("PRODUCT_NAME", rs.getString("PRODUCT_NAME"));
+					//ja.put(jo);
 				} while (rs.next());
 				returnjson.put("json", ja);
 			}

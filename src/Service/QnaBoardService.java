@@ -16,7 +16,7 @@ public class QnaBoardService {
 	int totalRow;
 	ServletContext application;
 	public QnaBoardService(ServletContext application) {
-		this.application=application;
+		this.application=application; 
 	}
 	public int getTotalRow() {
 		Connection conn = ConnectionProvider.getConnection();
