@@ -1,87 +1,139 @@
 package Service;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
+import javax.servlet.ServletContext;
 
 import DAO.QnaBoardDao;
 import DTO.QnaBoard;
-import DTO.ReviewBoard;
+import util.ConnectionProvider;
 import util.Pager;
 
 public class QnaBoardService {
-	QnaBoard freeBoard = new QnaBoard();
 	String Output;
 	int totalRow;
-	
+	ServletContext application;
+	public QnaBoardService(ServletContext application) {
+		this.application=application;
+	}
 	public int getTotalRow() {
-		QnaBoardDao Db = new QnaBoardDao();
-		Db = new QnaBoardDao();
-		totalRow = Db.getTotalRow();
+		Connection conn = ConnectionProvider.getConnection();
+		QnaBoardDao qnaBoardDao = (QnaBoardDao) application.getAttribute("qnaBoardDao");
+		
+		totalRow = qnaBoardDao.getTotalRow(conn);
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return totalRow;
 	}
 	
 	
-	public String writeFb(QnaBoard freeBoard) {
-		QnaBoardDao Db = new QnaBoardDao();
-		Db = new QnaBoardDao();
-		Output = Db.Insert(freeBoard);
+	public String writeQnaBoard(QnaBoard qnaBoard) {
+		Connection conn = ConnectionProvider.getConnection();
+		QnaBoardDao qnaBoardDao = (QnaBoardDao) application.getAttribute("qnaBoardDao");
+		
+		Output = qnaBoardDao.Insert(qnaBoard,conn);
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return Output;
 	}
 	
-	public ArrayList<QnaBoard> readFb(String readFb) {
-		QnaBoardDao Db = new QnaBoardDao();
+	public ArrayList<QnaBoard> readQnaBoard(String readQnaBoard) {
+		Connection conn = ConnectionProvider.getConnection();
+		QnaBoardDao qnaBoardDao = (QnaBoardDao) application.getAttribute("qnaBoardDao");
 		ArrayList<QnaBoard> list = new ArrayList<>();
-		Db = new QnaBoardDao();
-		list = Db.ReadAll(readFb);
+		
+		list = qnaBoardDao.ReadAll(readQnaBoard,conn);
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return list;
 	}
 	
-	public QnaBoard selectFb(QnaBoard freeBoard) {
-		QnaBoardDao Db = new QnaBoardDao();
-		Db= new QnaBoardDao();
-		QnaBoard freeBoard2 = new QnaBoard();
-		freeBoard2 = Db.ReadFb(freeBoard);
-		return freeBoard2;
+	public QnaBoard selectQnaBoard(QnaBoard qnaBoard) {
+		Connection conn = ConnectionProvider.getConnection();
+		QnaBoardDao qnaBoardDao = (QnaBoardDao) application.getAttribute("qnaBoardDao");
+		
+		QnaBoard qnaBoard2 = new QnaBoard();
+		qnaBoard2 = qnaBoardDao.readQnaBoard(qnaBoard,conn);
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return qnaBoard2;
 	}
 	
-	public ArrayList<QnaBoard> readFbPager(Pager pager) {
-		QnaBoardDao Db = new QnaBoardDao();
+	public ArrayList<QnaBoard> readQnaBoardPager(Pager pager) {
+		Connection conn = ConnectionProvider.getConnection();
+		QnaBoardDao qnaBoardDao = (QnaBoardDao) application.getAttribute("qnaBoardDao");
 		ArrayList<QnaBoard> list = new ArrayList<>();
-		Db = new QnaBoardDao();
-		list = Db.ReadFbpager(pager);
+		
+		list = qnaBoardDao.readQnaBoardPager(pager,conn);
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return list;
 	}
 	
-	public ArrayList<QnaBoard> readMyPost(QnaBoard freeBoard, Pager pager) {
-		QnaBoardDao Db = new QnaBoardDao();
+	public ArrayList<QnaBoard> readMyPost(QnaBoard qnaBoard, Pager pager) {
+		Connection conn = ConnectionProvider.getConnection();
+		QnaBoardDao qnaBoardDao = (QnaBoardDao) application.getAttribute("qnaBoardDao");
 		ArrayList<QnaBoard> list = new ArrayList<>();
-		Db = new QnaBoardDao();
-		list = Db.readMyPost(freeBoard, pager);
+		
+		list = qnaBoardDao.readMyPost(qnaBoard, pager,conn);
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return list;
 	}
-	public int getUserIDBoardCount(QnaBoard freeBoard) {
-		QnaBoardDao Db = new QnaBoardDao();
-		Db = new QnaBoardDao();
-		int getUserIDBoardCount = Db.getUserIDBoardCount(freeBoard);
+	public int getUserIDBoardCount(QnaBoard qnaBoard) {
+		Connection conn = ConnectionProvider.getConnection();
+		QnaBoardDao qnaBoardDao = (QnaBoardDao) application.getAttribute("qnaBoardDao");
+		
+		int getUserIDBoardCount = qnaBoardDao.getUserIDBoardCount(qnaBoard,conn);
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return getUserIDBoardCount;
 	}
 	
-	public String DeleteFb(QnaBoard freeBoard) {
-		QnaBoardDao Db = new QnaBoardDao();
-		Db = new QnaBoardDao();
-		Output = Db.DeleteFb(freeBoard);
+	public String deleteQnaBoard(QnaBoard qnaBoard) {
+		Connection conn = ConnectionProvider.getConnection();
+		QnaBoardDao qnaBoardDao = (QnaBoardDao) application.getAttribute("qnaBoardDao");
+		
+		Output = qnaBoardDao.deleteQnaBoard(qnaBoard,conn);
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return Output;
 	}
 	public String Or(String userId) {
-		QnaBoardDao Db = new QnaBoardDao();
-		return Db.ordered(userId);
+		Connection conn = ConnectionProvider.getConnection();
+		QnaBoardDao qnaBoardDao = (QnaBoardDao) application.getAttribute("qnaBoardDao");
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return qnaBoardDao.ordered(userId,conn);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
