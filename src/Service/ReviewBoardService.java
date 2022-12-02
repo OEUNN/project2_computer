@@ -14,7 +14,7 @@ import util.ConnectionProvider;
 public class ReviewBoardService {
 	ServletContext application;
 	public ReviewBoardService(ServletContext application) {
-		this.application=application;
+		this.application=application; 
 	}
 	public String writeReviewBoard(ReviewBoard reviewBoard) {
 		Connection conn = ConnectionProvider.getConnection();

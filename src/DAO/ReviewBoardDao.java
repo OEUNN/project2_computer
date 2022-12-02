@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import DTO.OrderDetail;
+import DTO.Product;
 import DTO.ReviewBoard;
 import util.Pager;
 
@@ -40,7 +41,7 @@ public class ReviewBoardDao {
 					OrderDetail orderDetail=new OrderDetail();
 					orderDetail.setOrderDetailId(rs.getString("ORDER_DETAIL_ID"));
 					
-					orderDetail.setProduct((new Product()).);
+					orderDetail.setProduct(new Product());
 					//jo.put("ORDER_DETAIL_ID", rs.getString("ORDER_DETAIL_ID"));
 					//jo.put("PRODUCT_NAME", rs.getString("PRODUCT_NAME"));
 					//ja.put(jo);

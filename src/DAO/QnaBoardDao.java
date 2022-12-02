@@ -16,7 +16,7 @@ import util.Pager;
 
 public class QnaBoardDao {
 	String Output;
-	int countRow;
+	int countRow; 
 	
 	public String Insert(QnaBoard qnaBoard,Connection conn) {
 		String sql = "insert into free_board (free_bno, free_btitle, free_bcontent, free_date, free_comment_num, users_User_Id) "
