@@ -78,11 +78,10 @@ public class BasketDetailDao {
 		return list;
 	}
 
-	public boolean deleteBasketDetail(String userId, Connection conn) {
+	public boolean deleteBasketDetail(String userId, Connection conn) throws SQLException {
 		PreparedStatement pstmt;
 		boolean result=false;
-		try {
-			
+		
 			String sql ="delete from basket_detail where basket_users_user_id=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
@@ -90,12 +89,27 @@ public class BasketDetailDao {
 			if(pstmt.executeUpdate()!=0) {	
 				result=true;	
 			}
-				
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
+
 		return result;
+		
+	}
+	
+	public BasketDetail selectBasketDetail(String basketDetailId, Connection conn) throws SQLException {
+		PreparedStatement pstmt;
+		String sql = "select basket_detail_id, basket_id, price, product_qnt, product_id from basket_detail where basket_detail_id=?";
+		pstmt= conn.prepareStatement(sql);
+		pstmt.setString(1, basketDetailId);
+		ResultSet rs=pstmt.executeQuery();
+		BasketDetail basketDetail = new BasketDetail();
+		
+		if(rs.next()) {
+			basketDetail.setBasketDetailId(basketDetailId);
+			basketDetail.setPrice(rs.getInt("price"));
+			basketDetail.setProductId(rs.getString("product_id"));
+			basketDetail.setProductQnt(rs.getInt("product_qnt"));
+		}
+		
+		return basketDetail;
 		
 	}
 	
