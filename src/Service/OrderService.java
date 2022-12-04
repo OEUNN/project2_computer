@@ -63,8 +63,8 @@ public class OrderService {
 				int quantity = 0;
 				
 				for(String basketDetailId : basketDetailIdList ) {
-					BasketDetail basketDetail = basketService.
-					
+					BasketDetail basketDetail = basketService.getBasketDetail(basketDetailId);
+					//totalPrice = basketDetail.getProduct().getPrice() * basketDetail.get
 				}
 				
 			} catch (SQLException e) {
@@ -77,8 +77,8 @@ public class OrderService {
 		
 		//바로 주문하기
 		
-		public boolean addOrderDetail() {
-			
-		}
+//		public boolean addOrderDetail() {
+//			
+//		}
 
 }
