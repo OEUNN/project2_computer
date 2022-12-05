@@ -89,12 +89,12 @@ public class BasketService {
 		return basket;
 	}
 
-	public boolean CreateBasket(Basket basket) {
+	public boolean CreateBasket(String userId) {
 		Connection conn = null;
 		boolean result = false;
 		try {
 			conn = ds.getConnection();
-			result = basketDao.Create(basket, conn);
+			result = basketDao.Create(userId, conn);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {

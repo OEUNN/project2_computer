@@ -19,14 +19,16 @@ public class BasketDao {
 		this.application = application;
 	}
 
-	public boolean Create(Basket basket, Connection conn) throws Exception {
+	public boolean Create(String userId, Connection conn) throws Exception {
 		boolean result = false;
 		String sql = "insert into basket (user_id)  values  ( ? ) ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, basket.getUserId());
-		pstmt.executeUpdate();
-		result = true;
-
+		pstmt.setString(1, userId);
+		int row = pstmt.executeUpdate();
+		
+		if(row == 1) {
+			result = true;
+		}
 		return result;
 	}
 
@@ -37,7 +39,6 @@ public class BasketDao {
 		if (pstmt.executeUpdate() == 1) {
 			return selectBasket(userId, conn);
 		}
-
 		return null;
 	}
 
@@ -57,5 +58,6 @@ public class BasketDao {
 		}
 		return basket;
 	}
+	
 
 }

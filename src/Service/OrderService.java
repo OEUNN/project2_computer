@@ -18,7 +18,7 @@ public class OrderService {
 
 	public OrderService(ServletContext application) {
 		this.application = application;
-		orderDao = (OrderDao) application.getAttribute("orderDao");
+		this.orderDao = (OrderDao) application.getAttribute("orderDao");
 		ds = (DataSource) application.getAttribute("dataSource");
 	}
 
@@ -28,7 +28,6 @@ public class OrderService {
 		boolean result = false;
 		try {
 			conn = ds.getConnection();
-			OrderDao orderDao= (OrderDao) application.getAttribute("orderDao");
 			OrderDetailDao orderDetailDao = (OrderDetailDao) application.getAttribute("orderDetailDao");
 			String orderId=orderDao.insertOrder(order, conn);
 			result = orderDetailDao.insertOrderDetail(orderId, orderDeatil, conn);
