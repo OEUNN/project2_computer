@@ -169,9 +169,24 @@
 											<a href="#qnaDetail${status.count}" data-toggle="collapse">${qnaBoard.qnaBtitle }<span></span></a>
 											<p>작성일자<span>${qnaBoard.qnaDate }</span></p>
 										</div>
-										<div class="qnaDetail collapse" id="qnaDetail${status.count}">
+										<div class="col-1 qnaDetail collapse" id="qnaDetail${status.count}"><br/>질문내용</div>
+										<div class="qnaDetail collapse col-11" id="qnaDetail${status.count}">
+											<hr/>
 											<p>${qnaBoard.qnaBcontent }</p>
+											<hr/>
+											<div class="row">
+											
+												<div class="col-8">
+													<p>답변내용이 들어갈 위치입니다.</p>
+												</div>
+												<div class="col-2">
+													<button class="btn btn-primary btn-sm">수정</button>
+													<button class="btn btn-primary btn-sm">삭제</button>
+													
+												</div>
+											</div>
 										</div>
+										
 									</div>
 								</c:forEach>
 								<div style="text-align:center">
