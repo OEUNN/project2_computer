@@ -9,4 +9,7 @@ public class ProductDetail {
 	private String detailCapacity;
 	private String productId;
 	private int detailQnt;
+	private String detailFileName;
+	private String detailSavedName;
+	private String detailContentType;
 }
