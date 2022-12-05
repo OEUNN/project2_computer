@@ -6,25 +6,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import DTO.Orders;
-import util.ConnectionProvider;
 
 public class OrderDao {
 
 	public String insertOrder(Orders order, Connection conn) throws SQLException {
 		String sql = "insert into orders values('Ord'||order_id.NEXTVAL,sysdate,'주문완료',?,?,?,?,?)";
 		String result=null;
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,order.getUserId());
-			pstmt.setInt(2, order.getTotalPrice());
-			pstmt.setString(3, order.getReceiverName());
-			pstmt.setString(4, order.getReceiverAddress());
-			pstmt.setString(5, order.getReceiverPhone());
-			if(pstmt.executeUpdate()==1) {
-				result=selectOrderId(order.getUserId(),conn);
-		
-			}
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, order.getUserId());
+		pstmt.setInt(2, order.getTotalPrice());
+		pstmt.setString(3, order.getReceiverName());
+		pstmt.setString(4, order.getReceiverAddress());
+		pstmt.setString(5, order.getReceiverPhone());
+		if (pstmt.executeUpdate() == 1) {
+			result = selectOrderId(order.getUserId(), conn);
+		}
 			
-	
 		return result;
 	}
 

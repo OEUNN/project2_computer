@@ -16,4 +16,7 @@ public class Product {
 	   private String mainboard;
 	   private String os;
 	   private String memory;
+	   private String productFileName;
+	   private String productSavedName;
+	   private String productContentType;
 }

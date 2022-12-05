@@ -1,21 +1,21 @@
-package user;
+package servlet.product;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "user.MypageController", urlPatterns ="/user/MypageController")
-public class MypageController extends HttpServlet {
-
-	@Override
+@WebServlet(name = "product.OrderController", urlPatterns =  "/product/OrderController" )
+public class OrderController extends HttpServlet {
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("MypageController service() 실행");
+		System.out.println("OrderController service()실행");
 		
 		//JSP로 이동
-		request.getRequestDispatcher("/WEB-INF/views/user/mypage.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/product/order.jsp").forward(request, response);
 	}
 
 }

@@ -2,8 +2,6 @@ package Service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletContext;
@@ -17,26 +15,21 @@ import DTO.BasketDetail;
 import DTO.Product;
 
 public class BasketService {
-	
 	String Output;
 	private ServletContext application;
 	private DataSource ds;
+	private BasketDao basketDao;
+	private BasketDetailDao basketDetailDao;
 	
 	public BasketService(ServletContext application) {
 		this.application=application;
-		try {
-			InitialContext ic = new InitialContext();
-			ds = (DataSource) ic.lookup("java:comp/env/jdbc/java");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		basketDao = (BasketDao)application.getAttribute("basketDao");
+		ds=(DataSource)application.getAttribute("dataSource");
 	}
 
 	public BasketDetail addBasketProduct(String userId, String productDetailId, int quantity) {
 		Connection conn = null;
-
 		ProductDao productDao= (ProductDao)application.getAttribute("productDao");
-		BasketDetailDao basketDetailDao= (BasketDetailDao)application.getAttribute("basketDetailDao");	
 		BasketDetail basketDetail = new BasketDetail();
 		try {
 			conn = ds.getConnection();
@@ -53,14 +46,10 @@ public class BasketService {
 						basketDao.updateBasket(userId, basketDetail, conn);
 					}
 				}
-
 			} 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		
-		finally {
+		}finally {
 			try {conn.close();} catch(Exception e) {};
 		}
 
@@ -73,10 +62,11 @@ public class BasketService {
 		BasketDetail basketDetail = null;
 		try {
 			conn = ds.getConnection();
-			BasketDetailDao basketDetailDao = (BasketDetailDao) application.getAttribute("basketDetailDao");
 			basketDetailDao.selectBasketDetail(basketDetailId, conn);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {conn.close();} catch(Exception e) {};
 		}
 
 		return basketDetail;
@@ -89,18 +79,13 @@ public class BasketService {
 		Basket basket = null;
 		try {
 			conn = ds.getConnection();
-			BasketDao basketDao = (BasketDao)application.getAttribute("basketDao");
 			basket = basketDao.selectBasket(userId, conn);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		
-		finally {
+		}finally {
 			try {conn.close();} catch(Exception e) {};
 		}
 		
-
 		return basket;
 	}
 
@@ -109,14 +94,10 @@ public class BasketService {
 		boolean result = false;
 		try {
 			conn = ds.getConnection();
-			BasketDao basketDao = (BasketDao)application.getAttribute("basketDao");
 			result = basketDao.Create(basket, conn);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		
-		finally {
+		}finally {
 			try {conn.close();} catch(Exception e) {};
 		}
 		
@@ -127,14 +108,10 @@ public class BasketService {
 		Connection conn = null;
 		try {
 			conn = ds.getConnection();
-			BasketDetailDao basketDetailDao = (BasketDetailDao)application.getAttribute("basketDetailDao");
 			Output = (basketDetailDao.deleteBasketDetail(basket.getUserId(),conn)) ? "success" : "fail";
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		
-		finally {
+		}finally {
 			try {conn.close();} catch(Exception e) {};
 		}
 		
