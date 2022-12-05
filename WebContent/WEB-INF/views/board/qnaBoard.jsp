@@ -76,8 +76,8 @@
 				text-decoration: none;
 				
 			}
-			.qnaList div:hover{
-				background-color: #f0f0f0;
+			.qnaList:hover *{
+				background-color: #f0f0f0 !important;
 			}
 			#qnaModal *{
 				background-color: white;
@@ -86,6 +86,13 @@
 			
 			#qnaModal button{
 				background-color:#0c1c32;
+			}
+			.pagerBtn{
+				color:black;
+			}
+			.pagerBtn:hover{
+				color:black;
+				background-color: #e0e0e0 !important;
 			}
 		</style>
 	</head>
@@ -153,7 +160,7 @@
 						<div id="contentText" class="row m-3">
 							<div id="contentBox" class="container-fluid p-5">
 								<c:forEach var="qnaBoard" items="${qnaList }" varStatus="status">
-									<div id="qnaList" class="row m-1">
+									<div id="qnaList" class="qnaList row m-1">
 										<div id="qnaNum" class="col-1" >
 											<!-- <i class="btn fas" >&#xf00d;</i> -->
 											${status.count}
@@ -167,7 +174,24 @@
 										</div>
 									</div>
 								</c:forEach>
-								
+								<div style="text-align:center">
+									<a href="QnaBoardController?pageNo=1"  class="btn btn-outline-primary btn-sm pagerBtn">처음</a>
+									<c:if test="${pager.groupNo>1 }">
+										<a href="QnaBoardController?pageNo=1" class="btn btn-outline-info btn-sm pagerBtn" >이전</a>
+									</c:if>
+									<c:forEach var="i" begin="${pager.startPageNo }" end="${pager.endPageNo}">
+										<c:if test="${pager.pageNo !=i }">
+											<a href="QnaBoardController?pageNo=${i}" class="btn btn-outline-success btn-sm pagerBtn">${i}</a>
+										</c:if>
+										<c:if test="${pager.pageNo==i }">
+											<a href="QnaBoardController?pageNo=${i}" style="background-color:#e0e0e0"  class="btn btn-danger btn-sm pagerBtn">${i}</a>
+										</c:if>
+									</c:forEach>
+									<c:if test="${pager.groupNo<pager.totalGroupNo }">
+										<a href="QnaBoardController?pageNo=${i}" class="btn btn-outline-info btn-sm pagerBtn">다음</a>
+									</c:if>								
+									<a href="QnaBoardController?pageNo=${pager.totalPageNo}" class="btn btn-outline-primary btn-sm pagerBtn">맨끝</a>
+								</div>
 							</div> 
 						</div>
 					</div>
