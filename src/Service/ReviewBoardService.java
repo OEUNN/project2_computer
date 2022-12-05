@@ -1,87 +1,107 @@
 package Service;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
+import javax.sql.DataSource;
 
 import DAO.ReviewBoardDao;
-import DTO.QnaBoard;
 import DTO.ReviewBoard;
-import util.ConnectionProvider;
 
 public class ReviewBoardService {
-	ServletContext application;
+	private ServletContext application;
+	private DataSource ds;
+	private ReviewBoardDao reviewBoardDao;
+	
 	public ReviewBoardService(ServletContext application) {
 		this.application=application; 
+		reviewBoardDao = (ReviewBoardDao)application.getAttribute("reviewBoardDao");
+		ds=(DataSource)application.getAttribute("dataSource");
 	}
+	
 	public String writeReviewBoard(ReviewBoard reviewBoard) {
-		Connection conn = ConnectionProvider.getConnection();
-		ReviewBoardDao reviewBoardDao = (ReviewBoardDao)application.getAttribute("reviewBoardDao");
+		Connection conn = null;
+		String result=null;
 		try {
-			conn.close();
-		} catch (SQLException e) {
+			conn=ds.getConnection();
+			result=reviewBoardDao.Insert(reviewBoard,conn);
+		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			try{ conn.close(); }catch(Exception e) {}
 		}
-		return reviewBoardDao.Insert(reviewBoard,conn);
+		return result;
 	}
 	
 	public int getTotalRowReviewBoard() {
-		Connection conn = ConnectionProvider.getConnection();
-		ReviewBoardDao reviewBoardDao = new ReviewBoardDao();
+		Connection conn = null;
+		int totalrow=0;
 		try {
-			conn.close();
-		} catch (SQLException e) {
+			conn=ds.getConnection();
+			totalrow=reviewBoardDao.getTotalRowReviewBoard(conn);
+		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			try{ conn.close(); }catch(Exception e) {}
 		}
-		return reviewBoardDao.getTotalRowReviewBoard(conn);
+		return totalrow;
 	}
 	
 	public ArrayList<ReviewBoard> readReviewBoard(int pageNo) {
-		Connection conn = ConnectionProvider.getConnection();
-		ReviewBoardDao reviewBoardDao = new ReviewBoardDao();
+		Connection conn = null;
 		ArrayList<ReviewBoard> list = new ArrayList<>();
-		list = reviewBoardDao.readReviewBoard(pageNo,conn);
 		try {
-			conn.close();
-		} catch (SQLException e) {
+			conn=ds.getConnection();
+			list = reviewBoardDao.readReviewBoard(pageNo,conn);
+		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			try{ conn.close(); }catch(Exception e) {}
 		}
 		return list;
 	}
 	
-	public String detailReviewBoard(String selectBno) {
-		Connection conn = ConnectionProvider.getConnection();
-		ReviewBoardDao reviewBoardDao = new ReviewBoardDao();
+	public ReviewBoard detailReviewBoard(String selectBno) {
+		Connection conn = null;
+		ReviewBoard reviewBoard=null;
 		try {
-			conn.close();
-		} catch (SQLException e) {
+			conn=ds.getConnection();
+			reviewBoard=reviewBoardDao.detailReviewBoard(selectBno,conn);
+		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			try{ conn.close(); }catch(Exception e) {}
 		}
-		return reviewBoardDao.detailReviewBoard(selectBno,conn);
+		return reviewBoard;
 	}
 	
 	public String deleteReviewBoard(String bno) {
-		Connection conn = ConnectionProvider.getConnection();
-		ReviewBoardDao reviewBoardDao = new ReviewBoardDao();
+		Connection conn = null;
+		String result=null;
 		try {
-			conn.close();
-		} catch (SQLException e) {
+			conn=ds.getConnection();
+			result=reviewBoardDao.deleteReviewBoard(bno,conn);
+		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			try{ conn.close(); }catch(Exception e) {}
 		}
-		return reviewBoardDao.deleteReviewBoard(bno,conn);
+		return result;
 	}
 	
 	public String updateRb(ReviewBoard reviewBoard) {
-		Connection conn = ConnectionProvider.getConnection();
-		ReviewBoardDao reviewBoardDao = new ReviewBoardDao();
+		Connection conn = null;
+		String result=null;
 		try {
-			conn.close();
-		} catch (SQLException e) {
+			conn=ds.getConnection();
+			result=reviewBoardDao.updateReviewBoard(reviewBoard,conn);
+		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			try{ conn.close(); }catch(Exception e) {}
 		}
-		return reviewBoardDao.updateReviewBoard(reviewBoard,conn);
+		return result;
 	}
 	
 }

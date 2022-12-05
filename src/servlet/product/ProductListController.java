@@ -1,4 +1,4 @@
-package product;
+package servlet.product;
 
 import java.io.IOException;
 
@@ -8,16 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@WebServlet(name = "product.ProductListController", urlPatterns =  "/product/ProductListController" )
 
-@WebServlet(name = "product.UploadController", urlPatterns ="/product/UploadController")
-public class UploadController extends HttpServlet {
-
-	@Override
+public class ProductListController extends HttpServlet {
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Upload service() 실행");
+		System.out.println("ProductListController service()실행!!!!");
 		
 		//JSP로 이동
-		request.getRequestDispatcher("/WEB-INF/views/product/upload2.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/product/productList.jsp").forward(request, response);
 	}
 
 }

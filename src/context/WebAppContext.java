@@ -31,15 +31,8 @@ public class WebAppContext implements ServletContextListener {
 		ServletContext application = sce.getServletContext();
 		
 		//ServletContext 객체에 데이터(객체) 저장
-		application.setAttribute("userService", new UserService(application));
-		application.setAttribute("basketService", new BasketService(application));
-		application.setAttribute("orderService", new OrderService(application));
-		application.setAttribute("productService", new ProductService(application));
-		application.setAttribute("qnaBoardService", new QnaBoardService(application));
-		application.setAttribute("reviewBoardService", new ReviewBoardService(application));
-		
 		application.setAttribute("usersDao", new UsersDao());
-		application.setAttribute("basketDao", new BasketDao());
+		application.setAttribute("basketDao", new BasketDao(application));
 		application.setAttribute("basketDetailDao", new BasketDetailDao());
 		application.setAttribute("orderDao", new OrderDao());
 		application.setAttribute("orderDetailDao", new OrderDetailDao());
@@ -47,6 +40,16 @@ public class WebAppContext implements ServletContextListener {
 		application.setAttribute("productDetailDao", new ProductDetailDao());
 		application.setAttribute("qnaBoardDao", new QnaBoardDao());
 		application.setAttribute("reviewBoardDao", new ReviewBoardDao());
+		
+		
+		application.setAttribute("userService", new UserService(application));
+		application.setAttribute("basketService", new BasketService(application));
+		application.setAttribute("orderService", new OrderService(application));
+		application.setAttribute("productService", new ProductService(application));
+		application.setAttribute("qnaBoardService", new QnaBoardService(application));
+		application.setAttribute("reviewBoardService", new ReviewBoardService(application));
+		
+		
 		
 	}
 	

@@ -13,4 +13,7 @@ public class Users {
 	private String userInsertdate;
 	private String userAddress;
 	private boolean isAdmin;
+	private String userFileName;
+	private String userSavedName;
+	private String userContentType;
 }
