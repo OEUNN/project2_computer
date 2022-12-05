@@ -112,7 +112,7 @@
 				<div id="basketMain" class="col-12 col-md mt-5 mr-5">
 	         		<h3 id="basketLogo" class="m-3">장바구니</h3>
 	         		<hr/>
-	         		<form style="width:100%" class="row" action="../product/OrderController">
+	         		<form method="post" style="width:100%" class="row" action="../product/OrderController">
 	         			<div class="basketTable col-9">
 		         			<div id="deleteBasket"  style="text-align:right"><span class="btn" onclick="deleteBasket()">선택항목 삭제</span></div>
 			         		<div id="appendBasket"  style="text-align:right"><span class="btn" onclick="appendBasket()">항목 추가</span></div>

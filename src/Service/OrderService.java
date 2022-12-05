@@ -1,19 +1,15 @@
 package Service;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import DAO.BasketDao;
-import DAO.BasketDetailDao;
 import DAO.OrderDao;
 import DAO.OrderDetailDao;
-import DAO.ProductDao;
-import context.ConnectionProvider;
+import DTO.OrderDetail;
+import DTO.Orders;
 
 public class OrderService {
 	private ServletContext application;
@@ -21,38 +17,30 @@ public class OrderService {
 	private OrderDao orderDao;
 
 	public OrderService(ServletContext application) {
-		this.application=application;
-		orderDao = (OrderDao)application.getAttribute("orderDao");
-		ds=(DataSource)application.getAttribute("dataSource");
+		this.application = application;
+		orderDao = (OrderDao) application.getAttribute("orderDao");
+		ds = (DataSource) application.getAttribute("dataSource");
 	}
 
-	public String takeOrder(JSONArray insertData, String userId, JSONObject receiveData, int totalPrice) {
-		Connection conn=null;
-		OrderDetailDao orderDetailDao = (OrderDetailDao)application.getAttribute("orderDetailDao");
-		BasketDetailDao basketDetailDao = (BasketDetailDao)application.getAttribute("basketDetailDao");
+	// 주문하기
+	public boolean takeOrder(OrderDetail orderDeatil, String userId, Orders order,int totalPrice) {
+		Connection conn = null;
+		boolean result = false;
 		try {
-			String orderId = orderDao.insertOrder(userId, totalPrice, receiveData, conn);
-			boolean check = true;
-			for (int i = 0; i < insertData.length(); i++) {
-				JSONObject detailData = insertData.getJSONObject(i);
-				check = orderDetailDao.insertOrderDetail(orderId, detailData.getInt("product_qnt"),
-						detailData.getInt("price"), detailData.getString("productDetailId"),conn);
-				if (check == false) {
-					System.out.println("insert 실패 " + i + "번째");
-					return "fail";
-				}
+			conn = ds.getConnection();
+			OrderDao orderDao= (OrderDao) application.getAttribute("orderDao");
+			OrderDetailDao orderDetailDao = (OrderDetailDao) application.getAttribute("orderDetailDao");
+			String orderId=orderDao.insertOrder(order, conn);
+			result = orderDetailDao.insertOrderDetail(orderId, orderDeatil, conn);
+			if(result) {
+			result = true;
 			}
-			check = basketDetailDao.deleteBasketDetail(userId,conn);
-			if (check == false) {
-				System.out.println("바구니 삭제 실패");
-				return "fail";
-			}
-		}catch(Exception e) {
-			
-		}finally {
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
 			try {conn.close();} catch(Exception e) {};
-		}
-		return "success";
+			}
+		
+		return result;
 	}
-
 }

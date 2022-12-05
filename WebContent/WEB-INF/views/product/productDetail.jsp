@@ -190,63 +190,97 @@
                   <div class = "mx-5" style=" flex-grow: 5;text-align : center"> <h4><b>1900000</b>원 </h4></div>
                   
                   </div>
-                  
-                  <div class="option  mt-4 mr-4 mb-2 ml-4" style="height:350px"> 
-                  <div style="height:80px;text-align:center;padding-top:10px"> 색상 
-                  <div class = "colorRadio" style="height:30px">
-                     
-                         <input id="color1-1" name="color1" type="radio" value="blue" checked="checked">
-               			 <label for="color1-1" class="border rounded-circle " style="background-color:steelblue;  "></label>
-                         <input id="color1-2" name="color1" type="radio" value="black" >
-                         <label for="color1-2" class="border rounded-circle " style="background-color:black;  "></label>
-                         <input id="color1-3" name="color1" type="radio" value="white" >
-                         <label for="color1-3" class="border rounded-circle " style="background-color:white;  "></label>
-                              </div>
-                              
-                  
-          
-                  </div>
-                  <div class="mt-3" style="text-align:center;height:80px">용량 
-                  <div class="capaRadio">
-                                 <input id="capa1-1" name="capa1" type="radio" value="512GB" checked="checked">
-                                 <label for="capa1-1" class="border rounded " style="padding-top:8px;"  >512GB</label>
-                                 <input id="capa1-2" name="capa1" type="radio" value="256GB" >
-                                 <label for="capa1-2" class="border rounded"style="padding-top:8px;" >256GB</label>
-                                 <input id="capa1-3" name="capa1" type="radio" value="1TB" >
-                                 <label for="capa1-3" class="border rounded " style="padding-top:8px;">1TB</label>
-                                 
-                              </div>
-                  </div>
-                  <hr/>
-                  <div class="quan pb-4">
-                  <div style="flex-grow: 7;vertical-align:centr;text-align : center;padding-top:18px" ><h5>수량</h5></div>
-                   <div style="flex-grow: 3 ;justify-content: center;" class=" quan-icon">
-                   	 <div class="m-3"><button style="width:30px">-</button></div>
-                   	  <div  class="m-3"><h5>1</h5></div>
-                   	   <div  class="m-3"><button style="width:30px">+</button></div>
-                   
-                   
-                   
-                   </div>
-               
-                  </div>
-             
-                  <div class="price"  >
-                  <div style="flex-grow: 5;text-align : center" ><h3>판매가</h3></div>
-                  <div style="flex-grow: 5;text-align : center" ><h3><b>1900000</b>원</h3></div>
-                  </div>
-                  
-                  
-                  
-                  </div>
+                  <form method="post" action="ChoiceController?productId=abc&productPrice=1900">
+	                  <div class="option  mt-4 mr-4 mb-2 ml-4" style="height:350px"> 
+	                  <div style="height:80px;text-align:center;padding-top:10px"> 색상 
+	                  	<div class = "colorRadio" style="height:30px">
+	                     
+	                         <input id="color1-1" name="color" type="radio" value="blue" checked="checked">
+	               			 <label for="color1-1" class="border rounded-circle " style="background-color:steelblue;  "></label>
+	                         <input id="color1-2" name="color" type="radio" value="black" >
+	                         <label for="color1-2" class="border rounded-circle " style="background-color:black;  "></label>
+	                         <input id="color1-3" name="color" type="radio" value="white" >
+	                         <label for="color1-3" class="border rounded-circle " style="background-color:white;  "></label>
+	                              </div>
+	                              
+	                  
+	          
+	                  </div>
+	                  <div class="mt-3" style="text-align:center;height:80px">용량 
+	                  <div class="capaRadio">
+	                                 <input id="capa1-1" name="capa" type="radio" value="512GB" checked="checked">
+	                                 <label for="capa1-1" class="border rounded " style="padding-top:8px;"  >512GB</label>
+	                                 <input id="capa1-2" name="capa" type="radio" value="256GB" >
+	                                 <label for="capa1-2" class="border rounded"style="padding-top:8px;" >256GB</label>
+	                                 <input id="capa1-3" name="capa" type="radio" value="1TB" >
+	                                 <label for="capa1-3" class="border rounded " style="padding-top:8px;">1TB</label>
+	                                 
+	                              </div>
+	                  </div>
+	                  <hr/>
+	                  <div class="quan pb-4">
+	                  <div style="flex-grow: 7;vertical-align:centr;text-align : center;padding-top:18px" ><h5>수량</h5></div>
+	                   <div style="flex-grow: 3 ;justify-content: center;" class=" quan-icon">
+	                   	
+	                   	  <div  class="m-3"><input name="quantity"  type="number"/></div>
+	                   
+	                   
+	                   
+	                   
+	                   </div>
+	               
+	                  </div>
+	             
+	                  <div class="price"  >
+	                  <div style="flex-grow: 5;text-align : center" ><h3>판매가</h3></div>
+	                  <div style="flex-grow: 5;text-align : center" ><h3><b>1900000</b>원</h3></div>
+	                  </div>
+	                  
+	                  
+	                  
+	                  </div>
 
-                  <div class="flex-container-button mt-4 ">
-                  <div style="flex-grow: 5"
-                    class="w-btn w-btn-indigo mx-1" data-toggle="modal" data-target="#myModal">장바구니</div>
-                  <div style=" flex-grow: 5"
-                   class="w-btn w-btn-indigo mx-1">구매하기 </div>
-                  
-                  </div>
+	                  <div class="flex-container-button mt-2 ">
+	                  <div style="flex-grow: 5" >
+				                    <!-- Button to Open the Modal -->
+			              <button data-name="choice" data-value="basket" type="button" class="w-btn w-btn-indigo mx-1" data-toggle="modal" data-target="#myModal">
+			            		   장바구니
+			              </button>
+			            
+			              <!-- The Modal -->
+			              <div class="modal fade" id="myModal" >
+			                <div class="modal-dialog">
+			                  <div class="modal-content">
+			                  
+			                    <!-- Modal Header -->
+			                    <div class="modal-header">
+			                       	  장바구니 담기 
+			                      <button type="button" class="close" data-dismiss="modal" >&times;</button>
+			                    </div>
+			                    
+			                    <!-- Modal body -->
+			                    <div class="modal-body">
+			                      	  장바구니에 상품을 담으시겠습니까?
+			                    </div>
+			                    
+			                    <!-- Modal footer -->
+			                    <div class="modal-footer">
+			                     
+			                         <button type="submit" name="choice" value="basket" class="w-btn w-btn-indigo mx-1"  >네</button>
+			                          <button type="button" class="w-btn w-btn-indigo mx-1" data-dismiss="modal" >아니오</button>
+			                      
+			                    </div>
+			                    
+			                  </div>
+			                </div>
+			              </div>
+	                    </div>
+	                  <div style=" flex-grow: 5">
+	               <button  type="submit" id="Product_Detail_submit" name="choice" value="buy"
+	                   class="w-btn w-btn-indigo mx-1">구매하기</button></div>
+	                  
+	                  </div>
+                  </form>
                   
                
                </div>
@@ -428,29 +462,7 @@
    
       </div>
       
-       <div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
       
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">장바구니</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-      		    장바구니에 담겼습니다
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-        </div>
-        
-      </div>
-    </div>
-  </div>
   	 <!-- The Modal -->
          <div class="modal fade" id="reviewModal">
             <div class="modal-dialog modal-lg">

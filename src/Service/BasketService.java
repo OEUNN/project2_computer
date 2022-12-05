@@ -34,7 +34,7 @@ public class BasketService {
 		try {
 			conn = ds.getConnection();
 			if (productDetailId.contains("proD")) {
-				Product product = productDao.selectProductSubQuery(productDetailId);
+				Product product = productDao.selectProductSubQuery(productDetailId, conn);
 				
 				//해당 productId가 존재한다면 BasketDetailDao 호출함
 				if (product.getProdcutId() != null) {
