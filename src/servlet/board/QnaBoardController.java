@@ -27,17 +27,17 @@ public class QnaBoardController extends HttpServlet {
 		ServletContext application = request.getServletContext();
 		QnaBoardService boardService= (QnaBoardService)application.getAttribute("qnaBoardService");
 		//페이징 대상이 되는 전체 행수 얻기
-		/*int totalBoardNum = boardService.getTotalRow();
+		int totalBoardNum = boardService.getTotalRow();
 		
 		//Pager 생성
 		Pager pager = new Pager(10,5,totalBoardNum,pageNo);
 		
 		//pageNo에 해당하는 게시물 가져오기
-		List<QnaBoard> pageList=boardService.readQnaBoardPager(pager);
+		List<QnaBoard> qnaList=boardService.readQnaBoardPager(pager);
 		//JSP에서 사용할수 있도록 request범위에 저장
 		request.setAttribute("pager", pager);
-		request.setAttribute("pageList",pageList);
-		*/
+		request.setAttribute("qnaList",qnaList);
+		
 		//JSP로 이동
 		request.getRequestDispatcher("/WEB-INF/views/board/qnaBoard.jsp").forward(request, response);
 	}

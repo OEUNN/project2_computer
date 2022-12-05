@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -149,50 +152,22 @@
 						<!-- 문의글 -->
 						<div id="contentText" class="row m-3">
 							<div id="contentBox" class="container-fluid p-5">
-								<div id="qnaList" class="row m-1">
-									<div id="qnaNum" class="col-1" >
-										<!-- <i class="btn fas" >&#xf00d;</i> -->
-										1
+								<c:forEach var="qnaBoard" items="${qnaList }" varStatus="status">
+									<div id="qnaList" class="row m-1">
+										<div id="qnaNum" class="col-1" >
+											<!-- <i class="btn fas" >&#xf00d;</i> -->
+											${status.count}
+										</div>
+										<div class="col-11 qnaTitle">
+											<a href="#qnaDetail${status.count}" data-toggle="collapse">${qnaBoard.qnaBtitle }<span></span></a>
+											<p>작성일자<span>${qnaBoard.qnaDate }</span></p>
+										</div>
+										<div class="qnaDetail collapse" id="qnaDetail${status.count}">
+											<p>${qnaBoard.qnaBcontent }</p>
+										</div>
 									</div>
-									<div class="col-11 qnaTitle">
-										<a href="#qnaDetail1" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
-										<p>작성일자<span>2022.11.24.</span></p>
-									</div>
-									<div class="qnaDetail collapse" id="qnaDetail1">
-										<p>환불해주세요. 보상금도 요구할게요.</p>
-									</div>
-								</div>
-							
-								<div id="qnaList" class="row m-1">
-									<div id="qnaNum" class="col-1 " >
-										<!-- <i class="btn fas" >&#xf00d;</i> -->
-										2
-									</div>
-									<div class="col-11 qnaTitle"  >
-										<a href="#qnaDetail2" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
-										<p>작성일자<span>2022.11.24.</span></p>
-									</div>
-									<div class="qnaDetail collapse" id="qnaDetail2">
-										<p>보상금도 요구할게요.</p>
-										<hr/>
-										<p>사랑하는 고객님 안녕하십니까. 당신의 영원한 파트너 입니다. 감사합니다.</p>
-									</div>
-								</div>
-							
-								<div id="qnaList" class="row m-1">
-									<div id="qnaNum" class="col-1" >
-										<!-- <i class="btn fas" >&#xf00d;</i> -->
-										1
-									</div>
-									<div class="col-11 qnaTitle"  >
-										<a href="#qnaDetail3" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
-										<p>작성일자<span>2022.11.24.</span></p>
-									</div>
+								</c:forEach>
 								
-									<div class="qnaDetail collapse" id="qnaDetail3">
-										<p>환불해주세요. 보상금도 요구할게요.</p>
-									</div>
-								</div>
 							</div> 
 						</div>
 					</div>

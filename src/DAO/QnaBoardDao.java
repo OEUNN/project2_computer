@@ -75,7 +75,7 @@ public class QnaBoardDao {
 	}
 
 	public int getTotalRow(Connection conn) throws SQLException {
-		String sql = "select count (*) as count from free_board";
+		String sql = "select count (*) as count from qna_board";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next()) {
@@ -89,10 +89,10 @@ public class QnaBoardDao {
 
 	public ArrayList<QnaBoard> readQnaBoardPager(Pager pager, Connection conn) throws SQLException {
 		ArrayList<QnaBoard> list = new ArrayList<>();
-		String sql = "select rnum, QNA_BTITLE, QNA_BCONTENT, QNA_DATE, USER_ID,  QNA_BNO " 
+		String sql = "select rnum, QNA_BTITLE, QNA_BCONTENT, QNA_DATE, USER_ID,  QNA_BNO,IS_REPLY " 
 				+ " from ( "
-				+ " select rownum as rnum, QNA_BTITLE, QNA_BCONTENT, QNA_DATE, USER_ID,  QNA_BNO "
-				+ " from (select QNA_BTITLE, QNA_BCONTENT, QNA_DATE, USER_ID,  QNA_BNO " 
+				+ " select rownum as rnum, QNA_BTITLE, QNA_BCONTENT, QNA_DATE, USER_ID,  QNA_BNO, IS_REPLY "
+				+ " from (select QNA_BTITLE, QNA_BCONTENT, QNA_DATE, USER_ID,  QNA_BNO, IS_REPLY " 
 				+ " from qna_board "
 				+ " order by QNA_DATE desc " + " ) where rownum <= ? " + " )" + " where rnum >= ? ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -106,6 +106,7 @@ public class QnaBoardDao {
 			qna_Board.setQnaDate(rs.getString(4));
 			qna_Board.setUserId(rs.getString(5));
 			qna_Board.setQnaBno(rs.getString(6));
+			qna_Board.setReply(rs.getBoolean(7));
 			list.add(qna_Board);
 		}
 		pstmt.close();
