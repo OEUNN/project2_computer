@@ -1,35 +1,84 @@
 package Service;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
 
-import DAO.BasketDetailDao;
+import javax.naming.InitialContext;
+import javax.servlet.ServletContext;
+import javax.sql.DataSource;
+
 import DAO.OrderDao;
-import DAO.OrderDatailDao;
+import DAO.OrderDetailDao;
+import DTO.BasketDetail;
+import DTO.OrderDetail;
+import DTO.Orders;
 
 public class OrderService {
-
-	public String takeOrder(JSONArray insertData, String userId, JSONObject receiveData,int totalPrice) {
-		
-		OrderDao orderDao=new OrderDao();
-		OrderDatailDao orderDetailDao = new OrderDatailDao();
-		String orderId=orderDao.insertOrder(userId, totalPrice,receiveData);
-		boolean check=true;
-		for(int i=0;i<insertData.length();i++) {
-			JSONObject detailData =insertData.getJSONObject(i);
-			check=orderDetailDao.insertOrderDetail(orderId,detailData.getInt("product_qnt"),detailData.getInt("price"),detailData.getString("productDetailId"));
-			if(check==false) {
-				System.out.println("insert 실패 "+i+"번째");
-				return "fail";
-			}
+	private ServletContext application;
+	private DataSource ds;
+	
+	public OrderService(ServletContext application) {
+		this.application=application;
+		try {
+			InitialContext ic = new InitialContext();
+			ds = (DataSource) ic.lookup("java:comp/env/jdbc/java");
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		BasketDetailDao basketDetailDao = new BasketDetailDao();
-		check=basketDetailDao.deleteBasketDetail(userId);
-		if(check==false) {
-			System.out.println("바구니 삭제 실패");
-			return"fail";
-		}
-		return "success";
 	}
+	
+	//주문하기
+	public boolean takeOrder(OrderDetail orderDeatil, String userId, Orders order,int totalPrice) {
+		Connection conn = null;
+		boolean result = false;
+		try {
+			conn = ds.getConnection();
+			OrderDao orderDao= (OrderDao) application.getAttribute("orderDao");
+			OrderDetailDao orderDetailDao = (OrderDetailDao) application.getAttribute("orderDetailDao");
+			String orderId=orderDao.insertOrder(order, conn); 
+			result = orderDetailDao.insertOrderDetail(orderId, orderDeatil, conn);
+			if(result) {
+				result = true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+		finally {
+			try {conn.close();} catch(Exception e) {};
+		}
+		
+		return result;
+		
+	}
+	
+	//장바구니에서 주문하기
+		public boolean basketDetailToOrderDeatail(String orderId, List<String> basketDetailIdList) {
+			boolean result = false;
+			Connection conn = null;
+			BasketService basketService = (BasketService) application.getAttribute("basketService");
+			try {
+				conn = ds.getConnection();
+				int totalPrice = 0;
+				int quantity = 0;
+				
+				for(String basketDetailId : basketDetailIdList ) {
+					BasketDetail basketDetail = basketService.getBasketDetail(basketDetailId);
+					//totalPrice = basketDetail.getProduct().getPrice() * basketDetail.get
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				try {conn.close();} catch(Exception e) {};
+			}
+			return result;
+		}
+		
+		//바로 주문하기
+		
+//		public boolean addOrderDetail() {
+//			
+//		}
 
 }
