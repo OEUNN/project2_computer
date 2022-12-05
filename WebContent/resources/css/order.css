@@ -1,0 +1,54 @@
+			#body > .card{
+	            background-color:black;
+	            width:1000px;
+	         }
+			#order_Wrapper{
+				width:1200px;
+				margin: 50px auto;
+				background-color:"#f3f3f3";
+				box-shadow: 5px 5px 10px grey;
+			}
+			
+			#order_main{
+				width:100%;
+				padding: 10px 20px;
+			}
+			#order_submit{
+				width:80%;
+			}
+			.order_sub{
+				border-radius:10px;
+				background-color:white;
+				margin: 10px;
+			}
+			.orderTable img{
+	        	width:100px;
+	        	
+	        }
+	        .orderTable{
+	        	text-align:center;
+	        	margin-top: 20px;
+	        	
+	        }
+	        .orderTable th{
+	        	
+	       		font-size: 24px;
+				font-weight: bold; 
+				 
+	        }
+	        .orderTable td{
+	       		font-size: 24px;
+	        }
+	        .orderTable td div{
+				padding-top:25px;
+	        }
+	        .orderTable td span, #deleteBasket{
+	       		font-size: 8px;
+				color:gray;
+	        }
+	        #totalPrice{
+	        	text-align:right;
+	        	font-weight: bold;  
+	        	border-top:1px solid black;
+	        	padding-top:5px;
+	        }

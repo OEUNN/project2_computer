@@ -1,0 +1,28 @@
+			#menu{
+				background-color: white;
+				border-radius: 0px 50px 0px 0px;
+				box-shadow: 5px 5px 10px grey;
+			}
+			
+			#menu div,a{
+				background-color: white;
+				color:black;
+			}
+			
+			#centerText{
+				color:black;
+				font-size: 250%;
+			}
+			#updataMain{
+				background-color: white;
+				border-radius:15px;
+				box-shadow: 5px 5px 10px grey;
+			}
+			#updataMain *{
+				background-color: white;
+			}
+			#joinSubmit{
+				background-color:#0c1c32;
+				color:white;
+				widht:200px;
+			}

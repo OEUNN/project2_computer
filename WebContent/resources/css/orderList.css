@@ -1,0 +1,42 @@
+			#menu{
+				background-color: white;
+				border-radius: 0px 50px 0px 0px;
+				box-shadow: 5px 5px 10px grey;
+			}
+			#menu div,a{
+				background-color: white;
+				color:black;
+			}
+			
+			#centerText{
+				color:black;
+				font-size: 250%;
+			}
+			
+			#order{
+				border-radius: 15px;
+				background-color: white;
+				text-align: center;
+				box-shadow: 5px 5px 10px grey;
+			}
+			
+			#order div,td,img{
+				background-color: white;
+			}
+			
+			#dayButton{
+				border:1px solid #0c1c32;
+				width:60px;
+				font-size: 90%;
+				background-color: #f3f3f3;
+			}
+			
+			#dayButton:hover{
+				border:1px solid #0c1c32;
+				background-color: #0c1c32;
+				color:white;
+			}
+			
+			#subText1{
+				font-size: 200%;
+			}

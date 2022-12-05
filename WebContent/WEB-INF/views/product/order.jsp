@@ -1,95 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>주문</title>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-		
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap" rel="stylesheet">
-		
-		<style>
-			*{
-	            margin:0px;
-	            padding:0px;
-	            box-sizing: border-box;
-	            font-family: 'Jua', sans-serif;
-	            background-color:#f3f3f3;
-	         }
-	         
-	         #back{
-				padding-bottom: 100px;
-			}
-	        #top{
-				background:#0c1c32;
-				height:100px;
-			}
-		
-			#logo b{
-				background-color:#0c1c32;
-				color:white;
-				font-size:300%;
-				font-family: 'Black Han Sans', sans-serif;
-			}
-	        #body > .card{
-	            background-color:black;
-	            width:1000px;
-	         }
-			#order_Wrapper{
-				width:1200px;
-				margin: 50px auto;
-				background-color:"#f3f3f3";
-				box-shadow: 5px 5px 10px grey;
-			}
-			
-			#order_main{
-				width:100%;
-				padding: 10px 20px;
-			}
-			#order_submit{
-				width:80%;
-			}
-			.order_sub{
-				border-radius:10px;
-				background-color:white;
-				margin: 10px;
-			}
-			.orderTable img{
-	        	width:100px;
-	        	
-	        }
-	        .orderTable{
-	        	text-align:center;
-	        	margin-top: 20px;
-	        	
-	        }
-	        .orderTable th{
-	        	
-	       		font-size: 24px;
-				font-weight: bold; 
-				 
-	        }
-	        .orderTable td{
-	       		font-size: 24px;
-	        }
-	        .orderTable td div{
-				padding-top:25px;
-	        }
-	        .orderTable td span, #deleteBasket{
-	       		font-size: 8px;
-				color:gray;
-	        }
-	        #totalPrice{
-	        	text-align:right;
-	        	font-weight: bold;  
-	        	border-top:1px solid black;
-	        	padding-top:5px;
-	        }
+<%@ page import="java.util.*,DTO.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+
+<%@ include file="/WEB-INF/views/common/header1.jsp" %>
+<%@ include file="/resources/css/order.css" %>
+	        
 		</style>
 	</head>
 	<body>
@@ -97,7 +12,7 @@
 		 	<!-- 로고 -->
          	<div id="top" class="row">
 				<div id="logo" class="btn mt-3">
-					<a href="../product/ProductListController"><b>SAMSUNG</b></a>
+					<a href="${pageContext.request.contextPath}/product/ProductListController"><b>SAMSUNG</b></a>
 				</div>
 			</div>
 
@@ -125,7 +40,7 @@
 			         					1
 			         				</td>
 			         				<td >
-			         					<img src="../resources/images/monitor.png"/>
+			         					<img src="${pageContext.request.contextPath}/resources/images/monitor.png"/>
 			         				</td>
 			         				<td>
 			         					<div >
@@ -142,7 +57,7 @@
 			         					2
 			         				</td>
 			         				<td >
-			         						<img src="../resources/images/monitor.png"/>
+			         						<img src="${pageContext.request.contextPath}/resources/images/monitor.png"/>
 			         				</td>
 			         				<td>
 			         					<div>컴퓨터2

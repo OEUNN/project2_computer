@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*,DTO.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html>
    <head>
@@ -151,20 +153,20 @@
       		<!-- 상단 -->
       		<div id="top" class="row">
 	            <div id="logo" class="col-4 col-md-1 btn mt-3">
-	            	<a href="../product/ProductListController"><b>SAMSUNG</b></a>
+	            	<a href="${pageContext.request.contextPath}/product/ProductListController"><b>SAMSUNG</b></a>
 				</div>
             
             	<div class=" col "></div>
     
 	            <div id="icon" class="col-3 my-auto" >
 	               <div style="flex-grow:3;text-align : right">
-	                  <img src="../resources/images/search_w.png"style="width:40px;height:40px"/>
+	                  <img src="${pageContext.request.contextPath}/resources/images/search_w.png"style="width:40px;height:40px"/>
 	               </div>
 	               <div style="flex-grow:3;text-align : center">
-	                  <img src="../resources/images/cart_w.png" style="width:40px;height:40px"/>
+	                  <img src="${pageContext.request.contextPath}/resources/images/cart_w.png" style="width:40px;height:40px"/>
 	               </div>
 	               <div style="flex-grow:3;text-align : left">
-	                  <img src="../resources/images/Human_w.png" style="width:40px;height:40px"/>
+	                  <img src="${pageContext.request.contextPath}/resources/images/Human_w.png" style="width:40px;height:40px"/>
 	               </div>
 	            </div>
          	</div>
@@ -172,12 +174,12 @@
       	<!-- 상단바 메뉴 -->
          <div id="menu" class="row" style="height:50px">
             <div class=" col-md-1"></div>
-            <div class="col-4 text-grey my-auto"><a href="../product/ProductListController">>Home</a></div>
+            <div class="col-4 text-grey my-auto"><a href="${pageContext.request.contextPath}/product/ProductListController">>Home</a></div>
          </div>
          <div id="detail" class="row">
             <div class=" col-1 col-md-1"></div>
             <div class=" col-12 col-md-12 col-lg-6 ">
-               <div class="pt-4" style="width:100%" ><img src="../resources/images/monitor3_d.png" /></div>
+               <div class="pt-4" style="width:100%" ><img src="${pageContext.request.contextPath}/resources/images/monitor3_d.png" /></div>
             
             
             </div>
@@ -236,10 +238,7 @@
                   <div style="flex-grow: 5;text-align : center" ><h3><b>1900000</b>원</h3></div>
                   </div>
                   
-                  
-                  
                   </div>
-
                   <div class="flex-container-button mt-4 ">
                   <div style="flex-grow: 5"
                     class="w-btn w-btn-indigo mx-1" data-toggle="modal" data-target="#myModal">장바구니</div>
@@ -316,7 +315,7 @@
          </div>
          <div class="row">
             <div class = "col-1"></div>
-            <div class = "col-10"><img src="../resources/images/ad.png" /><img src="../resources/images/ad2.png" /></div>
+            <div class = "col-10"><img src="${pageContext.request.contextPath}/resources/images/ad.png" /><img src="${pageContext.request.contextPath}/resources/images/ad2.png" /></div>
             <div class = "col-1"></div>
          
          </div>

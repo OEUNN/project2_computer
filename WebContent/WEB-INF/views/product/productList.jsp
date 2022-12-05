@@ -1,157 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>메인화면</title>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-		
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap" rel="stylesheet">
-		
-		<style>
-			*{
-				margin:0px;
-				padding:0px;
-				box-sizing: border-box;
-				font-family: 'Jua', sans-serif;
-			}
-			img{
-				width:100%;
-				height:100%;
-				margin: auto;
-    			display: block;
-			}
-			#back{
-				padding-bottom: 100px;
-			}
-			#top{
-				background:#0c1c32;
-				height:100px;
-			}
-			
-			#wrapper{
-				width:100%;
-			}
+<%@ page import="java.util.*,DTO.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
-			#logo b{
-				background-color:#0c1c32;
-				color:white;
-				font-size:300%;
-				font-family: 'Black Han Sans', sans-serif;
-			}
-			
-			#topMenu{
-				font-size:150%;
-				text-align: center;
-			}
-			#topMenu a{
-				color:#c2c6cd;
-			}
-			
-			#mainBoard div{
-				text-align: center;
-				margin : auto;
-			}
-			
-			#mainImg{
-				height:350px;
-			}
-			
-			#mainImg img{
-				width:100%;
-				border-radius:30px;
-			}
-			
-			#searchVal{
-				border: 5px solid #0c1c32;
-				width:100%;
-				height:60px;
-			}
-			
-			#mainLogin .container-fluid{
-				box-shadow: 5px 5px 10px grey;
-				border-radius: 15px;
-			}
-			#loginButton{
-				background-color:#0c1c32;
-				border: 2px solid #0c1c32;
-				margin:20px;
-				font-size:200%;
-			}
-			#loginButton a{
-				color:white;
-				text-align: center;
-				
-			}
-			.button-flex {
-				display : flex;
-			}
-			
-			menu, #menu1{
-				border:1.5px solid grey;
-				border-style:none none solid none ;
-				margin-right:20px;
-			}
-			
-			.w-btn {
-			    position: relative;
-			    border: none;
-			    display: inline-block;
-			    padding: 15px 30px;
-			    border-radius: 15px;
-			    font-family: "paybooc-Light", sans-serif;
-			    font-weight: 600;
-			    transition: 0.25s;
-			    background-color:white;
-		    	color: navy; 
-			}
-			
-			.w-btn:hover {
-    			background-color: #0c1c32;
-   			 	color: #d4dfe6;
-			}
-			
-			#cardStyle{
-				background-color:#f1f1f1;
-				border-radius:30px;
-			}
-			
-			.colorRadio input{
-				display:none;
-			}
-			.colorRadio input+label{
-				width:15px;
-				height:15px;
-			}
-			.colorRadio input:checked+label{
-				width:20px;
-				height:20px;
-			}
-			
-			#icon {
-				 display : flex;
-			}
-			#detailButton{
-				box-shadow: 2px 2px 3px grey;
-			}
-			 .submenu{ 
-                display : none; /* 소메뉴 안보이게 하기 none | block */
-                background-color : white;
-            }
-            
-            #menuBtn:checked ~ .submenu{
-                display : block;
-            }
-            
-            //페이징
-            .page-item{
-            	
-            }
+
+<%@ include file="/WEB-INF/views/common/header1.jsp" %>
+<%@ include file="/resources/css/productList.css" %>
+
+
 		</style>
 		
 	</head>
@@ -160,9 +15,9 @@
 		
 			<div id="top" class="row"> 
 				<!-- 상단 메뉴 나오기전 빈공간 -->
-				<div id="logo" class="col-2 mt-3">
-					<div ><B>SAMSUNG</B></div>
-				</div>
+				<div id="logo" class="btn mt-3">
+               		<a href="../product/ProductListController"><b>SAMSUNG</b></a>
+            	</div>
 				<!-- 상단바 메뉴 -->
 				<div id="topMenu" class="d-none d-md-inline col-md-2 my-3">
 					<div class="container-fluid">
@@ -463,6 +318,4 @@
 					
 				</div>
 			</div>
-		</div>
-	</body>
-</html>
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>
