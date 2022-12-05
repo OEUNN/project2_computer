@@ -219,9 +219,9 @@
                   <div class="modal-body">
              
    
-                     <form action="#" >
+                     <form method="Post" action="QnaBoardWriteController" id="qnaBoardWrite">
                         <div class="form-group">
-                			<input type="text" class="form-control" placeholder="제목을 입력해주세요" id="title">
+                			<input type="text" class="form-control" placeholder="제목을 입력해주세요" id="title" name="title">
                         </div>
                         
                         <div class="form-group" style="height:100%">
@@ -229,11 +229,7 @@
                                           name="inquiryContent" id="inquiryContent"
                                           placeholder="리뷰 내용을 입력해 주세요. (500자 이내)"></textarea >
                         </div>
-                        <div><button type="button" class="btn btn-secondary">사진 업로드</button></div>
-                        <br/>
-                        <div class="qnaNoti">
-                           <p>상품과 무관한 사진/동영상을 첨부한 리뷰는 통보없이 삭제될 수 있습니다.</p>
-                        </div>
+                        
                  
                      </form>
    
@@ -241,7 +237,7 @@
    
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                  <button type="submit" onClick="../product/ProductListController" class="btn btn-secondary">등록</button>
+                  <button type="submit" form="qnaBoardWrite"  class="btn btn-secondary">등록</button>
                   <button type="button" class="btn btn-secondary"
                         data-dismiss="modal">Close</button>
                 

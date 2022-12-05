@@ -476,13 +476,13 @@
                                           name="inquiryContent" id="inquiryContent"
                                           placeholder="문의 내용을 입력해 주세요. (500자 이내)"></textarea >
                         </div>
-                        <div><button type="button" class="btn btn-secondary">사진 업로드</button></div>
+                        <%-- <div><button type="button" class="btn btn-secondary">사진 업로드</button></div>
                         <br/>
                         <div class="qnaNoti">
                            <p>상품과 무관한 사진/동영상을 첨부한 리뷰는 통보없이 삭제될 수 있습니다.</p>
                           
    
-                        </div>
+                        </div> --%>
                  
                      </form>
    

@@ -14,8 +14,8 @@ public class QnaBoardDao {
 	int countRow;
 
 	public String Insert(QnaBoard qnaBoard, Connection conn) throws SQLException {
-		String sql = "insert into free_board (free_bno, free_btitle, free_bcontent, free_date, free_comment_num, users_User_Id) "
-				+ " values ('17', ?, ?, sysdate, free_conum.nextval, ? ) ";
+		String sql = "insert into qna_board (QNA_BNO, QNA_BTITLE, QNA_BCONTENT, QNA_DATE, USER_ID, IS_REPLY) "
+				+ " values ('Qna'||qna_bno.nextval, ?, ?, sysdate,  ? ,0) ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		// 입력됨.
 		pstmt.setString(1, qnaBoard.getQnaBtitle());
@@ -89,10 +89,12 @@ public class QnaBoardDao {
 
 	public ArrayList<QnaBoard> readQnaBoardPager(Pager pager, Connection conn) throws SQLException {
 		ArrayList<QnaBoard> list = new ArrayList<>();
-		String sql = "select rnum, Free_Btitle, Free_Bcontent, Free_Date, users_user_id,  free_bno " + " from ( "
-				+ " select rownum as rnum, Free_Btitle, Free_Bcontent, Free_Date, users_user_id,  free_bno "
-				+ " from (select Free_Btitle, Free_Bcontent, Free_Date, users_user_id,  free_bno " + " from free_board "
-				+ " order by free_date desc " + " ) where rownum <= ? " + " )" + " where rnum >= ? ";
+		String sql = "select rnum, QNA_BTITLE, QNA_BCONTENT, QNA_DATE, USER_ID,  QNA_BNO " 
+				+ " from ( "
+				+ " select rownum as rnum, QNA_BTITLE, QNA_BCONTENT, QNA_DATE, USER_ID,  QNA_BNO "
+				+ " from (select QNA_BTITLE, QNA_BCONTENT, QNA_DATE, USER_ID,  QNA_BNO " 
+				+ " from qna_board "
+				+ " order by QNA_DATE desc " + " ) where rownum <= ? " + " )" + " where rnum >= ? ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, pager.getEndRowNo());
 		pstmt.setInt(2, pager.getStartRowNo());
