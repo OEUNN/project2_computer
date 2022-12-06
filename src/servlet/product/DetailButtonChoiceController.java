@@ -30,8 +30,8 @@ public class DetailButtonChoiceController extends HttpServlet {
 				int capacityId = Integer.parseInt(request.getParameter("capaId"));
 				String productId = request.getParameter("productId");
 				int quantity = Integer.parseInt(request.getParameter("quantity"));
-				basketDetail.setCapacityId(capacityId);
-				basketDetail.setColorId(colorId);
+				//basketDetail.setCapacityId(capacityId);
+				//basketDetail.setColorId(colorId);
 				basketDetail.setProductId(productId);
 				
 				//price를 얻기 위해 productId를 통해서 product 객체 가져오고 그걸로 price get함

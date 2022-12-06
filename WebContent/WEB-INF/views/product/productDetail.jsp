@@ -8,6 +8,22 @@
 <link rel="stylesheet" href="../resources/css/productDetail.css">
 <%@ include file="/WEB-INF/views/common/header2.jsp" %>
 
+<script>
+	function goBasket(form) {
+		form.action = "CreateBasketDetailController?productId=1";
+		form.submit();
+	}
+	
+	function goOrder(form) {
+		form.action = "CreateOrderController?productId=1";
+		form.submit();
+	}
+
+
+
+
+</script>
+
 
 <div id="detail" class="row">
             <div class=" col-1 col-md-1"></div>
@@ -19,22 +35,22 @@
          <div id="item-info" class="d-none d-md-none d-lg-inline col-lg-4 m-4">
                <div class= "item-detail border " style="height:100%">
                   <div class = "mt-3 mx-4 " style="font-size:200%"> <b>커브드 모니터 68.4cm</b> </div>
-                  <div class = "mb-3 mx-4"> Pro-03 오디세이 OLED G8</div>
+                  <div class = "mb-3 mx-4"> ${product.prodcutId}</div> 
                   <div class="flex-container">
                   <div class = "mx-5" style="flex-grow: 5;text-align : center"><h4>판매가</h4>  </div>
                   <div class = "mx-5" style=" flex-grow: 5;text-align : center"> <h4><b>1900000</b>원 </h4></div>
                   
                   </div>
-                  <form method="post" action="DetailButtonChoiceController?productId=abc&productPrice=1900">
+                  <form id="detail-form" >
 	                  <div class="option  mt-4 mr-4 mb-2 ml-4" style="height:350px"> 
 	                  <div style="height:80px;text-align:center;padding-top:10px"> 색상 
 	                  	<div class = "colorRadio" style="height:30px">
 	                     
-	                         <input id="color1-1" name="colorId" type="radio" value="blue" checked="checked">
+	                         <input id="color1-1" name="colorName" type="radio" value="blue" checked="checked">
 	               			 <label for="color1-1" class="border rounded-circle " style="background-color:steelblue;  "></label>
-	                         <input id="color1-2" name="colorId" type="radio" value="black" >
+	                         <input id="color1-2" name="colorName" type="radio" value="black" >
 	                         <label for="color1-2" class="border rounded-circle " style="background-color:black;  "></label>
-	                         <input id="color1-3" name="colorId" type="radio" value="white" >
+	                         <input id="color1-3" name="colorName" type="radio" value="white" >
 	                         <label for="color1-3" class="border rounded-circle " style="background-color:white;  "></label>
 	                              </div>
 	                              
@@ -43,11 +59,11 @@
 	                  </div>
 	                  <div class="mt-3" style="text-align:center;height:80px">용량 
 	                  <div class="capaRadio">
-	                                 <input id="capa1-1" name="capaId" type="radio" value="512GB" checked="checked">
+	                                 <input id="capa1-1" name="capaName" type="radio" value="512GB" checked="checked">
 	                                 <label for="capa1-1" class="border rounded " style="padding-top:8px;"  >512GB</label>
-	                                 <input id="capa1-2" name="capaId" type="radio" value="256GB" >
+	                                 <input id="capa1-2" name="capaName" type="radio" value="256GB" >
 	                                 <label for="capa1-2" class="border rounded"style="padding-top:8px;" >256GB</label>
-	                                 <input id="capa1-3" name="capaId" type="radio" value="1TB" >
+	                                 <input id="capa1-3" name="capaName" type="radio" value="1TB" >
 	                                 <label for="capa1-3" class="border rounded " style="padding-top:8px;">1TB</label>
 	                                 
 	                              </div>
@@ -78,9 +94,10 @@
 	                  <div class="flex-container-button mt-2 ">
 	                  <div style="flex-grow: 5" >
 				                    <!-- Button to Open the Modal -->
-			              <button data-name="choice" data-value="basket" type="button" class="w-btn w-btn-indigo mx-1" data-toggle="modal" data-target="#myModal">
-			            		   장바구니
-			              </button>
+			              <!-- <input onClick="window.location.href='CreateBasketDetailController'" value="장바구니" type="button" class="w-btn w-btn-indigo mx-1" data-toggle="modal" data-target="#myModal"/>
+			        -->
+			              <button form="detail-form"  type="button" class="w-btn w-btn-indigo mx-1" data-toggle="modal" data-target="#myModal">
+			       			</button>
 			            
 			              <!-- The Modal -->
 			              <div class="modal fade" id="myModal" >
@@ -101,7 +118,7 @@
 			                    <!-- Modal footer -->
 			                    <div class="modal-footer">
 			                     
-			                         <button type="submit" name="choice" value="basket" class="w-btn w-btn-indigo mx-1"  >네</button>
+			                         <button onClick="goBasket(this.form)"  class="w-btn w-btn-indigo mx-1"  >네</button>
 			                          <button type="button" class="w-btn w-btn-indigo mx-1" data-dismiss="modal" >아니오</button>
 			                      
 			                    </div>
@@ -111,7 +128,7 @@
 			              </div>
 	                    </div>
 	                  <div style=" flex-grow: 5">
-	               <button  type="submit" id="Product_Detail_submit" name="choice" value="buy"
+	               <button  onClick="goOrder(this.form)" id="Product_Detail_submit" name="choice" value="buy"
 	                   class="w-btn w-btn-indigo mx-1">구매하기</button></div>
 	                  
 	                  </div>

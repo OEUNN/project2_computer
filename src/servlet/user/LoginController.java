@@ -45,7 +45,7 @@ public class LoginController extends HttpServlet {
 			if(users.isAdmin()) {
 				request.getRequestDispatcher("/WEB-INF/views/user/upload.jsp").forward(request, response);
 			}else {
-				request.getRequestDispatcher("/WEB-INF/views/user/productList.jsp").forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/views/product/productList.jsp").forward(request, response);
 			}
 		}
 		

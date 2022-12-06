@@ -9,7 +9,7 @@ public class BasketDetail {
 	private String userId;
 	private int price;
 	private int productQnt;
-	private int capacityId;
-	private int colorId;
+	private String capacityName;
+	private String colorName;
 
 }
