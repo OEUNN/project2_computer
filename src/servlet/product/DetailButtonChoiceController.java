@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DTO.BasketDetail;
+import DTO.OrderDetail;
+import DTO.Orders;
+import DTO.Product;
 import Service.BasketService;
 import Service.ProductService;
-import dto.BasketDetail;
-import dto.OrderDetail;
-import dto.Orders;
-import dto.Product;
 
 @WebServlet(name = "product.DetailButtonChoiceController", urlPatterns =  "/product/DetailButtonChoiceController" )
 public class DetailButtonChoiceController extends HttpServlet {	

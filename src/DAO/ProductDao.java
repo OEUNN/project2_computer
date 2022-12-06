@@ -1,4 +1,4 @@
-package dao;
+package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.Product;
+import DTO.Product;
 import util.Pager;
 
 public class ProductDao {

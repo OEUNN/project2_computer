@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import DTO.Users;
 import Service.UserService;
-import dto.Users;
 
 @WebServlet(name = "user.LoginController", urlPatterns ="/user/LoginController")
 public class LoginController extends HttpServlet {

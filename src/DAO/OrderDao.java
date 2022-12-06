@@ -1,11 +1,11 @@
-package dao;
+package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dto.Orders;
+import DTO.Orders;
 
 public class OrderDao {
 

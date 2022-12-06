@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DTO.QnaBoard;
 import Service.QnaBoardService;
-import dto.QnaBoard;
 
 @WebServlet(name="board.QnaBoardWriteController",urlPatterns="/board/QnaBoardWriteController")
 public class QnaBoardWriteController extends HttpServlet {

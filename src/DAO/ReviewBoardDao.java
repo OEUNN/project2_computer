@@ -1,4 +1,4 @@
-package dao;
+package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.OrderDetail;
-import dto.ReviewBoard;
+import DTO.OrderDetail;
+import DTO.ReviewBoard;
 import util.Pager;
 
 public class ReviewBoardDao {
