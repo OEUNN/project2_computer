@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -73,8 +76,8 @@
 				text-decoration: none;
 				
 			}
-			.qnaList div:hover{
-				background-color: #f0f0f0;
+			.qnaList:hover *{
+				background-color: #f0f0f0 !important;
 			}
 			#qnaModal *{
 				background-color: white;
@@ -83,6 +86,13 @@
 			
 			#qnaModal button{
 				background-color:#0c1c32;
+			}
+			.pagerBtn{
+				color:black;
+			}
+			.pagerBtn:hover{
+				color:black;
+				background-color: #e0e0e0 !important;
 			}
 		</style>
 	</head>
@@ -149,49 +159,53 @@
 						<!-- 문의글 -->
 						<div id="contentText" class="row m-3">
 							<div id="contentBox" class="container-fluid p-5">
-								<div id="qnaList" class="row m-1">
-									<div id="qnaNum" class="col-1" >
-										<!-- <i class="btn fas" >&#xf00d;</i> -->
-										1
+								<c:forEach var="qnaBoard" items="${qnaList }" varStatus="status">
+									<div id="qnaList" class="qnaList row m-1">
+										<div id="qnaNum" class="col-1" >
+											<!-- <i class="btn fas" >&#xf00d;</i> -->
+											${status.count}
+										</div>
+										<div class="col-11 qnaTitle">
+											<a href="#qnaDetail${status.count}" data-toggle="collapse">${qnaBoard.qnaBtitle }<span></span></a>
+											<p>작성일자<span>${qnaBoard.qnaDate }</span></p>
+										</div>
+										<div class="col-1 qnaDetail collapse" id="qnaDetail${status.count}"><br/>질문내용</div>
+										<div class="qnaDetail collapse col-11" id="qnaDetail${status.count}">
+											<hr/>
+											<p>${qnaBoard.qnaBcontent }</p>
+											<hr/>
+											<div class="row">
+											
+												<div class="col-8">
+													<p>답변내용이 들어갈 위치입니다.</p>
+												</div>
+												<div class="col-2">
+													<button class="btn btn-primary btn-sm">수정</button>
+													<button class="btn btn-primary btn-sm">삭제</button>
+													
+												</div>
+											</div>
+										</div>
+										
 									</div>
-									<div class="col-11 qnaTitle">
-										<a href="#qnaDetail1" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
-										<p>작성일자<span>2022.11.24.</span></p>
-									</div>
-									<div class="qnaDetail collapse" id="qnaDetail1">
-										<p>환불해주세요. 보상금도 요구할게요.</p>
-									</div>
-								</div>
-							
-								<div id="qnaList" class="row m-1">
-									<div id="qnaNum" class="col-1 " >
-										<!-- <i class="btn fas" >&#xf00d;</i> -->
-										2
-									</div>
-									<div class="col-11 qnaTitle"  >
-										<a href="#qnaDetail2" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
-										<p>작성일자<span>2022.11.24.</span></p>
-									</div>
-									<div class="qnaDetail collapse" id="qnaDetail2">
-										<p>보상금도 요구할게요.</p>
-										<hr/>
-										<p>사랑하는 고객님 안녕하십니까. 당신의 영원한 파트너 입니다. 감사합니다.</p>
-									</div>
-								</div>
-							
-								<div id="qnaList" class="row m-1">
-									<div id="qnaNum" class="col-1" >
-										<!-- <i class="btn fas" >&#xf00d;</i> -->
-										1
-									</div>
-									<div class="col-11 qnaTitle"  >
-										<a href="#qnaDetail3" data-toggle="collapse">컴퓨터가 안켜져요. 환불해주세요<span></span></a>
-										<p>작성일자<span>2022.11.24.</span></p>
-									</div>
-								
-									<div class="qnaDetail collapse" id="qnaDetail3">
-										<p>환불해주세요. 보상금도 요구할게요.</p>
-									</div>
+								</c:forEach>
+								<div style="text-align:center">
+									<a href="QnaBoardController?pageNo=1"  class="btn btn-outline-primary btn-sm pagerBtn">처음</a>
+									<c:if test="${pager.groupNo>1 }">
+										<a href="QnaBoardController?pageNo=1" class="btn btn-outline-info btn-sm pagerBtn" >이전</a>
+									</c:if>
+									<c:forEach var="i" begin="${pager.startPageNo }" end="${pager.endPageNo}">
+										<c:if test="${pager.pageNo !=i }">
+											<a href="QnaBoardController?pageNo=${i}" class="btn btn-outline-success btn-sm pagerBtn">${i}</a>
+										</c:if>
+										<c:if test="${pager.pageNo==i }">
+											<a href="QnaBoardController?pageNo=${i}" style="background-color:#e0e0e0"  class="btn btn-danger btn-sm pagerBtn">${i}</a>
+										</c:if>
+									</c:forEach>
+									<c:if test="${pager.groupNo<pager.totalGroupNo }">
+										<a href="QnaBoardController?pageNo=${i}" class="btn btn-outline-info btn-sm pagerBtn">다음</a>
+									</c:if>								
+									<a href="QnaBoardController?pageNo=${pager.totalPageNo}" class="btn btn-outline-primary btn-sm pagerBtn">맨끝</a>
 								</div>
 							</div> 
 						</div>
@@ -219,9 +233,9 @@
                   <div class="modal-body">
              
    
-                     <form action="#" >
+                     <form method="Post" action="QnaBoardWriteController" id="qnaBoardWrite">
                         <div class="form-group">
-                			<input type="text" class="form-control" placeholder="제목을 입력해주세요" id="title">
+                			<input type="text" class="form-control" placeholder="제목을 입력해주세요" id="title" name="title">
                         </div>
                         
                         <div class="form-group" style="height:100%">
@@ -229,11 +243,7 @@
                                           name="inquiryContent" id="inquiryContent"
                                           placeholder="리뷰 내용을 입력해 주세요. (500자 이내)"></textarea >
                         </div>
-                        <div><button type="button" class="btn btn-secondary">사진 업로드</button></div>
-                        <br/>
-                        <div class="qnaNoti">
-                           <p>상품과 무관한 사진/동영상을 첨부한 리뷰는 통보없이 삭제될 수 있습니다.</p>
-                        </div>
+                        
                  
                      </form>
    
@@ -241,7 +251,7 @@
    
                   <!-- Modal footer -->
                   <div class="modal-footer">
-                  <button type="submit" onClick="../product/ProductListController" class="btn btn-secondary">등록</button>
+                  <button type="submit" form="qnaBoardWrite"  class="btn btn-secondary">등록</button>
                   <button type="button" class="btn btn-secondary"
                         data-dismiss="modal">Close</button>
                 

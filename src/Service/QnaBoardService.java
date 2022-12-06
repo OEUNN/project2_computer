@@ -40,12 +40,14 @@ public class QnaBoardService {
 		Connection conn = null;
 		String Output=null;
 		try {
+			System.out.println("글쓰기 서비스");
 			conn=ds.getConnection();
 			Output = qnaBoardDao.Insert(qnaBoard,conn);
+			System.out.println(Output);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			try{ conn.close(); }catch(Exception e) {}
+			try{ conn.close(); }catch(Exception e) {e.printStackTrace();}
 		}
 		return Output;
 	}

@@ -11,7 +11,7 @@
   </welcome-file-list>
   
   <listener> 
-	<listener-class>context.WebAppContext</listener-class>
+	<listener-class>context.WebAppContext</listener-class> 
   </listener>
   
 </web-app>

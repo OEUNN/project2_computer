@@ -31,6 +31,7 @@ public class WebAppContext implements ServletContextListener {
 		//ServletContext 객체 얻기
 		ServletContext application = sce.getServletContext();
 		
+		
 		//ConnectionPool
 		DataSource dataSource = ConnectionProvider.getDataSource();
 		application.setAttribute("dataSource", dataSource);
