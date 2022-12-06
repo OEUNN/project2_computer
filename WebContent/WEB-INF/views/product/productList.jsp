@@ -1,12 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*,DTO.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
-<link rel="stylesheet" href="/resources/css/header.css">
-<link rel="stylesheet" href="/resources/css/productList.css">
+<link rel="stylesheet" href="../resources/css/header.css">
+<link rel="stylesheet" href="../resources/css/productList.css">
 <%@ include file="/WEB-INF/views/common/header2.jsp"%>
 
 
@@ -65,21 +63,15 @@
 		</c:if>
 		
 		<!-- 로그인 ON -->
-		<c:if test="${loginId!=null">
+		<c:if test="${loginId!=null}">
 			<div class="container-fluid">
 				<div class="row mb-5">
 					<!-- 이미지 센터 -->
 					<div style="width: 250px; height: 250px;">
-						<img src="../resources/images/pngwing.com.png" alt="image Error" />
+						<img src="../resources/images/welcome.png" alt="welcom image error" />
 					</div>
 				</div>
 				<div class="row m-5">
-					<div>
-						<div id="loginButton" style="width: 300px; height: 60px"
-							class="btn btn-black btn-sm">
-							<a href="../user/LoginController">로그인</a>
-						</div>
-					</div>
 					<div class="button-flex mt-3 mb-5 mx-auto">
 						<div class="mt-3" style="flex-grow: 3"></div>
 						<div class="btn" style="flex-grow: 2;">
@@ -90,6 +82,14 @@
 						</div>
 						<div class="mt-3" style="flex-grow: 3"></div>
 					</div>
+					
+					<div>
+						<div id="loginButton" style="width: 300px; height: 60px"
+							class="btn btn-black btn-sm">
+							<a href="../user/LoginController">로그아웃</a>
+						</div>
+					</div>
+					
 				</div>
 			</div>
 		</c:if>

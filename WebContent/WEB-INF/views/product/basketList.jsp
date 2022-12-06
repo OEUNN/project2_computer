@@ -4,8 +4,8 @@
 
 
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
-<link rel="stylesheet" href="/resources/css/header.css">
-<link rel="stylesheet" href="/resources/css/basket.css">
+<link rel="stylesheet" href="../resources/css/header.css">
+<link rel="stylesheet" href="../resources/css/basket.css">
 <script src="/resources/javascript/basketUpdate.js"></script>
 <%@ include file="/WEB-INF/views/common/header2.jsp" %>
 

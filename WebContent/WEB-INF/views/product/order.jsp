@@ -5,8 +5,8 @@
 
 
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
-<link rel="stylesheet" href="/resources/css/header.css">
-<link rel="stylesheet" href="/resources/css/order.css">
+<link rel="stylesheet" href="../resources/css/header.css">
+<link rel="stylesheet" href="../resources/css/order.css">
 <%@ include file="/WEB-INF/views/common/header2.jsp" %>
 
 <div id="order_Wrapper" class="row">
