@@ -1,15 +1,15 @@
-package DAO;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletContext;
 
-import DTO.Basket;
-import DTO.BasketDetail;
+import Service.BasketService;
+import dto.Basket;
+import dto.BasketDetail;
 
 public class BasketDao {
 	String Output;
@@ -32,14 +32,15 @@ public class BasketDao {
 		return result;
 	}
 
-	public Basket updateBasket(String userId, BasketDetail basketDetail, Connection conn) throws Exception {
-		String sql = "update basket set total_price=total_price+? ";
+	public boolean updateBasket(Basket basket, Connection conn) throws Exception {
+		boolean result = false;
+		String sql = "update basket set total_price=? ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, basketDetail.getPrice());
+		pstmt.setInt(1, basket.getTotalPrice());
 		if (pstmt.executeUpdate() == 1) {
-			return selectBasket(userId, conn);
+			result = true;
 		}
-		return null;
+		return result;
 	}
 
 	public Basket selectBasket(String basketId, Connection conn) throws Exception {

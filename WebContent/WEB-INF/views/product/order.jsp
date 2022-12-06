@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.*,DTO.*"%>
+<%@ page import="java.util.*,dto.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
@@ -11,7 +11,7 @@
 
 
 <div id="order_Wrapper" class="row">
-	<form class="order_main col-8 col-md-12">
+	<form method="post" action="OrderController" class="order_main col-8 col-md-12">
 		<div class="order_sub">
 			<h3 style="text-align: left; font-weight: bold;">결재 내역</h3>
 			<hr />

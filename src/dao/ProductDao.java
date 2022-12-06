@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import DTO.Product;
+import dto.Product;
 import util.Pager;
 
 public class ProductDao {
@@ -84,7 +84,6 @@ public class ProductDao {
 			productDto.setProdcutId(rs.getString("product_id"));
 			productDto.setProductName(rs.getString("product_name"));
 			productDto.setProductPrice(rs.getInt("product_price"));
-			productDto.setProductContent(rs.getString("product_content"));
 			productDto.setProductGraphicCard(rs.getString("product_graphic_card"));
 			productDto.setCPU(rs.getString("product_cpu"));
 			productDto.setMainboard(rs.getString("product_mainboard"));
@@ -110,7 +109,6 @@ public class ProductDao {
 			productDto.setProdcutId(rs.getString("product_id"));
 			productDto.setProductName(rs.getString("product_name"));
 			productDto.setProductPrice(rs.getInt("product_price"));
-			productDto.setProductContent(rs.getString("product_content"));
 			productDto.setProductGraphicCard(rs.getString("product_graphic_card"));
 			productDto.setCPU(rs.getString("product_cpu"));
 			productDto.setMainboard(rs.getString("product_mainboard"));

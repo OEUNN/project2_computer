@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.*,DTO.*"%>
+<%@ page import="java.util.*,dto.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
@@ -25,16 +25,16 @@
                   <div class = "mx-5" style=" flex-grow: 5;text-align : center"> <h4><b>1900000</b>원 </h4></div>
                   
                   </div>
-                  <form method="post" action="ChoiceController?productId=abc&productPrice=1900">
+                  <form method="post" action="DetailButtonChoiceController?productId=abc&productPrice=1900">
 	                  <div class="option  mt-4 mr-4 mb-2 ml-4" style="height:350px"> 
 	                  <div style="height:80px;text-align:center;padding-top:10px"> 색상 
 	                  	<div class = "colorRadio" style="height:30px">
 	                     
-	                         <input id="color1-1" name="color" type="radio" value="blue" checked="checked">
+	                         <input id="color1-1" name="colorId" type="radio" value="blue" checked="checked">
 	               			 <label for="color1-1" class="border rounded-circle " style="background-color:steelblue;  "></label>
-	                         <input id="color1-2" name="color" type="radio" value="black" >
+	                         <input id="color1-2" name="colorId" type="radio" value="black" >
 	                         <label for="color1-2" class="border rounded-circle " style="background-color:black;  "></label>
-	                         <input id="color1-3" name="color" type="radio" value="white" >
+	                         <input id="color1-3" name="colorId" type="radio" value="white" >
 	                         <label for="color1-3" class="border rounded-circle " style="background-color:white;  "></label>
 	                              </div>
 	                              
@@ -43,11 +43,11 @@
 	                  </div>
 	                  <div class="mt-3" style="text-align:center;height:80px">용량 
 	                  <div class="capaRadio">
-	                                 <input id="capa1-1" name="capa" type="radio" value="512GB" checked="checked">
+	                                 <input id="capa1-1" name="capaId" type="radio" value="512GB" checked="checked">
 	                                 <label for="capa1-1" class="border rounded " style="padding-top:8px;"  >512GB</label>
-	                                 <input id="capa1-2" name="capa" type="radio" value="256GB" >
+	                                 <input id="capa1-2" name="capaId" type="radio" value="256GB" >
 	                                 <label for="capa1-2" class="border rounded"style="padding-top:8px;" >256GB</label>
-	                                 <input id="capa1-3" name="capa" type="radio" value="1TB" >
+	                                 <input id="capa1-3" name="capaId" type="radio" value="1TB" >
 	                                 <label for="capa1-3" class="border rounded " style="padding-top:8px;">1TB</label>
 	                                 
 	                              </div>

@@ -1,6 +1,6 @@
 package Service;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,10 +8,8 @@ import javax.naming.InitialContext;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
-import DAO.ProductDao;
-import DAO.ProductDetailDao;
-import DTO.Product;
-import DTO.ProductDetail;
+import dao.ProductDao;
+import dto.Product;
 import util.Pager;
 
 public class ProductService {
@@ -55,35 +53,19 @@ public class ProductService {
 		return count;
 	}
 
-	public Product getProductContent(String productId) {
+	public Product getProduct(String productId) {
 		Connection conn = null;
-		Product productDto = new Product();
+		Product product = new Product();
 		try {
 			conn=ds.getConnection();
-			productDto = productDao.selectProduct(productId,conn);
+			product = productDao.selectProduct(productId,conn);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			try{ conn.close(); }catch(Exception e) {}
 		}
 		
-		return productDto;
-	}
-
-	public List<ProductDetail> getProductDetailList(String productId) {
-		Connection conn = null;
-		ProductDetailDao productDetailDao = (ProductDetailDao)application.getAttribute("productDetailDao");
-		List<ProductDetail> list = new ArrayList<>();
-		try {
-			conn=ds.getConnection();
-			list =  productDetailDao.selectProductDetails(productId,conn);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			try{ conn.close(); }catch(Exception e) {}
-		}
-		
-		return list;
+		return product;
 	}
 
 }
