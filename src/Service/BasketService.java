@@ -34,7 +34,7 @@ public class BasketService {
 		try {
 			conn = ds.getConnection();
 			if (productDetailId.contains("proD")) {
-				Product product = productDao.selectProductSubQuery(productDetailId);
+				Product product = productDao.selectProductSubQuery(productDetailId, conn);
 				
 				//해당 productId가 존재한다면 BasketDetailDao 호출함
 				if (product.getProdcutId() != null) {
@@ -89,12 +89,12 @@ public class BasketService {
 		return basket;
 	}
 
-	public boolean CreateBasket(Basket basket) {
+	public boolean CreateBasket(String userId) {
 		Connection conn = null;
 		boolean result = false;
 		try {
 			conn = ds.getConnection();
-			result = basketDao.Create(basket, conn);
+			result = basketDao.Create(userId, conn);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
