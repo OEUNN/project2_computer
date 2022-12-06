@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="../resources/css/qnaBoard.css">
 <script>
 	function qnaUpdate(num=1){
-		console.log(num);
+		/* console.log(num); */
 		<c:forEach var="qnaBoard" items="${qnaList }" varStatus="status">
 			/*선택한 행 게시물일때 게시물값을 넣는다*/
 			if(${status.index}==num){
-				$("#qnaUpdate form").attr("action","QnaBoardUpdateController?"+num);
+				
 				$("#qnaUpdate form #title").attr("value","${qnaBoard.qnaBtitle}");
 				$("#qnaUpdate form textarea").text("${qnaBoard.qnaBcontent}");
 				$("#qnaUpdate form #bno").attr("value","${qnaBoard.qnaBno}");
@@ -20,7 +20,14 @@
 		</c:forEach>
 	}
 	function qnaDelete(num){
-		
+		<c:forEach var="qnaBoard" items="${qnaList }" varStatus="status">
+		/*선택한 행 게시물일때 게시물값을 넣는다*/
+		if(${status.index}==num){
+			
+			$("#qnaDelete form #bno").attr("value","${qnaBoard.qnaBno}");
+			
+		}
+	</c:forEach>
 		
 	}
 </script>
@@ -74,8 +81,8 @@
 								<p>답변내용이 들어갈 위치입니다.</p>
 							</div>
 							<div class="col-2">
-								<button class="btn btn-primary btn-sm" onclick="qnaUpdate(${status.index})" data-toggle="modal" data-target="#qnaUpdate">수정</button>
-								<button class="btn btn-primary btn-sm" onclick="qnaDelete(${status.index})" data-toggle="modal" data-target="#qnaDelete">삭제</button>
+								<button class="btn btn-#0c1c32 btn-dark btn-sm" onclick="qnaUpdate(${status.index})" data-toggle="modal" data-target="#qnaUpdate">수정</button>
+								<button class="btn btn-#0c1c32 btn-dark btn-sm" onclick="qnaDelete(${status.index})" data-toggle="modal" data-target="#qnaDelete">삭제</button>
 
 							</div>
 						</div>
@@ -194,8 +201,39 @@
 	
 			<!-- Modal footer -->
 			<div class="modal-footer">
-				<button type="submit" form="qnaBoardUpdate" class="btn btn-secondary">등록</button>
+				<button type="submit" form="qnaBoardUpdate" class="btn btn-secondary">수정완료</button>
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="qnaDelete">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">정말로 삭제하시겠습니까?</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+	
+			
+	
+	
+				<form method="Post" action="QnaBoardDeleteController"
+					id="qnaBoardDelete">
+					
+					<input class="form-group" style="display:none" id="bno" name="bno" type="text" value="">
+	
+				</form>
+	
+			
+	
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="submit" form="qnaBoardDelete" class="btn btn-secondary">예</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">아니오</button>
 	
 			</div>
 		</div>
