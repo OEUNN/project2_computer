@@ -5,7 +5,7 @@
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
 <link rel="stylesheet" href="../resources/css/header.css">
 <link rel="stylesheet" href="../resources/css/join.css">
-<script src="/resources/javascript/joinValidation.js"></script>
+<script src="../resources/javascript/joinValidation.js"></script>
 <%@ include file="/WEB-INF/views/common/header2.jsp" %>
 			
 

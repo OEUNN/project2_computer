@@ -189,4 +189,18 @@ public class QnaBoardDao {
 	 * (rs.next()); //returnjson.put("json", ja); } pstmt.close(); return
 	 * returnjson.toString(); }
 	 */
+
+	public String updateQnaBoard(QnaBoard qnaBoard, Connection conn)throws Exception {
+		String answer = "";
+		String sql = "update qna_board set qna_btitle = ? , qna_bcontent = ? where qna_bno = ? ";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, qnaBoard.getQnaBtitle());
+		pstmt.setString(2, qnaBoard.getQnaBcontent());
+		pstmt.setString(3, qnaBoard.getQnaBno());
+		pstmt.executeUpdate();
+		answer = "success";
+		pstmt.close();
+
+		return answer;
+	}
 }

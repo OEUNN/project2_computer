@@ -3,8 +3,27 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
-<link rel="stylesheet" href="/resources/css/header.css">
-<link rel="stylesheet" href="/resources/css/qnaBoard.css">
+<link rel="stylesheet" href="../resources/css/header.css">
+<link rel="stylesheet" href="../resources/css/qnaBoard.css">
+<script>
+	function qnaUpdate(num=1){
+		console.log(num);
+		<c:forEach var="qnaBoard" items="${qnaList }" varStatus="status">
+			/*선택한 행 게시물일때 게시물값을 넣는다*/
+			if(${status.index}==num){
+				$("#qnaUpdate form").attr("action","QnaBoardUpdateController?"+num);
+				$("#qnaUpdate form #title").attr("value","${qnaBoard.qnaBtitle}");
+				$("#qnaUpdate form textarea").text("${qnaBoard.qnaBcontent}");
+				$("#qnaUpdate form #bno").attr("value","${qnaBoard.qnaBno}");
+				
+			}
+		</c:forEach>
+	}
+	function qnaDelete(num){
+		
+		
+	}
+</script>
 <%@ include file="/WEB-INF/views/common/header2.jsp" %>
 <%@ include file="/WEB-INF/views/common/mypageMenu.jsp" %>
 
@@ -55,8 +74,8 @@
 								<p>답변내용이 들어갈 위치입니다.</p>
 							</div>
 							<div class="col-2">
-								<button class="btn btn-primary btn-sm">수정</button>
-								<button class="btn btn-primary btn-sm">삭제</button>
+								<button class="btn btn-primary btn-sm" onclick="qnaUpdate(${status.index})" data-toggle="modal" data-target="#qnaUpdate">수정</button>
+								<button class="btn btn-primary btn-sm" onclick="qnaDelete(${status.index})" data-toggle="modal" data-target="#qnaDelete">삭제</button>
 
 							</div>
 						</div>
@@ -107,37 +126,78 @@
 		<div class="modal-content">
 
 			<!-- Modal Header -->
-		<div class="modal-header">
-			<h4 class="modal-title">1:1 문의 작성</h4>
-			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<div class="modal-header">
+				<h4 class="modal-title">1:1 문의 작성</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+	
+			<!-- Modal body -->
+			<div class="modal-body">
+	
+	
+				<form method="Post" action="QnaBoardWriteController"
+					id="qnaBoardWrite">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="제목을 입력해주세요"
+							id="title" name="title">
+					</div>
+	
+					<div class="form-group" style="height: 100%">
+						<textarea style="height: 300px; width: 100%" name="inquiryContent"
+							id="inquiryContent" placeholder="리뷰 내용을 입력해 주세요. (500자 이내)"></textarea>
+					</div>
+	
+	
+				</form>
+	
+			</div>
+	
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="submit" form="qnaBoardWrite" class="btn btn-secondary">등록</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	
+			</div>
 		</div>
+	</div>
+</div>
+<div class="modal fade" id="qnaUpdate">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
 
-		<!-- Modal body -->
-		<div class="modal-body">
-
-
-			<form method="Post" action="QnaBoardWriteController"
-				id="qnaBoardWrite">
-				<div class="form-group">
-					<input type="text" class="form-control" placeholder="제목을 입력해주세요"
-						id="title" name="title">
-				</div>
-
-				<div class="form-group" style="height: 100%">
-					<textarea style="height: 300px; width: 100%" name="inquiryContent"
-						id="inquiryContent" placeholder="리뷰 내용을 입력해 주세요. (500자 이내)"></textarea>
-				</div>
-
-
-			</form>
-
-		</div>
-
-		<!-- Modal footer -->
-		<div class="modal-footer">
-			<button type="submit" form="qnaBoardWrite" class="btn btn-secondary">등록</button>
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">1:1 문의 수정</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+	
+			<!-- Modal body -->
+			<div class="modal-body">
+	
+	
+				<form method="Post" action="QnaBoardUpdateController"
+					id="qnaBoardUpdate">
+					<div class="form-group">
+						<input type="text" class="form-control" value=""
+							id="title" name="title">
+					</div>
+	
+					<div class="form-group" style="height: 100%">
+						<textarea style="height: 300px; width: 100%" name="inquiryContent"
+							id="inquiryContent" ></textarea>
+					</div>
+					<input class="form-group" style="display:none" id="bno" name="bno" type="text" value="">
+	
+				</form>
+	
+			</div>
+	
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="submit" form="qnaBoardUpdate" class="btn btn-secondary">등록</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	
+			</div>
 		</div>
 	</div>
 </div>
