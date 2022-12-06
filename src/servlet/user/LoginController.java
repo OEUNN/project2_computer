@@ -36,13 +36,17 @@ public class LoginController extends HttpServlet {
 		Users users = new Users();
 		users = userService.userLogin(userId, userPwd);
 		
-		HttpSession session = request.getSession();
-		
-		session.setAttribute("loginId", userId);
-		if(users.isAdmin()) {
-			request.getRequestDispatcher("/WEB-INF/views/user/upload.jsp").forward(request, response);
+		if(users.getUserId().equals("")) {
+			request.getRequestDispatcher("/WEB-INF/views/user/login.jsp").forward(request, response);
 		}else {
-			request.getRequestDispatcher("/WEB-INF/views/product/productList.jsp").forward(request, response);
+			HttpSession session = request.getSession();
+			session.setAttribute("loginId", users.getUserId());
+			session.setAttribute("isAdmin",users.isAdmin());
+			if(users.isAdmin()) {
+				request.getRequestDispatcher("/WEB-INF/views/user/upload.jsp").forward(request, response);
+			}else {
+				request.getRequestDispatcher("/WEB-INF/views/user/productList.jsp").forward(request, response);
+			}
 		}
 		
 	}

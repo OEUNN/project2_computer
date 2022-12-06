@@ -3,8 +3,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
-<%@ include file="/resources/css/header.css" %>
-<%@ include file="/resources/css/qnaBoard.css" %>
+<link rel="stylesheet" href="/resources/css/header.css">
+<link rel="stylesheet" href="/resources/css/qnaBoard.css">
 <%@ include file="/WEB-INF/views/common/header2.jsp" %>
 <%@ include file="/WEB-INF/views/common/mypageMenu.jsp" %>
 
