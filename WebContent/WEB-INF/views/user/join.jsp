@@ -3,8 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
-<%@ include file="/resources/css/header.css" %>
-<%@ include file="/resources/css/join.css" %>
+<link rel="stylesheet" href="../resources/css/header.css">
+<link rel="stylesheet" href="../resources/css/join.css">
+<script src="../resources/javascript/joinValidation.js"></script>
 <%@ include file="/WEB-INF/views/common/header2.jsp" %>
 			
 
@@ -85,3 +86,4 @@
 	<!-- 오른쪽 빈칸 -->
 	<div class="col-0 col-md-3 "></div>
 </div>
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>

@@ -4,8 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
-<%@ include file="/resources/css/header.css" %>
-<%@ include file="/resources/css/productDetail.css"%>
+<link rel="stylesheet" href="../resources/css/header.css">
+<link rel="stylesheet" href="../resources/css/productDetail.css">
 <%@ include file="/WEB-INF/views/common/header2.jsp" %>
 
 

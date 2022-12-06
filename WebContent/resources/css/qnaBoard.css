@@ -1,0 +1,64 @@
+* {
+	background-color: #f3f3f3;
+}
+#menu {
+	background-color: white;
+	border-radius: 0px 50px 0px 0px;
+	box-shadow: 5px 5px 10px grey;
+}
+
+#menu div, a {
+	background-color: white;
+	color: black;
+}
+
+#centerText {
+	color: black;
+	font-size: 250%;
+}
+
+#contentBox {
+	border-radius: 15px;
+	box-shadow: 5px 5px 10px grey;
+}
+
+#contentText * {
+	background-color: white;
+}
+
+#contentButton {
+	border-radius: 15px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.qnaList:hover * {
+	background-color: #f0f0f0 !important;
+}
+
+#qnaModal * {
+	background-color: white;
+}
+#qnaModal {
+	background-color:rgba(288,288,288,0.2);
+}
+
+#qnaModal button {
+	background-color: #0c1c32;
+}
+
+.pagerBtn {
+	color: black;
+}
+
+.pagerBtn:hover {
+	color: black;
+	background-color: #e0e0e0 !important;
+}
