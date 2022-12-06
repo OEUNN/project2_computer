@@ -194,7 +194,7 @@
 							id="inquiryContent" ></textarea>
 					</div>
 					<input class="form-group" style="display:none" id="bno" name="bno" type="text" value="">
-	
+					
 				</form>
 	
 			</div>

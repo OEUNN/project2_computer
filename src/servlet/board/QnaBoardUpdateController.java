@@ -25,7 +25,7 @@ public class QnaBoardUpdateController extends HttpServlet {
 		QnaBoardService qnaBoardService = (QnaBoardService)application.getAttribute("qnaBoardService");
 		
 		QnaBoard qnaBoard = new QnaBoard();
-		
+		System.out.println(request.getParameter("number"));
 		
 		qnaBoard.setQnaBtitle(request.getParameter("title"));
 		qnaBoard.setQnaBcontent(request.getParameter("inquiryContent"));

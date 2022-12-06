@@ -1,14 +1,16 @@
 package Service;
 
-import java.sql.Connection; 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.naming.InitialContext;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
+import DAO.ProductCapacityDao;
+import DAO.ProductColorDao;
 import DAO.ProductDao;
+import DTO.Color;
 import DTO.Product;
 import util.Pager;
 
@@ -16,11 +18,15 @@ public class ProductService {
 	private ServletContext application;
 	private DataSource ds;
 	private ProductDao productDao;
-	
+	private ProductColorDao productColorDao;
+	private ProductCapacityDao productCapacityDao;
 	public ProductService(ServletContext application) {
 		this.application=application;
-		productDao = (ProductDao)application.getAttribute("productDao");
-		ds=(DataSource)application.getAttribute("dataSource");
+		productDao = (ProductDao)this.application.getAttribute("productDao");
+		ds=(DataSource)this.application.getAttribute("dataSource");
+		productColorDao=(ProductColorDao)this.application.getAttribute("productColorDao");
+		productCapacityDao=(ProductCapacityDao)this.application.getAttribute("productCapacityDao");
+		
 	}
 	
 	public List<Product> getList(Pager page) {
@@ -29,6 +35,10 @@ public class ProductService {
 		try {
 			conn=ds.getConnection();
 			list = productDao.selectProducts(page,conn);
+			
+			for(Product product:list){
+				List<Color> colorList=productColorDao.selectColor(product,conn);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
