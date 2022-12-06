@@ -1,0 +1,65 @@
+* {
+	background-color: #f3f3f3;
+}
+
+#basketMain {
+	width: 1200px;
+	margin: 100px auto;
+	padding: 10px 20px;
+	background-color: white;
+	border-radius: 15px;
+	box-shadow: 5px 5px 10px grey;
+}
+
+#basketMain * {
+	background-color: white;
+}
+
+#basketLogo {
+	font-size: 250%;
+	text-align: left;
+}
+
+.basketTable {
+	text-align: center;
+	margin-top: 20px
+}
+
+.basketTable th {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.basketTable td {
+	font-size: 24px;
+}
+
+.basketTable td div {
+	padding-top: 25px;
+}
+
+.basketTable td span, #deleteBasket {
+	font-size: 8px;
+	color: gray;
+}
+
+#totalPrice {
+	text-align: right;
+	font-weight: bold;
+	border-top: 1px solid black;
+	padding-top: 5px;
+}
+
+#submit {
+	text-align: center;
+}
+
+.basketTable img {
+	width: 100px;
+}
+
+#submit .card-body div {
+	text-align: right;
+	font-size: 8px;
+	color: gray;
+}

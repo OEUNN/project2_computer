@@ -50,7 +50,7 @@ public class OrderService {
 		}catch(Exception e) {
 			
 		}finally {
-			try {conn.close();} catch(Exception e) {};
+			try {conn.close();} catch(Exception e) {}
 		}
 		return "success";
 	}

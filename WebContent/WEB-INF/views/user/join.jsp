@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
+<%@ include file="/resources/css/header.css" %>
 <%@ include file="/resources/css/join.css" %>
 <%@ include file="/WEB-INF/views/common/header2.jsp" %>
 			

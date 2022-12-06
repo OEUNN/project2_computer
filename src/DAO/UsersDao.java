@@ -15,7 +15,7 @@ public class UsersDao {
 	// 아이디 비교하기
 	public boolean compareIdLoginSelect(String id, Connection conn) throws Exception {
 		boolean result = false;
-		String sql = "select user_Id, from users where user_Id= ? ";
+		String sql = "select user_Id from users where user_Id= ? ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, id);
 		ResultSet rs = pstmt.executeQuery();

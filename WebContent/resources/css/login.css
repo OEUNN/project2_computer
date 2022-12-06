@@ -1,22 +1,30 @@
-			#loginMain{
-	        	background-color: white;
-	        	border-radius: 15px;
-				box-shadow: 5px 5px 10px grey;
-	        }
-	         #loginMain *{
-				background-color: white;
-	        }
-			#loginLogo{
-				width:100%;
-				font-size: 250%;
-				text-align: center;
-			}
-			.button-flex {
-				display : flex;
-			}
-			#loginButton *{
-				width:200px; 
-				height:35px; 
-				background-color:#0c1c32;
-				color:white;
-			}
+* {
+	background-color: #f3f3f3;
+}
+
+#loginMain {
+	background-color: white;
+	border-radius: 15px;
+	box-shadow: 5px 5px 10px grey;
+}
+
+#loginMain * {
+	background-color: white;
+}
+
+#loginLogo {
+	width: 100%;
+	font-size: 250%;
+	text-align: center;
+}
+
+.button-flex {
+	display: flex;
+}
+
+#loginButton * {
+	width: 200px;
+	height: 35px;
+	background-color: #0c1c32;
+	color: white;
+}

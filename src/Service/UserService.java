@@ -40,12 +40,14 @@ public class UserService {
 			else {
 				result=false;
 			}
+			if(!result) {
+				usersDto.setUserId("");
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
 			try{ conn.close(); }catch(Exception e) {}
 		}
-		
 		return usersDto;
 	}
 	

@@ -1,49 +1,55 @@
-			#menu{
-				background-color: white;
-				border-radius: 0px 50px 0px 0px;
-				box-shadow: 5px 5px 10px grey;
-			}
-			
-			#menu div,a{
-				background-color: white;
-				color:black;
-			}
-			
-			#centerText{
-				color:black;
-				font-size: 250%;
-			}
-			#mypage{
-				background-color: white;
-				border-radius:15px;
-				box-shadow: 5px 5px 10px grey;
-			}
-			
-			#mypage *{
-				background-color: white;
-			}
-			
-			#id{
-				display: grid;
-				grid-template-rows: auto auto auto auto;
-				gap: 10px;
-				padding: 10px;
-			}
-			
-			#product {
-			  	display:grid;
-			  	grid-template-columns: auto auto auto auto;
-			  	gap: 10px;
-			  	padding: 10px;
-			}
-			
-			.grid-container > div {
-				background-color: rgba(255, 255, 255, 0.8);
-			  	border: 1px solid black;
-			  	text-align: center;
-			  	font-size: 30px;
-			}
-			.card-head{
-				font-size : 80%;
-				text-align: left;
-			}
+* {
+	background-color: #f3f3f3;
+}
+
+#menu {
+	background-color: white;
+	border-radius: 0px 50px 0px 0px;
+	box-shadow: 5px 5px 10px grey;
+}
+
+#menu div, a {
+	background-color: white;
+	color: black;
+}
+
+#centerText {
+	color: black;
+	font-size: 250%;
+}
+
+#mypage {
+	background-color: white;
+	border-radius: 15px;
+	box-shadow: 5px 5px 10px grey;
+}
+
+#mypage * {
+	background-color: white;
+}
+
+#id {
+	display: grid;
+	grid-template-rows: auto auto auto auto;
+	gap: 10px;
+	padding: 10px;
+}
+
+#product {
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+	gap: 10px;
+	padding: 10px;
+}
+
+.grid-container>div {
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 1px solid black;
+	text-align: center;
+	font-size: 30px;
+}
+
+.card-head {
+	font-size: 80%;
+	text-align: left;
+}
