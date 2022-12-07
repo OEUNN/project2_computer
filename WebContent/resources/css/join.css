@@ -28,7 +28,7 @@
 #centerBoard * {
 	background-color: white;
 }
-#address_kakao{
+#addrBtn{
 	background-color:#0c1c32; 
 	color:white;
 	width:100px;
@@ -42,6 +42,6 @@
 p{
 	font-size : 80%;
 }
-mystyle{
+.mystyle{
 	border: 1px solid red;
 }

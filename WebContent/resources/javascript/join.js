@@ -76,10 +76,10 @@ function check(){
 	var uidPattern =/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,10}$/g;
 	var uidTest = uidPattern.test(uidValue);
 	if(uidTest){
-		uid.removeClass("bg-danger");
+		uid.removeClass("mystyle");
 	}else{
 		//한번 써본거
-		uid.addClass("bg-danger");
+		uid.addClass("mystyle");
 		result=false;
 	}
 	
@@ -90,8 +90,10 @@ function check(){
 	var passwordTest = passwordPattern.test(passwordValue);
 	if(passwordTest){
 		$("#pwdMessage").text(" ");
+		password.removeClass("mystyle");
 	}else{
 		$("#pwdMessage").text("다시 한번 확인해 주십시오.");
+		password.addClass("mystyle");
 		result=false;
 	}
 	
@@ -111,9 +113,9 @@ function check(){
 	var phonePattern =/^010-\d{3,4}-\d{4}$/;
 	var phoneTest = phonePattern.test(phoneValue);
 	if(phoneTest){
-		phone.removeClass("bg-danger");
+		phone.removeClass("mystyle");
 	}else{
-		phone.addClass("bg-dnager");
+		phone.addClass("mystyle");
 		result=false;
 	}
 	
@@ -123,25 +125,40 @@ function check(){
 	var emailPattern =  /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 	var emailTest = emailPattern.test(emailValue);
 	if(emailTest){
-		email.removeClass("bg-danger");
+		email.removeClass("mystyle");
 	}else{
-		email.addClass("bg-dnager");
+		email.addClass("mystyle");
 		result=false;
 	}
 	
+	//닉네임
+	var nickName=$("#userNickname");
+	if(nickName == ""){
+		nickName.removeClass("mystyle");
+	}else{
+		nickName.addClass("mystyle");
+		result=false;
+	}
 	
-	
+	return result;
 }
 
-//주소
-window.onload = function(){
-    document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
-        //카카오 지도 발생
-        new daum.Postcode({
-            oncomplete: function(data) { //선택시 입력값 세팅
-                document.getElementById("address_kakao").value = data.address; // 주소 넣기
-                document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+function findAddr(){
+	new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var roadAddr = data.roadAddress; // 도로명 주소 변수
+            var jibunAddr = data.jibunAddress; // 지번 주소 변수
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('userPost').value = data.zonecode;
+            if(roadAddr !== ''){
+                document.getElementById("userAddr").value = roadAddr;
+            } 
+            else if(jibunAddr !== ''){
+                document.getElementById("userAddr").value = jibunAddr;
             }
-        }).open();
-    });
+        }
+    }).open();
 }
