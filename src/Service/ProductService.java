@@ -23,6 +23,8 @@ public class ProductService {
 	public ProductService(ServletContext application) {
 		this.application=application;
 		productDao = (ProductDao)application.getAttribute("productDao");
+		productColorDao= (ProductColorDao)application.getAttribute("productColorDao");
+	    productCapacityDao= (ProductCapacityDao)application.getAttribute("productCapacityDao");
 		ds=(DataSource)application.getAttribute("dataSource");
 	}
 	

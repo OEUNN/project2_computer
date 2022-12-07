@@ -9,7 +9,7 @@ public class OrderDetail {
 	   private String orderId;
 	   private int price;
 	   private int productQnt;
-	   private int colorId;
-	   private int capacityId;
+	   private String colorName;
+	   private String capacityName;
 	   
 }
