@@ -45,7 +45,7 @@ public class LoginController extends HttpServlet {
 			if(users.isAdmin()) {
 				response.sendRedirect("UploadController");
 			}else {
-				response.sendRedirect("ProductListController");
+				response.sendRedirect("../product/ProductListController");
 			}
 		}
 		

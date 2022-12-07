@@ -26,7 +26,7 @@ public class LogoutController extends HttpServlet {
 		session.removeAttribute("loginId");
 		session.removeAttribute("isAdmin");
 		
-		response.sendRedirect("ProductListController");
+		response.sendRedirect("../product/ProductListController");
 	}
 	
 
