@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import DTO.OrderDetail;
-import DTO.ProductDetail;
+import dto.OrderDetail;
+import dto.ProductDetail;
 
 public class ProductDetailDao {
 

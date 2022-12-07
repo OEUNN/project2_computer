@@ -6,10 +6,10 @@ import java.sql.SQLException;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
-import DAO.OrderDao;
-import DAO.OrderDetailDao;
-import DTO.OrderDetail;
-import DTO.Orders;
+import dao.OrderDao;
+import dao.OrderDetailDao;
+import dto.OrderDetail;
+import dto.Orders;
 
 public class OrderService {
 	private ServletContext application;

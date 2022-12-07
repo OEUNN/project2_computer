@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.*,DTO.*"%>
+<%@ page import="java.util.*,dto.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
@@ -9,7 +9,7 @@
 
 
 <!-- mainBoard -->
-<div id="mainBoard" class="row">
+<div id="mainBoard" class="row" >
 	<!-- 메인 스크롤 -->
 	<div class="col-lg-8 col-12 p-5" style="height:550px;">
 		<!-- 이미지 슬라이드 -->
@@ -65,31 +65,31 @@
 		<!-- 로그인 ON -->
 		<c:if test="${loginId!=null}">
 			<div class="container-fluid">
-				<div class="row mb-5">
+				<div class="row my-4">
 					<!-- 이미지 센터 -->
-					<div style="width: 250px; height: 250px;">
+					<div style="width: 400px; height: 100%;">
 						<img src="../resources/images/welcome.png" alt="welcom image error" />
 					</div>
 				</div>
-				<div class="row m-5">
+				<div class="row my-1">
 					<div class="button-flex mt-3 mb-5 mx-auto">
 						<div class="mt-3" style="flex-grow: 3"></div>
 						<div class="btn" style="flex-grow: 2;">
-							<u>아이디 찾기</u>
+							<p>마이페이지</p>
 						</div>
 						<div class="btn" style="flex-grow: 2;">
-							<u>비밀번호 찾기</u>
+							<p>주문 내역 보기</p>
 						</div>
 						<div class="mt-3" style="flex-grow: 3"></div>
 					</div>
-					
-					<div>
+				</div>
+				<div class="row pb-5">
+					<div >
 						<div id="loginButton" style="width: 300px; height: 60px"
 							class="btn btn-black btn-sm">
-							<a href="../user/LoginController">로그아웃</a>
+							<a href="../user/LogoutController">로그아웃</a>
 						</div>
 					</div>
-					
 				</div>
 			</div>
 		</c:if>

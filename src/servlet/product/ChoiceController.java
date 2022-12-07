@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DTO.Basket;
+import dto.Basket;
 
 @WebServlet(name = "product.ChoiceController", urlPatterns =  "/product/ChoiceController" )
 public class ChoiceController extends HttpServlet {

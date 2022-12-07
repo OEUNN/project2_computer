@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
-import DAO.UsersDao;
-import DTO.Users;
+import dao.UsersDao;
+import dto.Users;
 import util.Pager;
 
 public class UserService {
@@ -51,8 +51,48 @@ public class UserService {
 		return usersDto;
 	}
 	
+	public boolean check(String check, String value){
+		Connection conn = null;
+		boolean result=false;
+		try {
+			conn=ds.getConnection();
+			switch(check) {
+			case "id" :
+				result = usersDao.compareIdLoginSelect(value, conn);
+				break;
+			case "phone" :
+				result = usersDao.phoneSelect(value, conn);
+				break;
+			case "email" :
+				result = usersDao.emailSelect(value, conn);
+				break;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try{ conn.close(); }catch(Exception e) {}
+		}
+		
+		return result;
+	}
+	
+	public boolean userJoin(Users usersDto) {
+		Connection conn = null;
+		boolean result=false;
+		try {
+			conn=ds.getConnection();
+			result = usersDao.UserJoin(usersDto,conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try{ conn.close(); }catch(Exception e) {}
+		}
+		
+		return result;
+	}
+	
 	//개인 정보 수정
-	public boolean UserUpdate(Users usersDto) {
+	public boolean userUpdate(Users usersDto) {
 		Connection conn = null;
 		boolean result=false;
 		try {
@@ -68,7 +108,7 @@ public class UserService {
 		return result;
 	}
 	
-	public Users UserInfo(Users usersDto) {
+	public Users userInfo(Users usersDto) {
 		Connection conn = null;
 		try {
 			conn=ds.getConnection();
@@ -83,7 +123,7 @@ public class UserService {
 	}
 	
 	//유저 삭제
-	public boolean UserDelete(Users usersDto) {
+	public boolean userDelete(Users usersDto) {
 		Connection conn = null;
 		boolean result=false;
 		try {
@@ -98,20 +138,7 @@ public class UserService {
 		return result;
 	}
 	
-	public boolean UserJoin(Users usersDto) {
-		Connection conn = null;
-		boolean result=false;
-		try {
-			conn=ds.getConnection();
-			result = usersDao.UserJoin(usersDto,conn);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			try{ conn.close(); }catch(Exception e) {}
-		}
-		
-		return result;
-	}
+	
 	
 	// 유저 전체 List 불러오기 ----------------------------------------
 	
@@ -146,7 +173,7 @@ public class UserService {
 	}
 	
 	//매니저가 유저 삭제하기
-	public boolean ManagerUserDelete(Users usersDto) {
+	public boolean managerUserDelete(Users usersDto) {
 		Connection conn = null;
 		boolean result=false;
 		try {

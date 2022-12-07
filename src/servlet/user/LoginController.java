@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DTO.Users;
 import Service.UserService;
+import dto.Users;
+
 
 @WebServlet(name = "user.LoginController", urlPatterns ="/user/LoginController")
 public class LoginController extends HttpServlet {
@@ -43,12 +44,11 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("loginId", users.getUserId());
 			session.setAttribute("isAdmin",users.isAdmin());
 			if(users.isAdmin()) {
-				request.getRequestDispatcher("/WEB-INF/views/user/upload.jsp").forward(request, response);
+				response.sendRedirect("UploadController");
 			}else {
-				request.getRequestDispatcher("/WEB-INF/views/user/productList.jsp").forward(request, response);
+				response.sendRedirect("ProductListController");
 			}
 		}
 		
 	}
-
 }

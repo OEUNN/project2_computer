@@ -7,12 +7,12 @@ import javax.naming.InitialContext;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
-import DAO.BasketDao;
-import DAO.BasketDetailDao;
-import DAO.ProductDao;
-import DTO.Basket;
-import DTO.BasketDetail;
-import DTO.Product;
+import dao.BasketDao;
+import dao.BasketDetailDao;
+import dao.ProductDao;
+import dto.Basket;
+import dto.BasketDetail;
+import dto.Product;
 
 public class BasketService {
 	String Output;

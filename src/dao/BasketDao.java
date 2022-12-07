@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,8 +8,8 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 
-import DTO.Basket;
-import DTO.BasketDetail;
+import dto.Basket;
+import dto.BasketDetail;
 
 public class BasketDao {
 	String Output;

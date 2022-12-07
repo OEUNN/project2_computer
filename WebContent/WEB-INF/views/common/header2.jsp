@@ -30,7 +30,7 @@
 						<div class="mt-3 ml-5">
 							<input type="checkbox" id="menuBtn" style="display: none;" /> 
 							<label for="menuBtn" class="labelBtn" onclick=""> 
-							<img src="../resources/images/on_human.png" style="width: 40px; height: 40px;" />
+							<img src="../resources/images/off_human.png" style="width: 40px; height: 40px;" />
 							</label>
 							<ul class="submenu" style="width: 90px;">
 								<li><a href="../user/MypageController"></a>마이페이지</li>
@@ -45,7 +45,7 @@
 						<div class="mt-3 ml-5">
 							<input type="checkbox" id="menuBtn" style="display: none;" /> 
 							<label for="menuBtn" class="labelBtn" onclick=""> 
-							<img src="../resources/images/off_human.png" style="width: 40px; height: 40px;" />
+							<img src="../resources/images/on_human.png" style="width: 40px; height: 40px;" />
 							</label>
 							<ul class="submenu" style="width: 90px;">
 								<li><a href="../user/MypageController">마이페이지</a></li>

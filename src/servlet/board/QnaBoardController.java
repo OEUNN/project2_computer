@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DTO.QnaBoard;
 import Service.QnaBoardService;
+import dto.QnaBoard;
 import util.Pager;
 
 @WebServlet(name = "board.QnaBoardController", urlPatterns =  "/board/QnaBoardController" )
