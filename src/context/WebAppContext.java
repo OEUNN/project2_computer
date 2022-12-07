@@ -15,6 +15,8 @@ import dao.BasketDao;
 import dao.BasketDetailDao;
 import dao.OrderDao;
 import dao.OrderDetailDao;
+import dao.ProductCapacityDao;
+import dao.ProductColorDao;
 import dao.ProductDao;
 import dao.ProductDetailDao;
 import dao.QnaBoardDao;
@@ -46,6 +48,8 @@ public class WebAppContext implements ServletContextListener {
 		application.setAttribute("productDetailDao", new ProductDetailDao());
 		application.setAttribute("qnaBoardDao", new QnaBoardDao());
 		application.setAttribute("reviewBoardDao", new ReviewBoardDao());
+		application.setAttribute("productColorDao", new ProductColorDao());
+		application.setAttribute("productCapacityDao", new ProductCapacityDao());
 		
 		
 		application.setAttribute("userService", new UserService(application));

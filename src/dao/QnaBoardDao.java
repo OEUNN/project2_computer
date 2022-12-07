@@ -157,10 +157,10 @@ public class QnaBoardDao {
 
 	public String deleteQnaBoard(QnaBoard qnaBoard, Connection conn) throws SQLException {
 		String answer = "";
-		String sql = "delete from free_board where users_user_id = ? and free_bno = ? ";
+		String sql = "delete from qna_board where qna_bno = ? ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, qnaBoard.getUserId());
-		pstmt.setString(2, qnaBoard.getQnaBno());
+		
+		pstmt.setString(1, qnaBoard.getQnaBno());
 		pstmt.executeUpdate();
 		answer = "success";
 		pstmt.close();

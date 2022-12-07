@@ -5,11 +5,8 @@
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
 <link rel="stylesheet" href="../resources/css/header.css">
 <link rel="stylesheet" href="../resources/css/join.css">
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="../resources/javascript/join.js"></script>
-
+<script src="../resources/javascript/joinValidation.js"></script>
 <%@ include file="/WEB-INF/views/common/header2.jsp" %>
-
 			
 
 <!-- 몸통 -->
@@ -22,11 +19,12 @@
 	<div id="centerBoard" class="col-12 col-md mt-5 mr-5 p-5">
 		<div id="centerText" class="row mt-5 ml-3 ">회원가입</div>
 		
-		<form class="p-2" method="post" action="../product/JoinController" onsubmit="return check()" enctype="multipart/form-data" novalidate>
+		<form class="p-2" method="post" action="../product/JoinController"  enctype="multipart/form-data">
 			<!-- 아이디입력 -->
 			<div class="form-group m-4">
-				<label for="userId" class="joinTitle">아이디</label>
-				<input id="userId" type="text" class="form-control " name="userId" oninput="idCheck()"/>
+				<label for="userEd" class="joinTitle">아이디</label>
+				<input id="userId" type="text" class="form-control " name="userId"/>
+				<input type="button" id="idCheck" class="btn btn-default" value="중복검사" onClick="idCheck()"/>
 				<small id="userIdHelp" class="form-text text-muted">알파벳 대소문자, 숫자를 혼용해서 6자 이상 10장 이하</small>
 				<p id="idMessage"></p>
 			</div>
@@ -53,14 +51,14 @@
 			<!-- 전화번호 -->
 			<div class="form-group m-4">
 				<label for="userPhone" class="join_title">전화번호</label>
-				<input id="userPhone" type="text" class="form-control" name="userPhone" oninput="phoneCheck()"/>
+				<input id="userPhone" type="text" class="form-control"/>
 				<small id="userPhoneHelp" class="form-text text-muted">예) 010-123-1234, 010-1234-1234</small>
 				<p id="phoneMessage"></p>
 			</div>
 			<!-- 이메일 -->
 			<div class="form-group m-4">	
 				<label for="userEmail" class="joinTitle">이메일</label>
-				<input id="userEmail" type="text" class="form-control" name="userEmail" oninput="emailCheck()"/>
+				<input id="userEmail" type="text" class="form-control"/>
 				<p id="emailMessage"></p>
 			</div>
 			<!-- 닉네임 -->
@@ -73,7 +71,6 @@
 			<div class="form-group m-4">
 				<label for="userAddress" class="joinTitle">주소</label>
 				<input id="userAddress" type="text" class="form-control"/>
-				<input class="my-3" type="button" id="address_kakao" value="주소 검색" name="address" readonly />
 				<p id="addressMessage"></p>
 			</div>
 			<!-- 이미지 -->
@@ -84,8 +81,8 @@
 			</div>
 			<!-- submit -->
 			<div class="text-center m-5"> 
-				<input id="joinSubmit" type="submit" class="btn btn-lg" value="확인" />
-				<input id="joinSubmit" type="reset" class="btn btn-lg" value="reset"/>
+				<input id="joinSubmit" type="submit" class="btn btn-lg" value="확인" onClick="return check()"/>
+				<input type="reset" value="초기화">
 			</div>
 		</form>
 	</div>

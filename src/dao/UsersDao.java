@@ -47,6 +47,44 @@ public class UsersDao {
 
 		return usersDto;
 	}
+	
+	//전화번호 검사
+	public boolean phoneSelect(String value, Connection conn) throws Exception {
+		boolean result = false;
+		String sql = "select user_phone from users where user_phone=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, value);
+		ResultSet rs = pstmt.executeQuery();
+		if (rs.next()) {
+			//있는 전화번호
+			result = true;
+		} else {
+			result = false;
+		}
+		rs.close();
+		pstmt.close();
+
+		return result;
+	}
+	
+	//이메일 검사
+	public boolean emailSelect(String value, Connection conn) throws Exception {
+		boolean result = false;
+		String sql = "select user_email from users where user_email= ? ";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, value);
+		ResultSet rs = pstmt.executeQuery();
+		if (rs.next()) {
+			//있는 email
+			result = true;
+		} else {
+			result = false;
+		}
+		rs.close();
+		pstmt.close();
+
+		return result;
+	}
 
 	// 개인 정보 수정 (값이 잘못들어오면 예외처리를 해야함)
 	public boolean UserUpdate(Users usersDto, Connection conn) throws Exception {
@@ -202,5 +240,7 @@ public class UsersDao {
 
 		return result;
 	}
+
+	
 
 }

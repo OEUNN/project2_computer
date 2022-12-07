@@ -43,12 +43,11 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("loginId", users.getUserId());
 			session.setAttribute("isAdmin",users.isAdmin());
 			if(users.isAdmin()) {
-				request.getRequestDispatcher("/WEB-INF/views/user/upload.jsp").forward(request, response);
+				response.sendRedirect("UploadController");
 			}else {
-				request.getRequestDispatcher("/WEB-INF/views/product/productList.jsp").forward(request, response);
+				response.sendRedirect("ProductListController");
 			}
 		}
 		
 	}
-
 }
