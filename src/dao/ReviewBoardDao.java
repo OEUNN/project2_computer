@@ -74,13 +74,13 @@ public class ReviewBoardDao {
 		return totalRow;
 	}
 
-	public ArrayList<ReviewBoard> readReviewBoard(int pageNo, Connection conn) throws SQLException {
+	public ArrayList<ReviewBoard> readReviewBoard(Pager page, Connection conn) throws SQLException {
 		ArrayList<ReviewBoard> list = new ArrayList<>();
 		getTotalRowReviewBoard(conn);
-		String sql = "select REVIEW_BNO, REVIEW_BTITLE, REVIEW_BCONTENT, REVIEW_DATE, REVIEW_RATE, USER_USER_ID, PRODUCT_NAME from ("
-				+ "	select rownum as rnum, REVIEW_BNO,  REVIEW_BTITLE, REVIEW_BCONTENT, REVIEW_DATE, REVIEW_RATE, USER_USER_ID, PRODUCT_NAME from REVIEW_BOARD where rownum <= ?"
+		String sql = "select REVIEW_BNO, REVIEW_BTITLE, REVIEW_BCONTENT, REVIEW_DATE, REVIEW_RATE, USER_ID, PRODUCT_ID from ("
+				+ "	select rownum as rnum, REVIEW_BNO,  REVIEW_BTITLE, REVIEW_BCONTENT, REVIEW_DATE, REVIEW_RATE, USER_ID, PRODUCT_ID from REVIEW_BOARD where rownum <= ?"
 				+ "	order by REVIEW_DATE) where rnum >= ? ";
-		Pager page = new Pager(5, 5, totalRow, pageNo);
+		
 		// page.setCurrPage(pageNo);
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, page.getEndRowNo());
