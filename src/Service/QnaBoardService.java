@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
-import DAO.QnaBoardDao;
-import DTO.QnaBoard;
+import dao.QnaBoardDao;
+import dto.QnaBoard;
 import util.Pager;
 
 public class QnaBoardService {

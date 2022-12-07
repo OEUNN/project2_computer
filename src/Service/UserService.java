@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
-import DAO.UsersDao;
-import DTO.Users;
+import dao.UsersDao;
+import dto.Users;
 import util.Pager;
 
 public class UserService {

@@ -8,26 +8,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DTO.BasketDetail;
-import DTO.Product;
 import Service.BasketService;
 import Service.ProductService;
+import dto.BasketDetail;
+import dto.Product;
 
 @WebServlet(name = "product.CreateBasketDetailController", urlPatterns =  "/product/CreateBasketDetailController" )
 public class CreateBasketDetailController extends HttpServlet {
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("BasketListController doGet()실행");
 		BasketDetail basketDetail = new BasketDetail();
 		
 		//jsp에서 넘어온 값들을 Parmeter으로 얻어내어 basketDetail객체에 set함 
 		String colorName = request.getParameter("colorName");
 		String capacityName = request.getParameter("capaName");
-		String productId = request.getParameter("productId");
-		int quantity = Integer.parseInt(request.getParameter("quantity"));
-		
 		System.out.println(colorName);
+		
+		String productId = request.getParameter("productId");
 		System.out.println(productId);
+		System.out.println(capacityName);
+		//int quantity = Integer.parseInt(request.getParameter("quantity"));
+		
+		
 //		basketDetail.setCapacityId(capacityId);
 //		basketDetail.setColorId(colorId);
 		basketDetail.setProductId(productId);
@@ -47,7 +50,7 @@ public class CreateBasketDetailController extends HttpServlet {
 //		basketService.addBasketDetail(basketDetail);
 //		
 		//JSP로 이동
-		request.getRequestDispatcher("/WEB-INF/views/product/productList.jsp").forward(request, response);
+		response.sendRedirect("ProductListController");
 	}
 
 }

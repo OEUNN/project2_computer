@@ -8,8 +8,8 @@ import javax.naming.InitialContext;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
-import DAO.ProductDao;
-import DTO.Product;
+import dao.ProductDao;
+import dto.Product;
 import util.Pager;
 
 public class ProductService {
