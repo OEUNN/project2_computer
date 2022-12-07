@@ -11,37 +11,22 @@ import dto.BasketDetail;
 
 public class BasketDetailDao {
 
-	public BasketDetail insertBasketPro(String userId, String productId, int qnt,int price,Connection conn) throws Exception {
-		BasketDetail basketDetail=new BasketDetail();
+	public boolean insertBasketPro(BasketDetail basketDetail,Connection conn) throws Exception {
+		boolean result = false;
 		String sql = "insert into basket_detail"
 				+ "(basket_detail_id,PRODUCT_DETAIL_DETAIL_ID ,basket_id, price,PRODUCT_QNT ) "
 				+ "values('basD'||basket_detail_id.nextval,?,?,?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, productId);
-		pstmt.setString(2, userId);
-		pstmt.setInt(3, price);
-		pstmt.setInt(4, qnt);
+		pstmt.setString(1, basketDetail.getProductId());
+		pstmt.setString(2, basketDetail.getUserId());
+		pstmt.setInt(3, basketDetail.getPrice());
+		pstmt.setInt(4, basketDetail.getProductQnt());
 		
 		if (pstmt.executeUpdate() == 1) {
-			sql = "select rownum,basket_detail_id from (select * from basket_detail order by rownum desc) "
-					+ "where rownum=1 and basket_users_user_id= ?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userId);
-
-			ResultSet rs = pstmt.executeQuery();
-			if (rs.next()) {
-				basketDetail.setBasketDetailId(rs.getString("basket_detail_id"));
-
-			} else {
-				return basketDetail;
-			}
-			basketDetail.setProductId(productId);
-			basketDetail.setUserId(userId);
-			basketDetail.setPrice(price);
-			basketDetail.setProductQnt(qnt);
+			result = true;
 		}
 				
-		return basketDetail;
+		return result;
 	}
 
 	public List<BasketDetail> selectBasketDetails(String userId, Connection conn)  throws Exception{

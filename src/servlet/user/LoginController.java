@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 import Service.UserService;
 import dto.Users;
 
-
 @WebServlet(name = "user.LoginController", urlPatterns ="/user/LoginController")
 public class LoginController extends HttpServlet {
 

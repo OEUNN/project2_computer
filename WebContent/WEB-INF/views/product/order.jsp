@@ -10,7 +10,7 @@
 <%@ include file="/WEB-INF/views/common/header2.jsp" %>
 
 <div id="order_Wrapper" class="row">
-	<form class="order_main col-8 col-md-12">
+	<form method="post" action="OrderController" class="order_main col-8 col-md-12">
 		<div class="order_sub">
 			<h3 style="text-align: left; font-weight: bold;">결재 내역</h3>
 			<hr />

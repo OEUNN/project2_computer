@@ -151,5 +151,19 @@ public class QnaBoardService {
 		}
 		return result;
 	}*/
+
+	public String updateQnaBoard(QnaBoard qnaBoard) {
+		Connection conn = null;
+		String Output=null;
+		try {
+			conn=ds.getConnection();
+			Output = qnaBoardDao.updateQnaBoard(qnaBoard,conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try{ conn.close(); }catch(Exception e) {}
+		}
+		return Output;
+	}
 	
 }

@@ -1,18 +1,16 @@
 package Service;
 
 import java.sql.Connection;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.naming.InitialContext;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
 import dao.BasketDao;
 import dao.BasketDetailDao;
-import dao.ProductDao;
 import dto.Basket;
 import dto.BasketDetail;
-import dto.Product;
 
 public class BasketService {
 	String Output;
@@ -26,34 +24,34 @@ public class BasketService {
 		basketDao = (BasketDao)application.getAttribute("basketDao");
 		ds=(DataSource)application.getAttribute("dataSource");
 	}
-
-	public BasketDetail addBasketProduct(String userId, String productDetailId, int quantity) {
+	
+	//BasketDetail 넣고 성공하면 basket을 업데이트
+	public boolean addBasketDetail(BasketDetail basketDetail) {
 		Connection conn = null;
-		ProductDao productDao= (ProductDao)application.getAttribute("productDao");
-		BasketDetail basketDetail = new BasketDetail();
+		boolean result = false;
 		try {
 			conn = ds.getConnection();
-			if (productDetailId.contains("proD")) {
-				Product product = productDao.selectProductSubQuery(productDetailId, conn);
-				
 				//해당 productId가 존재한다면 BasketDetailDao 호출함
-				if (product.getProdcutId() != null) {
-					basketDetail = basketDetailDao.insertBasketPro(userId, productDetailId, quantity, product.getProductPrice(),conn);
-					
-					if (basketDetail.getBasketDetailId() != null) {
+				if (basketDetail.getProductId() != null) {
+					boolean basketDetailResult = basketDetailDao.insertBasketPro(basketDetail,conn);
+					if (basketDetailResult) {
 						//basketDeatil이 존재한다면 BasketDao를 호출함
+						String basketId = basketDetail.getUserId();
 						BasketDao basketDao= (BasketDao)application.getAttribute("basketDao");
-						basketDao.updateBasket(userId, basketDetail, conn);
+						Basket basket = basketDao.selectBasket(basketId, conn);
+						int totalPrice = basket.getTotalPrice()+basketDetail.getPrice();
+						basket.setTotalPrice(totalPrice);
+						result = basketDao.updateBasket(basket, conn);					
 					}
 				}
-			} 
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			try {conn.close();} catch(Exception e) {};
 		}
 
-		return basketDetail;
+		return result;
 	}
 	
 	//단 하나의 basketDetail을 가져옴
@@ -74,7 +72,7 @@ public class BasketService {
 	
 	
 	//상품명, 옵션1,옵션2, 수량,가격,주문가격
-	public Basket printBasket(String userId) {
+	public Basket getBasket(String userId) {
 		Connection conn = null;
 		Basket basket = null;
 		try {
@@ -117,5 +115,21 @@ public class BasketService {
 		
 		return Output;
 	}
+	
+	public List<BasketDetail> getBasketDetailList(String userId){
+		Connection conn = null;
+		List<BasketDetail> list = new ArrayList<>();
+		try {
+			conn = ds.getConnection();
+			list = basketDetailDao.selectBasketDetails(userId, conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {conn.close();} catch(Exception e) {};
+		}
+		
+		return list;
+	}
+	
 
 }

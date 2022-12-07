@@ -9,6 +9,7 @@
 <script src="../resources/javascript/join.js"></script>
 
 <%@ include file="/WEB-INF/views/common/header2.jsp" %>
+
 			
 
 <!-- 몸통 -->

@@ -9,5 +9,7 @@ public class BasketDetail {
 	private String userId;
 	private int price;
 	private int productQnt;
+	private String capacityName;
+	private String colorName;
 
 }

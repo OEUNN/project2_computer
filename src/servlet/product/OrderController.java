@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Service.OrderService;
+import dto.OrderDetail;
 
 @WebServlet(name = "product.OrderController", urlPatterns =  "/product/OrderController" )
 public class OrderController extends HttpServlet {
@@ -26,7 +27,8 @@ public class OrderController extends HttpServlet {
 		System.out.println("OrderController doPost() 실행");
 		OrderService orderService = (OrderService) request.getServletContext().getAttribute("orderService");
 		//해당 디테일 Parameter 얻어서 post로 처리하는 코드
-		
+		OrderDetail orderDetail = (OrderDetail) request.getAttribute("order");
+		System.out.println(orderDetail.getProductQnt());
 		request.getRequestDispatcher("/WEB-INF/views/product/order.jsp").forward(request, response);
 		
 	}
