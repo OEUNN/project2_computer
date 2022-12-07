@@ -16,7 +16,7 @@ public class OrderDao {
 		pstmt.setString(1, order.getUserId());
 		pstmt.setInt(2, order.getTotalPrice());
 		pstmt.setString(3, order.getReceiverName());
-		pstmt.setString(4, order.getReceiverAddress());
+		pstmt.setString(4, order.getReceiverAddr());
 		pstmt.setString(5, order.getReceiverPhone());
 		if (pstmt.executeUpdate() == 1) {
 			result = selectOrderId(order.getUserId(), conn);

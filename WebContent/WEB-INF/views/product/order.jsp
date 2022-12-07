@@ -85,8 +85,10 @@
 
 			<!-- 주소 -->
 			<div class="form-group">
-				<label for="user_address" class="join_title">주소</label> <input
-					id="user_address" type="text" class="form-control" />
+				<label for="user_address" class="join_title">주소</label> 
+				<input id="user_addr" type="text" class="form-control" />
+				<input id="user_address" type="text" class="form-control" />
+				<input id="user_address" type="text" class="form-control" />
 				<p id="address_message"></p>
 			</div>
 			<!-- submit -->

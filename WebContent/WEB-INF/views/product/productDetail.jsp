@@ -3,25 +3,12 @@
 <%@ page import="java.util.*,dto.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
 <%@ include file="/WEB-INF/views/common/header1.jsp"%>
 <link rel="stylesheet" href="../resources/css/header.css">
 <link rel="stylesheet" href="../resources/css/productDetail.css">
+<script src="../resources/javascript/productDetail.js"></script>
 <%@ include file="/WEB-INF/views/common/header2.jsp"%>
-
-<script>
-	function goBasket() {
-		/* var form = document.querySelector("#detail-form");
-		form.action = "CreateBasketDetailController";
-		form.submit(); */
-		$("#detail-form").attr("action", "CreateBasketDetailController");
-		$("#detail-form")[0].submit();
-	}
-
-	function goOrder() {
-		$("#detail-form").attr("action", "CreateOrderController");
-		$("#detail-form")[0].submit();
-	}
-</script>
 
 
 <div id="detail" class="row">
@@ -38,7 +25,7 @@
 			<div class="mt-3 mx-4 " style="font-size: 200%">
 				<b>커브드 모니터 68.4cm</b>
 			</div>
-			<div id="productId" class="mb-3 mx-4">${product.prodcutId}</div>
+			<div id="productId" class="mb-3 mx-4">pro-21</div>
 			<div class="flex-container">
 				<div class="mx-5" style="flex-grow: 5; text-align: center">
 					<h4>판매가</h4>
@@ -50,8 +37,9 @@
 				</div>
 
 			</div>
-			<form method="post" id="detail-form" action="">
-				<input type="hidden" name="productId" value="1" />
+			<form method="post" id="detail-form">
+				<input type="hidden" name="productId" value="pro21" />
+				<input type="hidden" name="price" value="500000" />
 				<div class="option  mt-4 mr-4 mb-2 ml-4" style="height: 350px">
 					<div style="height: 80px; text-align: center; padding-top: 10px">
 						색상
@@ -80,21 +68,14 @@
 					</div>
 					<hr />
 					<div class="quan pb-4">
-						<div
-							style="flex-grow: 7; vertical-align: centr; text-align: center; padding-top: 18px">
+						<div style="flex-grow: 7; vertical-align: centr; text-align: center; padding-top: 18px">
 							<h5>수량</h5>
 						</div>
-						<div style="flex-grow: 3; justify-content: center;"
-							class=" quan-icon">
+						<div style="flex-grow: 3; justify-content: center;"class=" quan-icon">
 
 							<div class="m-3">
-								<input id="quantity" name="quantity" value="1" type="number"
-									min="1" />
+								<input id="quantity" name="quantity" value="1" type="number" min="1" />
 							</div>
-
-
-
-
 						</div>
 
 					</div>
@@ -119,9 +100,7 @@
 						<!-- Button to Open the Modal -->
 						<!-- <input onClick="window.location.href='CreateBasketDetailController'" value="장바구니" type="button" class="w-btn w-btn-indigo mx-1" data-toggle="modal" data-target="#myModal"/>
 			        -->
-						<button form="detail-form" type="button"
-							class="w-btn w-btn-indigo mx-1" data-toggle="modal"
-							data-target="#myModal"></button>
+						<button form="detail-form" type="button" class="w-btn w-btn-indigo mx-1"  data-toggle="modal"data-target="#myModal">장바구니</button>
 
 						<!-- The Modal -->
 						<div class="modal fade" id="myModal">
@@ -140,10 +119,8 @@
 									<!-- Modal footer -->
 									<div class="modal-footer">
 
-										<button type="button" onClick="goBasket()"
-											class="w-btn w-btn-indigo mx-1">네</button>
-										<button type="button" class="w-btn w-btn-indigo mx-1"
-											data-dismiss="modal">아니오</button>
+										<button type="button" onClick="goBasket()" class="w-btn w-btn-indigo mx-1">네</button>
+										<button type="button" class="w-btn w-btn-indigo mx-1" data-dismiss="modal">아니오</button>
 
 									</div>
 
@@ -152,9 +129,7 @@
 						</div>
 					</div>
 					<div style="flex-grow: 5">
-						<button type="button" onClick="goOrder(this.form)"
-							id="Product_Detail_submit" name="choice" value="buy"
-							class="w-btn w-btn-indigo mx-1">구매하기</button>
+						<button type="button" onClick="goOrder()" id="Product_Detail_submit" name="choice" value="buy" class="w-btn w-btn-indigo mx-1">구매하기</button>
 					</div>
 
 				</div>
@@ -187,14 +162,12 @@
 				<div class="mx-5" style="flex-grow: 5; text-align: right">
 					<div class="colorRadioMini" style="height: 30px">
 						<input id="color1-1" name="color1" type="radio" value="blue">
-						<label for="color1-1" class="border rounded-circle "
-							style="background-color: steelblue;">blue </label> <input
-							id="color1-2" name="color1" type="radio" value="black">
+						<label for="color1-1" class="border rounded-circle " style="background-color: steelblue;">blue </label> 
+						<input id="color1-2" name="color1" type="radio" value="black">
 						<label for="color1-2" class="border rounded-circle "
-							style="background-color: black;"> b</label> <input id="color1-3"
-							name="color1" type="radio" value="white"> <label
-							for="color1-3" class="border rounded-circle "
-							style="background-color: white;">w </label>
+							style="background-color: black;"> b</label> 
+							<input id="color1-3"name="color1" type="radio" value="white"> 
+							<label for="color1-3" class="border rounded-circle " style="background-color: white;">w </label>
 					</div>
 
 				</div>
@@ -204,14 +177,11 @@
 				</div>
 				<div class="mx-5" style="flex-grow: 5; text-align: right">
 					<div class="capaRadioMini">
-						<input id="capa1-1" name="capa1" type="radio" value="512GB"
-							checked="checked"> <label for="capa1-1"
-							class="border rounded " style="padding-top: 8px;">512GB</label>
+						<input id="capa1-1" name="capa1" type="radio" value="512GB" checked="checked"> <label for="capa1-1" class="border rounded " style="padding-top: 8px;">512GB</label>
 						<input id="capa1-2" name="capa1" type="radio" value="256GB">
-						<label for="capa1-2" class="border rounded"
-							style="padding-top: 8px;">256GB</label> <input id="capa1-3"
-							name="capa1" type="radio" value="1TB"> <label
-							for="capa1-3" class="border rounded " style="padding-top: 8px;">1TB</label>
+						<label for="capa1-2" class="border rounded" style="padding-top: 8px;">256GB</label> 
+						<input id="capa1-3" name="capa1" type="radio" value="1TB"> 
+						<label for="capa1-3" class="border rounded " style="padding-top: 8px;">1TB</label>
 
 					</div>
 
@@ -223,8 +193,7 @@
 
 			<div class="flex-container-button">
 				<div style="flex-grow: 5" class="px-3">
-					<a href="" class="w-btn w-btn-indigo" style="width: 100%"
-						data-toggle="modal" data-target="#myModal">장바구니</a>
+					<a href="" class="w-btn w-btn-indigo" style="width: 100%" data-toggle="modal" data-target="#myModal">장바구니</a>
 				</div>
 				<div style="flex-grow: 5;" class="px-3">
 					<a href="" class="w-btn w-btn-indigo" style="width: 100%">구매하기</a>
@@ -246,8 +215,8 @@
 <div class="row">
 	<div class="col-1"></div>
 	<div class="col-10">
-		<img src="../resources/images/ad.png" /><img
-			src="../resources/images/ad2.png" />
+		<img src="../resources/images/ad.png" />
+		<img src="../resources/images/ad2.png" />
 	</div>
 	<div class="col-1"></div>
 
@@ -260,8 +229,7 @@
 	</div>
 	<div class="m-auto col-3  "></div>
 	<div class="my-auto col-2 ">
-		<button class="w-btn w-btn-indigo" style="width: 100%"
-			data-toggle="modal" data-target="#reviewModal">리뷰작성</button>
+		<button class="w-btn w-btn-indigo" style="width: 100%" data-toggle="modal" data-target="#reviewModal">리뷰작성</button>
 	</div>
 	<div class="col-1"></div>
 
@@ -272,14 +240,10 @@
 	<div class="col-10">
 		<table>
 			<tr>
-
-			</tr>
-			<tr>
 				<td>1</td>
 				<td>
 					<div>
-						<a role="button" data-toggle="collapse" href="#reivew1Content"
-							aria-expanded="false" aria-controls="collapseExample">웹 프로그래밍</a>
+						<a role="button" data-toggle="collapse" href="#reivew1Content" aria-expanded="false" aria-controls="collapseExample">웹 프로그래밍</a>
 					</div>
 					<div class="collapse" id="reivew1Content">
 						<div class="well">
@@ -296,8 +260,7 @@
 				<td>2</td>
 				<td>
 					<div>
-						<a role="button" data-toggle="collapse" href="#reivew2Content"
-							aria-expanded="false" aria-controls="collapseExample">웹 프로그래밍</a>
+						<a role="button" data-toggle="collapse" href="#reivew2Content" aria-expanded="false" aria-controls="collapseExample">웹 프로그래밍</a>
 					</div>
 					<div class="collapse" id="reivew2Content">
 						<div class="well">
@@ -313,8 +276,7 @@
 				<td>3</td>
 				<td>
 					<div>
-						<a role="button" data-toggle="collapse" href="#reivew3Content"
-							aria-expanded="false" aria-controls="collapseExample">웹 프로그래밍</a>
+						<a role="button" data-toggle="collapse" href="#reivew3Content" aria-expanded="false" aria-controls="collapseExample">웹 프로그래밍</a>
 					</div>
 					<div class="collapse" id="reivew3Content">
 						<div class="well">
@@ -330,8 +292,7 @@
 				<td>4</td>
 				<td>
 					<div>
-						<a role="button" data-toggle="collapse" href="#reivew4Content"
-							aria-expanded="false" aria-controls="collapseExample">웹 프로그래밍</a>
+						<a role="button" data-toggle="collapse" href="#reivew4Content" aria-expanded="false" aria-controls="collapseExample">웹 프로그래밍</a>
 					</div>
 					<div class="collapse" id="reivew4Content">
 						<div class="well">
@@ -378,13 +339,11 @@
 
 				<form action="#">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="제목을 입력해주세요"
-							id="title">
+						<input type="text" class="form-control" placeholder="제목을 입력해주세요" id="title">
 					</div>
 
 					<div class="form-group" style="height: 100%">
-						<textarea style="height: 300px; width: 100%" name="inquiryContent"
-							id="inquiryContent" placeholder="문의 내용을 입력해 주세요. (500자 이내)"></textarea>
+						<textarea style="height: 300px; width: 100%" name="inquiryContent" id="inquiryContent" placeholder="문의 내용을 입력해 주세요. (500자 이내)"></textarea>
 					</div>
 					<%-- <div><button type="button" class="btn btn-secondary">사진 업로드</button></div>
                         <br/>
@@ -400,8 +359,7 @@
 
 			<!-- Modal footer -->
 			<div class="modal-footer">
-				<button type="submit" onClick="ProductDetailController"
-					class="btn btn-secondary">등록</button>
+				<button type="submit" onClick="ProductDetailController" class="btn btn-secondary">등록</button>
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
 			</div>

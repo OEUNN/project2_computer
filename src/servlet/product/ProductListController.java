@@ -34,7 +34,7 @@ public class ProductListController extends HttpServlet {
 		int totalBoardNum = productService.getTotalRow();
 		
 		//Pager 생성
-		Pager pager = new Pager(1,5,totalBoardNum,pageNo);
+		Pager pager = new Pager(3,5,totalBoardNum,pageNo);
 		
 		//pageNo에 해당하는 게시물 가져오기
 		List<Product> productList=productService.getList(pager);
@@ -62,15 +62,15 @@ public class ProductListController extends HttpServlet {
 		int totalBoardNum = productService.getTotalRow();
 		
 		//Pager 생성
-		Pager pager = new Pager(1,5,totalBoardNum,pageNo);
+		Pager pager = new Pager(3,5,totalBoardNum,pageNo);
 		
 		//pageNo에 해당하는 게시물 가져오기
 		List<Product> productList=productService.getList(pager);
 		//JSP에서 사용할수 있도록 request범위에 저장
 		request.setAttribute("pager", pager);
 		request.setAttribute("productList",productList);
-		
-		response.setContentType("application/json; charset=UTF-8");
+		request.getRequestDispatcher("/WEB-INF/views/product/product.jsp").forward(request, response);
+		/*response.setContentType("application/json; charset=UTF-8");
 
 		JSONObject root = new JSONObject();
 		root.put("pager", pager);
@@ -81,7 +81,8 @@ public class ProductListController extends HttpServlet {
 		PrintWriter pw = response.getWriter();
 		pw.println(json);
 		pw.flush();
-		pw.close();
+		pw.close();*/
+		
 	}
 
 }
