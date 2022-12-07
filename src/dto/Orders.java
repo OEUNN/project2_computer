@@ -12,6 +12,8 @@ public class Orders {
 	   private int totalPrice;
 	   private String userId;
 	   private String receiverName;
-	   private String receiverAddress;
+	   private String receiverAddr;
+	   private String receiverDetailAdrr;
+	   private int post;
 	   private String receiverPhone;
 }
