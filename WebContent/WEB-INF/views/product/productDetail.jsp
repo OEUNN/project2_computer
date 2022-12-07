@@ -51,7 +51,7 @@
 
 			</div>
 			<form method="post" id="detail-form" action="">
-				<input type="hidden" name="productId" value="1" />
+				<input type="hidden" name="productId" value="${product.productId }" />
 				<div class="option  mt-4 mr-4 mb-2 ml-4" style="height: 350px">
 					<div style="height: 80px; text-align: center; padding-top: 10px">
 						색상
