@@ -11,5 +11,4 @@ public class BasketDetail {
 	private int productQnt;
 	private String capacityName;
 	private String colorName;
-
 }

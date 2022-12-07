@@ -1,13 +1,14 @@
 package Service;
 
-import java.sql.Connection; 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.naming.InitialContext;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
+import dao.ProductCapacityDao;
+import dao.ProductColorDao;
 import dao.ProductDao;
 import dto.Product;
 import util.Pager;
@@ -16,6 +17,8 @@ public class ProductService {
 	private ServletContext application;
 	private DataSource ds;
 	private ProductDao productDao;
+	private ProductColorDao productColorDao;
+	private ProductCapacityDao productCapacityDao; 
 	
 	public ProductService(ServletContext application) {
 		this.application=application;
@@ -29,6 +32,11 @@ public class ProductService {
 		try {
 			conn=ds.getConnection();
 			list = productDao.selectProducts(page,conn);
+			for(Product product:list){
+				product.setColorList(productColorDao.selectColor(product,conn));
+				product.setCapacityList(productCapacityDao.selectCapacity(product,conn));
+				
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {

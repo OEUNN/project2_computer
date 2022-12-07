@@ -39,21 +39,24 @@ a:hover {
 	text-decoration: none;
 }
 
-.qnaList:hover * {
+.qnaList:hover *:not(button) {
 	background-color: #f0f0f0 !important;
 }
 
-#qnaModal * {
+/* .modal * {
 	background-color: white;
-}
-#qnaModal {
+} */
+.modal {
 	background-color:rgba(288,288,288,0.2);
 }
 
-#qnaModal button {
-	background-color: #0c1c32;
+.modal button {
+	background-color: #0c1c32 !important;
+	
 }
-
+.qnaDetail button{
+	background-color: #0c1c32 !important;
+}
 .pagerBtn {
 	color: black;
 }

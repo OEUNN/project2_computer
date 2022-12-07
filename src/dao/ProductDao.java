@@ -24,7 +24,7 @@ public class ProductDao {
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next()) {
 			Product productDto = new Product();
-			productDto.setProdcutId(rs.getString("product_id"));
+			productDto.setProductId(rs.getString("product_id"));
 			productDto.setProductName(rs.getString("product_name"));
 			productDto.setProductPrice(rs.getInt("product_price"));
 			list.add(productDto);
@@ -47,7 +47,7 @@ public class ProductDao {
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next()) {
 			Product productDto = new Product();
-			productDto.setProdcutId(rs.getString("product_id"));
+			productDto.setProductId(rs.getString("product_id"));
 			productDto.setProductName(rs.getString("product_name"));
 			productDto.setProductPrice(rs.getInt("product_price"));
 			list.add(productDto);
@@ -81,7 +81,7 @@ public class ProductDao {
 
 		ResultSet rs = pstmt.executeQuery();
 		if (rs.next()) {
-			productDto.setProdcutId(rs.getString("product_id"));
+			productDto.setProductId(rs.getString("product_id"));
 			productDto.setProductName(rs.getString("product_name"));
 			productDto.setProductPrice(rs.getInt("product_price"));
 			productDto.setProductGraphicCard(rs.getString("product_graphic_card"));
@@ -106,7 +106,7 @@ public class ProductDao {
 
 		ResultSet rs = pstmt.executeQuery();
 		if (rs.next()) {
-			productDto.setProdcutId(rs.getString("product_id"));
+			productDto.setProductId(rs.getString("product_id"));
 			productDto.setProductName(rs.getString("product_name"));
 			productDto.setProductPrice(rs.getInt("product_price"));
 			productDto.setProductGraphicCard(rs.getString("product_graphic_card"));
