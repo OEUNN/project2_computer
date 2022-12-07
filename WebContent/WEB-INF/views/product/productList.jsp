@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.*,DTO.*"%>
+<%@ page import="java.util.*,dto.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
 <link rel="stylesheet" href="../resources/css/header.css">
 <link rel="stylesheet" href="../resources/css/productList.css">
+
+	
 <%@ include file="/WEB-INF/views/common/header2.jsp"%>
 
 
@@ -178,177 +180,67 @@
 		</div>
 	</div>
 	<div class="col-12 col-md-8">
-		<div class="row ">
-
-			<div class="col-12 col-md-6 col-lg-4 p-3">
-				<div id="cardStyle" class="card text-center p-4 ">
-					<div class="card-head ">
-						<div>
-							<img src="../resources/images/monitor3.png" />
+		<div class="row productList">
+			<c:forEach var="product" items="${productList}" varStatus="status">
+				<div class="col-12 col-md-6 col-lg-4 p-3">
+					<div id="cardStyle" class="card text-center p-4 ">
+						<div class="card-head ">
+							<div>
+								<img src="../resources/images/monitor3.png" />
+							</div>
+						</div>
+						<div class="card-body">
+							<form id="color1select">
+								<div class="colorRadio">
+									<input id="color1-1" name="color1" type="radio" value="blue" checked="checked"> 
+										<label for="color1-1" class="border rounded-circle my-auto" style="background-color: steelblue;"></label> 
+										<input id="color1-2" name="color1" type="radio" value="black">
+									<label for="color1-2" class="border rounded-circle my-auto" style="background-color: black;"></label> 
+										<input id="color1-3" name="color1" type="radio" value="white"> 
+										<label for="color1-3" class="border rounded-circle my-auto" style="background-color: white;"></label>
+								</div>
+							</form>
+	
+							<h4 class="my-2">${product.productName}</h4>
+							<p>${product.productId}</p>
+							<p>${product.productPrice }원</p>
+	
+							<a id="detailButton" href="../product/ProductDetailController?${product.productId}" class="w-btn w-btn-indigo">구매하기</a>
 						</div>
 					</div>
-					<div class="card-body">
-						<form id="color1select">
-							<div class="colorRadio">
-								<input id="color1-1" name="color1" type="radio" value="blue" checked="checked"> 
-									<label for="color1-1" class="border rounded-circle my-auto" style="background-color: steelblue;"></label> 
-									<input id="color1-2" name="color1" type="radio" value="black">
-								<label for="color1-2" class="border rounded-circle my-auto" style="background-color: black;"></label> 
-									<input id="color1-3" name="color1" type="radio" value="white"> 
-									<label for="color1-3" class="border rounded-circle my-auto" style="background-color: white;"></label>
-							</div>
-						</form>
-
-						<h4 class="my-2">컴퓨터1</h4>
-						<p>pro01</p>
-						<p>500,000원</p>
-
-						<a id="detailButton" href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
-					</div>
 				</div>
-			</div>
-
-			<div class="col-12 col-md-6 col-lg-4 p-3">
-				<div id="cardStyle" class="card text-center p-4 ">
-					<div class="card-head">
-						<div>
-							<img src="../resources/images/monitor3.png" />
-						</div>
-					</div>
-					<div class="card-body">
-						<form id="color1select">
-							<div class="colorRadio">
-								<input id="color1-1" name="color1" type="radio" value="blue" checked="checked"> 
-									<label for="color1-1" class="border rounded-circle my-auto" style="background-color: steelblue;"></label> 
-									<input id="color1-2" name="color1" type="radio" value="black">
-								<label for="color1-2" class="border rounded-circle my-auto" style="background-color: black;"></label> 
-									<input id="color1-3" name="color1" type="radio" value="white"> 
-									<label for="color1-3" class="border rounded-circle my-auto" style="background-color: white;"></label>
-							</div>
-						</form>
-
-						<h4 class="my-2">컴퓨터1</h4>
-						<p>pro01</p>
-						<p>500,000원</p>
-						<a id="detailButton" href="../product/ProductDetailController" class="w-btn w-btn-indigo">구매하기</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-12 col-md-6 col-lg-4 p-3">
-				<div id="cardStyle" class="card text-center p-4 ">
-					<div class="card-head">
-						<div>
-							<img src="../resources/images/monitor3.png" />
-						</div>
-					</div>
-					<div class="card-body">
-						<form id="color1select">
-							<div class="colorRadio">
-								<input id="color1-1" name="color1" type="radio" value="blue" checked="checked"> 
-								<label for="color1-1" class="border rounded-circle my-auto" style="background-color: steelblue;"></label>
-									 <input id="color1-2" name="color1" type="radio" value="black">
-								<label for="color1-2" class="border rounded-circle my-auto" style="background-color: black;"></label> 
-									<input id="color1-3" name="color1" type="radio" value="white"> 
-									<label for="color1-3" class="border rounded-circle my-auto" style="background-color: white;"></label>
-							</div>
-						</form>
-
-						<h4 class="my-2">컴퓨터1</h4>
-						<p>pro01</p>
-						<p>500,000원</p>
-
-						<a id="detailButton" href="../product/ProductDetailController"
-							class="w-btn w-btn-indigo">구매하기</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-12 col-md-6 col-lg-4 p-3">
-				<div id="cardStyle" class="card text-center p-4 ">
-					<div class="card-head">
-						<div>
-							<img src="../resources/images/monitor3.png" />
-						</div>
-					</div>
-					<div class="card-body">
-						<form id="color1select">
-							<div class="colorRadio">
-								<input id="color1-1" name="color1" type="radio" value="blue"
-									checked="checked"> <label for="color1-1"
-									class="border rounded-circle my-auto"
-									style="background-color: steelblue;"></label> 
-									<input
-									id="color1-2" name="color1" type="radio" value="black">
-								<label for="color1-2" class="border rounded-circle my-auto"
-									style="background-color: black;"></label> 
-									<input id="color1-3"
-									name="color1" type="radio" value="white"> 
-									<label
-									for="color1-3" class="border rounded-circle my-auto"
-									style="background-color: white;"></label>
-							</div>
-						</form>
-
-						<h4 class="my-2">컴퓨터1</h4>
-						<p>pro01</p>
-						<p>500,000원</p>
-
-						<a id="detailButton" href="../product/ProductDetailController"
-							class="w-btn w-btn-indigo">구매하기</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-12 col-md-6 col-lg-4 p-3">
-				<div id="cardStyle" class="card text-center p-4 ">
-					<div class="card-head">
-						<div>
-							<img src="../resources/images/monitor3.png" />
-						</div>
-					</div>
-					<div class="card-body">
-						<form id="color1select">
-							<div class="colorRadio">
-								<input id="color1-1" name="color1" type="radio" value="blue"
-									checked="checked"> <label for="color1-1"
-									class="border rounded-circle my-auto"
-									style="background-color: steelblue;"></label> 
-									<input
-									id="color1-2" name="color1" type="radio" value="black">
-								<label for="color1-2" class="border rounded-circle my-auto"
-									style="background-color: black;"></label> 
-									<input id="color1-3"
-									name="color1" type="radio" value="white"> 
-									<label
-									for="color1-3" class="border rounded-circle my-auto"
-									style="background-color: white;"></label>
-							</div>
-						</form>
-
-						<h4 class="my-2">컴퓨터1</h4>
-						<p>pro01</p>
-						<p>500,000원</p>
-
-						<a id="detailButton" href="../product/ProductDetailController"
-							class="w-btn w-btn-indigo">구매하기</a>
-					</div>
-				</div>
-			</div>
+			</c:forEach>			
 
 
 		</div>
 
 		<!-- 페이징 -->
-		<div class="row ">
-			<ul class="pagination m-auto ">
-				<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-				<li class="page-item"><a class="page-link" href="#">1</a></li>
-				<li class="page-item active"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item"><a class="page-link" href="#">Next</a></li>
-			</ul>
-		</div>
+		<div style="text-align: center">
+				<a href="ProductListController?pageNo=1"
+					class="btn btn-outline-primary btn-sm pagerBtn">처음</a>
+				<c:if test="${pager.groupNo>1 }">
+					<a href="ProductListController?pageNo=${pager.pageNo-1}"
+						class="btn btn-outline-info btn-sm pagerBtn">이전</a>
+				</c:if>
+				<c:forEach var="i" begin="${pager.startPageNo }"
+					end="${pager.endPageNo}">
+					<c:if test="${pager.pageNo !=i }">
+						<a href="ProductListController?pageNo=${i}"
+							class="btn btn-outline-success btn-sm pagerBtn">${i}</a>
+					</c:if>
+					<c:if test="${pager.pageNo==i }">
+						<a href="ProductListController?pageNo=${i}"
+							style="background-color: #e0e0e0"
+							class="btn btn-danger btn-sm pagerBtn">${i}</a>
+					</c:if>
+				</c:forEach>
+				<c:if test="${pager.groupNo<pager.totalGroupNo }">
+					<a href="ProductListController?pageNo=${pager.pageNo+1}"
+						class="btn btn-outline-info btn-sm pagerBtn">다음</a>
+				</c:if>
+				<a href="ProductListController?pageNo=${pager.totalPageNo}"
+						class="btn btn-outline-primary btn-sm pagerBtn">맨끝</a>
+			</div>
 
 	</div>
 </div>

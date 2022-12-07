@@ -1,4 +1,4 @@
-package DTO;
+package dto;
 
 import java.util.Date;
 import java.util.List;
@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public class Product {
 	//다른 곳에서도 필요한 정보
-	   private String prodcutId;
+	   private String productId;
 	   private String productName;
 	   private int productPrice;
 	   //상세페이지에 넣는용 

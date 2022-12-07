@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
-import DAO.ReviewBoardDao;
-import DTO.ReviewBoard;
+import dao.ReviewBoardDao;
+import dto.ReviewBoard;
 
 public class ReviewBoardService {
 	private ServletContext application;

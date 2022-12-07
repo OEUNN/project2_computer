@@ -94,7 +94,7 @@
 				<a href="QnaBoardController?pageNo=1"
 					class="btn btn-outline-primary btn-sm pagerBtn">처음</a>
 				<c:if test="${pager.groupNo>1 }">
-					<a href="QnaBoardController?pageNo=1"
+					<a href="QnaBoardController?pageNo=${pager.pageNo-1}"
 						class="btn btn-outline-info btn-sm pagerBtn">이전</a>
 				</c:if>
 				<c:forEach var="i" begin="${pager.startPageNo }"
@@ -110,7 +110,7 @@
 					</c:if>
 				</c:forEach>
 				<c:if test="${pager.groupNo<pager.totalGroupNo }">
-					<a href="QnaBoardController?pageNo=${i}"
+					<a href="QnaBoardController?pageNo=${pager.pageNo+1}"
 						class="btn btn-outline-info btn-sm pagerBtn">다음</a>
 				</c:if>
 				<a href="QnaBoardController?pageNo=${pager.totalPageNo}"

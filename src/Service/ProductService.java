@@ -7,11 +7,11 @@ import java.util.List;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
-import DAO.ProductCapacityDao;
-import DAO.ProductColorDao;
-import DAO.ProductDao;
-import DTO.Color;
-import DTO.Product;
+import dao.ProductCapacityDao;
+import dao.ProductColorDao;
+import dao.ProductDao;
+import dto.Color;
+import dto.Product;
 import util.Pager;
 
 public class ProductService {
@@ -35,9 +35,10 @@ public class ProductService {
 		try {
 			conn=ds.getConnection();
 			list = productDao.selectProducts(page,conn);
-			
 			for(Product product:list){
-				List<Color> colorList=productColorDao.selectColor(product,conn);
+				product.setColorList(productColorDao.selectColor(product,conn));
+				product.setCapacityList(productCapacityDao.selectCapacity(product,conn));
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
