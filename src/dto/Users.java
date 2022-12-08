@@ -11,9 +11,11 @@ public class Users {
 	private String userEmail;
 	private String userNickname;
 	private String userInsertdate;
-	private String userAddress;
+	private String userAddr;
 	private boolean isAdmin;
 	private String userFileName;
 	private String userSavedName;
 	private String userContentType;
+	private int userPost;
+	private String userDetailAddr;
 }

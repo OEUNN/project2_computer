@@ -73,7 +73,7 @@ function check(){
 	//ID 유효성 검사
 	var uid =$("#userId");
 	var uidValue = uid.val();
-	var uidPattern =/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,10}$/g;
+	var uidPattern =/^(?=.*\d)(?=.*[a-z]).{6,20}$/g;
 	var uidTest = uidPattern.test(uidValue);
 	if(uidTest){
 		uid.removeClass("mystyle");
@@ -133,7 +133,7 @@ function check(){
 	
 	//닉네임
 	var nickName=$("#userNickname");
-	if(nickName == ""){
+	if(nickName != ""){
 		nickName.removeClass("mystyle");
 	}else{
 		nickName.addClass("mystyle");

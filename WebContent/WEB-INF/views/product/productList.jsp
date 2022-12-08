@@ -5,24 +5,8 @@
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
 <link rel="stylesheet" href="../resources/css/header.css">
 <link rel="stylesheet" href="../resources/css/productList.css">
-<script >
-	function pageUpdate(pageNo){
-		var page={pageNo:pageNo};
-		$.ajax({
-			url:"ProductListController",
-			type:"post",
-			data:page,
-			success:function(result){
-					$(".productListPage").empty();
-					//console.log(result);
-					$(".productListPage").html(result);
-				}
-		});
-	}
-</script>
-	
+<script src="/resources/javascript/productList.js"></script>
 <%@ include file="/WEB-INF/views/common/header2.jsp"%>
-
 
 <!-- mainBoard -->
 <div id="mainBoard" class="row" >

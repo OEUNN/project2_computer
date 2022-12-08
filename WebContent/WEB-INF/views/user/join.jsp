@@ -31,13 +31,13 @@
 			<!-- 비밀번호 입력및 비밀번호 확인 -->
 			<div class="form-group m-4">
 				<label for="userPwd" class="joinTitle">비밀번호</label>
-				<input id="userPwd" type="text" class="form-control" name="userPwd"/>
+				<input id="userPwd" type="password" class="form-control" name="userPwd"/>
 				<small id="userPwdHelp" class="form-text text-muted">알파벳 대소문자, 숫자를 혼용해서 8자 이상 15장 이하</small>
 				<p id="pwdMessage"></p>
 			</div>
 			<div class="form-group m-4">
 				<label for="userPwdCheck" class="joinTitle">비밀번호 확인</label>
-				<input id="userPwdCheck" type="text" class="form-control"/>
+				<input id="userPwdCheck" type="password" class="form-control"/>
 				<p id="pwdCheckMessage"></p>
 			</div>
 			<!-- 이름 -->
@@ -73,23 +73,19 @@
 				<input id="userPost" type="text" class="form-control" name="userPost" placeholder="우편번호" />
 				<input id="userAddr" type="text" class="form-control" name="userAddr" placeholder="주소"/>
 				<input id="userDetailAddr" type="text" class="form-control" name="userDetailAddr" placeholder="상세 주소를 입력하세요."/>
-				<p id="addressMessage"></p>
 			</div> 
-			<!-- 이미지 
+			<!-- 이미지 -->
 			<div class="form-group m-4">
-				<label for="userImg" class="joinTitle">이미지</label>
-				<input id="userImg" type="text" class="form-control"/>
-				<p id="addressMessage"></p>
-			</div>-->
+				<label for="userImg" class="joinTitle">이미지</label> <br/>
+				<input id="userImg" type="file" class="mt-2" name="userImg"/>
+			</div>
 			<!-- submit -->
 			<div class="text-center m-5"> 
-				<input id="joinSubmit" type="submit" class="btn btn-lg" value="확인" />
+				<button id="joinSubmit" type="submit" class="btn btn-lg" value="확인" >확인</button>
 				<input id="joinSubmit" type="reset" class="btn btn-lg" value="reset"/>
 			</div>
 		</form>
 	</div>
 	
 	<!-- 오른쪽 빈칸 -->
-	<div class="col-0 col-md-3 "></div>
-</div>
-<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+	<div class="col-0 col-md-3 "></div>,///
