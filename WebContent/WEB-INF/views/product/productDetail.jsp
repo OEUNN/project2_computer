@@ -16,9 +16,9 @@
 	<div class=" col-12 col-md-12 col-lg-5 ">
 		
 		<div class="pt-4" style="width: 100%">
-			<img class="slides" src="ImageAttachController?imageId=${product.productImageList[0].imageId}" style="width:100%;"/>
-			<img class="slides" src="ImageAttachController?imageId=${product.productImageList[1].imageId}" style="width:100%;display:none"/>
-			<img class="slides" src="ImageAttachController?imageId=${product.productImageList[2].imageId}" style="width:100%;display:none"/>
+			<img class="slides productImg" src="ImageAttachController?imageId=${product.productImageList[0].imageId}" style="width:100%;"/>
+			<img class="slides productImg" src="ImageAttachController?imageId=${product.productImageList[1].imageId}" style="width:100%;display:none"/>
+			<img class="slides productImg" src="ImageAttachController?imageId=${product.productImageList[2].imageId}" style="width:100%;display:none"/>
 		</div>
 		<div class="row">
 			<div class="pt-4 col-2" style="width: 100%">
