@@ -44,7 +44,7 @@ $(document).ready(function(){
 
 
 
-
+/*
 function pageUpdate(pageNo){
 		var page={pageNo:pageNo};
 		$.ajax({
@@ -85,7 +85,7 @@ function pageUpdate(pageNo){
 				});
 			}
 		})
-	}
+	}*/
 
 /*<button onclick="pageUpdate(1)" class="btn btn-outline-primary btn-sm pagerBtn">처음</button>
 				<c:if test="${pager.groupNo>1 }">
