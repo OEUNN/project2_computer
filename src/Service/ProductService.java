@@ -24,7 +24,7 @@ public class ProductService {
 		this.application=application;
 		productDao = (ProductDao)application.getAttribute("productDao");
 		productColorDao= (ProductColorDao)application.getAttribute("productColorDao");
-	    productCapacityDao= (ProductCapacityDao)application.getAttribute("productCapacityDao");;
+	    productCapacityDao= (ProductCapacityDao)application.getAttribute("productCapacityDao");
 		ds=(DataSource)application.getAttribute("dataSource");
 		
 	}

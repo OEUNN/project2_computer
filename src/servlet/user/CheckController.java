@@ -25,7 +25,7 @@ public class CheckController extends HttpServlet {
 		ServletContext application = request.getServletContext();
 		UserService userService = (UserService) application.getAttribute("userService");
 		boolean result = userService.check(check, value);
-		System.out.println(result);
+		
 		response.setContentType("application/json; charset=UTF-8"); 
 		PrintWriter pw = response.getWriter();
 		JSONObject jsonObject = new JSONObject();
