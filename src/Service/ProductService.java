@@ -26,7 +26,6 @@ public class ProductService {
 		productColorDao= (ProductColorDao)application.getAttribute("productColorDao");
 	    productCapacityDao= (ProductCapacityDao)application.getAttribute("productCapacityDao");
 		ds=(DataSource)application.getAttribute("dataSource");
-		
 	}
 	
 	public List<Product> getList(Pager page) {
