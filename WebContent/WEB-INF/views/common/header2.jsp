@@ -20,9 +20,19 @@
 			<div id="icon" class=" col-2 col-md-2 mt-3">
 				<!-- 장바구니 -->
 				<div class="mt-3">
-					<a href="../product/BasketListController"> 
-					<img src="../resources/images/cart_w.png" style="width: 40px; height: 40px;" />
-					</a>
+					<!-- 로그인 x -->
+					<c:if test="${loginId==null}">
+						<a href="${pageContext.request.contextPath}/user/LoginController">
+							<img src="${pageContext.request.contextPath}/resources/images/cart_w.png" style="width: 40px; height: 40px;" />
+						</a>
+					</c:if>
+					<!-- 로그인 o -->
+					<c:if test="${loginId!=null}">
+						<a href="../product/BasketListController">
+							<img src="../resources/images/cart_w.png" style="width: 40px; height: 40px;" />
+						</a>
+					</c:if>
+					
 				</div>
 				<!-- 아이콘안 메뉴 -->
 				<div>
