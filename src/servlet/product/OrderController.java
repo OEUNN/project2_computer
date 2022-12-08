@@ -27,6 +27,7 @@ public class OrderController extends HttpServlet {
 	@SuppressWarnings("unchecked")
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		System.out.println("OrderController doPost() 실행");
 		int post = Integer.parseInt(request.getParameter("userPost"));
 		String receiverAddr = request.getParameter("userAddr");
@@ -61,7 +62,8 @@ public class OrderController extends HttpServlet {
 		
 	
 		
-		request.getRequestDispatcher("/WEB-INF/views/product/order.jsp").forward(request, response);
+		response.sendRedirect("ProductListController");
+
 		
 	}
 }

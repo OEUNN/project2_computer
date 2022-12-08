@@ -6,6 +6,8 @@ import javax.servlet.ServletContextListener;
 import javax.sql.DataSource;
 
 import Service.BasketService;
+import Service.CapacityService;
+import Service.ColorService;
 import Service.ImageService;
 import Service.OrderService;
 import Service.ProductService;
@@ -14,6 +16,8 @@ import Service.ReviewBoardService;
 import Service.UserService;
 import dao.BasketDao;
 import dao.BasketDetailDao;
+import dao.CapacityDao;
+import dao.ColorDao;
 import dao.OrderDao;
 import dao.OrderDetailDao;
 import dao.ProductCapacityDao;
@@ -46,6 +50,8 @@ public class WebAppContext implements ServletContextListener {
 		application.setAttribute("orderDao", new OrderDao());
 		application.setAttribute("orderDetailDao", new OrderDetailDao());
 		application.setAttribute("productDao", new ProductDao());
+		application.setAttribute("colorDao", new ColorDao());
+		application.setAttribute("capacityDao", new CapacityDao());
 
 		application.setAttribute("qnaBoardDao", new QnaBoardDao());
 		application.setAttribute("reviewBoardDao", new ReviewBoardDao());
@@ -61,6 +67,8 @@ public class WebAppContext implements ServletContextListener {
 		application.setAttribute("qnaBoardService", new QnaBoardService(application));
 		application.setAttribute("reviewBoardService", new ReviewBoardService(application));
 		application.setAttribute("imageService", new ImageService(application));
+		application.setAttribute("capacityService", new CapacityService(application));
+		application.setAttribute("colorService", new ColorService(application));
 		
 		
 		
