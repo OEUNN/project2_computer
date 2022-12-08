@@ -10,6 +10,7 @@ import javax.sql.DataSource;
 import dao.ProductCapacityDao;
 import dao.ProductColorDao;
 import dao.ProductDao;
+import dao.ProductImageDao;
 import dto.Product;
 import util.Pager;
 
@@ -18,14 +19,16 @@ public class ProductService {
 	private DataSource ds;
 	private ProductDao productDao;
 	private ProductColorDao productColorDao;
-
 	private ProductCapacityDao productCapacityDao; 
+	private ProductImageDao productImageDao; 
 	
 	public ProductService(ServletContext application) {
 		this.application=application;
 		productDao = (ProductDao)application.getAttribute("productDao");
 		productColorDao= (ProductColorDao)application.getAttribute("productColorDao");
-	    productCapacityDao= (ProductCapacityDao)application.getAttribute("productCapacityDao");
+		productCapacityDao= (ProductCapacityDao)application.getAttribute("productCapacityDao");
+		productImageDao= (ProductImageDao)application.getAttribute("productImageDao");
+		
 		ds=(DataSource)application.getAttribute("dataSource");
 	}
 	
@@ -70,6 +73,9 @@ public class ProductService {
 		try {
 			conn=ds.getConnection();
 			product = productDao.selectProduct(productId,conn);
+			product.setColorList(productColorDao.selectColor(product, conn));
+			product.setCapacityList(productCapacityDao.selectCapacity(product,conn));
+			product.setProductImageList(productImageDao.selectImage(product,conn));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -78,7 +84,5 @@ public class ProductService {
 		
 		return product;
 	}
-
-
 
 }

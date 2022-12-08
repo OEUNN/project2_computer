@@ -27,8 +27,8 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");
-		System.out.println(userId);
-		System.out.println(userPwd);
+		//System.out.println(userId);
+		//System.out.println(userPwd);
 		
 		ServletContext application = request.getServletContext();
 		UserService userService = (UserService) application.getAttribute("userService");

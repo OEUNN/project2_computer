@@ -21,14 +21,12 @@ public class BasketDao {
 
 	public boolean Create(String userId, Connection conn) throws Exception {
 		boolean result = false;
-		String sql = "insert into basket (user_id)  values  ( ? ) ";
+		String sql = "insert into basket(basket_id, total_price) values(?, 0)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, userId);
-		int row = pstmt.executeUpdate();
+		pstmt.executeUpdate();
+		pstmt.close();
 		
-		if(row == 1) {
-			result = true;
-		}
 		return result;
 	}
 
