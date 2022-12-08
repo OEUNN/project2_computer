@@ -13,25 +13,26 @@
 
 <div id="detail" class="row">
 	<div class=" col-1 col-md-1"></div>
-	<div class=" col-12 col-md-12 col-lg-6 ">
+	<div class=" col-12 col-md-12 col-lg-5 ">
 		
 		<div class="pt-4" style="width: 100%">
 			<img class="slides" src="ImageAttachController?imageId=${product.productImageList[0].imageId}" style="width:100%;"/>
 			<img class="slides" src="ImageAttachController?imageId=${product.productImageList[1].imageId}" style="width:100%;display:none"/>
 			<img class="slides" src="ImageAttachController?imageId=${product.productImageList[2].imageId}" style="width:100%;display:none"/>
 		</div>
-		<div>
-			<div class="pt-4" style="width: 100%">
-				<img class="demo" src="ImageAttachController?imageId=${product.productImageList[0].imageId}" onclick="currentDiv(0)" />
+		<div class="row">
+			<div class="pt-4 col-2" style="width: 100%">
+				<img class="demo" src="ImageAttachController?imageId=${product.productImageList[0].imageId}" onclick="currentDiv(1)" />
 			</div>
-			<div class="pt-4" style="width: 100%">
-				<img class="demo" src="ImageAttachController?imageId=${product.productImageList[1].imageId}" onclick="currentDiv(1)" />
+			<div class="pt-4 col-2" style="width: 100%">
+				<img class="demo" src="ImageAttachController?imageId=${product.productImageList[1].imageId}" onclick="currentDiv(2)" />
 			</div>
-			<div class="pt-4" style="width: 100%">
-				<img class="demo" src="ImageAttachController?imageId=${product.productImageList[2].imageId}" onclick="currentDiv(2)" />
+			<div class="pt-4 col-2" style="width: 100%">
+				<img class="demo" src="ImageAttachController?imageId=${product.productImageList[2].imageId}" onclick="currentDiv(3)" />
 			</div>
 		</div>
 	</div>
+	<div class=" col-1 col-md-1"></div>
 	<div id="item-info" class="d-none d-md-none d-lg-inline col-lg-4 m-4">
 		<div class="item-detail border " style="height: 100%">
 			<div class="mt-3 mx-4 " style="font-size: 200%">
@@ -181,7 +182,7 @@
 							<c:if test="${minCoStatus.count==1}">
 								<input id="color1-${minCoStatus.count}" name="color1" type="radio" value="${color.colorName}" checked="checked">
 							</c:if>
-							<c:if test="${minCoStatus.count==1}">
+							<c:if test="${minCoStatus.count!=1}">
 								<input id="color1-${minCoStatus.count}" name="color1" type="radio" value="${color.colorName}">
 							</c:if>
 								<label for="color1-${minCoStatus.count}" class="border rounded-circle " style="background-color: ${color.colorName};"></label> 
@@ -203,7 +204,7 @@
 							<c:if test="${minCaStatus.count!=1}">
 								<input id="capa1-${minCaStatus.count}" name="capa1" type="radio" value="${capa.capacityName}" > 
 							</c:if>
-							<label for="capa1-${minCaStatus.count}" class="border rounded" style="padding-top: 8px;">${capa.capacityName}</label> 
+							<label for="capa1-${minCaStatus.count}" class="border rounded" style="width:50px; text-align:center;padding-top: 8px;">${capa.capacityName}</label> 
 						</c:forEach>
 						<!-- <input id="capa1-1" name="capa1" type="radio" value="512GB" checked="checked"> <label for="capa1-1" class="border rounded " style="padding-top: 8px;">512GB</label>
 						<input id="capa1-2" name="capa1" type="radio" value="256GB">

@@ -16,17 +16,17 @@
 
 	function showDivs(n) {
 	  var i;
-	  var x = $(".Slides");
+	  var x = $(".slides");
 	  var dots = $(".demo");
 	  if (n > x.length) {slideIndex = 1}
 	  if (n < 1) {slideIndex = x.length}
 	  for (i = 0; i < x.length; i++) {
-	    x[i].css("display" , "none");
+	    $(x[i]).css("display" , "none");
 	  }
 	  for (i = 0; i < dots.length; i++) {
-	    dots[i].css(" opacity", "1");
+	    $(dots[i]).css("opacity", "1");
 	  }
-	  x[slideIndex-1].css("display","block");
-	  dots[slideIndex-1].css(" opacity","0.5");
+	  $(x[slideIndex-1]).css("display","block");
+	  $(dots[slideIndex-1]).css(" opacity","0.5");
 	}
 	

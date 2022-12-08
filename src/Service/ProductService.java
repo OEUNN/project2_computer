@@ -41,7 +41,7 @@ public class ProductService {
 			for(Product product:list){
 				product.setColorList(productColorDao.selectColor(product,conn));
 				product.setCapacityList(productCapacityDao.selectCapacity(product,conn));
-				
+				product.setProductImageList(productImageDao.selectImage(product,conn));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
