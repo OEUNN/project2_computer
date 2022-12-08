@@ -19,7 +19,6 @@ public class ProductService {
 	private DataSource ds;
 	private ProductDao productDao;
 	private ProductColorDao productColorDao;
-
 	private ProductCapacityDao productCapacityDao; 
 	private ProductImageDao productImageDao; 
 	
@@ -85,7 +84,5 @@ public class ProductService {
 		
 		return product;
 	}
-
-
 
 }

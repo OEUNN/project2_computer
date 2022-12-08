@@ -19,12 +19,17 @@ public class BasketDao {
 		this.application = application;
 	}
 
-	public void Create(String userId, Connection conn) throws Exception {
-		String sql = "insert into basket(basket_id, total_price) values(?, 0)";
+	public boolean Create(String userId, Connection conn) throws Exception {
+		boolean result = false;
+		String sql = "insert into basket (user_id)  values  ( ? ) ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, userId);
-		pstmt.executeUpdate();
-		pstmt.close();
+		int row = pstmt.executeUpdate();
+		
+		if(row == 1) {
+			result = true;
+		}
+		return result;
 	}
 
 	public boolean updateBasket(Basket basket, Connection conn) throws Exception {
