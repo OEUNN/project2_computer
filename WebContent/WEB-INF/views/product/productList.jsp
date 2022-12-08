@@ -5,26 +5,27 @@
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
 <link rel="stylesheet" href="../resources/css/header.css">
 <link rel="stylesheet" href="../resources/css/productList.css">
-<script src="/resources/javascript/productList.js"></script>
+<script src="../resources/javascript/productList.js"></script>
 <%@ include file="/WEB-INF/views/common/header2.jsp"%>
 
 <!-- mainBoard -->
 <div id="mainBoard" class="row" >
 	<!-- 메인 스크롤 -->
-	<div class="col-lg-8 col-12 p-5" style="height:550px;">
+	<div class="col-lg-8 col-12 p-5 " style="height:600px;">
 		<!-- 이미지 슬라이드 -->
 		<div id="mainImg" class="row mb-5">
-			<img src="../resources/images/main1.png">
+			<img class="mySlides" src="../resources/images/main1.png"> 
+			<img class="mySlides" src="../resources/images/main2.png"> 
+			<img class="mySlides" src="../resources/images/main3.png">
 		</div>
 
 		<!-- 검색 -->
 		<div id="search" class="row mt-5">
 			<div class="col-2 mr-2">
-				<img src="../resources/images/search.png"
-					style="width: 35px; height: 35px" />
+				<img src="../resources/images/search.png" style="width: 35px; height: 35px" />
 			</div>
 			<div class="col">
-				<input id="searchVal" type="text"></input>
+				<input id="searchVal"  class="p-3" type="text"></input>
 			</div>
 		</div>
 	</div>
@@ -65,20 +66,18 @@
 		<!-- 로그인 ON -->
 		<c:if test="${loginId!=null}">
 			<div class="container-fluid">
-				<div class="row my-4">
+				<div class="row">
 					<!-- 이미지 센터 -->
-					<div style="width: 400px; height: 100%;">
+					<div style="width: 550px; height: 100%;">
 						<img src="../resources/images/welcome.png" alt="welcom image error" />
 					</div>
 				</div>
-				<div class="row my-1">
-					<div class="button-flex mt-3 mb-5 mx-auto">
+				<div id="loginText" class="row mb-2">
+					<div class="mx-auto">
 						<div class="mt-3" style="flex-grow: 3"></div>
-						<div class="btn" style="flex-grow: 2;">
-							<p>마이페이지</p>
-						</div>
-						<div class="btn" style="flex-grow: 2;">
-							<p>주문 내역 보기</p>
+						<div style="flex-grow: 2;">
+							<p style="font-size:200%;">${loginId}님 </p>
+							<p style="font-size:150%;">환영합니다!</p>
 						</div>
 						<div class="mt-3" style="flex-grow: 3"></div>
 					</div>

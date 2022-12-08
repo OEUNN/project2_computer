@@ -17,7 +17,11 @@
 	<div id="loginMain" class="col-12 col-md mt-5 mr-5">
 		<form id="loginBody" method="post" class="container-fluid" action="LoginController">
 		
-			<div id="loginLogo" class="row my-5">로그인</div>
+			<div id="loginLogo" class="row my-5">
+				<div class="col-3"></div>
+				<div class="col">로그인</div>
+				<div class="col-3"></div>
+			</div>
 			
 			<div class="row container-fluid">
 				<div class="col-3"></div>
