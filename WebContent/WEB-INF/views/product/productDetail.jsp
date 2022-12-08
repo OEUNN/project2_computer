@@ -15,7 +15,7 @@
 	<div class=" col-1 col-md-1"></div>
 	<div class=" col-12 col-md-12 col-lg-6 ">
 		<div class="pt-4" style="width: 100%">
-			<img src="../resources/images/monitor3_d.png" />
+			<img src="../resources/images/${product.productImageList[0].fileName }" />
 		</div>
 
 
@@ -231,8 +231,8 @@
 <div class="row">
 	<div class="col-1"></div>
 	<div class="col-10">
-		<img src="../resources/images/ad.png" />
-		<img src="../resources/images/ad2.png" />
+		<img src="../resources/images/${product.productImageList[1].fileName }" />
+		<img src="../resources/images/${product.productImageList[2].fileName }" />
 	</div>
 	<div class="col-1"></div>
 
