@@ -17,34 +17,34 @@ public class ReviewBoardDao {
 	int totalRow;
 	Pager pager = new Pager();
 
-	public List<OrderDetail> ordered(String userId, Connection conn) throws Exception {
-		String sql = "select ORDER_DETAIL_ID, PRODUCT_NAME from ORDER_DETAIL, PRODUCT "
-				+ "where ORDERS_ORDER_ID in (select ORDER_ID from ORDERS where USER_USER_ID = ? ) "
-				+ "and PRODUCT_ID=(select PRODUCT_PRODUCT_ID from PRODUCT_DETAIL where DETAIL_ID=PRODUCT_DETAIL_DETAIL_ID)"; // 얘도
-		List<OrderDetail> orderDetailList = new ArrayList<>();
-
-		// JSONObject returnjson = new JSONObject().put("sf", "fail");
-		// JSONArray ja = new JSONArray();
-
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, userId);
-		ResultSet rs = pstmt.executeQuery();
-		if (rs.next()) {
-			do {
-				// returnjson.put("sf", "success");
-				// JSONObject jo = new JSONObject();
-				OrderDetail orderDetail = new OrderDetail();
-				orderDetail.setOrderDetailId(rs.getString("ORDER_DETAIL_ID"));
-				orderDetailList.add(orderDetail);
-				// jo.put("ORDER_DETAIL_ID", rs.getString("ORDER_DETAIL_ID"));
-				// jo.put("PRODUCT_NAME", rs.getString("PRODUCT_NAME"));
-				// ja.put(jo);
-			} while (rs.next());
-			// returnjson.put("json", ja);
-		}
-		pstmt.close();
-		return orderDetailList;
-	}
+//	public List<OrderDetail> ordered(String userId, Connection conn) throws Exception {
+//		String sql = "select ORDER_DETAIL_ID, PRODUCT_NAME from ORDER_DETAIL, PRODUCT "
+//				+ "where ORDERS_ORDER_ID in (select ORDER_ID from ORDERS where USER_USER_ID = ? ) "
+//				+ "and PRODUCT_ID=(select PRODUCT_PRODUCT_ID from PRODUCT_DETAIL where DETAIL_ID=PRODUCT_DETAIL_DETAIL_ID)"; // 얘도
+//		List<OrderDetail> orderDetailList = new ArrayList<>();
+//
+//		// JSONObject returnjson = new JSONObject().put("sf", "fail");
+//		// JSONArray ja = new JSONArray();
+//
+//		PreparedStatement pstmt = conn.prepareStatement(sql);
+//		pstmt.setString(1, userId);
+//		ResultSet rs = pstmt.executeQuery();
+//		if (rs.next()) {
+//			do {
+//				// returnjson.put("sf", "success");
+//				// JSONObject jo = new JSONObject();
+//				OrderDetail orderDetail = new OrderDetail();
+//				orderDetail.setOrderDetailId(rs.getString("ORDER_DETAIL_ID"));
+//				orderDetailList.add(orderDetail);
+//				// jo.put("ORDER_DETAIL_ID", rs.getString("ORDER_DETAIL_ID"));
+//				// jo.put("PRODUCT_NAME", rs.getString("PRODUCT_NAME"));
+//				// ja.put(jo);
+//			} while (rs.next());
+//			// returnjson.put("json", ja);
+//		}
+//		pstmt.close();
+//		return orderDetailList;
+//	}
 
 	public String Insert(ReviewBoard reviewBoard, Connection conn) throws SQLException {
 		String sql = "insert into REVIEW_BOARD (review_bno, Review_Btitle,Review_Bcontent, REVIEW_DATE, Review_Rate, USER_USER_ID, ORDER_DETAIL_ORDER_DETAIL_ID, PRODUCT_NAME )  values('28', ? , ? , SYSDATE, ? , ? , ?, ?)";

@@ -23,14 +23,29 @@ public class OrderService {
 	}
 
 	// 주문하기
-	public boolean takeOrder(OrderDetail orderDeatil, String userId, Orders order,int totalPrice) {
+	public int takeOrder(Orders order) {
+		Connection conn = null;
+		int orderId = 0;
+		try {
+			conn = ds.getConnection();
+			orderId = orderDao.insertOrder(order, conn);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {conn.close();} catch(Exception e) {};
+			}
+		
+		return orderId;
+	}
+	
+	public boolean insertOrderDetail(OrderDetail orderDetail) {
 		Connection conn = null;
 		boolean result = false;
 		try {
 			conn = ds.getConnection();
 			OrderDetailDao orderDetailDao = (OrderDetailDao) application.getAttribute("orderDetailDao");
-			String orderId=orderDao.insertOrder(order, conn);
-			result = orderDetailDao.insertOrderDetail(orderId, orderDeatil, conn);
+			result = orderDetailDao.insertOrderDetail(orderDetail, conn);
 			if(result) {
 			result = true;
 			}
@@ -41,6 +56,7 @@ public class OrderService {
 			}
 		
 		return result;
+		
 	}
 }
 

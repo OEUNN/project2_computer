@@ -1,6 +1,6 @@
 package context;
 
-import javax.servlet.ServletContext; 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.sql.DataSource;
@@ -18,7 +18,6 @@ import dao.OrderDetailDao;
 import dao.ProductCapacityDao;
 import dao.ProductColorDao;
 import dao.ProductDao;
-import dao.ProductDetailDao;
 import dao.ProductImageDao;
 import dao.QnaBoardDao;
 import dao.ReviewBoardDao;
@@ -46,7 +45,7 @@ public class WebAppContext implements ServletContextListener {
 		application.setAttribute("orderDao", new OrderDao());
 		application.setAttribute("orderDetailDao", new OrderDetailDao());
 		application.setAttribute("productDao", new ProductDao());
-		application.setAttribute("productDetailDao", new ProductDetailDao());
+
 		application.setAttribute("qnaBoardDao", new QnaBoardDao());
 		application.setAttribute("reviewBoardDao", new ReviewBoardDao());
 		application.setAttribute("productColorDao", new ProductColorDao());
