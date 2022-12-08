@@ -14,11 +14,23 @@
 <div id="detail" class="row">
 	<div class=" col-1 col-md-1"></div>
 	<div class=" col-12 col-md-12 col-lg-6 ">
+		
 		<div class="pt-4" style="width: 100%">
-			<img src="../resources/images/${product.productImageList[0].fileName }" />
+			<img class="slides" src="ImageAttachController?imageId=${product.productImageList[0].imageId}" style="width:100%;"/>
+			<img class="slides" src="ImageAttachController?imageId=${product.productImageList[1].imageId}" style="width:100%;display:none"/>
+			<img class="slides" src="ImageAttachController?imageId=${product.productImageList[2].imageId}" style="width:100%;display:none"/>
 		</div>
-
-
+		<div>
+			<div class="pt-4" style="width: 100%">
+				<img class="demo" src="ImageAttachController?imageId=${product.productImageList[0].imageId}" onclick="currentDiv(0)" />
+			</div>
+			<div class="pt-4" style="width: 100%">
+				<img class="demo" src="ImageAttachController?imageId=${product.productImageList[1].imageId}" onclick="currentDiv(1)" />
+			</div>
+			<div class="pt-4" style="width: 100%">
+				<img class="demo" src="ImageAttachController?imageId=${product.productImageList[2].imageId}" onclick="currentDiv(2)" />
+			</div>
+		</div>
 	</div>
 	<div id="item-info" class="d-none d-md-none d-lg-inline col-lg-4 m-4">
 		<div class="item-detail border " style="height: 100%">
@@ -231,8 +243,9 @@
 <div class="row">
 	<div class="col-1"></div>
 	<div class="col-10">
-		<img src="../resources/images/${product.productImageList[1].fileName }" />
-		<img src="../resources/images/${product.productImageList[2].fileName }" />
+		
+		<img src="ImageAttachController?imageId=${product.productImageList[3].imageId}" />
+		<img src="ImageAttachController?imageId=${product.productImageList[4].imageId}" />
 	</div>
 	<div class="col-1"></div>
 

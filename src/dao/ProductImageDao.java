@@ -18,7 +18,6 @@ public class ProductImageDao {
 		String sql = "SELECT IMAGE_ID, FILE_NAME,SAVED_NAME,CONTENT_TYPE  FROM PRODUCT_IMAGE WHERE PRODUCT_ID=?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, String.valueOf(product.getProductId()));
-		
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next()) {
 			ProductImage imageDto = new ProductImage();
@@ -29,9 +28,30 @@ public class ProductImageDao {
 			imageDto.setContentType(rs.getString("CONTENT_TYPE"));
 			
 			list.add(imageDto);
+			
 		}
 		
 		return list;
+	}
+
+	public ProductImage selectImage(String imageId, Connection conn) throws Exception{
+		String sql = "SELECT FILE_NAME,SAVED_NAME,CONTENT_TYPE  FROM PRODUCT_IMAGE WHERE IMAGE_ID=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, String.valueOf(imageId));
+		ResultSet rs = pstmt.executeQuery();
+		ProductImage imageDto = new ProductImage();
+		if(rs.next()) {
+			
+			
+			imageDto.setFileName(rs.getString("FILE_NAME"));
+			imageDto.setSavedName(rs.getString("SAVED_NAME"));
+			imageDto.setContentType(rs.getString("CONTENT_TYPE"));
+			
+			
+			
+		}
+		
+		return imageDto;
 	}
 
 }
