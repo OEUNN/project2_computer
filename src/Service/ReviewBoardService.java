@@ -8,6 +8,7 @@ import javax.sql.DataSource;
 
 import dao.ReviewBoardDao;
 import dto.ReviewBoard;
+import util.Pager;
 
 public class ReviewBoardService {
 	private ServletContext application;
@@ -48,12 +49,12 @@ public class ReviewBoardService {
 		return totalrow;
 	}
 	
-	public ArrayList<ReviewBoard> readReviewBoard(int pageNo) {
+	public ArrayList<ReviewBoard> readReviewBoard(Pager page) {
 		Connection conn = null;
 		ArrayList<ReviewBoard> list = new ArrayList<>();
 		try {
 			conn=ds.getConnection();
-			list = reviewBoardDao.readReviewBoard(pageNo,conn);
+			list = reviewBoardDao.readReviewBoard(page,conn);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {

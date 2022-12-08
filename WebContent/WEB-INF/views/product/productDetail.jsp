@@ -23,47 +23,51 @@
 	<div id="item-info" class="d-none d-md-none d-lg-inline col-lg-4 m-4">
 		<div class="item-detail border " style="height: 100%">
 			<div class="mt-3 mx-4 " style="font-size: 200%">
-				<b>커브드 모니터 68.4cm</b>
+				<b>${product.productName}</b>
 			</div>
-			<div id="productId" class="mb-3 mx-4">pro-21</div>
+			<div id="productId" class="mb-3 mx-4">${product.productId}</div>
 			<div class="flex-container">
 				<div class="mx-5" style="flex-grow: 5; text-align: center">
 					<h4>판매가</h4>
 				</div>
 				<div class="mx-5" style="flex-grow: 5; text-align: center">
 					<h4>
-						<b>1900000</b>원
+						<b>${product.productPrice}</b>원
 					</h4>
 				</div>
 
 			</div>
 			<form method="post" id="detail-form">
-				<input type="hidden" name="productId" value="pro21" />
-				<input type="hidden" name="price" value="500000" />
+				<input type="hidden" name="productId" value="${product.productId}" />
+				<input type="hidden" name="price" value="${product.productPrice}" />
 				<div class="option  mt-4 mr-4 mb-2 ml-4" style="height: 350px">
 					<div style="height: 80px; text-align: center; padding-top: 10px">
 						색상
 						<div class="colorRadio" style="height: 30px">
-
-							<input id="color1-1" name="colorName" type="radio" value="blue" checked="checked"> 
-							<label for="color1-1" class="border rounded-circle " style="background-color: steelblue;"></label>
-								 
-							<input id="color1-2" name="colorName" type="radio" value="black">
-							<label for="color1-2" class="border rounded-circle " style="background-color: black;"></label> 
-							<input id="color1-3" name="colorName" type="radio" value="white"> 
-							<label for="color1-3" class="border rounded-circle " style="background-color: white;"></label>
+							<c:forEach var="color" items="${product.colorList}" varStatus="coStatus">
+								<c:if test="${coStatus.count==1}">
+									<input id="color1-${coStatus.count}" name="colorName" type="radio" value="${color.colorName}" checked="checked"> 
+								</c:if>
+								<c:if test="${coStatus.count!=1}">
+									<input id="color1-${coStatus.count}" name="colorName" type="radio" value="${color.colorName}" > 
+								</c:if>
+								<label for="color1-${coStatus.count}" class="border rounded-circle" style="background-color: ${color.colorName};"></label> 
+							</c:forEach>
 						</div>
 
 					</div>
 					<div class="mt-3" style="text-align: center; height: 80px">
 						용량
 						<div class="capaRadio">
-							<input id="capa1-1" name="capaName" type="radio" value="512GB" checked="checked">  
-							<label for="capa1-1" class="border rounded " style="padding-top: 8px;">512GB</label>
-							<input id="capa1-2" name="capaName" type="radio" value="256GB">
-							<label for="capa1-2" class="border rounded" style="padding-top: 8px;">256GB</label> 
-							<input id="capa1-3" name="capaName" type="radio" value="1TB"> 
-							<label for="capa1-3" class="border rounded " style="padding-top: 8px;">1TB</label>
+							<c:forEach var="capa" items="${product.capacityList}" varStatus="caStatus">
+								<c:if test="${caStatus.count==1}">
+									<input id="capa1-${caStatus.count}" name="capaName" type="radio" value="${capa.capacityName}" checked="checked"> 
+								</c:if>
+								<c:if test="${caStatus.count!=1}">
+									<input id="capa1-${caStatus.count}" name="capaName" type="radio" value="${capa.capacityName}" > 
+								</c:if>
+								<label for="capa1-${caStatus.count}" class="border rounded" style="padding-top: 8px;">${capa.capacityName}</label> 
+							</c:forEach>
 						</div>
 					</div>
 					<hr />
@@ -86,7 +90,7 @@
 						</div>
 						<div style="flex-grow: 5; text-align: center">
 							<h3>
-								<b>1900000</b>원
+								<b>${product.productPrice}</b>원
 							</h3>
 						</div>
 					</div>
@@ -142,15 +146,15 @@
 	<div id="item-info" class=" d-lg-none col-lg-4 border mb-2">
 		<div class="item-detail border " style="height: 350px">
 			<div class=" mx-4 mt-3" style="font-size: 200%">
-				<b>커브드 모니터 68.4cm</b>
+				<b>${product.productName}</b>
 			</div>
-			<div class=" mx-4">Pro-03 오디세이 OLED G8</div>
+			<div class=" mx-4">${product.productId}</div>
 			<div class="flex-container p-3">
 				<div class="mx-5" style="flex-grow: 5; text-align: left">
 					<b>판매가</b>
 				</div>
 				<div class="mx-5" style="flex-grow: 5; text-align: right">
-					1900000원</div>
+					${product.productPrice}원</div>
 
 			</div>
 
@@ -160,14 +164,17 @@
 					<b>색상</b>
 				</div>
 				<div class="mx-5" style="flex-grow: 5; text-align: right">
-					<div class="colorRadioMini" style="height: 30px">
-						<input id="color1-1" name="color1" type="radio" value="blue">
-						<label for="color1-1" class="border rounded-circle " style="background-color: steelblue;">blue </label> 
-						<input id="color1-2" name="color1" type="radio" value="black">
-						<label for="color1-2" class="border rounded-circle "
-							style="background-color: black;"> b</label> 
-							<input id="color1-3"name="color1" type="radio" value="white"> 
-							<label for="color1-3" class="border rounded-circle " style="background-color: white;">w </label>
+					<div class="colorRadio" style="height: 30px">
+						<c:forEach var="color" items="${product.colorList}" varStatus="minCoStatus">
+							<c:if test="${minCoStatus.count==1}">
+								<input id="color1-${minCoStatus.count}" name="color1" type="radio" value="${color.colorName}" checked="checked">
+							</c:if>
+							<c:if test="${minCoStatus.count==1}">
+								<input id="color1-${minCoStatus.count}" name="color1" type="radio" value="${color.colorName}">
+							</c:if>
+								<label for="color1-${minCoStatus.count}" class="border rounded-circle " style="background-color: ${color.colorName};"></label> 
+						</c:forEach>
+						
 					</div>
 
 				</div>
@@ -176,12 +183,21 @@
 					<b>용량</b>
 				</div>
 				<div class="mx-5" style="flex-grow: 5; text-align: right">
-					<div class="capaRadioMini">
-						<input id="capa1-1" name="capa1" type="radio" value="512GB" checked="checked"> <label for="capa1-1" class="border rounded " style="padding-top: 8px;">512GB</label>
+					<div class="capaRadio">
+						<c:forEach var="capa" items="${product.capacityList}" varStatus="minCaStatus">
+							<c:if test="${minCaStatus.count==1}">
+								<input id="capa1-${minCaStatus.count}" name="capa1" type="radio" value="${capa.capacityName}" checked="checked"> 
+							</c:if>
+							<c:if test="${minCaStatus.count!=1}">
+								<input id="capa1-${minCaStatus.count}" name="capa1" type="radio" value="${capa.capacityName}" > 
+							</c:if>
+							<label for="capa1-${minCaStatus.count}" class="border rounded" style="padding-top: 8px;">${capa.capacityName}</label> 
+						</c:forEach>
+						<!-- <input id="capa1-1" name="capa1" type="radio" value="512GB" checked="checked"> <label for="capa1-1" class="border rounded " style="padding-top: 8px;">512GB</label>
 						<input id="capa1-2" name="capa1" type="radio" value="256GB">
 						<label for="capa1-2" class="border rounded" style="padding-top: 8px;">256GB</label> 
 						<input id="capa1-3" name="capa1" type="radio" value="1TB"> 
-						<label for="capa1-3" class="border rounded " style="padding-top: 8px;">1TB</label>
+						<label for="capa1-3" class="border rounded " style="padding-top: 8px;">1TB</label> -->
 
 					</div>
 
@@ -209,7 +225,7 @@
 </div>
 <div id="p-name" class="row">
 	<div class="col-1"></div>
-	<div class="my-auto">Pro-03 오디세이 OLED G8</div>
+	<div class="my-auto">${product.productName}</div>
 
 </div>
 <div class="row">

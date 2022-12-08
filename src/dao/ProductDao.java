@@ -93,7 +93,7 @@ public class ProductDao {
 
 		return productDto;
 	}
-
+//product_detailId로 상품 찾기
 	public Product selectProductSubQuery(String productDetailId, Connection conn) throws Exception {
 		Product productDto = new Product();
 
