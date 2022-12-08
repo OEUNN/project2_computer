@@ -1,6 +1,6 @@
 package Service;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,7 +75,7 @@ public class ProductService {
 			product = productDao.selectProduct(productId,conn);
 			product.setColorList(productColorDao.selectColor(product, conn));
 			product.setCapacityList(productCapacityDao.selectCapacity(product,conn));
-			//product.setProductImageList(productImageDao.selectImage(product,conn));
+			product.setProductImageList(productImageDao.selectImage(product,conn));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
