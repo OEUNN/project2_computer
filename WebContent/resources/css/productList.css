@@ -8,21 +8,21 @@
 }
 
 #mainImg {
-	height: 350px;
+	height: 400px;
 }
 
 #mainImg img {
 	width: 100%;
 	height: 100%;
 	border-radius: 30px;
+	display:none;
 }
-
-#searchVal {
+#searchVal{
 	border: 5px solid #0c1c32;
 	width: 100%;
 	height: 60px;
+	font-size:120%;
 }
-
 #mainLogin .container-fluid {
 	box-shadow: 5px 5px 10px grey;
 	border-radius: 15px;
@@ -39,7 +39,9 @@
 	color: white;
 	text-align: center;
 }
-
+#loginText{
+	color: #9932CC;
+}
 .button-flex {
 	display: flex;
 }

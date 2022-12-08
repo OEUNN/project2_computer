@@ -1,23 +1,39 @@
-	function pageUpdate(pageNo){
-		var page={pageNo:pageNo};
-		$.ajax({
-			url:"ProductListController",
-			type:"post",
-			data:page,
-			success:function(result){
-					$(".productListPage").empty();
-					console.log(result);
-					$(".productListPage").html(result);
-				}
-		});
+
+
+//페이징처리
+function pageUpdate(pageNo){
+	var page={pageNo:pageNo};
+	$.ajax({
+		url:"ProductListController",
+		type:"post",
+		data:page,
+		success:function(result){
+				$(".productListPage").empty();
+				console.log(result);
+				$(".productListPage").html(result);
+			}
+	});
+}
+
+//이미지 자동 슬라이드
+
+$(document).ready(function(){
+	var myIndex = 0;
+	carousel();
+	
+	function carousel() {
+	  var i;
+	  var x = document.getElementsByClassName("mySlides");
+	  for (i = 0; i < x.length; i++) {
+	    x[i].style.display = "none";  
+	  }
+	  myIndex++;
+	  if (myIndex > x.length) {myIndex = 1}    
+	  x[myIndex-1].style.display = "block";  
+	  setTimeout(carousel, 2000); // Change image every 2 seconds
 	}
-
-
-
-
-
-
-
+	
+});
 
 
 
