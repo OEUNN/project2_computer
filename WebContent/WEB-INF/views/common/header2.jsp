@@ -16,8 +16,9 @@
 
 			<div class=" col "></div>
 
-			<!-- 아이콘 -->
+				<!-- 아이콘 -->
 			<div id="icon" class=" col-2 col-md-2 mt-3">
+				<!-- 장바구니 -->
 				<div class="mt-3">
 					<a href="../product/BasketListController"> 
 					<img src="../resources/images/cart_w.png" style="width: 40px; height: 40px;" />
@@ -27,31 +28,28 @@
 				<div>
 					<!-- 로그인 안 되어있을 경우 -->
 					<c:if test="${loginId==null}">
-						<div class="mt-3 ml-5">
-							<input type="checkbox" id="menuBtn" style="display: none;" /> 
-							<label for="menuBtn" class="labelBtn" onclick=""> 
-							<img src="../resources/images/off_human.png" style="width: 40px; height: 40px;" />
-							</label>
-							<ul class="submenu" style="width: 90px;">
-								<li><a href="../user/MypageController"></a>마이페이지</li>
-								<li><a href="../user/JoinController">회원가입</a></li>
-								<li><a href="${pageContext.request.contextPath}/user/LoginController">로그인</a></li>
-							</ul>
+						<div class="dropdown ml-5">
+							<button class="dropbtn">
+								<img src="../resources/images/off_human.png" style="width: 40px; height: 40px;" />
+							</button>
+							<div class="dropdown-content">
+								<a href="${pageContext.request.contextPath}/user/LoginController">로그인</a>
+								<a href="${pageContext.request.contextPath}/user/JoinController">회원가입</a>
+							</div>
 						</div>
 					</c:if>
 
 					<!-- 로그인 되어있을 경우 -->
 					<c:if test="${loginId!=null}">
-						<div class="mt-3 ml-5">
-							<input type="checkbox" id="menuBtn" style="display: none;" /> 
-							<label for="menuBtn" class="labelBtn" onclick=""> 
-							<img src="../resources/images/on_human.png" style="width: 40px; height: 40px;" />
-							</label>
-							<ul class="submenu" style="width: 90px;">
-								<li><a href="../user/MypageController">마이페이지</a></li>
-								<li><a href="../user/JoinController">회원가입</a></li>
-								<li><a href="../user/LoginController">로그아웃</a></li>
-							</ul>
+						<div class="dropdown ml-5">
+							<button class="dropbtn">
+								<img src="../resources/images/on_human.png" style="width: 40px; height: 40px;" />
+							</button>
+							<div class="dropdown-content">
+								<a href="${pageContext.request.contextPath}/user/MypageController">나의 정보</a>
+								<a href="${pageContext.request.contextPath}/user/JoinController">주문 내역</a>
+								<a href="${pageContext.request.contextPath}/user/LogoutController">로그아웃</a>
+							</div>
 						</div>
 					</c:if>
 				</div>
