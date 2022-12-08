@@ -1,11 +1,12 @@
 package context;
 
-import javax.servlet.ServletContext; 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.sql.DataSource;
 
 import Service.BasketService;
+import Service.ImageService;
 import Service.OrderService;
 import Service.ProductService;
 import Service.QnaBoardService;
@@ -60,6 +61,7 @@ public class WebAppContext implements ServletContextListener {
 		application.setAttribute("productService", new ProductService(application));
 		application.setAttribute("qnaBoardService", new QnaBoardService(application));
 		application.setAttribute("reviewBoardService", new ReviewBoardService(application));
+		application.setAttribute("imageService", new ImageService(application));
 		
 		
 		
