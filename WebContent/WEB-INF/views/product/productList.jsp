@@ -183,7 +183,7 @@
 					<div id="cardStyle" class="card text-center p-4 ">
 						<div class="card-head ">
 							<div>
-								<img src="../resources/images/monitor3.png" />
+								<img src="ImageAttachController?imageId=${product.productImageList[0].imageId}" />
 							</div>
 						</div>
 						<div class="card-body">
