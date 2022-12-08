@@ -2,11 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*,dto.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
 <link rel="stylesheet" href="../resources/css/header.css">
 <link rel="stylesheet" href="../resources/css/order.css">
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="../resources/javascript/order.js"></script>
 <%@ include file="/WEB-INF/views/common/header2.jsp" %>
 
 <div id="order_Wrapper" class="row">
@@ -14,53 +14,46 @@
 		<div class="order_sub">
 			<h3 style="text-align: left; font-weight: bold;">결재 내역</h3>
 			<hr />
-
 			<div class="orderTable ">
-
-				<table class=" table table-hover">
-					<tr>
-						<th>번호</th>
-						<th>이미지</th>
-						<th>상품</th>
-						<th>가격</th>
-						<th>수량</th>
-
-					</tr>
-					<tr>
-						<td>1</td>
-						<td><img
-							src="${pageContext.request.contextPath}/resources/images/monitor.png" />
-						</td>
-						<td>
-							<div>
-								컴퓨터1 <span>(black,512GB 택)</span>
-							</div>
-						</td>
-						<td><div>500,000원</div></td>
-						<td><div>2</div></td>
-
-					</tr>
-					<tr>
-						<td>2</td>
-						<td><img
-							src="${pageContext.request.contextPath}/resources/images/monitor.png" />
-						</td>
-						<td>
-							<div>
-								컴퓨터2 <span>(white,512GB 택)</span>
-							</div>
-						</td>
-						<td><div>500,000원</div></td>
-						<td><div>3</div></td>
-
-					</tr>
-
-				</table>
-				<hr />
-				<h4 id="totalPrice">
-					총액 : <span>2,500,000</span>원
-				</h4>
-
+			<c:set var="sum" value="0"></c:set>
+			<c:forEach var="orderDetail" items="${orderDetail}">
+						<table class=" table table-hover">
+							<thead>
+								<tr>		
+									<th>이미지</th>
+									<th>상품</th>
+									<th>가격</th>
+									<th>수량</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+								<td>
+									<c:if test="${board.bfileName != null }">
+                 							 <span>
+                  								<a href="DownloadAttachController?bno=${board.bno}">
+	                 								<img src="DownloadAttachController?bno=${board.bno}" width="100"/> </a>
+                 						 	</span> 
+                 						 	<br/>
+               						</c:if>
+								</td>
+								<td>
+									<div>
+										${orderDetail.product.productId} <span>(orderDetail.colorName,orderDetail.capacityName 택)</span>
+									</div>
+								</td>
+								<td><div>${orderDetail.price}</div></td>
+								<td><div>${orderDetail.productQnt}</div></td>
+								</tr>	
+							</tbody>
+						</table>
+						<c:set var= "sum" value="${sum + orderDetail.price}"/>
+					</c:forEach>
+						<hr />
+							<h4 id="totalPrice">
+								총액 : <span><c:out value="${sum}"/></span>원
+							</h4>
+			
 			</div>
 		</div>
 		<div class="order_sub">
@@ -86,15 +79,15 @@
 			<!-- 주소 -->
 			<div class="form-group">
 				<label for="user_address" class="join_title">주소</label> 
-				<input id="user_addr" type="text" class="form-control" />
-				<input id="user_address" type="text" class="form-control mt-2" />
-				<input id="user_address" type="text" class="form-control mt-2" />
+				<input id="addrBtn" class="m-3" type="button" value="주소 검색" onclick="findAddr()"readonly style="background-color:#0c1c32;color:white;width:100px;" />
+				<input id="userPost" type="text" class="form-control" name="userPost" placeholder="우편번호" />
+				<input id="userAddr" type="text" class="form-control" name="userAddr" placeholder="주소"/>
+				<input id="userDetailAddr" type="text" class="form-control" name="userDetailAddr" placeholder="상세 주소를 입력하세요."/>
 				<p id="address_message"></p>
 			</div>
 			<!-- submit -->
 			<div class="text-center mt-4">
-				<input id="order_submit" type="submit" class="btn btn-dark"
-					value="결재하기" />
+				<input id="order_submit" type="submit" class="btn btn-dark" value="결재하기" />
 			</div>
 		</div>
 	</form>
