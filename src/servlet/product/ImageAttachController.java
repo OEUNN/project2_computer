@@ -46,6 +46,7 @@ public class ImageAttachController extends HttpServlet {
       }
       //System.out.println(fileName);
 
+      
       // HTTP 응답에 Content-Disposition 헤더를 추가
       //response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\"");
 
