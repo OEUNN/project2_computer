@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dto.Product;
+import dto.ProductImage;
 import util.Pager;
 
 public class ProductDao {
@@ -150,5 +151,7 @@ public class ProductDao {
 		 * "from orders where user_user_id=?";
 		 */
 	}
+
+	
 
 }

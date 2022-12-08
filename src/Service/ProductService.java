@@ -1,6 +1,6 @@
 package Service;
 
-import java.sql.Connection;
+import java.sql.Connection; 
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +18,7 @@ public class ProductService {
 	private DataSource ds;
 	private ProductDao productDao;
 	private ProductColorDao productColorDao;
+
 	private ProductCapacityDao productCapacityDao; 
 	
 	public ProductService(ServletContext application) {
@@ -77,5 +78,7 @@ public class ProductService {
 		
 		return product;
 	}
+
+
 
 }

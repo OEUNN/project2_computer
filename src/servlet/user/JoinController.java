@@ -3,11 +3,12 @@ package servlet.user;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+@MultipartConfig(maxFileSize = 1024*1024*10, maxRequestSize=1024*1024*20)
 @WebServlet(name = "user.JoinController", urlPatterns ="/user/JoinController")
 public class JoinController extends HttpServlet {
 
@@ -23,6 +24,7 @@ public class JoinController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("JoinController doPost()");
 		String userId = request.getParameter("userId");
+		System.out.println(userId);
 		
 	}
 	

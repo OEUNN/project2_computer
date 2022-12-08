@@ -19,7 +19,7 @@
 	<div id="centerBoard" class="col-12 col-md mt-5 mr-5 p-5">
 		<div id="centerText" class="row mt-5 ml-3 ">회원가입</div>
 		
-		<form class="p-2" method="post" action="JoinController" onsubmit="return check()" enctype="multipart/form-data" novalidate>
+		<form class="p-2" method="post" action="JoinController" onsubmit="return true" enctype="multipart/form-data" novalidate>
 			<!-- 아이디입력 -->
 			<div class="form-group m-4">
 				<label for="userId" class="joinTitle">아이디</label>
@@ -83,7 +83,7 @@
 			</div>-->
 			<!-- submit -->
 			<div class="text-center m-5"> 
-				<input id="joinSubmit" type="submit" class="btn btn-lg" value="확인" />
+				<button id="joinSubmit" type="submit" class="btn btn-lg" value="확인" >확인<</button>
 				<input id="joinSubmit" type="reset" class="btn btn-lg" value="reset"/>
 			</div>
 		</form>
