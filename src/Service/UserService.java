@@ -52,6 +52,7 @@ public class UserService {
 		return usersDto;
 	}
 	
+	//아이디, 이메일, 휴대전화 유효성 검사
 	public boolean check(String check, String value){
 		Connection conn = null;
 		boolean result=false;
@@ -93,6 +94,22 @@ public class UserService {
 		}
 	}
 	
+	//특정 유정 개인정보 가져오기
+	public Users userInfo(String userId) {
+		Connection conn = null;
+		Users usersDto = new Users();
+		try {
+			conn=ds.getConnection();
+			usersDto = usersDao.selectUserInfo(userId, conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try{ conn.close(); }catch(Exception e) {}
+		}
+		
+		return usersDto;
+	}
+	
 	//개인 정보 수정
 	public boolean userUpdate(Users usersDto) {
 		Connection conn = null;
@@ -110,19 +127,6 @@ public class UserService {
 		return result;
 	}
 	
-	public Users userInfo(Users usersDto) {
-		Connection conn = null;
-		try {
-			conn=ds.getConnection();
-			usersDto = usersDao.SelectAll(usersDto.getUserId(),conn);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			try{ conn.close(); }catch(Exception e) {}
-		}
-		
-		return usersDto;
-	}
 	
 	//유저 삭제
 	public boolean userDelete(Users usersDto) {

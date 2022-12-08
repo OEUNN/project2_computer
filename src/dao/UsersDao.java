@@ -86,7 +86,7 @@ public class UsersDao {
 		return result;
 	}
 
-	// User Join
+	//유저 회원가입
 	public void userJoin(Users usersDto, Connection conn) throws Exception {
 		String sql = "insert into users (user_id, user_pwd, user_name, "
 				+ "user_phone, user_email, user_nickname, user_insertdate, is_admin, user_addr,"
@@ -108,6 +108,39 @@ public class UsersDao {
 		pstmt.executeUpdate();
 		pstmt.close();
 	}
+	
+	//특정 유저 정보 가져오기
+	public Users selectUserInfo(String userId, Connection conn) throws Exception{
+		Users usersDto = new Users();
+		String sql = "select user_pwd, user_name, user_phone, user_email, user_nickname, user_insertdate, "
+				+ "user_addr, user_post, user_detail_addr, file_name, saved_name, content_type "
+				+ "from users where user_id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, userId);
+		ResultSet rs = pstmt.executeQuery();
+		if(rs.next()) {
+			usersDto.setUserPwd(rs.getString("user_pwd"));
+			usersDto.setUserName(rs.getString("user_name"));
+			usersDto.setUserPhone(rs.getString("user_phone"));
+			usersDto.setUserEmail(rs.getString("user_email"));
+			usersDto.setUserInsertdate(rs.getDate("user_insertdate").toString());
+			usersDto.setUserAddr(rs.getString("user_addr"));
+			usersDto.setUserPost(rs.getInt("user_post"));
+			usersDto.setUserDetailAddr(rs.getString("user_detail_addr"));
+			usersDto.setUserFileName(rs.getString("file_name"));
+			usersDto.setUserSavedName(rs.getString("saved_name"));
+			usersDto.setUserContentType(rs.getString("content_type"));
+		}
+		rs.close();
+		pstmt.close();
+		
+		return usersDto;
+	}
+	
+	
+	
+	
+	
 	
 	// 개인 정보 수정 (값이 잘못들어오면 예외처리를 해야함)
 	public boolean UserUpdate(Users usersDto, Connection conn) throws Exception {

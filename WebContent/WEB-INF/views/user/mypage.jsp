@@ -12,22 +12,21 @@
 <!-- 개인정보 수정 페이지 -->
 <div id="centerBoard" class="col-12 col-md mt-5">
 	<div class="container-fluid">
-
+		<!-- title name -->
 		<div id="centerText" class="row mt-5 ml-3">나의 정보</div>
-
+		<!-- 개인 신상 정보 -->
 		<div class="row m-3">
 			<div class="container-fluid">
-				<div id="mypage" class="row">
+				<div id="mypage" class="row p-3" style="height:400px;">
 					<div class="col-md-12 col-lg-5">
-						<div class="ml-3 p-2" style="height: 300px; width: 250px;">
-							<img src="../resources/images/woman.png" alt="woman"
-								style="border-radius: 70%;" />
+						<div class="ml-3 p-2" >
+							<img src="../resources/images/woman.png" alt="userImg" style="border-radius: 70%; height:350px; width:350px;" />
 						</div>
 					</div>
 					<div class="col-lg-5">
 						<div class="m-5">
 							<p>
-							<h3>장영은고객님</h3>
+							<h3>${users.userName}</h3>
 							</p>
 							<p>안녕하세요.</p>
 						</div>
@@ -36,7 +35,11 @@
 				</div>
 			</div>
 		</div>
+		
+		<!-- 중간 빈칸 -->
 		<div class="row" style="height: 30px"></div>
+		
+		<!-- 밑에 칸 -->
 		<div class="row m-3">
 			<div class="container-fluid">
 				<div class="row">
