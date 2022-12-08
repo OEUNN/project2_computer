@@ -15,7 +15,7 @@
 			<h3 style="text-align: left; font-weight: bold;">결재 내역</h3>
 			<hr />
 			<div class="orderTable ">
-			<c:set var="sum" value="0"></c:set>
+			<c:set var="sum" value="0"/>
 			<c:forEach var="orderDetail" items="${orderDetail}">
 						<table class=" table table-hover">
 							<thead>
@@ -29,13 +29,11 @@
 							<tbody>
 								<tr>
 								<td>
-									<c:if test="${board.bfileName != null }">
-                 							 <span>
-                  								<a href="DownloadAttachController?bno=${board.bno}">
-	                 								<img src="DownloadAttachController?bno=${board.bno}" width="100"/> </a>
-                 						 	</span> 
-                 						 	<br/>
-               						</c:if>
+                 					<span>
+	                 					<img src="ImageUploadController?imageId=${orderDetail.product.productImageList[0].imageId}" width="100"/> 
+                 					</span> 
+                 					<br/>
+               						
 								</td>
 								<td>
 									<div>
@@ -59,19 +57,18 @@
 		<div class="order_sub">
 			<!-- 받는사람입력 -->
 			<div class="form-group ">
-				<label for="user_id" class="order_title">받는사람</label> <input
-					id="user_id" type="text" class="form-control " /> <small
-					id="user_idHelp" class="form-text text-muted"></small>
+				<label for="user_id" class="order_title">받는사람</label> 
+				<input id="user_id" type="text" class="form-control " /> 
+				<small id="user_idHelp" class="form-text text-muted"></small>
 				<p id="id_message"></p>
 			</div>
 
 
 			<!-- 전화번호 -->
 			<div class="form-group">
-				<label for="user_phone" class="join_title">전화번호</label> <input
-					id="user_phone" type="text" class="form-control" /> <small
-					id="user_phoneHelp" class="form-text text-muted">예)
-					010-123-1234, 010-1234-1234</small>
+				<label for="user_phone" class="join_title">전화번호</label> 
+				<input id="user_phone" type="text" class="form-control" /> 
+				<small id="user_phoneHelp" class="form-text text-muted">예) 010-123-1234, 010-1234-1234</small>
 				<p id="phone_message"></p>
 			</div>
 

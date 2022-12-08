@@ -24,40 +24,33 @@ public class CreateOrderController extends HttpServlet {
 		ProductService productService = (ProductService) request.getServletContext().getAttribute("productService");
 		
 		//jsp에서 넘어온 값들을 Parmeter으로 얻어내어 basketDetail객체에 set함 
+		String[] colorId = request.getParameterValues("colorId");
 		String[] colorName = request.getParameterValues("colorName");
-		String[] capacityName = request.getParameterValues("capaName");
+		String[] capacityId = request.getParameterValues("capaId");
 		String price[] = request.getParameterValues("price");		
 		String productId[] = request.getParameterValues("productId");
 		String quantity[] = request.getParameterValues("quantity");
 		
 		List<OrderDetail> list = new ArrayList<>();
-		List<ProductImage> imageList = new ArrayList<>();
 		
-		for(int i=0; i<colorName.length;i++) {	
+		for(int i=0; i<colorId.length;i++) {	
 			OrderDetail orderDetail = new OrderDetail();
-			orderDetail.setColorName(colorName[i]);
-			orderDetail.setCapacityName(capacityName[i]);
+			
+			//orderDetail.setColorId(colorId[i]);
+			//orderDetail.setCapacityId(capacityId[i]);
 			orderDetail.setPrice(Integer.parseInt(price[i]));
 			Product product = productService.getProduct(productId[i]);
-			
 			orderDetail.setProduct(product);
 			orderDetail.setProductQnt(Integer.parseInt(quantity[i]));
 			list.add(orderDetail);
 		}
 		
-		
-	
-//		orderDetail.setColorName(colorName);
-//		orderDetail.setCapacityName(capacityName);
-//		orderDetail.setPrice(price);
-//		orderDetail.setProductId(productId);
-//		orderDetail.setProductQnt(quantity);
-		
+		request.setAttribute("colorName", colorName);
 		HttpSession session = request.getSession();
 		session.setAttribute("orderDetail", list);
 		
 		//JSP로 이동
-		response.sendRedirect("OrderController");
+		request.getRequestDispatcher("/WEB-INF/views/product/order.jsp").forward(request, response);
 	}
 
 }

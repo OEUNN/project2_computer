@@ -59,10 +59,10 @@
 						<div class="colorRadio" style="height: 30px">
 							<c:forEach var="color" items="${product.colorList}" varStatus="coStatus">
 								<c:if test="${coStatus.count==1}">
-									<input id="color1-${coStatus.count}" name="colorName" type="radio" value="${color.colorName}" checked="checked"> 
+									<input id="color1-${coStatus.count}" name="colorId" type="radio" value="${color.colorId}" checked="checked"> 
 								</c:if>
 								<c:if test="${coStatus.count!=1}">
-									<input id="color1-${coStatus.count}" name="colorName" type="radio" value="${color.colorName}" > 
+									<input id="color1-${coStatus.count}" name="colorId" type="radio" value="${color.colorId}" > 
 								</c:if>
 								<label for="color1-${coStatus.count}" class="border rounded-circle" style="background-color: ${color.colorName};"></label> 
 							</c:forEach>
@@ -74,10 +74,10 @@
 						<div class="capaRadio">
 							<c:forEach var="capa" items="${product.capacityList}" varStatus="caStatus">
 								<c:if test="${caStatus.count==1}">
-									<input id="capa1-${caStatus.count}" name="capaName" type="radio" value="${capa.capacityName}" checked="checked"> 
+									<input id="capa1-${caStatus.count}" name="capaId" type="radio" value="${capa.capacityId}" checked="checked"> 
 								</c:if>
 								<c:if test="${caStatus.count!=1}">
-									<input id="capa1-${caStatus.count}" name="capaName" type="radio" value="${capa.capacityName}" > 
+									<input id="capa1-${caStatus.count}" name="capaId" type="radio" value="${capa.capacityId}" > 
 								</c:if>
 								<label for="capa1-${caStatus.count}" class="border rounded" style="padding-top: 8px;">${capa.capacityName}</label> 
 							</c:forEach>
