@@ -22,6 +22,7 @@ public class ProductService {
 	private ProductCapacityDao productCapacityDao; 
 	private ProductImageDao productImageDao; 
 	
+	
 	public ProductService(ServletContext application) {
 		this.application=application;
 		productDao = (ProductDao)application.getAttribute("productDao");
