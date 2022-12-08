@@ -14,7 +14,25 @@ function pageUpdate(pageNo){
 			}
 	});
 }
-
+function categoryUpdate(){
+	var category={
+				graphic:$("input[name='graphicCard']:checked").val(),
+				cpu:$("input[name='CPU']:checked").val(),
+				memoryCard:$("input[name='memoryCard']:checked").val(),
+				price:$("input[name='price']:checked").val(),
+				
+			)};
+	$.ajax({
+		url:"ProductListController",
+		type:"post",
+		cate:category,
+		success:function(result){
+				$(".productListPage").empty();
+				console.log(result);
+				$(".productListPage").html(result);
+			}
+	});
+}
 //이미지 자동 슬라이드
 
 $(document).ready(function(){
