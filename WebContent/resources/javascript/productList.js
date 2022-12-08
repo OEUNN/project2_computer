@@ -1,3 +1,34 @@
+	function pageUpdate(pageNo){
+		var page={pageNo:pageNo};
+		$.ajax({
+			url:"ProductListController",
+			type:"post",
+			data:page,
+			success:function(result){
+					$(".productListPage").empty();
+					console.log(result);
+					$(".productListPage").html(result);
+				}
+		});
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function pageUpdate(pageNo){
 		var page={pageNo:pageNo};
 		$.ajax({

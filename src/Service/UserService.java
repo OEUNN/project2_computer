@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
+import dao.BasketDao;
 import dao.UsersDao;
 import dto.Users;
 import util.Pager;
@@ -76,19 +77,20 @@ public class UserService {
 		return result;
 	}
 	
-	public boolean userJoin(Users usersDto) {
+	//회원가입
+	public void userJoin(Users usersDto) {
+		BasketDao basketDao = (BasketDao)application.getAttribute("basketDao");
 		Connection conn = null;
-		boolean result=false;
 		try {
 			conn=ds.getConnection();
-			result = usersDao.UserJoin(usersDto,conn);
+			usersDao.userJoin(usersDto,conn);
+			basketDao.Create(usersDto.getUserId(), conn);
+			//장바구니 만들기
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			try{ conn.close(); }catch(Exception e) {}
 		}
-		
-		return result;
 	}
 	
 	//개인 정보 수정

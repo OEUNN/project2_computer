@@ -86,6 +86,29 @@ public class UsersDao {
 		return result;
 	}
 
+	// User Join
+	public void userJoin(Users usersDto, Connection conn) throws Exception {
+		String sql = "insert into users (user_id, user_pwd, user_name, "
+				+ "user_phone, user_email, user_nickname, user_insertdate, is_admin, user_addr,"
+				+ " user_post, user_detail_addr, file_name, saved_name, content_type) "
+				+ "values(?,?,?,?,?,?,sysdate,default,?,?,?,?,?,?)";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, usersDto.getUserId());
+		pstmt.setString(2, usersDto.getUserPwd());
+		pstmt.setString(3, usersDto.getUserName());
+		pstmt.setString(4, usersDto.getUserPhone());
+		pstmt.setString(5, usersDto.getUserEmail());
+		pstmt.setString(6, usersDto.getUserNickname());
+		pstmt.setString(7, usersDto.getUserAddr());
+		pstmt.setInt(8, usersDto.getUserPost());
+		pstmt.setString(9, usersDto.getUserDetailAddr());
+		pstmt.setString(10, usersDto.getUserFileName());
+		pstmt.setString(11, usersDto.getUserSavedName());
+		pstmt.setString(12, usersDto.getUserContentType());
+		pstmt.executeUpdate();
+		pstmt.close();
+	}
+	
 	// 개인 정보 수정 (값이 잘못들어오면 예외처리를 해야함)
 	public boolean UserUpdate(Users usersDto, Connection conn) throws Exception {
 		boolean result = false;
@@ -96,7 +119,7 @@ public class UsersDao {
 		pstmt.setString(2, usersDto.getUserPhone());
 		pstmt.setString(3, usersDto.getUserEmail());
 		pstmt.setString(4, usersDto.getUserNickname());
-		pstmt.setString(5, usersDto.getUserAddress());
+		pstmt.setString(5, usersDto.getUserAddr());
 		pstmt.setString(6, usersDto.getUserId());
 		pstmt.executeUpdate();
 		pstmt.close();
@@ -120,7 +143,7 @@ public class UsersDao {
 			usersDto.setUserEmail(rs.getString(4));
 			usersDto.setUserNickname(rs.getString(5));
 			usersDto.setUserInsertdate(rs.getString(6));
-			usersDto.setUserAddress(rs.getString(7));
+			usersDto.setUserAddr(rs.getString(7));
 		}
 		pstmt.close();
 		rs.close();
@@ -156,25 +179,7 @@ public class UsersDao {
 		return result;
 	}
 
-	// User Join
-	public boolean UserJoin(Users usersDto, Connection conn) throws Exception {
-		boolean result = false;
-		String sql = "insert into users (user_id, user_pwd, user_name, user_phone, user_email, user_nickname, user_address) "
-				+ "values(?, ?, ?, ?, ?, ?, ?)";
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, usersDto.getUserId());
-		pstmt.setString(2, usersDto.getUserPwd());
-		pstmt.setString(3, usersDto.getUserName());
-		pstmt.setString(4, usersDto.getUserPhone());
-		pstmt.setString(5, usersDto.getUserEmail());
-		pstmt.setString(6, usersDto.getUserNickname());
-		pstmt.setString(7, usersDto.getUserAddress());
-		pstmt.executeUpdate();
-		pstmt.close();
-		result = true;
-
-		return result;
-	}
+	
 
 	public ArrayList<Users> ReadAllUser(Pager pager, Connection conn) throws Exception {
 		ArrayList<Users> list = new ArrayList<>();
@@ -195,7 +200,7 @@ public class UsersDao {
 			usersDto.setUserEmail(rs.getString(5));
 			usersDto.setUserNickname(rs.getString(6));
 			usersDto.setUserInsertdate(rs.getString(7));
-			usersDto.setUserAddress(rs.getString(8));
+			usersDto.setUserAddr(rs.getString(8));
 			list.add(usersDto);
 		}
 		pstmt.close();

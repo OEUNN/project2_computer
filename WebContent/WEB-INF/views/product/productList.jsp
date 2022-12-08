@@ -5,22 +5,7 @@
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
 <link rel="stylesheet" href="../resources/css/header.css">
 <link rel="stylesheet" href="../resources/css/productList.css">
-<script >
-	function pageUpdate(pageNo){
-		var page={pageNo:pageNo};
-		$.ajax({
-			url:"ProductListController",
-			type:"post",
-			data:page,
-			success:function(result){
-					$(".productListPage").empty();
-					console.log(result);
-					$(".productListPage").html(result);
-				}
-		});
-	}
-</script>
-	
+<script src="/resources/javascript/productList.js"></script>
 <%@ include file="/WEB-INF/views/common/header2.jsp"%>
 
 
@@ -51,13 +36,13 @@
 		<!-- 로그인 OFF -->
 		<c:if test="${loginId==null}">
 			<div class="container-fluid">
-				<div class="row mb-5">
+				<div class="row mb-2">
 					<!-- 이미지 센터 -->
 					<div style="width: 250px; height: 250px;">
 						<img src="../resources/images/pngwing.com.png" alt="image Error" />
 					</div>
 				</div>
-				<div class="row m-5">
+				<div class="row m-4">
 					<div>
 						<div id="loginButton" style="width: 300px; height: 60px"
 							class="btn btn-black btn-sm">
