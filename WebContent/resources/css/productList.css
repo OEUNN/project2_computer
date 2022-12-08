@@ -88,7 +88,10 @@ menu, #menu1 {
 	width: 20px;
 	height: 20px;
 }
-
+.productImg{
+	
+	height:200px;
+}
 //
 페이징
 .page-item {

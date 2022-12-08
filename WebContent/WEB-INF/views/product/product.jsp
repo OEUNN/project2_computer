@@ -7,7 +7,7 @@
 					<div id="cardStyle" class="card text-center p-4 ">
 						<div class="card-head ">
 							<div>
-								<img src="ImageAttachController?imageId=${product.productImageList[0].imageId}" />
+								<img class="productImg"  src="ImageAttachController?imageId=${product.productImageList[0].imageId}" />
 							</div>
 						</div>
 						<div class="card-body">
