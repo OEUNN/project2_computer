@@ -8,7 +8,6 @@
 <script src="/resources/javascript/productList.js"></script>
 <%@ include file="/WEB-INF/views/common/header2.jsp"%>
 
-
 <!-- mainBoard -->
 <div id="mainBoard" class="row" >
 	<!-- 메인 스크롤 -->
@@ -36,13 +35,13 @@
 		<!-- 로그인 OFF -->
 		<c:if test="${loginId==null}">
 			<div class="container-fluid">
-				<div class="row mb-2">
+				<div class="row mb-5">
 					<!-- 이미지 센터 -->
 					<div style="width: 250px; height: 250px;">
 						<img src="../resources/images/pngwing.com.png" alt="image Error" />
 					</div>
 				</div>
-				<div class="row m-4">
+				<div class="row m-5">
 					<div>
 						<div id="loginButton" style="width: 300px; height: 60px"
 							class="btn btn-black btn-sm">
@@ -207,7 +206,7 @@
 							<p>${product.productId}</p>
 							<p>${product.productPrice }원</p>
 	
-							<a id="detailButton" href="../product/ProductDetailController?${product.productId}" class="w-btn w-btn-indigo">구매하기</a>
+							<a id="detailButton" href="../product/ProductDetailController?productId=${product.productId}" class="w-btn w-btn-indigo">구매하기</a>
 						</div>
 					</div>
 				</div>

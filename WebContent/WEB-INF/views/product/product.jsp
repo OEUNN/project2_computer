@@ -29,7 +29,7 @@
 							<p>${product.productId}</p>
 							<p>${product.productPrice }원</p>
 	
-							<a id="detailButton" href="../product/ProductDetailController?${product.productId}" class="w-btn w-btn-indigo">구매하기</a>
+							<a id="detailButton" href="../product/ProductDetailController?productId=${product.productId}" class="w-btn w-btn-indigo">구매하기</a>
 						</div>
 					</div>
 				</div>
