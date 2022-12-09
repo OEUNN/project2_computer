@@ -71,16 +71,11 @@ function check(){
 	var result = true;
 	
 	//ID 유효성 검사
-	var uid =$("#userId");
-	var uidValue = uid.val();
-	var uidPattern =/^(?=.*\d)(?=.*[a-z]).{6,20}$/g;
-	var uidTest = uidPattern.test(uidValue);
-	if(uidTest){
-		uid.removeClass("mystyle");
+	if($('#userId').val() != ''){
+		$('#userId').removeClass("mystyle");
 	}else{
-		//한번 써본거
-		uid.addClass("mystyle");
-		result=false;
+		$('#userId').addClass("mystyle");
+		result= false;
 	}
 	
 	//비밀번호 
@@ -132,12 +127,11 @@ function check(){
 	}
 	
 	//닉네임
-	var nickName=$("#userNickname");
-	if(nickName != ""){
-		nickName.removeClass("mystyle");
+	if($('#userNickname').val() != ''){
+		$('#userNickname').removeClass("mystyle");
 	}else{
-		nickName.addClass("mystyle");
-		result=false;
+		$('#userNickname').addClass("mystyle");
+		result= false;
 	}
 	
 	return result;
