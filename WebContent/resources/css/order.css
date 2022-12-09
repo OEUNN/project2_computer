@@ -52,8 +52,8 @@
 	padding-top: 25px;
 }
 
-.orderTable td span, #deleteBasket {
-	font-size: 8px;
+.orderTable td span {
+	font-size: 17px;
 	color: gray;
 }
 
@@ -67,4 +67,7 @@
 	background-color:#0c1c32; 
 	color:white;
 	width:100px;
+}
+.mystyle{
+	border: 1px solid red;
 }

@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Service.CapacityService;
+import Service.ColorService;
 import Service.ProductService;
 import dto.OrderDetail;
 import dto.Product;
@@ -22,10 +24,10 @@ public class CreateOrderController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("CreateOrderController doPost()실행");
 		ProductService productService = (ProductService) request.getServletContext().getAttribute("productService");
-		
+		ColorService colorService = (ColorService) request.getServletContext().getAttribute("colorService");
+		CapacityService capacityService = (CapacityService) request.getServletContext().getAttribute("capacityService");
 		//jsp에서 넘어온 값들을 Parmeter으로 얻어내어 basketDetail객체에 set함 
 		String[] colorId = request.getParameterValues("colorId");
-		String[] colorName = request.getParameterValues("colorName");
 		String[] capacityId = request.getParameterValues("capaId");
 		String price[] = request.getParameterValues("price");		
 		String productId[] = request.getParameterValues("productId");
@@ -35,17 +37,18 @@ public class CreateOrderController extends HttpServlet {
 		
 		for(int i=0; i<colorId.length;i++) {	
 			OrderDetail orderDetail = new OrderDetail();
-			
-			//orderDetail.setColorId(colorId[i]);
-			//orderDetail.setCapacityId(capacityId[i]);
-			orderDetail.setPrice(Integer.parseInt(price[i]));
+			orderDetail.setColor(colorService.getColor(colorId[i]));
+			orderDetail.setCapacity(capacityService.getCapacity(capacityId[i]));
+			int productPrice = Integer.parseInt(price[i]);
+			int productQuantity = Integer.parseInt(quantity[i]);
+			orderDetail.setPrice(productPrice*productQuantity);
 			Product product = productService.getProduct(productId[i]);
 			orderDetail.setProduct(product);
 			orderDetail.setProductQnt(Integer.parseInt(quantity[i]));
 			list.add(orderDetail);
 		}
 		
-		request.setAttribute("colorName", colorName);
+
 		HttpSession session = request.getSession();
 		session.setAttribute("orderDetail", list);
 		
