@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 import dao.QnaBoardDao;
 import dto.QnaBoard;
 import util.Pager;
-
+ 
 public class QnaBoardService {
 	private ServletContext application;
 	private DataSource ds;

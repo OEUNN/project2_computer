@@ -11,7 +11,7 @@ import dto.Capacity;
 import dto.ProductImage;
 
 public class CapacityService {
-	private ServletContext application;
+	private ServletContext application; 
 	private DataSource ds;
 
 	private CapacityDao capacityDao; 

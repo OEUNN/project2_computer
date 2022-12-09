@@ -15,7 +15,7 @@ import Service.ReviewBoardService;
 import dto.Product;
 import dto.ReviewBoard;
 import util.Pager;
-
+ 
 @WebServlet(name = "product.ProductDetailController", urlPatterns =  "/product/ProductDetailController" )
 public class ProductDetailController extends HttpServlet {
 	@Override

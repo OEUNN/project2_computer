@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import Service.UserService;
-
+ 
 @WebServlet(name = "user.CheckController", urlPatterns ="/user/CheckController")
 public class CheckController extends HttpServlet {
 

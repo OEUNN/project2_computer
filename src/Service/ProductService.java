@@ -13,7 +13,7 @@ import dao.ProductDao;
 import dao.ProductImageDao;
 import dto.Product;
 import util.Pager;
-
+ 
 public class ProductService {
 	private ServletContext application;
 	private DataSource ds;

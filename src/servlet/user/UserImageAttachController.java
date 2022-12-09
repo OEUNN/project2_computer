@@ -17,8 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import Service.ImageService;
 import dto.ProductImage;
 
-
-
 @WebServlet(name="user.UserImageAttachController", urlPatterns="/user/UserImageAttachController")
 public class UserImageAttachController extends HttpServlet {
    @Override

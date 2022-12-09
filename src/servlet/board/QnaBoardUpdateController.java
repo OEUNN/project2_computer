@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import Service.QnaBoardService;
 import dto.QnaBoard;
 import util.Pager;
-
+ 
 @WebServlet(name = "board.QnaBoardUpdateController", urlPatterns =  "/board/QnaBoardUpdateController" )
 public class QnaBoardUpdateController extends HttpServlet {
 	

@@ -18,7 +18,6 @@ import dto.Product;
 import util.Pager;
 
 @WebServlet(name = "product.ProductListController", urlPatterns =  "/product/ProductListController" )
-
 public class ProductListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

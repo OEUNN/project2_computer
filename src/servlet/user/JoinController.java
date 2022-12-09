@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import Service.UserService;
 import dto.Users;
-
+ 
 @MultipartConfig(maxFileSize = 1024*1024*10, maxRequestSize=1024*1024*20)
 @WebServlet(name = "user.JoinController", urlPatterns ="/user/JoinController")
 public class JoinController extends HttpServlet {

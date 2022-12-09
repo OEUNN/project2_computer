@@ -11,7 +11,7 @@ import dto.Capacity;
 import dto.Color;
 
 public class ColorService {
-	private ServletContext application;
+	private ServletContext application; 
 	private DataSource ds;
 
 	private ColorDao colorDao; 
