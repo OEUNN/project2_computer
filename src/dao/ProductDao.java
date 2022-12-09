@@ -11,7 +11,6 @@ import dto.ProductImage;
 import util.Pager;
 
 public class ProductDao {
-
 	public List<Product> selectProducts(Pager page, Connection conn,Product productCategory) throws Exception {
 		List<Product> list = new ArrayList<>();
 

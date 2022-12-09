@@ -13,6 +13,7 @@ public class QnaBoardDao {
 	String Output;
 	int countRow;
 
+	
 	public String Insert(QnaBoard qnaBoard, Connection conn) throws SQLException {
 		String sql = "insert into qna_board (QNA_BNO, QNA_BTITLE, QNA_BCONTENT, QNA_DATE, USER_ID, IS_REPLY) "
 				+ " values ('Qna'||qna_bno.nextval, ?, ?, sysdate,  ? ,0) ";

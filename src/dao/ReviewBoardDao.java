@@ -10,7 +10,6 @@ import java.util.List;
 import dto.OrderDetail;
 import dto.ReviewBoard;
 import util.Pager;
-
 public class ReviewBoardDao {
 	String Output;
 	int countRow;

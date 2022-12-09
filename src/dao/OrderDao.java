@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import dto.Orders;
 
 public class OrderDao {
-
 	public int insertOrder(Orders order, Connection conn) throws SQLException {
 		String sql = "insert into orders values(order_id.NEXTVAL,sysdate,?,?,?,?,?,?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql, new String[] {"order_id"});

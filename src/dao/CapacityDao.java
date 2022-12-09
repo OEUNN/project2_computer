@@ -11,7 +11,6 @@ import dto.Product;
 import dto.ProductImage;
 
 public class CapacityDao {
-
 	public Capacity selectCapacity (String capacityId,Connection conn) throws Exception{
 		Capacity capacity = new Capacity();
 		String sql = "SELECT capacity_id,capacity_name, product_id FROM product_capacity WHERE capacity_id=?";

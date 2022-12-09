@@ -11,7 +11,6 @@ import dto.Color;
 import dto.Product;
 
 public class ProductCapacityDao {
-
 	public List<Capacity> selectCapacity(Product product, Connection conn) throws Exception {
 		List<Capacity> list = new ArrayList<>();
 

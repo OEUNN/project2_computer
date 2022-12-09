@@ -12,7 +12,6 @@ import dto.Product;
 import dto.ProductImage;
 
 public class ColorDao {
-
 	public Color selectColor(String colorId, Connection conn) throws Exception{
 		Color color = new Color();
 		String sql = "SELECT color_id,color_name, product_id FROM product_color WHERE color_id=?";

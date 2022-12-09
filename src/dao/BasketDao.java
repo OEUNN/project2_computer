@@ -10,7 +10,6 @@ import javax.servlet.ServletContext;
 import Service.BasketService;
 import dto.Basket;
 import dto.BasketDetail;
-
 public class BasketDao {
 	String Output;
 	private ServletContext application;

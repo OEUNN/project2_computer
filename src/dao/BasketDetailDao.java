@@ -10,7 +10,6 @@ import java.util.List;
 import dto.BasketDetail;
 
 public class BasketDetailDao {
-
 	public boolean insertBasketPro(BasketDetail basketDetail,Connection conn) throws Exception {
 		boolean result = false;
 		String sql = "insert into basket_detail"
