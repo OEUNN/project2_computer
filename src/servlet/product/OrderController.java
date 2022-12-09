@@ -29,7 +29,7 @@ public class OrderController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		System.out.println("OrderController doPost() 실행");
-		int post = Integer.parseInt(request.getParameter("userPost"));
+		//int post = Integer.parseInt(request.getParameter("userPost"));
 		String receiverAddr = request.getParameter("userAddr");
 		String receiverDetailAdrr = request.getParameter("userDetailAddr");
 		String receiverPhone = request.getParameter("user_phone");
@@ -45,7 +45,7 @@ public class OrderController extends HttpServlet {
 			totalPrice += orderDetail.getPrice();
 		}
 		Orders order = new Orders();
-		order.setPost(post);
+		//order.setPost(post);
 		order.setReceiverAddr(receiverAddr);
 		order.setReceiverDetailAdrr(receiverDetailAdrr);
 		order.setReceiverPhone(receiverPhone);

@@ -23,8 +23,8 @@ function findAddr(){
 function check(){
 	var result = true;
 	//닉네임
-	var userId=$("#user_id");
-	if(userId != ""){
+	var userId=$("#user_id").val();
+	if(userId != ''){
 		userId.removeClass("mystyle");
 	}else{
 		userId.addClass("mystyle");
@@ -32,38 +32,26 @@ function check(){
 	}
 	
 	//닉네임
-	var userPhone=$("#user_phone");
-	if(userPhone != ""){
+	var userPhone=$("#user_phone").val();
+	if(userPhone != ''){
 		userPhone.removeClass("mystyle");
 	}else{
 		userPhone.addClass("mystyle");
 		result=false;
 	}
 	
-	//닉네임
-	var userPost=$("#userPost");
-	if(userPost != 0){
-		userPost.removeClass("mystyle");
-	}else{
-		userPost.addClass("mystyle");
-		result=false;
-	}
+
 	
 	//닉네임
-	var userAddr=$("#userAddr");
-	if(userAddr != ""){
+	var userAddr=$("#userAddr").val();
+	if(userAddr != ''){
 		userAddr.removeClass("mystyle");
 	}else{
 		userAddr.addClass("mystyle");
 		result=false;
 	}
 	
-	var userDetailAddr=$("#userDetailAddr");
-	if(userDetailAddr != ""){
-		userDetailAddr.removeClass("mystyle");
-	}else{
-		userDetailAddr.addClass("mystyle");
-		result=false;
-	}
+	console.log(result);
 	return result;
+	
 }
