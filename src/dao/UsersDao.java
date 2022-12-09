@@ -123,6 +123,7 @@ public class UsersDao {
 			usersDto.setUserName(rs.getString("user_name"));
 			usersDto.setUserPhone(rs.getString("user_phone"));
 			usersDto.setUserEmail(rs.getString("user_email"));
+			usersDto.setUserNickname(rs.getString("user_nickname"));
 			usersDto.setUserInsertdate(rs.getDate("user_insertdate").toString());
 			usersDto.setUserAddr(rs.getString("user_addr"));
 			usersDto.setUserPost(rs.getInt("user_post"));
@@ -145,18 +146,40 @@ public class UsersDao {
 	// 개인 정보 수정 (값이 잘못들어오면 예외처리를 해야함)
 	public boolean UserUpdate(Users usersDto, Connection conn) throws Exception {
 		boolean result = false;
-		String sql = "update users set (user_pwd=?,user_phone=?,user_email=?,user_nickname=?,user_address=?) "
-				+ "where user_id=?";
+		int index=1;
+		String sql = "update users set ";
+		if(usersDto.getUserPwd().length()>3) {
+			sql+= "user_pwd=? ";
+			
+		}
+		sql+= "user_name=?, user_phone=?,user_email=?,user_nickname=?,USER_ADDR=?,USER_POST=?,USER_DETAIL_ADDR=?";
+		if(usersDto.getUserFileName()!=null) {
+			sql+= ",FILE_NAME=?, SAVED_NAME=?, CONTENT_TYPE=? ";
+		}
+		sql+= " where user_id=?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, usersDto.getUserPwd());
-		pstmt.setString(2, usersDto.getUserPhone());
-		pstmt.setString(3, usersDto.getUserEmail());
-		pstmt.setString(4, usersDto.getUserNickname());
-		pstmt.setString(5, usersDto.getUserAddr());
-		pstmt.setString(6, usersDto.getUserId());
-		pstmt.executeUpdate();
+		if(usersDto.getUserPwd().length()>3) {
+			pstmt.setString(index++, usersDto.getUserPwd());
+		}
+		//System.out.println( usersDto);
+		pstmt.setString(index++, usersDto.getUserName());
+		pstmt.setString(index++, usersDto.getUserPhone());
+		pstmt.setString(index++, usersDto.getUserEmail());
+		pstmt.setString(index++, usersDto.getUserNickname());
+		pstmt.setString(index++, usersDto.getUserAddr());
+		pstmt.setInt(index++, usersDto.getUserPost());
+		pstmt.setString(index++, usersDto.getUserDetailAddr());
+		if(usersDto.getUserFileName()!=null) {
+			pstmt.setString(index++, usersDto.getUserFileName());
+			pstmt.setString(index++, usersDto.getUserSavedName());
+			pstmt.setString(index++, usersDto.getUserContentType());
+		}
+		pstmt.setString(index++, usersDto.getUserId());
+		if(pstmt.executeUpdate()==1) {
+			result=true;
+		}
 		pstmt.close();
-
+		
 		return result;
 	}
 

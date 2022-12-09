@@ -16,7 +16,11 @@
 	color: black;
 	font-size: 250%;
 }
-
+#addrBtn{
+	background-color:#0c1c32; 
+	color:white;
+	width:100px;
+}
 #updataMain {
 	background-color: white;
 	border-radius: 15px;
