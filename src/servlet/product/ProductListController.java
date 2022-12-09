@@ -66,6 +66,7 @@ public class ProductListController extends HttpServlet {
 		String mainBoard = request.getParameter("mainBoard");
 		String os = request.getParameter("os");
 		String price = request.getParameter("price");
+		String searchVal = request.getParameter("searchVal");
 		Product product=new Product();
 		
 		if(graphicCard!=null) {
@@ -82,6 +83,9 @@ public class ProductListController extends HttpServlet {
 		}
 		if(os!=null) {
 			product.setOs(os);
+		}
+		if(searchVal!=null) {
+			product.setProductName(searchVal);
 		}
 		if(price!=null) {
 			product.setProductPrice(Integer.parseInt(price));

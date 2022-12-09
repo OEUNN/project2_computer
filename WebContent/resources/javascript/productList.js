@@ -1,4 +1,8 @@
-
+function resetCategory(){
+	$(".productCategory input").prop("checked",false);
+	$("#searchVal").val("");
+	categoryUpdate()
+}
 
 //페이징처리
 function pageUpdate(pageNo){
@@ -28,8 +32,10 @@ function categoryUpdate(){
 				memoryCard:$("input[name='memoryCard']:checked").val(),
 				price:$("input[name='price']:checked").val(),
 				mainBoard:$("input[name='mainBoard']:checked").val(),
-				os:$("input[name='os']:checked").val()
+				os:$("input[name='os']:checked").val(),
+				searchVal:$("#searchVal").val()
 	};
+	
 	$.ajax({
 		url:"ProductListController",
 		type:"post",
@@ -40,6 +46,10 @@ function categoryUpdate(){
 				$(".productListPage").html(result);
 			}
 	});
+}
+function searchProduct(){
+	
+	categoryUpdate()
 }
 //이미지 자동 슬라이드
 
