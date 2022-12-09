@@ -32,7 +32,6 @@ function appendBasket(){
 	//console.log(div);
 	
 }
-
 function deleteBasket(){
 	let basketRow = $(".basketRow input:checked");
 	

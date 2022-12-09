@@ -15,7 +15,7 @@
          </div>
 
          <div class=" col "></div>
-
+ 
             <!-- 아이콘 -->
          <div id="icon" class=" col-2 col-md-2 mt-3">
             <!-- 장바구니 -->

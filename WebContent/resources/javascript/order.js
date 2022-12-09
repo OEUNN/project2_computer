@@ -20,7 +20,6 @@ function findAddr(){
 }
 
 
-
 //유효성 검사
 function check(){
 	var result = true;

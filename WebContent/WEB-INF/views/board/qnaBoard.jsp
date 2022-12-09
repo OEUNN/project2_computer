@@ -15,7 +15,6 @@
 				$("#qnaUpdate form #title").attr("value","${qnaBoard.qnaBtitle}");
 				$("#qnaUpdate form textarea").text("${qnaBoard.qnaBcontent}");
 				$("#qnaUpdate form #bno").attr("value","${qnaBoard.qnaBno}");
-				
 			}
 		</c:forEach>
 	}

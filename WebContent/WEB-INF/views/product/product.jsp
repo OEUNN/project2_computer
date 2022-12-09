@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*,dto.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <div class="row productList">
 			<c:forEach var="product" items="${productList}" varStatus="status">
 				<div class="col-12 col-md-6 col-lg-4 p-3">

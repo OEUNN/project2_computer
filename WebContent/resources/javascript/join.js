@@ -21,7 +21,6 @@ function idCheck(){
 	}
 };
 
-
 //전화번호
 function  phoneCheck(){
 	//중복이라면

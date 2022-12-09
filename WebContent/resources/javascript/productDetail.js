@@ -9,7 +9,6 @@
 		$("#detail-form").attr("action", "CreateOrderController");
 		$("#detail-form")[0].submit();
 	}
-	
 	function currentDiv(n) {
 		  showDivs(slideIndex = n);
 		}

@@ -9,7 +9,6 @@ function pageUpdate(pageNo){
 			memoryCard:$("input[name='memoryCard']:checked").val(),
 			price:$("input[name='price']:checked").val(),
 			mainBoard:$("input[name='mainBoard]:checked'").val()
-	
 	};
 	$.ajax({
 		url:"ProductListController",

@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="../resources/css/header.css">
 <link rel="stylesheet" href="../resources/css/login.css">
 <%@ include file="/WEB-INF/views/common/header2.jsp" %>
-
 			
 <!-- body -->
 <div id="body" class="row" >

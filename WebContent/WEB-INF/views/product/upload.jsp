@@ -2,12 +2,10 @@
 <%@ page import="java.util.*,dto.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
-
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
 <link rel="stylesheet" href="../resources/css/header.css">
 <link rel="stylesheet" href="../resources/css/upload.css">
 <%@ include file="/WEB-INF/views/common/header2.jsp"%>
-
 
 <form>
 	<div id="detail" class="row m-3">
