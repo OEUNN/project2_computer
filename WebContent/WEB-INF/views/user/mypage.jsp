@@ -27,7 +27,7 @@
 					</div>
 					<div class="col-lg">
 						<div class="m-5">
-							<p style="font-size:300%;">${users.userName} 님</p>
+							<p style="font-size:300%;" class="fas fa-heart">${users.userName} 님</p>
 							<p style="font-size:200%;">안녕하세요.</p>
 							<p>${users.userNickname}</p>
 						</div>
