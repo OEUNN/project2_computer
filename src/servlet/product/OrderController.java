@@ -63,7 +63,6 @@ public class OrderController extends HttpServlet {
 	
 		
 		response.sendRedirect("ProductListController");
-
 		
 	}
 }

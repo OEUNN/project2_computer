@@ -19,51 +19,54 @@ function findAddr(){
     }).open();
 }
 
+
+
 //유효성 검사
 function check(){
 	var result = true;
 	//닉네임
-	var userId=$("#user_id");
-	if(userId != ""){
-		userId.removeClass("mystyle");
+	if($("#user_id").val() != ''){
+		$("#user_id").removeClass("mystyle");
 	}else{
-		userId.addClass("mystyle");
+		$("#user_id").addClass("mystyle");
 		result=false;
 	}
 	
 	//닉네임
-	var userPhone=$("#user_phone");
-	if(userPhone != ""){
-		userPhone.removeClass("mystyle");
+
+	var phone = $("#user_phone");
+	var phoneValue = phone.val();
+	var phonePattern =/^010-\d{3,4}-\d{4}$/;
+	var phoneTest = phonePattern.test(phoneValue);
+	if(phoneTest){
+		phone.removeClass("mystyle");
 	}else{
-		userPhone.addClass("mystyle");
+		phone.addClass("mystyle");
 		result=false;
 	}
 	
 	//닉네임
-	var userPost=$("#userPost");
-	if(userPost != 0){
-		userPost.removeClass("mystyle");
+	if($("#userAddr").val() != ''){
+		$("#userAddr").removeClass("mystyle");
 	}else{
-		userPost.addClass("mystyle");
+		$("#userAddr").addClass("mystyle");
 		result=false;
 	}
 	
-	//닉네임
-	var userAddr=$("#userAddr");
-	if(userAddr != ""){
-		userAddr.removeClass("mystyle");
+	if($("#userPost").val() != ''){
+		$("#userPost").removeClass("mystyle");
 	}else{
-		userAddr.addClass("mystyle");
+		$("#userPost").addClass("mystyle");
 		result=false;
 	}
 	
-	var userDetailAddr=$("#userDetailAddr");
-	if(userDetailAddr != ""){
-		userDetailAddr.removeClass("mystyle");
+	if($("#userDetailAddr").val() != ''){
+		$("#userDetailAddr").removeClass("mystyle");
 	}else{
-		userDetailAddr.addClass("mystyle");
+		$("#userDetailAddr").addClass("mystyle");
 		result=false;
 	}
+	
 	return result;
+	
 }

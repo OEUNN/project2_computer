@@ -77,14 +77,14 @@
 			<div class="form-group">
 				<label for="user_address" class="join_title">주소</label> 
 				<input id="addrBtn" class="m-3" type="button" value="주소 검색" onclick="findAddr()"readonly style="background-color:#0c1c32;color:white;width:100px;" />
-				<input id="userPost" type="text" class="form-control" name="userPost" placeholder="우편번호" />
-				<input id="userAddr" type="text" class="form-control" name="userAddr" placeholder="주소"/>
+				 <input id="userPost" type="text"  class="form-control" name="userPost" placeholder="우편번호" />
+				<input id="userAddr" type="text"  class="form-control" name="userAddr" placeholder="주소"/>
 				<input id="userDetailAddr" type="text" class="form-control" name="userDetailAddr" placeholder="상세 주소를 입력하세요."/>
 				<p id="address_message"></p>
 			</div>
 			<!-- submit -->
 			<div class="text-center mt-4">
-				<input id="order_submit" type="submit" class="btn btn-dark" value="결재하기" />
+				<button id="order_submit" type="submit" class="btn btn-dark">결제하기</button>
 			</div>
 		</div>
 	</form>
