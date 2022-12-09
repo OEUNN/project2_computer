@@ -25,7 +25,6 @@
 			<div class="form-group m-4">
 				<label for="userId" class="joinTitle">아이디</label>
 				<input id="userId" type="text" class="form-control " name="userId" oninput="idCheck()"/>
-				<small id="userIdHelp" class="form-text text-muted">알파벳 대소문자, 숫자를 혼용해서 6자 이상 10장 이하</small>
 				<p id="idMessage"></p>
 			</div>
 			
@@ -39,7 +38,7 @@
 			<div class="form-group m-4">
 				<label for="userPwdCheck" class="joinTitle">비밀번호 확인</label>
 				<input id="userPwdCheck" type="password" class="form-control"/>
-				<p id="pwdCheckMessage"></p>
+				<p id="pwdCheckMessage" style="color:red"></p>
 			</div>
 			<!-- 이름 -->
 			<div class="form-group m-4">
@@ -71,7 +70,7 @@
 			<div class="form-group m-4">
 				<label for="userAddress" class="joinTitle">주소</label>
 				<input id="addrBtn" class="m-3" type="button" value="주소 검색" onclick="findAddr()"readonly />
-				<input id="userPost" type="text" class="form-control" name="userPost" placeholder="우편번호" />
+				<input id="userPost" type="text" class="form-control" name="userPost"onclick="findAddr()"  placeholder="우편번호" />
 				<input id="userAddr" type="text" class="form-control" name="userAddr" placeholder="주소"/>
 				<input id="userDetailAddr" type="text" class="form-control" name="userDetailAddr" placeholder="상세 주소를 입력하세요."/>
 			</div> 
@@ -89,4 +88,4 @@
 	</div>
 	
 	<!-- 오른쪽 빈칸 -->
-	<div class="col-0 col-md-3 "></div>,///
+	<div class="col-0 col-md-3 "></div>

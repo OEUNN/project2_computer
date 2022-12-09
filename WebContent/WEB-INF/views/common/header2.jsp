@@ -71,8 +71,11 @@
       <div id="topmenu" class="row" style="height:50px;">
          <div class="col-1" ></div>
          <div class="col-4 p-2" >
-            <a href="${pageContext.request.contextPath}/product/ProductListController">
-               >Home
+            <a href="${pageContext.request.contextPath}/product/ProductListController" class="fa fa-desktop">
+               Home  |
+            </a>
+            <a href="${pageContext.request.contextPath}/user/MypageController" class="fa fa-paw">
+               MyPage
             </a>
          </div>
          <div class="col"></div>

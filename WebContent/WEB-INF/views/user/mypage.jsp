@@ -17,21 +17,28 @@
 		<!-- 개인 신상 정보 -->
 		<div class="row m-3">
 			<div class="container-fluid">
-				<div id="mypage" class="row p-3" style="height:400px;">
-					<div class="col-md-12 col-lg-5">
+				<div id="mypage" class="row p-3" >
+					<div class="col-md-12 col-lg-4">
 						<div class="ml-3 p-2" >
-							<img src="../resources/images/woman.png" alt="userImg" style="border-radius: 70%; height:350px; width:350px;" />
+							<c:if test="${users.userFileName != null}">
+								<img src="UserImageAttachController?fileName=${users.userFileName}&savedName=${users.userSavedName}&contentType=${users.userContentType}" alt="userImg" style="border-radius:70%; height:350px; width:300px;" />
+							</c:if>
 						</div>
 					</div>
-					<div class="col-lg-5">
+					<div class="col-lg">
 						<div class="m-5">
-							<p>
-							<h3>${users.userName}</h3>
-							</p>
-							<p>안녕하세요.</p>
+							<p style="font-size:300%;">${users.userName} 님</p>
+							<p style="font-size:200%;">안녕하세요.</p>
+							<p>${users.userNickname}</p>
 						</div>
 					</div>
-					<div class="col-lg-2 "></div>
+					<div class="col-lg-3">
+						<div class="row" style="height:50%"></div>
+						<div class="row">
+							<p>저희 SAMSUNG과 함께 시작한 날은</p>
+							<p class="fas fa-heart">${users.userInsertdate}입니다.</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -44,14 +51,21 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div id="mypage" class="col-md-12 col-lg-5 mr-2">
-						<div id="user" class="container-fluid p-3">
-							<div class="card">
-								<div class="card-head">이메일</div>
-								<div class="card-body"></div>
-							</div>
-							<div class="card">
-								<div class="card-head">주소</div>
-								<div class="card-body"></div>
+						<div id="user" class="container-fluid p-5">
+							<div>
+								<div class="mb-3">
+									<p style=>Address</p>
+									우편 번호 : ${users.userPost}<br/>
+									${users.userAddr} ${users.userDetailAddr}<br/>
+								</div>
+								<div class="mb-3">
+									<p>Email</p>
+									${users.userEmail}<br/>
+								</div>
+								<div class="mb-3">
+									<p>TEL</p>
+									${users.userPhone}<br/>
+								</div>
 							</div>
 						</div>
 					</div>

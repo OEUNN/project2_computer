@@ -92,7 +92,7 @@ public class BasketService {
 		boolean result = false;
 		try {
 			conn = ds.getConnection();
-			result = basketDao.Create(userId, conn);
+			basketDao.Create(userId, conn);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
