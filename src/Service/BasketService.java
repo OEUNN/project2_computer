@@ -22,6 +22,7 @@ public class BasketService {
 	public BasketService(ServletContext application) {
 		this.application=application;
 		basketDao = (BasketDao)application.getAttribute("basketDao");
+		basketDetailDao = (BasketDetailDao)application.getAttribute("basketDetailDao");
 		ds=(DataSource)application.getAttribute("dataSource");
 	}
 	
@@ -32,18 +33,17 @@ public class BasketService {
 		try {
 			conn = ds.getConnection();
 				//해당 productId가 존재한다면 BasketDetailDao 호출함
-				if (basketDetail.getProductId() != null) {
 					boolean basketDetailResult = basketDetailDao.insertBasketPro(basketDetail,conn);
 					if (basketDetailResult) {
 						//basketDeatil이 존재한다면 BasketDao를 호출함
-						String basketId = basketDetail.getUserId();
+						String basketId = basketDetail.getBasketId();
 						BasketDao basketDao= (BasketDao)application.getAttribute("basketDao");
 						Basket basket = basketDao.selectBasket(basketId, conn);
 						int totalPrice = basket.getTotalPrice()+basketDetail.getPrice();
 						basket.setTotalPrice(totalPrice);
 						result = basketDao.updateBasket(basket, conn);					
 					}
-				}
+				
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,20 +55,7 @@ public class BasketService {
 	}
 	
 	//단 하나의 basketDetail을 가져옴
-	public BasketDetail getBasketDetail(String basketDetailId) {
-		Connection conn = null;
-		BasketDetail basketDetail = null;
-		try {
-			conn = ds.getConnection();
-			basketDetailDao.selectBasketDetail(basketDetailId, conn);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			try {conn.close();} catch(Exception e) {};
-		}
-
-		return basketDetail;
-	}
+	
 	
 	
 	//상품명, 옵션1,옵션2, 수량,가격,주문가격
@@ -78,6 +65,8 @@ public class BasketService {
 		try {
 			conn = ds.getConnection();
 			basket = basketDao.selectBasket(userId, conn);
+			List<BasketDetail> list = basketDetailDao.selectBasketDetails(userId, conn);
+			basket.setBasketDetail(list);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -130,6 +119,7 @@ public class BasketService {
 		
 		return list;
 	}
+
 	
 
 }
