@@ -19,6 +19,11 @@ public class Product {
 	   private String mainboard;
 	   private String os;
 	   private String memory;
+	   private List<String> graphcCardList;
+	   private List<String> cpuList;
+	   private List<String> mainboardList;
+	   private List<String> osList;
+	   private List<String> memoryList;
 	   
 	   //다른 곳에도 필요한 정보
 	   private List<ProductImage> productImageList;

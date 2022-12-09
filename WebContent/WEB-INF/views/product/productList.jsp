@@ -110,10 +110,10 @@
 				<h5>
 					<b>그래픽 카드</b>
 				</h5>
-				<c:forEach var="graphic" items="graProList" varStatus="graNum">
+				<c:forEach var="graphic" items="${graProList}" varStatus="graNum">
 					<div class="row my-3 mx-1">
-						<input id="graphicCard${graNum.count}" name="graphicCard" type="radio" value="${graphic.productGraphicCard}" /> 
-							<label for="graphicCard${graNum.count}" class="my-auto">${graphic.productGraphicCard}</label>
+						<input id="graphicCard${graNum.count}" name="graphicCard" type="radio" value="${graphic}" /> 
+						<label for="graphicCard${graNum.count}" class="my-auto">${graphic}</label>
 					</div>
 				</c:forEach>
 			</div>
@@ -122,10 +122,10 @@
 				<h5>
 					<b>CPU</b>
 				</h5>
-				<c:forEach var="cpu" items="cpuProList" varStatus="cpuNum">
+				<c:forEach var="cpu" items="${cpuProList}" varStatus="cpuNum">
 					<div class="row my-3 mx-1">
-						<input id="CPU${cpuNum.count }" name="CPU" type="radio" value="${cpu.CPU}" /> 
-						<label for="CPU${cpuNum.count }" class="my-auto">${cpu.CPU}</label>
+						<input id="CPU${cpuNum.count }" name="CPU" type="radio" value="${cpu}" /> 
+						<label for="CPU${cpuNum.count }" class="my-auto">${cpu}</label>
 					</div>
 				</c:forEach>
 				
@@ -135,29 +135,53 @@
 				<h5>
 					<b>메모리 카드</b>
 				</h5>
-				<div class="row my-3 mx-1">
-					<c:forEach var="memory" items="meProList" varStatus="meNum">
-						<input id="memoryCard${meNum.count}" name="memoryCard" type="radio" value="${memory.memory}" /> 
-						<label for="gmemoryCard${meNum.count}" class="my-auto">${memory.memory}</label>
-					</c:forEach>
-				</div>
+				<c:forEach var="memory" items="${meProList}" varStatus="meNum">
+					<div class="row my-3 mx-1">
+						<input id="memoryCard${meNum.count}" name="memoryCard" type="radio" value="${memory}" /> 
+						<label for="memoryCard${meNum.count}" class="my-auto">${memory}</label>
+					</div>
+				</c:forEach>
 				
 			</div>
 			<!-- 메뉴4 -->
 			<div id="menu1" class="my-4">
 				<h5>
+					<b>메인 보드</b>
+				</h5>
+				<c:forEach var="mainBoard" items="${maProList}" varStatus="maNum">
+					<div class="row my-3 mx-1">
+						<input id="mainBoard${maNum.count}" name="mainBoard" type="radio" value="${mainBoard}" /> 
+						<label for="mainBoard${maNum.count}" class="my-auto">${mainBoard}</label>
+					</div>
+				</c:forEach>
+				
+			</div>
+			<div id="menu1" class="my-4">
+				<h5>
+					<b>운영체재</b>
+				</h5>
+				<c:forEach var="os" items="${osProList}" varStatus="osNum">
+					<div class="row my-3 mx-1">
+						<input id="os${osNum.count}" name="os" type="radio" value="${os}" /> 
+						<label for="os${osNum.count}" class="my-auto">${os}</label>
+					</div>
+				</c:forEach>
+				
+			</div>
+			<div id="menu1" class="my-4">
+				<h5>
 					<b>가격</b>
 				</h5>
 				<div class="row my-3 mx-1">
-					<input id="price1" name="price" type="radio" value="price50" /> 
+					<input id="price1" name="price" type="radio" value="500000" /> 
 					<label for="price1" class="my-auto">0 ~ 50만원</label>
 				</div>
 				<div class="row m-1">
-					<input id="price2" name="price" type="radio" value="price100" /> 
+					<input id="price2" name="price" type="radio" value="1000000" /> 
 					<label for="price2" class="my-auto">50 ~ 100만원</label>
 				</div>
 				<div class="row my-3 mx-1">
-					<input id="price3" name="price" type="radio" value="price_over" /> 
+					<input id="price3" name="price" type="radio" value="1500000" /> 
 					<label for="price3" class="my-auto">100만원 ~ </label>
 				</div>
 			</div>
