@@ -2,7 +2,15 @@
 
 //페이징처리
 function pageUpdate(pageNo){
-	var page={pageNo:pageNo};
+	var page={
+			pageNo:pageNo,
+			graphic:$("input[name='graphicCard']:checked").val(),
+			cpu:$("input[name='CPU']:checked").val(),
+			memoryCard:$("input[name='memoryCard']:checked").val(),
+			price:$("input[name='price']:checked").val(),
+			mainBoard:$("input[name='mainBoard]:checked'").val()
+	
+	};
 	$.ajax({
 		url:"ProductListController",
 		type:"post",
@@ -20,12 +28,13 @@ function categoryUpdate(){
 				cpu:$("input[name='CPU']:checked").val(),
 				memoryCard:$("input[name='memoryCard']:checked").val(),
 				price:$("input[name='price']:checked").val(),
-				
-			)};
+				mainBoard:$("input[name='mainBoard']:checked").val(),
+				os:$("input[name='os']:checked").val()
+	};
 	$.ajax({
 		url:"ProductListController",
 		type:"post",
-		cate:category,
+		data:category,
 		success:function(result){
 				$(".productListPage").empty();
 				console.log(result);
