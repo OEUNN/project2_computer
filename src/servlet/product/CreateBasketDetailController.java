@@ -45,16 +45,14 @@ public class CreateBasketDetailController extends HttpServlet {
 		basketDetail.setColor(colorService.getColor(colorId));
 		basketDetail.setCapacity(capacityService.getCapacity(capacityId));
 		basketDetail.setPrice(productPrice*productQuantity);
-			
+	
 		
 		basketService.addBasketDetail(basketDetail);
-
-		
-
-		
 		request.setAttribute("product", product);
+
 		//JSP로 이동
 		request.getRequestDispatcher("/WEB-INF/views/product/productDetail.jsp").forward(request, response);
+		
 	}
 
 }
