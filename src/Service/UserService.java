@@ -22,8 +22,8 @@ public class UserService {
 		usersDao = (UsersDao)application.getAttribute("usersDao");
 		ds=(DataSource)application.getAttribute("dataSource");
 	}
-	
-	//로그인
+
+	//로그인 
 	public Users userLogin(String id, String pwd) {
 		Connection conn = null;
 		Users usersDto= new Users();

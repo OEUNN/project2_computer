@@ -19,7 +19,7 @@ public class BasketDao {
 	}
 
 	public void Create(String userId, Connection conn) throws Exception {
-		String sql = "insert into basket (basket_id, totla_price)  values  ( ?,0 ) ";
+		String sql = "insert into basket (basket_id, totla_price) values ( ?,0 ) ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, userId);
 		pstmt.executeUpdate();

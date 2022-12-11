@@ -8,7 +8,7 @@
 <script src="../resources/javascript/productList.js"></script>
 <%@ include file="/WEB-INF/views/common/header2.jsp"%>
 
-<!-- mainBoard -->
+<!-- mainBoard --> 
 <div id="mainBoard" class="row" >
 	<!-- 메인 스크롤 -->
 	<div class="col-lg-8 col-12 p-5 " style="height:600px;">
