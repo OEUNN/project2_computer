@@ -27,15 +27,12 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");
-		//System.out.println(userId);
-		//System.out.println(userPwd);
 		
 		ServletContext application = request.getServletContext();
 		UserService userService = (UserService) application.getAttribute("userService");
 		
 		Users users = new Users();
 		users = userService.userLogin(userId, userPwd);
-		
 		if(users.getUserId().equals("")) {
 			request.getRequestDispatcher("/WEB-INF/views/user/login.jsp").forward(request, response);
 		}else {
@@ -43,7 +40,7 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("loginId", users.getUserId());
 			session.setAttribute("isAdmin",users.isAdmin());
 			if(users.isAdmin()) {
-				response.sendRedirect("UploadController");
+				response.sendRedirect("../product/UploadController");
 			}else {
 				response.sendRedirect("../product/ProductListController");
 			}

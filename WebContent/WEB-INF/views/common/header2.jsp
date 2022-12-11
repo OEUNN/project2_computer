@@ -50,7 +50,7 @@
                </c:if>
 
                <!-- 로그인 되어있을 경우 -->
-               <c:if test="${loginId!=null}">
+               <c:if test="${loginId!=null && isAdmin==false}">
                   <div class="dropdown ml-5">
                      <button class="dropbtn">
                         <img src="../resources/images/on_human.png" style="width: 40px; height: 40px;" />
@@ -58,6 +58,19 @@
                      <div class="dropdown-content">
                         <a href="${pageContext.request.contextPath}/user/MypageController">나의 정보</a>
                         <a href="${pageContext.request.contextPath}/user/JoinController">주문 내역</a>
+                        <a href="${pageContext.request.contextPath}/user/LogoutController">로그아웃</a>
+                     </div>
+                  </div>
+               </c:if>
+               
+                <!-- 로그인 되어있을 경우 -->
+               <c:if test="${loginId!=null && isAdmin==true}">
+                  <div class="dropdown ml-5">
+                     <button class="dropbtn">
+                        <img src="../resources/images/on_human.png" style="width: 40px; height: 40px;" />
+                     </button>
+                     <div class="dropdown-content">
+                        <a href="${pageContext.request.contextPath}/product/UploadController">관리자 페이지</a>
                         <a href="${pageContext.request.contextPath}/user/LogoutController">로그아웃</a>
                      </div>
                   </div>
@@ -74,9 +87,16 @@
             <a href="${pageContext.request.contextPath}/product/ProductListController" class="fa fa-desktop" style="text-decoration: none;">
                Home		|
             </a>
-            <a href="${pageContext.request.contextPath}/user/MypageController" class="fa fa-paw" style="text-decoration: none;">
-               MyPage
-            </a>
+            <c:if test="${loginId!=null}">
+	            <a href="${pageContext.request.contextPath}/user/MypageController" class="fa fa-paw" style="text-decoration: none;">
+	               MyPage
+	            </a>
+            </c:if>
+            <c:if test="${loginId==null}">
+	            <a href="${pageContext.request.contextPath}/user/LoginController" class="fa fa-paw" style="text-decoration: none;">
+	               MyPage
+	            </a>
+            </c:if>
          </div>
          <div class="col"></div>
       </div>
