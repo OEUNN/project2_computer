@@ -18,24 +18,33 @@ function deleteBasket(){
 		},
 		success: function(result){
 			$("#basketMain").empty();
-			$("#basketMain").html(result);
-			//$(".basketDetailOne").remove();
-			//$(".table").append(result);
-	
+			$("#basketMain").html(result);	
 			
-		}
-		
+		}		
 		
 	});
 	
-	
-
 }
 
-function selectAll(){
-	let checkbox=$("#basketAll:checked");
-	if(checkbox!==null){
-		$("#basketRow input").prop("checked",true);
-	}
+function check() {
+	var total = $("input[name='basket']").length;
+	var checked = $("input[name='basket']:checked").length;
+
+	if(total != checked){ 
+		$("#basketAll").prop("checked", false);}
+	else{
+		 $("#basketAll").prop("checked", true); }
 	
+	
+}
+
+
+
+function selectAll(){
+	if($("input:checkbox[name='basketAll']").is(":checked") == true){
+		$("input:checkbox[name='basket']").prop("checked",true);
+	} else {
+		$("input:checkbox[name='basket']").prop("checked",false);
+	}
+
 }

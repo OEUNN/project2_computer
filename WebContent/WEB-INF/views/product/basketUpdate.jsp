@@ -1,33 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*,dto.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-	<%-- <c:forEach  var="basketDetail" items="${basket.basketDetail}" >		
-		<tr class="basketDetailOne">
-		      <td>
-				<div>
-					<input type="checkbox" id= "${basketDetail.basketDetailId}" name="basket"/>
-					<input type="hidden" name="colorId" value="${basketDetail.color.colorId }"/>
-					<input type="hidden" name="capaId" value="${basketDetail.capacity.capacityId }"/>
-					<input type="hidden" name="price" value="${basketDetail.product.productPrice }"/>
-					<input type="hidden" name="productId" value="${basketDetail.product.productId }"/>
-					<input type="hidden" name="quantity" value="${basketDetail.productQnt }"/>
-				</div>
-			</td>
-			<td >
-				<img src="ImageAttachController?imageId=${basketDetail.product.productImageList[0].imageId}"/>
-			</td>
-			<td>
-				<div >
-					${basketDetail.product.productName}	
-					<span style="font-size: 15px;color: gray">(${basketDetail.color.colorName },${basketDetail.capacity.capacityName} 택)</span>
-				</div>
-			</td>
-			<td><div>${basketDetail.product.productPrice}원</div></td>
-			<td><div>${basketDetail.productQnt }</div></td>
-		
-		</tr>
-	</c:forEach>
-	 --%> 
 	
        		<h3 id="basketLogo" class="m-3">장바구니</h3>
        		<hr/>

@@ -21,7 +21,7 @@
        			
        			<div class="basketTable col-9">
         			<div id="deleteBasket"  style="text-align:right"><span class="btn" onclick="deleteBasket()">선택항목 삭제</span></div>
-         		<div id="appendBasket"  style="text-align:right"><span class="btn" onclick="appendBasket()">항목 추가</span></div>
+         	
          		
          		<table class=" table table-hover">
          			<tr>
@@ -47,7 +47,7 @@
          				<tr class="basketDetailOne">
 	         				<td>
 	         					<div>
-	         						<input type="checkbox" value="${basketDetail.basketDetailId}"name="basket"/>
+	         						<input type="checkbox" onclick="check()" value="${basketDetail.basketDetailId}"name="basket"/>
 	         						<input type="hidden" name="colorId" value="${basketDetail.color.colorId }"/>
        								<input type="hidden" name="capaId" value="${basketDetail.capacity.capacityId }"/>
        								<input type="hidden" name="price" value="${basketDetail.product.productPrice }"/>
@@ -88,7 +88,7 @@
        					<h4 id="totalPrice">총액 : <span class="totalPrice">${basket.totalPrice}</span>원</h4>
        				</div>
        				<div class="card-footer">
-       					<button class="btn rounded-0" type="submit" style="background-color: #0c1c32; color:#f8f8f8; width:100% ">선택항목 주문하기</button>
+       					<button class="btn rounded-0" type="submit" style="background-color: #0c1c32; color:#f8f8f8; width:100% ">주문하기</button>
        				</div>
        			</div>
        		</form>
