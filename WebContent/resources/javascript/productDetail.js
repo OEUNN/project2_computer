@@ -1,4 +1,9 @@
-	function goBasket() {
+let price;
+$(document).ready(function(){
+	price=Number($(".price b").text());
+	
+});
+function goBasket() {
 		/* var form = document.querySelector("#detail-form");
 		form.action = "CreateBasketDetailController";
 		form.submit(); */
@@ -28,4 +33,8 @@
 	  $(x[slideIndex-1]).css("display","block");
 	  $(dots[slideIndex-1]).css(" opacity","0.5");
 	}
-	
+	function updatePrice(){
+		var qnt=$("#quantity");
+		//console.log($(".price b").text()+qnt.val());
+		$(".price b").text(Number(qnt.val())*price)
+	}

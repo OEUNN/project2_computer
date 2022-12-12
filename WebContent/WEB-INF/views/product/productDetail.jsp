@@ -90,7 +90,7 @@
 						<div style="flex-grow: 3; justify-content: center;"class=" quan-icon">
 
 							<div class="m-3">
-								<input id="quantity" name="quantity" value="1" type="number" min="1" />
+								<input onchange="updatePrice()" id="quantity" name="quantity" value="1" type="number" min="1" />
 							</div>
 						</div>
 
