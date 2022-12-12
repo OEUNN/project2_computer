@@ -23,7 +23,7 @@ public class UserService {
 		ds=(DataSource)application.getAttribute("dataSource");
 	}
 	
-	//로그인, 로그아웃이 없음
+	//로그인
 	public Users userLogin(String id, String pwd) {
 		Connection conn = null;
 		Users usersDto= new Users();

@@ -6,139 +6,172 @@
 <link rel="stylesheet" href="../resources/css/header.css">
 <link rel="stylesheet" href="../resources/css/upload.css">
 <%@ include file="/WEB-INF/views/common/header2.jsp"%>
+<%@ include file="/WEB-INF/views/common/adminMenu.jsp"%>
 
-<form>
-	<div id="detail" class="row m-3">
-		<div id="sidebar" class=" d-none d-lg-inline col-lg-2">
-			<div>
-				<h3>관리자 페이지</h3>
-			</div>
-			<hr />
-			<ul>
-				<li><a href="#"> <span class="item">회원 관리</span>
-				</a></li>
-				<li><a href="#"> <span class="item">상품 관리</span>
-				</a></li>
-				<li><a href="#"> <span class="item">1:1 문의 관리</span>
-				</a></li>
-				<li><a href="#"> <span class="item">리뷰 관리</span>
-				</a></li>
-			</ul>
-
-		</div>
-		<div class=" col-12 col-md-12 col-lg-5 ">
-			<div style="width: 100%; margin: auto;">
-
-				<button
-					style="width: 150px; height: 70px; margin: auto; display: block"
-					type="button" class="btn btn-secondary">사진등록</button>
-			</div>
-
-		</div>
-		<div id="item-info" class="d-none d-md-none d-lg-inline col-lg-4 m-3">
-			<div class="item-detail border " style="height: 100%">
-				<div class="mt-3 mx-4 " style="font-size: 200%">
-					<input type="text" class="form-control" placeholder="상품명을 입력해주세요"
-						id="title">
-				</div>
-				<div class="mb-3 mx-4">
-					<input type="text" class="form-control" placeholder="상품코드를 입력해주세요"
-						id="title">
-				</div>
-
-				<div class="flex-container">
-					<div class="mx-5" style="flex-grow: 5; text-align: center">
-						<h4>판매가</h4>
-					</div>
-					<div class="mx-4" style="flex-grow: 5; text-align: center">
-						<input type="text" class="form-control" placeholder="가격을 입력해주세요"
-							id="title">
-					</div>
-				</div>
-
-				<div class="option  mt-4 mr-4 mb-2 ml-4" style="height: 350px">
-					<div style="height: 80px; text-align: center; padding-top: 10px">
-						색상
-						<div class="colorRadio" style="height: 30px">
-							<input id="color1-1" name="color1" type="checkbox" value="blue"
-								checked="checked"> <label for="color1-1"
-								class="border rounded-circle "
-								style="background-color: steelblue;"></label> <input
-								id="color1-2" name="color1" type="checkbox" value="black">
-							<label for="color1-2" class="border rounded-circle "
-								style="background-color: black;"></label> <input id="color1-3"
-								name="color1" type="checkbox" value="white"> <label
-								for="color1-3" class="border rounded-circle "
-								style="background-color: white;"></label>
+<div id="centerBoard" class="col-12 col-md mt-5 ">
+	<form method="post" action="UploadController" onsubmit="return submit()" enctype="multipart/form-data">
+		<table class="talbe table-bordered mb-5" style="background-color:white;">
+			<thead style="height:30px;">
+				<tr style="font-size:130%;">
+					<th style="width:150px;">ID</th>
+					<th style="width:150px;">이름</th>
+					<th style="width:150px;">가격</th>
+					<th style="width:150px;">개수</th>
+					<th style="width:150px;">그래픽 카드</th>
+					<th style="width:150px;">CPU</th>
+					<th style="width:150px;">메인 보드</th>
+					<th style="width:150px;">OS</th>
+					<th style="width:150px;">Memory</th>
+					<th style="width:150px;">color</th>
+					<th style="width:150px;">용량</th>
+					<th style="width:150px;">사진</th>
+				</tr>
+			</thead>
+			<tbody id="subTable" style="height:70px;">	
+				<tr>
+					<td class="px-3">
+						<input type="text" style="width:100px;"/>
+					</td>
+					<td class="px-3">
+						<input type="text"style="width:100px;"/>
+					</td>
+					<td class="px-3">
+						<input type="text" style="width:100px;"/>
+					</td>
+					<td class="px-3">
+						<input type="text" style="width:100px;"/>
+					</td>
+					<!-- 그래픽 카드 -->
+					<td class="px-3">
+						<div class="form-group">
+							<select class="form-control" id="sel1">
+								<option>PTX 4080</option>
+								<option>RTX 3090 Ti</option>
+								<option>RTX 3060</option>
+								<option>4</option>
+							</select>
 						</div>
-					</div>
-					<div class="mt-3" style="text-align: center; height: 80px">
-						용량
-						<div class="capaRadio">
-							<input id="capa1-1" name="capa1" type="radio" value="512GB"
-								checked="checked"> <label for="capa1-1"
-								class="border rounded " style="padding-top: 8px;">512GB</label>
-							<input id="capa1-2" name="capa1" type="radio" value="256GB">
-							<label for="capa1-2" class="border rounded"
-								style="padding-top: 8px;">256GB</label> <input id="capa1-3"
-								name="capa1" type="radio" value="1TB"> <label
-								for="capa1-3" class="border rounded " style="padding-top: 8px;">1TB</label>
+					</td>
+					<!-- cpu -->
+					<td class="px-3">
+						<div class="form-group">
+							<select class="form-control" id="sel1">
+								<option>PTX 4080</option>
+								<option>RTX 3090 Ti</option>
+								<option>RTX 3060</option>
+								<option>4</option>
+							</select>
 						</div>
-					</div>
-					<hr />
+					</td>
+					<!-- main board -->
+					<td class="px-3">
+						<div class="form-group">
+							<select class="form-control" id="sel1">
+								<option>PTX 4080</option>
+								<option>RTX 3090 Ti</option>
+								<option>RTX 3060</option>
+								<option>4</option>
+							</select>
+						</div>
+					</td>
+					<!-- os -->
+					<td class="px-3">
+						<div class="form-group" >
+							<select class="form-control" id="sel1">
+								<option>PTX 4080</option>
+								<option>RTX 3090 Ti</option>
+								<option>RTX 3060</option>
+								<option>4</option>
+							</select>
+						</div>
+					</td>
+					<!-- memory -->
+					<td class="px-3">
+						<div class="form-group">
+							<select class="form-control" id="sel1">
+								<option>PTX 4080</option>
+								<option>RTX 3090 Ti</option>
+								<option>RTX 3060</option>
+								<option>4</option>
+							</select>
+						</div>
+					</td>
+					<!-- color-->
+					<td class="px-3">
+						<div class="form-group">
+							<select class="form-control" id="sel1">
+								<option>PTX 4080</option>
+								<option>RTX 3090 Ti</option>
+								<option>RTX 3060</option>
+								<option>4</option>
+							</select>
+						</div>
+					</td>
+					<!-- 용량 -->
+					<td class="px-3">
+						<div class="form-group">
+							<select class="form-control" id="sel1" >
+								<option>PTX 4080</option>
+								<option>RTX 3090 Ti</option>
+								<option>RTX 3060</option>
+								<option>4</option>
+							</select>
+						</div>
+					</td>
+					<!-- 이미지 -->
+					<td class="px-3">
+						<div class="form-group">
+							<label class="input-file-button" for="input-file">
+							  업로드
+							</label>
+							<input type="file" id="input-file" style="display:none;" />
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<!-- submit -->
+		<table id="btnTable" class="talbe table-bordered" style="width:150px; height:50px;" >
+			<thead>
+				<tr>
+					<th class="px-5">
+						<button id="joinSubmit" type="submit" class="btn btn-lg" value="추가하기" >추가하기</button>
+					</th>
+					<th class="px-5">
+						<button id="joinSubmit" type="submit" class="btn btn-lg" value="저장하기" >저장하기</button>
+					</th>
+					<th class="px-5">
+						<input id="joinSubmit" type="reset" class="btn btn-lg" value="reset"/>
+					</th>
+				</tr>
+			</thead>
+		</table>
+	</form>
+	<div class="modal fade" id="uploadModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">상품등록</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">상품등록이 완료되었습니다.</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+				</div>
+
 			</div>
 		</div>
 	</div>
-	<div id="p-name" class="row">
-		<div class="col-1"></div>
-		<div class="my-auto">상품명</div>
-	</div>
-	<br />
-	<div class="row">
-		<div class="col-1"></div>
-		<div class="col-10">
-			<button
-				style="width: 150px; height: 70px; margin: auto; display: block"
-				type="button" class="btn btn-secondary">광고사진등록</button>
-		</div>
-		<div class="col-1"></div>
-	</div>
-	<hr />
-
-	<div id="upload" class="row">
-		<div class="col-1"></div>
-		<div class="col-10">
-			<button
-				style="width: 150px; height: 70px; margin: auto; display: block"
-				onClick="#" type="submit" class="btn btn-secondary"
-				data-toggle="modal" data-target="#uploadModal">상품등록</button>
-		</div>
-		<div class="col-1 "></div>
-		<div class="col-1"></div>
-	</div>
-</form>
-
+</div>
 
 </div>
-<div class="modal fade" id="uploadModal">
-	<div class="modal-dialog">
-		<div class="modal-content">
+<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 
-			<!-- Modal Header -->
-			<div class="modal-header">
-				<h4 class="modal-title">상품등록</h4>
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-			</div>
 
-			<!-- Modal body -->
-			<div class="modal-body">상품등록이 완료되었습니다.</div>
-
-			<!-- Modal footer -->
-			<div class="modal-footer">
-				<button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-			</div>
-
-		</div>
-	</div>
-	<%@ include file="/WEB-INF/views/common/footer.jsp"%>
