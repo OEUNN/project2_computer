@@ -21,6 +21,7 @@ public class ReviewBoardService {
 		ds=(DataSource)application.getAttribute("dataSource");
 	}
 	
+	
 	public String writeReviewBoard(ReviewBoard reviewBoard) {
 		Connection conn = null;
 		String result=null;
@@ -34,6 +35,7 @@ public class ReviewBoardService {
 		}
 		return result;
 	}
+	
 	
 	public int getTotalRowReviewBoard() {
 		Connection conn = null;
@@ -49,6 +51,7 @@ public class ReviewBoardService {
 		return totalrow;
 	}
 	
+	
 	public ArrayList<ReviewBoard> readReviewBoard(Pager page) {
 		Connection conn = null;
 		ArrayList<ReviewBoard> list = new ArrayList<>();
@@ -62,6 +65,7 @@ public class ReviewBoardService {
 		}
 		return list;
 	}
+	
 	
 	public ReviewBoard detailReviewBoard(String selectBno) {
 		Connection conn = null;
@@ -77,6 +81,7 @@ public class ReviewBoardService {
 		return reviewBoard;
 	}
 	
+	
 	public String deleteReviewBoard(String bno) {
 		Connection conn = null;
 		String result=null;
@@ -90,6 +95,7 @@ public class ReviewBoardService {
 		}
 		return result;
 	}
+	
 	
 	public String updateRb(ReviewBoard reviewBoard) {
 		Connection conn = null;

@@ -35,7 +35,7 @@ public class QnaBoardService {
 		return totalRow;
 	}
 	
-	
+	//o
 	public String writeQnaBoard(QnaBoard qnaBoard) {
 		Connection conn = null;
 		String Output=null;
@@ -81,6 +81,7 @@ public class QnaBoardService {
 		return qnaBoard2;
 	}
 	
+	//o
 	public ArrayList<QnaBoard> readQnaBoardPager(Pager pager) {
 		Connection conn = null;
 		ArrayList<QnaBoard> list = new ArrayList<>();
@@ -125,6 +126,7 @@ public class QnaBoardService {
 		return getUserIDBoardCount;
 	}
 	
+	//o
 	public String deleteQnaBoard(QnaBoard qnaBoard) {
 		Connection conn = null;
 		String Output=null;
@@ -152,6 +154,7 @@ public class QnaBoardService {
 		return result;
 	}*/
 
+	//o
 	public String updateQnaBoard(QnaBoard qnaBoard) {
 		Connection conn = null;
 		String Output=null;

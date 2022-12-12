@@ -3,11 +3,9 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.Map;
 
 import dto.Users;
-import util.Pager;
 
 public class UsersDao {
 	Map<String, String> map;
@@ -138,10 +136,6 @@ public class UsersDao {
 	}
 	
 	
-	
-	
-	
-	
 	// 개인 정보 수정 (값이 잘못들어오면 예외처리를 해야함)
 	public boolean UserUpdate(Users usersDto, Connection conn) throws Exception {
 		boolean result = false;
@@ -160,6 +154,7 @@ public class UsersDao {
 		return result;
 	}
 
+	/*
 	// User info 전체 조회 - 이미지도 가져와야됨
 	public Users SelectAll(String id, Connection conn) throws Exception {
 		Users usersDto = new Users();
@@ -182,8 +177,9 @@ public class UsersDao {
 		rs.close();
 
 		return usersDto;
-	}
+	}*/
 
+	/*
 	// User Delete
 	public boolean Delete(Users usersDto, Connection conn) throws Exception {
 		boolean result = false;
@@ -210,10 +206,10 @@ public class UsersDao {
 		pstmt.close();
 
 		return result;
-	}
+	}*/
 
 	
-
+	/*
 	public ArrayList<Users> ReadAllUser(Pager pager, Connection conn) throws Exception {
 		ArrayList<Users> list = new ArrayList<>();
 		String sql = "select user_id, user_pwd, user_name, user_phone, user_email, user_nickname, user_insertdate, user_address "
@@ -240,8 +236,8 @@ public class UsersDao {
 		rs.close();
 
 		return list;
-	}
-
+	}*/
+	/*
 	public int getTotalUserRow(Connection conn) throws Exception {
 		String sql = "select count (*) as count from users";
 		int countRow = 0;
@@ -255,8 +251,8 @@ public class UsersDao {
 		rs.close();
 
 		return countRow;
-	}
-
+	}*/
+	/*
 	public boolean ManagerUserDelete(Users usersDto, Connection conn) throws Exception {
 		boolean result = false;
 		String sql = "select  user_id, user_pwd from users where user_id =? ";
@@ -277,7 +273,7 @@ public class UsersDao {
 		pstmt.close();
 
 		return result;
-	}
+	}*/
 
 	
 

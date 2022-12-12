@@ -127,6 +127,7 @@ public class UserService {
 		return result;
 	}
 	
+	/*
 	
 	//유저 삭제
 	public boolean userDelete(Users usersDto) {
@@ -193,6 +194,6 @@ public class UserService {
 		
 		return result;
 	}
-	
+	*/
 	
 }
