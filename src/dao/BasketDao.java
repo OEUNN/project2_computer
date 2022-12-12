@@ -43,12 +43,12 @@ public class BasketDao {
 		
 		Basket basket = new Basket();
 		basket.setBasketDetail(list);
-		String sql = "select user_id, total_price from basket where user_id=?";
+		String sql = "select basket_id, total_price from basket where basket_id=?";
 		 PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, basketId);
 		ResultSet rs = pstmt.executeQuery();
 		if (rs.next()) {
-			basket.setUserId(rs.getString("user_id"));
+			basket.setUserId(rs.getString("basket_id"));
 			basket.setTotalPrice(rs.getInt("total_price"));
 		}
 		return basket;

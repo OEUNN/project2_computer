@@ -3,24 +3,27 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import dto.BasketDetail;
+import dto.Capacity;
+import dto.Color;
+import dto.Product;
 
 public class BasketDetailDao {
 	public boolean insertBasketPro(BasketDetail basketDetail,Connection conn) throws Exception {
 		boolean result = false;
-		String sql = "insert into basket_detail"
-				+ "(basket_detail_id,PRODUCT_DETAIL_DETAIL_ID ,basket_id, price,PRODUCT_QNT ) "
-				+ "values('basD'||basket_detail_id.nextval,?,?,?,?)";
+		String sql = "insert into basket_detail (basket_detail_id,basket_id,price,product_qnt,product_id,color_id,capacity_id)"
+				+ "values('basD'||basket_detail_id.nextval,?,?,?,?,?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, basketDetail.getProductId());
-		pstmt.setString(2, basketDetail.getUserId());
-		pstmt.setInt(3, basketDetail.getPrice());
-		pstmt.setInt(4, basketDetail.getProductQnt());
-		
+		pstmt.setString(1, basketDetail.getBasketId());
+		pstmt.setInt(2, basketDetail.getPrice());
+		pstmt.setInt(3, basketDetail.getProductQnt());
+		pstmt.setString(4, basketDetail.getProduct().getProductId());
+		pstmt.setString(5, basketDetail.getColor().getColorId());
+		pstmt.setString(6, basketDetail.getCapacity().getCapacityId());
+
 		if (pstmt.executeUpdate() == 1) {
 			result = true;
 		}
@@ -28,27 +31,7 @@ public class BasketDetailDao {
 		return result;
 	}
 
-	public List<BasketDetail> selectBasketDetails(String userId, Connection conn)  throws Exception{
-		BasketDetail basketDetail = new BasketDetail();
-		List<BasketDetail> list = new ArrayList<>();
-		String sql = "select p.product_name, d.detail_color, d.detail_capacity, b.price, b.product_qnt, "
-				+ "(b.price*b.product_qnt )as sum, b.basket_detail_id ,d.detail_id "
-				+ "from product p, product_detail d, basket_detail b " + "where p.product_id=d.product_product_id "
-				+ "and b.product_detail_detail_id=d.detail_id " + "and b.basket_users_user_id=?";
-		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, userId);
-		ResultSet rs = pstmt.executeQuery();
-
-		while (rs.next()) {
-			basketDetail.setBasketDetailId(rs.getString("product_name"));
-			basketDetail.setPrice(rs.getInt("price"));
-			basketDetail.setProductId(rs.getString("product_id"));
-			basketDetail.setProductQnt(rs.getInt("product_qnt"));
-			list.add(basketDetail);
-
-		}
-		return list;
-	}
+	
 
 	public boolean deleteBasketDetail(String userId, Connection conn) throws Exception {
 		boolean result = false;
@@ -64,21 +47,48 @@ public class BasketDetailDao {
 
 	}
 	
-	public BasketDetail selectBasketDetail(String basketDetailId, Connection conn) throws Exception {
-		String sql = "select basket_detail_id, basket_id, price, product_qnt, product_id from basket_detail where basket_detail_id=?";
+	public List<BasketDetail> selectBasketDetails(String basketId, Connection conn) throws Exception {
+		String sql = "select b.BASKET_DETAIL_ID,b.BASKET_ID,PRODUCT_QNT, b.PRICE, " + 
+				"				p.product_id, p.PRODUCT_NAME,PRODUCT_price, " + 
+				"				c.color_id, c.color_name, " + 
+				"				ca.capacity_id, ca.capacity_name " + 
+				"				from basket_detail b, product p, product_color c, product_capacity ca " + 
+				"				where b.color_id= c.color_id and b.capacity_id=ca.capacity_id and " + 
+				"                b.product_id=p.product_id and basket_id=?";
+		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, basketDetailId);
+		pstmt.setString(1, basketId);
 		ResultSet rs = pstmt.executeQuery();
-		BasketDetail basketDetail = new BasketDetail();
+		List<BasketDetail> basketDetailList = new ArrayList<>();
+	
 
-		if (rs.next()) {
-			basketDetail.setBasketDetailId(basketDetailId);
+		while (rs.next()) {
+			BasketDetail basketDetail = new BasketDetail();	
+			Product product = new Product();
+			Color color = new Color();
+			Capacity capacity = new Capacity();
+			
+			product.setProductId(rs.getString("product_id"));
+			product.setProductName(rs.getString("product_name"));
+			product.setProductPrice(rs.getInt("product_price"));
+			
+			color.setColorId(rs.getString("color_id"));
+			color.setColorName(rs.getString("color_name"));
+			
+			capacity.setCapacityId(rs.getString("capacity_id"));
+			capacity.setCapacityName(rs.getString("capacity_name"));
+			
+			basketDetail.setBasketDetailId(rs.getString("basket_detail_id"));
+			basketDetail.setBasketId(rs.getString("basket_id"));
+			basketDetail.setProductQnt(rs.getInt("product_qnt"));
 			basketDetail.setPrice(rs.getInt("price"));
-			basketDetail.setProductId(rs.getString("product_id"));
+			basketDetail.setProduct(product);
+			basketDetail.setColor(color);
+			basketDetail.setCapacity(capacity);
 			basketDetail.setProductQnt(rs.getInt("product_qnt"));
 		}
 		
-		return basketDetail;
+		return basketDetailList;
 	}
 	
 }
