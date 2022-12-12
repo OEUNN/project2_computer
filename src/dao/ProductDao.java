@@ -35,6 +35,9 @@ public class ProductDao {
 		if(productCategory.getOs()!=null) {
 			sql+="and PRODUCT_OS=? ";
 		}
+		if(productCategory.getProductName()!=null) {
+			sql+="and PRODUCT_NAME like '%'||?||'%' ";
+		}
 		if(productCategory.getProductPrice()!=0) {
 			sql+="and product_price>=? ";
 			if(productCategory.getProductPrice()!=1500000) {
@@ -60,6 +63,9 @@ public class ProductDao {
 		}
 		if(productCategory.getOs()!=null) {
 			pstmt.setString(index++, productCategory.getOs());
+		}
+		if(productCategory.getProductName()!=null) {
+			pstmt.setString(index++, productCategory.getProductName());
 		}
 		if(productCategory.getProductPrice()!=0) {
 			pstmt.setInt(index++, productCategory.getProductPrice()-500000);
@@ -127,13 +133,18 @@ public class ProductDao {
 		if(productCategory.getMemory()!=null) {
 			sql+="and PRODUCT_MEMORY=? ";
 		}
+		if(productCategory.getOs()!=null) {
+			sql+="and PRODUCT_OS=? ";
+		}
+		if(productCategory.getProductName()!=null) {
+			sql+="and PRODUCT_NAME like '%'||?||'%' ";
+		}
 		if(productCategory.getProductPrice()!=0) {
 			sql+="and product_price>=? ";
 			if(productCategory.getProductPrice()!=1500000) {
 				sql+="and product_price<= ? ";
 			}
 		}
-		
 		
 		//값 넣기
 		PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -148,6 +159,12 @@ public class ProductDao {
 		}
 		if(productCategory.getMemory()!=null) {
 			pstmt.setString(index++, productCategory.getMemory());
+		}
+		if(productCategory.getOs()!=null) {
+			pstmt.setString(index++, productCategory.getOs());
+		}
+		if(productCategory.getProductName()!=null) {
+			pstmt.setString(index++, productCategory.getProductName());
 		}
 		if(productCategory.getProductPrice()!=0) {
 			pstmt.setInt(index++, productCategory.getProductPrice()-500000);
