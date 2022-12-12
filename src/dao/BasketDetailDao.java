@@ -3,9 +3,11 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.Basket;
 import dto.BasketDetail;
 import dto.Capacity;
 import dto.Color;
@@ -89,6 +91,68 @@ public class BasketDetailDao {
 		}
 		
 		return basketDetailList;
+	}
+
+
+
+	public BasketDetail selectBasketDetail(BasketDetail basketDetail, Connection conn) throws Exception {	
+		String sql = "select basket_detail_id, price, product_qnt from basket_detail where color_id=? and capacity_id=? and product_id=? and basket_id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, basketDetail.getColor().getColorId());
+		pstmt.setString(2, basketDetail.getCapacity().getCapacityId());
+		pstmt.setString(3, basketDetail.getProduct().getProductId());
+		pstmt.setString(4,  basketDetail.getBasketId());
+		ResultSet rs = pstmt.executeQuery();
+		if(rs.next()) {
+			basketDetail.setBasketDetailId(rs.getString("basket_detail_id"));
+			basketDetail.setPrice(rs.getInt("price"));
+			basketDetail.setProductQnt(rs.getInt("product_qnt"));
+		}
+		
+		return basketDetail;
+	}
+
+
+
+	public void updateBasketDetail(BasketDetail basketDetail, Connection conn) throws Exception {
+		String sql = "update basket_detail set product_qnt=?, price=? where basket_detail_id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, basketDetail.getProductQnt());
+		pstmt.setInt(2, basketDetail.getPrice());
+		pstmt.setString(3, basketDetail.getBasketDetailId());
+		pstmt.executeUpdate();
+		
+	}
+
+
+
+	public boolean checkBasketDetail(BasketDetail basketDetail, Connection conn) throws Exception {
+		String sql = "select basket_detail_id from basket_detail where color_id=? and capacity_id=? and product_id=? and basket_id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, basketDetail.getColor().getColorId());
+		pstmt.setString(2, basketDetail.getCapacity().getCapacityId());
+		pstmt.setString(3, basketDetail.getProduct().getProductId());
+		pstmt.setString(4,  basketDetail.getBasketId());
+		ResultSet rs = pstmt.executeQuery();
+		boolean result = false;
+		if(rs.next()) {		
+			result = true;
+		}
+		return result;
+	}
+
+
+
+	public int countBasketDetail(Basket basket, Connection conn) throws Exception{
+		String sql = "select count(*) from basket_detail where basket_id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, basket.getUserId());
+		ResultSet rs = pstmt.executeQuery();
+		int result = 0;
+		if(rs.next()) {
+			result = rs.getInt(1);
+		}
+		return result;
 	}
 	
 }

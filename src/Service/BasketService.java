@@ -30,20 +30,47 @@ public class BasketService {
 	public boolean addBasketDetail(BasketDetail basketDetail) {
 		Connection conn = null;
 		boolean result = false;
+		String basketId = basketDetail.getBasketId();
+		BasketDao basketDao= (BasketDao)application.getAttribute("basketDao");
+		
 		try {
 			conn = ds.getConnection();
-				//해당 productId가 존재한다면 BasketDetailDao 호출함
-					boolean basketDetailResult = basketDetailDao.insertBasketPro(basketDetail,conn);
-					if (basketDetailResult) {
-						//basketDeatil이 존재한다면 BasketDao를 호출함
-						String basketId = basketDetail.getBasketId();
-						BasketDao basketDao= (BasketDao)application.getAttribute("basketDao");
+				//이미 존재하는 상품, 컬러, 용량이라면		
+					//insert하지 않고 basketDetail update 필요			
+					boolean checkBasketDetail = basketDetailDao.checkBasketDetail(basketDetail, conn);
+					if(checkBasketDetail) {		
+						
+						BasketDetail myBasketDetail = new BasketDetail();
+						myBasketDetail.setBasketId(basketDetail.getBasketId());
+						myBasketDetail.setCapacity(basketDetail.getCapacity());
+						myBasketDetail.setColor(basketDetail.getColor());
+						myBasketDetail.setProduct(basketDetail.getProduct());
+						
+						myBasketDetail = basketDetailDao.selectBasketDetail(myBasketDetail, conn);
+						
+					
+						int price = myBasketDetail.getPrice() + basketDetail.getPrice();
+						int quantity = myBasketDetail.getProductQnt() + basketDetail.getProductQnt();
+					
+				
+						myBasketDetail.setPrice(price);
+						myBasketDetail.setProductQnt(quantity);
+						basketDetailDao.updateBasketDetail(myBasketDetail, conn);		
+						
 						Basket basket = basketDao.selectBasket(basketId, conn);
 						int totalPrice = basket.getTotalPrice()+basketDetail.getPrice();
 						basket.setTotalPrice(totalPrice);
-						result = basketDao.updateBasket(basket, conn);					
+						result = basketDao.updateBasket(basket, conn);
+						
+					} else {
+						basketDetailDao.insertBasketPro(basketDetail,conn);
+						
+						Basket basket = basketDao.selectBasket(basketId, conn);
+						int totalPrice = basket.getTotalPrice()+basketDetail.getPrice();
+						basket.setTotalPrice(totalPrice);
+						result = basketDao.updateBasket(basket, conn);
 					}
-				
+					//basketDeatil이 존재한다면 BasketDao를 호출함
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -118,6 +145,22 @@ public class BasketService {
 		}
 		
 		return list;
+	}
+
+	public int countBasketDetail(Basket basket) {
+		int count = 0;
+		Connection conn = null;
+		try {
+			conn = ds.getConnection();
+			count = basketDetailDao.countBasketDetail(basket, conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {conn.close();} catch(Exception e) {};
+		}
+		
+		return count;
+		
 	}
 
 	

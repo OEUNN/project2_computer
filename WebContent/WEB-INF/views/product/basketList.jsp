@@ -84,10 +84,10 @@
        				
        				</div>
        				<div class="card-body rowPrice">
-       					<h5><i class="fas">&#xf07a;</i>전체 주문:<span >0</span>개 </h5>
+       					<h5><i class="fas">&#xf07a;</i>전체 주문:<span >${count}</span>개 </h5>
        					
        					<hr/>
-       					<h4 id="totalPrice">총액 : <span>0</span>원</h4>
+       					<h4 id="totalPrice">총액 : <span>${basket.totalPrice}</span>원</h4>
        				</div>
        				<div class="card-footer">
        					<button class="btn rounded-0" type="submit" style="background-color: #0c1c32; color:#f8f8f8; width:100% ">선택항목 주문하기</button>

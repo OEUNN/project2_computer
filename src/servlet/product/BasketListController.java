@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Service.BasketService;
+import dto.Basket;
  
 @WebServlet(name = "product.BasketListController", urlPatterns =  "/product/BasketListController" )
 public class BasketListController extends HttpServlet {
@@ -19,7 +20,10 @@ public class BasketListController extends HttpServlet {
 		BasketService basketService = (BasketService) request.getServletContext().getAttribute("basketService");
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("loginId");
-		basketService.getBasket(userId);
+		Basket basket = basketService.getBasket(userId);
+		int count = basketService.countBasketDetail(basket);
+		request.setAttribute("basket", basket);
+		request.setAttribute("count", count);
 		
 		//JSP로 이동
 		request.getRequestDispatcher("/WEB-INF/views/product/basketList.jsp").forward(request, response);
