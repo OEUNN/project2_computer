@@ -104,7 +104,7 @@
 	<!-- 메뉴 -->
 	<div id="menu" class="d-none d-md-inline col-md-2 mt-5">
 		<!-- 메뉴1 -->
-		<button class="btn btn-info " style="width:100%" onclick="resetCategory()">reset</button>
+		<button class="btn btn-dark " style="width:100%" onclick="resetCategory()">reset</button>
 		<form onchange="categoryUpdate()">
 			<div id="menu1" class="my-5">
 				<h5>
