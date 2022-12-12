@@ -19,6 +19,7 @@ import dto.ProductImage;
 
 @WebServlet(name="user.UserImageAttachController", urlPatterns="/user/UserImageAttachController")
 public class UserImageAttachController extends HttpServlet {
+	
    @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	   // 시작행과 헤더행에는 한글은 들어가지 않는다

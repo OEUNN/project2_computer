@@ -10,7 +10,7 @@
 <%@ include file="/WEB-INF/views/common/header2.jsp" %>
 
 <!-- 몸통 -->
-<div id="body" class="row">
+<div id="body" class="row"> 
 	
 	<!-- menu -->
 	<div class="col-0 col-md-3 "></div>

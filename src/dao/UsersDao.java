@@ -9,7 +9,6 @@ import dto.Users;
 
 public class UsersDao {
 	Map<String, String> map; 
-
 	// 아이디 비교하기
 	public boolean compareIdLoginSelect(String id, Connection conn) throws Exception {
 		boolean result = false;
