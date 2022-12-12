@@ -15,7 +15,7 @@
 			<hr />
 			<div class="orderTable ">
 			<c:set var="sum" value="0"/>
-			<c:forEach var="orderDetail" items="${orderDetail}">
+			
 						<table class=" table table-hover">
 							<thead>
 								<tr>		
@@ -25,27 +25,30 @@
 									<th>수량</th>
 								</tr>
 							</thead>
+							<c:forEach var="orderDetail" items="${orderDetail}">
 							<tbody>
 								<tr>
-								<td>
-                 					<span>
-	                 					<img src="ImageAttachController?imageId=${orderDetail.product.productImageList[0].imageId}" width="100"/> 
-                 					</span> 
-                 					<br/>
-               						
-								</td>
-								<td>
-									<div>
-										${orderDetail.product.productId} <span>(${orderDetail.color.colorName},${orderDetail.capacity.capacityName} 택)</span>
-									</div>
-								</td>
-								<td><div>${orderDetail.product.productPrice}</div></td>
-								<td><div>${orderDetail.productQnt}</div></td>
+									<td>
+	                 					<span>
+		                 					<img src="ImageAttachController?imageId=${orderDetail.product.productImageList[0].imageId}" width="100"/> 
+	                 					</span> 
+	                 					<br/>
+	               						
+									</td>
+									<td>
+										<div>
+											${orderDetail.product.productId} <span>(${orderDetail.color.colorName},${orderDetail.capacity.capacityName} 택)</span>
+										</div>
+									</td>
+									<td><div>${orderDetail.product.productPrice}</div></td>
+									<c:set var= "sum" value="${sum + orderDetail.price}"/>
+									<td><div>${orderDetail.productQnt}</div></td>
 								</tr>	
+								</c:forEach>
 							</tbody>
 						</table>
-						<c:set var= "sum" value="${sum + orderDetail.price}"/>
-					</c:forEach>
+						
+				
 						<hr />
 							<h4 id="totalPrice">
 								총액 : <span><c:out value="${sum}"/></span>원

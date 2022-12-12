@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Service.BasketService;
 import Service.OrderService;
 import dto.OrderDetail;
 import dto.Orders;
@@ -61,6 +62,9 @@ public class OrderController extends HttpServlet {
 			orderService.insertOrderDetail(orderDetail);
 		}
 		
+		
+		BasketService basketService = (BasketService) request.getServletContext().getAttribute("basketService");
+	
 	
 		
 		response.sendRedirect("ProductListController");

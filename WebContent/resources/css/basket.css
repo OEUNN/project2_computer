@@ -37,8 +37,8 @@
 	padding-top: 25px;
 }
 
-.basketTable td span, #deleteBasket {
-	font-size: 8px;
+.basketTable td span {
+	font-size: 15px;
 	color: gray;
 }
 

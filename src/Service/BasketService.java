@@ -94,6 +94,7 @@ public class BasketService {
 			basket = basketDao.selectBasket(userId, conn);
 			List<BasketDetail> list = basketDetailDao.selectBasketDetails(userId, conn);
 			basket.setBasketDetail(list);
+	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -118,20 +119,7 @@ public class BasketService {
 		return result;
 	}
 
-	public String deleteBasketAll(Basket basket) {
-		Connection conn = null;
-		try {
-			conn = ds.getConnection();
-			Output = (basketDetailDao.deleteBasketDetail(basket.getUserId(),conn)) ? "success" : "fail";
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			try {conn.close();} catch(Exception e) {};
-		}
-		
-		return Output;
-	}
-	
+
 	public List<BasketDetail> getBasketDetailList(String userId){
 		Connection conn = null;
 		List<BasketDetail> list = new ArrayList<>();
@@ -161,6 +149,50 @@ public class BasketService {
 		
 		return count;
 		
+	}
+
+	public void deleteBasketDetail(String basketDetailId) {
+
+		Connection conn = null;
+		try {
+			conn = ds.getConnection();
+			basketDetailDao.deleteBasketDetail(basketDetailId, conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {conn.close();} catch(Exception e) {};
+		}
+		
+	
+		
+	}
+
+	public void updateBasket(Basket basket) {
+		Connection conn = null;
+		try {
+			conn = ds.getConnection();
+			basketDao.updateBasket(basket, conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {conn.close();} catch(Exception e) {};
+		}
+		
+	}
+
+	public BasketDetail getBasketDetail(String basketDetailId) {
+		Connection conn = null;
+		BasketDetail basketDetail = new BasketDetail();
+		try {
+			conn = ds.getConnection();
+			basketDetailDao.selectBasketDetailOne(basketDetailId, conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {conn.close();} catch(Exception e) {};
+		}
+		
+		return basketDetail;
 	}
 
 	

@@ -35,17 +35,13 @@ public class BasketDetailDao {
 
 	
 
-	public boolean deleteBasketDetail(String userId, Connection conn) throws Exception {
-		boolean result = false;
-
-		String sql = "delete from basket_detail where basket_users_user_id=?";
+	public void deleteBasketDetail(String basketDetailId, Connection conn) throws Exception {
+		String sql = "delete from basket_detail where basket_detail_id=?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, userId);
+		pstmt.setString(1, basketDetailId);
 		if (pstmt.executeUpdate() != 0) {
-			result = true;
 		}
 
-		return result;
 
 	}
 	
@@ -64,7 +60,7 @@ public class BasketDetailDao {
 		List<BasketDetail> basketDetailList = new ArrayList<>();
 	
 
-		while (rs.next()) {
+		while(rs.next()) {
 			BasketDetail basketDetail = new BasketDetail();	
 			Product product = new Product();
 			Color color = new Color();
@@ -88,6 +84,8 @@ public class BasketDetailDao {
 			basketDetail.setColor(color);
 			basketDetail.setCapacity(capacity);
 			basketDetail.setProductQnt(rs.getInt("product_qnt"));
+			basketDetailList.add(basketDetail);
+			
 		}
 		
 		return basketDetailList;
@@ -153,6 +151,24 @@ public class BasketDetailDao {
 			result = rs.getInt(1);
 		}
 		return result;
+	}
+
+
+
+	public BasketDetail selectBasketDetailOne(String basketDetailId, Connection conn) throws Exception {
+		BasketDetail basketDetail = new BasketDetail();
+		String sql = "select basket_detail_id, price, product_qnt, basket_id, color_id, capacity_id from basket_detail where basket_id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, basketDetailId);
+		ResultSet rs = pstmt.executeQuery();
+		if(rs.next()) {
+			basketDetail.setBasketDetailId(rs.getString("basket_detail_id"));
+			basketDetail.setBasketId(rs.getString("basket_id"));
+			basketDetail.setPrice(rs.getInt("price"));
+			basketDetail.setProductQnt(rs.getInt("product_qnt"));
+		}
+		
+		return basketDetail;
 	}
 	
 }
