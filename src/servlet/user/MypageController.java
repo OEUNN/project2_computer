@@ -12,12 +12,13 @@ import javax.servlet.http.HttpSession;
 
 import Service.UserService;
 import dto.Users;
-
+ 
 @WebServlet(name = "user.MypageController", urlPatterns ="/user/MypageController")
 public class MypageController extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		System.out.println("MypageController service() 실행");
 		ServletContext application = request.getServletContext();
 		UserService userService = (UserService) application.getAttribute("userService");

@@ -3,7 +3,6 @@ package context;
 import javax.sql.DataSource;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
-
 public class ConnectionProvider {
 	//싱글톤패턴 활용 -> 커넥션 풀 만들기 dataSource = dataPool
 	private static BasicDataSource dataSource;

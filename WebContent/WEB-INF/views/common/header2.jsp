@@ -9,13 +9,13 @@
       <!-- 상단 -->
       <div id="top" class="row">
          <div id="logo" class="col-4 col-md-3 btn mt-3">
-            <a href="${pageContext.request.contextPath}/product/ProductListController">
+            <a href="${pageContext.request.contextPath}/product/ProductListController" style="text-decoration: none;">
                <b>SAMSUNG</b>
             </a>
          </div>
 
          <div class=" col "></div>
-
+ 
             <!-- 아이콘 -->
          <div id="icon" class=" col-2 col-md-2 mt-3">
             <!-- 장바구니 -->
@@ -71,8 +71,11 @@
       <div id="topmenu" class="row" style="height:50px;">
          <div class="col-1" ></div>
          <div class="col-4 p-2" >
-            <a href="${pageContext.request.contextPath}/product/ProductListController">
-               >Home
+            <a href="${pageContext.request.contextPath}/product/ProductListController" class="fa fa-desktop" style="text-decoration: none;">
+               Home		|
+            </a>
+            <a href="${pageContext.request.contextPath}/user/MypageController" class="fa fa-paw" style="text-decoration: none;">
+               MyPage
             </a>
          </div>
          <div class="col"></div>

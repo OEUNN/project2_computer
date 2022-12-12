@@ -5,30 +5,30 @@ import java.sql.Connection;
 import javax.servlet.ServletContext;
 import javax.sql.DataSource;
 
+import dao.CapacityDao;
 import dao.ProductImageDao;
+import dto.Capacity;
 import dto.ProductImage;
- 
-public class ImageService {
-	private ServletContext application;
+
+public class CapacityService {
+	private ServletContext application; 
 	private DataSource ds;
 
-	private ProductImageDao productImageDao; 
+	private CapacityDao capacityDao; 
 	
-	public ImageService(ServletContext application) {
+	public CapacityService(ServletContext application) {
 		this.application=application;
 		
-		productImageDao= (ProductImageDao)this.application.getAttribute("productImageDao");
-		
+		capacityDao= (CapacityDao)this.application.getAttribute("capacityDao");		
 		ds=(DataSource)this.application.getAttribute("dataSource");
 	}
 
-	public ProductImage getProductImage(String imageId) {
+	public Capacity getCapacity(String capacityId) {
 		Connection conn = null;
-		ProductImage productImage = new ProductImage();
-		try {
-			
+		Capacity capacity = new Capacity();
+		try {		
 			conn=ds.getConnection();
-			productImage = productImageDao.selectImage(imageId,conn);
+			capacity = capacityDao.selectCapacity(capacityId, conn);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -36,7 +36,7 @@ public class ImageService {
 			try{ conn.close(); }catch(Exception e) {}
 		}
 		
-		return productImage;
+		return capacity;
 	}
 	
 }

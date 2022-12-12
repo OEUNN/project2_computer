@@ -3,7 +3,6 @@
 <%@ page import="java.util.*,dto.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
 <%@ include file="/WEB-INF/views/common/header1.jsp"%>
 <link rel="stylesheet" href="../resources/css/header.css">
 <link rel="stylesheet" href="../resources/css/productDetail.css">
@@ -50,7 +49,7 @@
 				</div>
 
 			</div>
-			<form method="post" id="detail-form">
+			<form method="post" id="detail-form" action="LoginController">
 				<input type="hidden" name="productId" value="${product.productId}" />
 				<input type="hidden" name="price" value="${product.productPrice}" />
 				<div class="option  mt-4 mr-4 mb-2 ml-4" style="height: 350px">
@@ -116,40 +115,53 @@
 					<div style="flex-grow: 5">
 						<!-- Button to Open the Modal -->
 						<!-- <input onClick="window.location.href='CreateBasketDetailController'" value="장바구니" type="button" class="w-btn w-btn-indigo mx-1" data-toggle="modal" data-target="#myModal"/>
-			        -->
-						<button form="detail-form" type="button" class="w-btn w-btn-indigo mx-1"  data-toggle="modal"data-target="#myModal">장바구니</button>
-
-						<!-- The Modal -->
-						<div class="modal fade" id="myModal">
-							<div class="modal-dialog">
-								<div class="modal-content">
-
-									<!-- Modal Header -->
-									<div class="modal-header">
-										장바구니 담기
-										<button type="button" class="close" data-dismiss="modal">&times;</button>
+			        -->	<!-- 로그인 OFF -->
+						<c:if test="${loginId==null}">
+							<a href="../user/LoginController"  class="w-btn w-btn-indigo mx-1">장바구니</a>
+						
+						</c:if>
+						
+						<c:if test="${loginId!=null}">
+							<button form="detail-form" type="button" class="w-btn w-btn-indigo mx-1"  data-toggle="modal"data-target="#myModal">장바구니</button>
+						
+							<!-- The Modal -->
+							<div class="modal fade" id="myModal">
+								<div class="modal-dialog">
+									<div class="modal-content">
+	
+										<!-- Modal Header -->
+										<div class="modal-header">
+											장바구니 담기
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+										</div>
+	
+										<!-- Modal body -->
+										<div class="modal-body">장바구니에 상품을 담으시겠습니까?</div>
+	
+										<!-- Modal footer -->
+										<div class="modal-footer">
+	
+											<button type="button" onClick="goBasket()" class="w-btn w-btn-indigo mx-1">네</button>
+											<button type="button" class="w-btn w-btn-indigo mx-1" data-dismiss="modal">아니오</button>
+	
+										</div>
+	
 									</div>
-
-									<!-- Modal body -->
-									<div class="modal-body">장바구니에 상품을 담으시겠습니까?</div>
-
-									<!-- Modal footer -->
-									<div class="modal-footer">
-
-										<button type="button" onClick="goBasket()" class="w-btn w-btn-indigo mx-1">네</button>
-										<button type="button" class="w-btn w-btn-indigo mx-1" data-dismiss="modal">아니오</button>
-
-									</div>
-
 								</div>
 							</div>
+							</c:if>
 						</div>
+						<div style="flex-grow: 5">
+							<c:if test="${loginId==null}">
+								<a href="../user/LoginController"  class="w-btn w-btn-indigo mx-1">구매하기</a>
+							</c:if>
+							<c:if test="${loginId!=null}">			
+								<button type="button" onClick="goOrder()" id="Product_Detail_submit"  class="w-btn w-btn-indigo mx-1">구매하기</button>
+							</c:if>
+						</div>
+	
 					</div>
-					<div style="flex-grow: 5">
-						<button type="button" onClick="goOrder()" id="Product_Detail_submit" name="choice" value="buy" class="w-btn w-btn-indigo mx-1">구매하기</button>
-					</div>
-
-				</div>
+				
 			</form>
 
 

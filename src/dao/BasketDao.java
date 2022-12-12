@@ -10,7 +10,6 @@ import javax.servlet.ServletContext;
 import Service.BasketService;
 import dto.Basket;
 import dto.BasketDetail;
-
 public class BasketDao {
 	String Output;
 	private ServletContext application;
@@ -19,17 +18,12 @@ public class BasketDao {
 		this.application = application;
 	}
 
-	public boolean Create(String userId, Connection conn) throws Exception {
-		boolean result = false;
-		String sql = "insert into basket (user_id)  values  ( ? ) ";
+	public void Create(String userId, Connection conn) throws Exception {
+		String sql = "insert into basket (basket_id, totla_price)  values  ( ?,0 ) ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, userId);
-		int row = pstmt.executeUpdate();
-		
-		if(row == 1) {
-			result = true;
-		}
-		return result;
+		pstmt.executeUpdate();
+		pstmt.close();
 	}
 
 	public boolean updateBasket(Basket basket, Connection conn) throws Exception {

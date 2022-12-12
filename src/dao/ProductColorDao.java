@@ -10,7 +10,6 @@ import dto.Color;
 import dto.Product;
 
 public class ProductColorDao {
-
 	public List<Color> selectColor(Product product, Connection conn)throws Exception {
 		List<Color> list = new ArrayList<>();
 

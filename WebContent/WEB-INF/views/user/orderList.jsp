@@ -8,6 +8,7 @@
 <%@ include file="/WEB-INF/views/common/header2.jsp" %>
 <%@ include file="/WEB-INF/views/common/mypageMenu.jsp" %>
 
+
 	<!-- center Board -->
 	<div id="centerBoard" class="col-12 col-md mt-5">
 		<div class="container-fluid">

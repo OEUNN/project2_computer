@@ -8,7 +8,6 @@
 <script src="../resources/javascript/productList.js"></script>
 <%@ include file="/WEB-INF/views/common/header2.jsp"%>
 
-
 <!-- mainBoard -->
 <div id="mainBoard" class="row" >
 	<!-- 메인 스크롤 -->
@@ -105,77 +104,87 @@
 	<!-- 메뉴 -->
 	<div id="menu" class="d-none d-md-inline col-md-2 mt-5">
 		<!-- 메뉴1 -->
-		<div id="menu1" class="my-5">
-			<h5>
-				<b>그래픽 카드</b>
-			</h5>
-			<div class="row my-3 mx-1">
-				<input id="graphicCard1" name="graphicCard" type="radio" value="graphicCard3060" /> 
-					<label for="graphicCard1" class="my-auto">3060</label>
+		<form onchange="categoryUpdate()">
+			<div id="menu1" class="my-5">
+				<h5>
+					<b>그래픽 카드</b>
+				</h5>
+				<c:forEach var="graphic" items="${graProList}" varStatus="graNum">
+					<div class="row my-3 mx-1">
+						<input id="graphicCard${graNum.count}" name="graphicCard" type="radio" value="${graphic}" /> 
+						<label for="graphicCard${graNum.count}" class="my-auto">${graphic}</label>
+					</div>
+				</c:forEach>
 			</div>
-			<div class="row my-3 mx-1">
-				<input id="graphicCard2" name="graphicCard" type="radio" value="graphicCard3040" /> 
-				<label for="graphicCard2" class="my-auto">3040</label>
+			<!-- 메뉴2 -->
+			<div id="menu1" class="my-4">
+				<h5>
+					<b>CPU</b>
+				</h5>
+				<c:forEach var="cpu" items="${cpuProList}" varStatus="cpuNum">
+					<div class="row my-3 mx-1">
+						<input id="CPU${cpuNum.count }" name="CPU" type="radio" value="${cpu}" /> 
+						<label for="CPU${cpuNum.count }" class="my-auto">${cpu}</label>
+					</div>
+				</c:forEach>
+				
 			</div>
-			<div class="row my-3 mx-1">
-				<input id="graphicCard3" name="graphicCard" type="radio" value="graphicCard3080" /> 
-					<label for="graphicCard3" class="my-auto">3080</label>
+			<!-- 메뉴3 -->
+			<div id="menu1" class="my-4">
+				<h5>
+					<b>메모리 카드</b>
+				</h5>
+				<c:forEach var="memory" items="${meProList}" varStatus="meNum">
+					<div class="row my-3 mx-1">
+						<input id="memoryCard${meNum.count}" name="memoryCard" type="radio" value="${memory}" /> 
+						<label for="memoryCard${meNum.count}" class="my-auto">${memory}</label>
+					</div>
+				</c:forEach>
+				
 			</div>
-		</div>
-		<!-- 메뉴2 -->
-		<div id="menu1" class="my-4">
-			<h5>
-				<b>CPU</b>
-			</h5>
-			<div class="rowmy-3 mx-1">
-				<input id="CPU1" name="CPU" type="radio" value="Intel-i3" /> 
-				<label for="CPU1" class="my-auto">Intel-i3</label>
+			<!-- 메뉴4 -->
+			<div id="menu1" class="my-4">
+				<h5>
+					<b>메인 보드</b>
+				</h5>
+				<c:forEach var="mainBoard" items="${maProList}" varStatus="maNum">
+					<div class="row my-3 mx-1">
+						<input id="mainBoard${maNum.count}" name="mainBoard" type="radio" value="${mainBoard}" /> 
+						<label for="mainBoard${maNum.count}" class="my-auto">${mainBoard}</label>
+					</div>
+				</c:forEach>
+				
 			</div>
-			<div class="row my-3 mx-1">
-				<input id="CPU2" name="CPU" type="radio" value="Intel-i5" /> 
-				<label for="CPU2" class="my-auto">Intel-i5</label>
+			<div id="menu1" class="my-4">
+				<h5>
+					<b>운영체재</b>
+				</h5>
+				<c:forEach var="os" items="${osProList}" varStatus="osNum">
+					<div class="row my-3 mx-1">
+						<input id="os${osNum.count}" name="os" type="radio" value="${os}" /> 
+						<label for="os${osNum.count}" class="my-auto">${os}</label>
+					</div>
+				</c:forEach>
+				
 			</div>
-			<div class="row my-3 mx-1">
-				<input id="CPU3" name="CPU" type="radio" value="Intel-i7" /> 
-				<label for="CPU4" class="my-auto">Intel-i7</label>
+			<div id="menu1" class="my-4">
+				<h5>
+					<b>가격</b>
+				</h5>
+				<div class="row my-3 mx-1">
+					<input id="price1" name="price" type="radio" value="500000" /> 
+					<label for="price1" class="my-auto">0 ~ 50만원</label>
+				</div>
+				<div class="row m-1">
+					<input id="price2" name="price" type="radio" value="1000000" /> 
+					<label for="price2" class="my-auto">50 ~ 100만원</label>
+				</div>
+				<div class="row my-3 mx-1">
+					<input id="price3" name="price" type="radio" value="1500000" /> 
+					<label for="price3" class="my-auto">100만원 ~ </label>
+				</div>
 			</div>
-		</div>
-		<!-- 메뉴3 -->
-		<div id="menu1" class="my-4">
-			<h5>
-				<b>메모리 카드</b>
-			</h5>
-			<div class="row my-3 mx-1">
-				<input id="memoryCard1" name="memoryCard" type="radio" value="memoryCard128" /> 
-					<label for="gmemoryCard1" class="my-auto">128GB</label>
-			</div>
-			<div class="row my-3 mx-1">
-				<input id="memoryCard2" name="memoryCard" type="radio" value="memoryCard256" /> 
-					<label for="memoryCard2" class="my-auto">256GB</label>
-			</div>
-			<div class="row my-3 mx-1">
-				<input id="memoryCard3" name="memoryCard" type="radio" value="memoryCard512" /> 
-					<label for="memoryCard3" class="my-auto">512GB</label>
-			</div>
-		</div>
-		<!-- 메뉴4 -->
-		<div id="menu1" class="my-4">
-			<h5>
-				<b>가격</b>
-			</h5>
-			<div class="row my-3 mx-1">
-				<input id="price1" name="price" type="radio" value="price50" /> 
-				<label for="price1" class="my-auto">0 ~ 50만원</label>
-			</div>
-			<div class="row m-1">
-				<input id="price2" name="price" type="radio" value="price100" /> 
-				<label for="price2" class="my-auto">50 ~ 100만원</label>
-			</div>
-			<div class="row my-3 mx-1">
-				<input id="price3" name="price" type="radio" value="price_over" /> 
-				<label for="price4" class="my-auto">100만원 ~ </label>
-			</div>
-		</div>
+		</form>
 	</div>
 	<div class="col-12 col-md-8 productListPage">
 		<div class="row productList">

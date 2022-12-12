@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import dto.OrderDetail;
 
 public class OrderDetailDao {
-
 	public Boolean insertOrderDetail(OrderDetail orderDetail, Connection conn) throws SQLException {
 		String sql = "insert into order_detail "
 				+ "(ORDER_DETAIL_ID,ORDER_ID,PRODUCT_QNT,price,PRODUCT_ID,color_id,capacity_id)"

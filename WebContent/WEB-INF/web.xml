@@ -9,9 +9,12 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
+   
   <listener> 
 	<listener-class>context.WebAppContext</listener-class> 
   </listener>
   
+  <session-config>
+  	<session-timeout>15</session-timeout>
+  </session-config>
 </web-app>

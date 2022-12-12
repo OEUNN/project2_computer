@@ -13,7 +13,7 @@ import dto.Basket;
 import dto.BasketDetail;
 
 public class BasketService {
-	String Output;
+	String Output; 
 	private ServletContext application;
 	private DataSource ds;
 	private BasketDao basketDao;
@@ -92,7 +92,7 @@ public class BasketService {
 		boolean result = false;
 		try {
 			conn = ds.getConnection();
-			result = basketDao.Create(userId, conn);
+			basketDao.Create(userId, conn);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {

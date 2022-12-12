@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import Service.QnaBoardService;
 import dto.QnaBoard;
 import util.Pager;
-
+ 
 @WebServlet(name = "board.QnaBoardDeleteController", urlPatterns =  "/board/QnaBoardDeleteController" )
 public class QnaBoardDeleteController extends HttpServlet {
 	

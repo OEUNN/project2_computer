@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import Service.UserService;
 import dto.Users;
-
+ 
 @MultipartConfig(maxFileSize = 1024*1024*10, maxRequestSize=1024*1024*20)
 @WebServlet(name = "user.JoinController", urlPatterns ="/user/JoinController")
 public class JoinController extends HttpServlet {
@@ -28,6 +28,7 @@ public class JoinController extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		System.out.println("JoinController doPost()");
 		String userId = request.getParameter("userId");
 		
@@ -56,7 +57,7 @@ public class JoinController extends HttpServlet {
 			usersDto.setUserSavedName(savedName);
 			usersDto.setUserContentType(fileType);
 			
-			String filePath = "C:/Temp/download" + savedName;
+			String filePath = "C:/Temp/download/" + savedName;
 			filePart.write(filePath);
 		}
 		

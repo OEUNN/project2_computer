@@ -13,7 +13,7 @@ import dao.ProductDao;
 import dao.ProductImageDao;
 import dto.Product;
 import util.Pager;
-
+ 
 public class ProductService {
 	private ServletContext application;
 	private DataSource ds;
@@ -21,6 +21,7 @@ public class ProductService {
 	private ProductColorDao productColorDao;
 	private ProductCapacityDao productCapacityDao; 
 	private ProductImageDao productImageDao; 
+	
 	
 	public ProductService(ServletContext application) {
 		this.application=application;
@@ -32,12 +33,12 @@ public class ProductService {
 		ds=(DataSource)application.getAttribute("dataSource");
 	}
 	
-	public List<Product> getList(Pager page) {
+	public List<Product> getList(Pager page,Product productCategory) {
 		Connection conn = null;
 		List<Product> list = new ArrayList<>();
 		try {
 			conn=ds.getConnection();
-			list = productDao.selectProducts(page,conn);
+			list = productDao.selectProducts(page,conn,productCategory);
 			for(Product product:list){
 				product.setColorList(productColorDao.selectColor(product,conn));
 				product.setCapacityList(productCapacityDao.selectCapacity(product,conn));
@@ -52,12 +53,12 @@ public class ProductService {
 		return list;
 	}
 
-	public int getTotalRow() {
+	public int getTotalRow(Product product) {
 		Connection conn = null;
 		int count=0;
 		try {
 			conn=ds.getConnection();
-			count = productDao.selectCountProduct(conn);
+			count = productDao.selectCountProduct(conn,product);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -76,6 +77,26 @@ public class ProductService {
 			product.setColorList(productColorDao.selectColor(product, conn));
 			product.setCapacityList(productCapacityDao.selectCapacity(product,conn));
 			product.setProductImageList(productImageDao.selectImage(product,conn));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try{ conn.close(); }catch(Exception e) {}
+		}
+		
+		return product;
+	}
+
+	public Product getCategory() {
+		Connection conn = null;
+		Product product = new Product();
+		try {
+			conn=ds.getConnection();
+			
+			product.setGraphcCardList(productDao.selectCategory("PRODUCT_GRAPHIC_CARD", conn));
+			product.setCpuList(productDao.selectCategory("PRODUCT_CPU",conn));
+			product.setMainboardList(productDao.selectCategory("PRODUCT_MAINBOARD",conn));
+			product.setMemoryList(productDao.selectCategory("PRODUCT_MEMORY",conn));
+			product.setOsList(productDao.selectCategory("PRODUCT_OS",conn));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {

@@ -18,3 +18,54 @@ function findAddr(){
         }
     }).open();
 }
+
+
+//유효성 검사
+function check(){
+	var result = true;
+	//닉네임
+	if($("#user_id").val() != ''){
+		$("#user_id").removeClass("mystyle");
+	}else{
+		$("#user_id").addClass("mystyle");
+		result=false;
+	}
+	
+	//닉네임
+
+	var phone = $("#user_phone");
+	var phoneValue = phone.val();
+	var phonePattern =/^010-\d{3,4}-\d{4}$/;
+	var phoneTest = phonePattern.test(phoneValue);
+	if(phoneTest){
+		phone.removeClass("mystyle");
+	}else{
+		phone.addClass("mystyle");
+		result=false;
+	}
+	
+	//닉네임
+	if($("#userAddr").val() != ''){
+		$("#userAddr").removeClass("mystyle");
+	}else{
+		$("#userAddr").addClass("mystyle");
+		result=false;
+	}
+	
+	if($("#userPost").val() != ''){
+		$("#userPost").removeClass("mystyle");
+	}else{
+		$("#userPost").addClass("mystyle");
+		result=false;
+	}
+	
+	if($("#userDetailAddr").val() != ''){
+		$("#userDetailAddr").removeClass("mystyle");
+	}else{
+		$("#userDetailAddr").addClass("mystyle");
+		result=false;
+	}
+	
+	return result;
+	
+}
