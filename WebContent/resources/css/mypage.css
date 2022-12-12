@@ -52,3 +52,14 @@
 	border-bottom: 1px dotted black;
 	font-size : 130%;
 }
+
+td{
+	width:70px;
+	height:50px;
+	text-align:center;
+	font-size:20px;
+	font-family:굴림;
+	border:2px;
+	border-color:#3333ff;
+	border-radius:8px;
+}

@@ -5,6 +5,7 @@
 <%@ include file="/WEB-INF/views/common/header1.jsp"%>
 <link rel="stylesheet" href="../resources/css/header.css">
 <link rel="stylesheet" href="../resources/css/mypage.css">
+<script src="../resources/javascript/mypage.js"></script>
 <%@ include file="/WEB-INF/views/common/header2.jsp"%>
 <%@ include file="/WEB-INF/views/common/mypageMenu.jsp"%>
 
@@ -71,40 +72,30 @@
 
 					<div class="col"></div>
 
-					<div id="mypage" class="col-lg-5">
-						<div id="product" class="grid-container">
-							<div class="card m-2">
-								<div class="card-head">
-									<img src="../resources/images/woman.png" alt="woman" />
-								</div>
-								<div class="card-body"></div>
-							</div>
-							<div class="card m-2">
-								<div class="card-head">
-									<img src="../resources/images/woman.png" alt="woman" />
-								</div>
-								<div class="card-body"></div>
-							</div>
-							<div class="card m-2">
-								<div class="card-head">
-									<img src="../resources/images/woman.png" alt="woman" />
-								</div>
-								<div class="card-body"></div>
-							</div>
-							<div class="card m-2">
-								<div class="card-head">
-									<img src="../resources/images/woman.png" alt="woman" />
-								</div>
-								<div class="card-body"></div>
-							</div>
-							<div class="card m-2">
-								<div class="card-head">
-									<img src="../resources/images/woman.png" alt="woman" />
-								</div>
-								<div class="card-body"></div>
-							</div>
+					<div id="mypage" class="col-lg-5" style="height:500px;">
+						<p></p>
+						<h3 style="text-align:center;">★달력★</h3>
+						<table id="calendar" style="border-color: #3333FF; text-align:center; border: 3px">
+							<tr>
+								<!-- label은 마우스로 클릭을 편하게 해줌 -->
+								<td><label onclick="prevCalendar()"><</label></td>
+								<td align="center" id="tbCalendarYM" colspan="5">yyyy년 m월</td>
+								<td><label onclick="nextCalendar()">> </label></td>
+							</tr>
+							<tr>
+								<td style="text-align:center;color:#F79DC2;">일</td>
+								<td style="text-align:center;">월</td>
+								<td style="text-align:center;">화</td>
+								<td style="text-align:center;">수</td>
+								<td style="text-align:center;">목</td>
+								<td style="text-align:center;">금</td>
+								<td style="text-align:center;color:skyblue;">토</td>
+							</tr>
+						</table>
+						<script>
+							buildCalendar();//
+						</script>
 
-						</div>
 					</div>
 				</div>
 			</div>
