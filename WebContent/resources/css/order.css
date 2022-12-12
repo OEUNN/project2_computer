@@ -2,6 +2,9 @@
 	background-color: #f3f3f3;
 }
 
+th{
+	border : 0.5px solid grey;
+}
 
 #body>.card {
 	background-color: black;
@@ -10,10 +13,17 @@
 #order_Wrapper {
 	width: 1200px;
 	margin: 50px auto;
-	background-color: "#f3f3f3";
+	background-color: white;
 	box-shadow: 5px 5px 10px grey;
+	border-radius : 15px;
 }
 
+#order_Wrapper form{
+	border-radius : 15px;
+}
+#order_Wrapper *{
+	background-color: white;
+}
 #order_main {
 	width: 100%;
 	padding: 10px 20px;

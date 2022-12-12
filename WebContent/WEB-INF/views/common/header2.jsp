@@ -57,7 +57,7 @@
                      </button>
                      <div class="dropdown-content">
                         <a href="${pageContext.request.contextPath}/user/MypageController">나의 정보</a>
-                        <a href="${pageContext.request.contextPath}/user/JoinController">주문 내역</a>
+                        <a href="${pageContext.request.contextPath}/user/OrderListController">주문 내역</a>
                         <a href="${pageContext.request.contextPath}/user/LogoutController">로그아웃</a>
                      </div>
                   </div>

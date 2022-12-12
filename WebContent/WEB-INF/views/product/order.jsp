@@ -11,18 +11,18 @@
 <div id="order_Wrapper" class="row">
 	<form method="post" action="OrderController" onsubmit="return check()" class="order_main col-8 col-md-12">
 		<div class="order_sub">
-			<h3 style="text-align: left; font-weight: bold;">결재 내역</h3>
+			<h3  class="mt-3"style="text-align: left;font-size:300%; font-weight: bold;" >결재 내역</h3>
 			<hr />
 			<div class="orderTable ">
 			<c:set var="sum" value="0"/>
 			
 						<table class=" table table-hover">
-							<thead>
-								<tr>		
-									<th>이미지</th>
-									<th>상품</th>
-									<th>가격</th>
-									<th>수량</th>
+							<thead >
+								<tr >		
+									<th style="background-color:#f3f3f3;">이미지</th>
+									<th style="background-color:#f3f3f3;">상품</th>
+									<th style="background-color:#f3f3f3;">가격</th>
+									<th style="background-color:#f3f3f3;">수량</th>
 								</tr>
 							</thead>
 							<c:forEach var="orderDetail" items="${orderDetail}">
@@ -86,7 +86,7 @@
 			</div>
 			<!-- submit -->
 			<div class="text-center mt-4">
-				<button id="order_submit" type="submit" class="btn btn-dark">결제하기</button>
+				<button id="order_submit" type="submit" class="btn mb-3 "style="background-color:#0c1c32;color:white;">결제하기</button>
 			</div>
 		</div>
 	</form>
