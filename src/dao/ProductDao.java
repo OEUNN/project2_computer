@@ -274,6 +274,26 @@ public class ProductDao {
 		return list;
 	}
 
+	public void inserProduct(Product product, Connection conn)throws Exception {
+		String sql = "insert into product(product_id,product_name,product_price," +
+				 "product_date,product_graphic_card," +
+				 "product_cpu,product_mainboard,product_os,product_memory) " +
+				 "values(?,?,?,sysdate,?,?,?,?,?)";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		// 입력됨.
+		pstmt.setString(1, product.getProductId());
+		pstmt.setString(2, product.getProductName());
+		pstmt.setInt(3, product.getProductPrice());
+		pstmt.setString(4, product.getProductGraphicCard());
+		pstmt.setString(5, product.getCPU());
+		pstmt.setString(6, product.getMainboard());
+		pstmt.setString(7, product.getOs());
+		pstmt.setString(8, product.getMemory());
+		pstmt.executeUpdate();
+		pstmt.close();
+		
+	}
+
 	
 
 }

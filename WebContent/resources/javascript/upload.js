@@ -1,21 +1,37 @@
 function appendTable(){
-	var page={
-			pageNo:pageNo,
-			
+	var colorList=new Array();
+	$("input[name='colors']:checked").each(function(){
+		colorList.push(this.value);
+	});
+	var capacityList=new Array();
+	$("input[name='capacity']:checked").each(function(){
+		capacityList.push(this.value);
+	});
+	var product={
+		productId:$("input[name='productId']").val(),
+		productName:$("input[name='productName']").val(),
+		productPrice:$("input[name='productPrice']").val(),
+		productGraphicCard:$("#productGraphicCard option:selected").val(),
+		CPU:$("#CPU option:selected").val(),
+		mainboard:$("#mainboard option:selected").val(),
+		os:$("#os option:selected").val(),
+		memory:$("#productGraphicCard option:selected").val(),
+		colors:colorList,
+		capacity:capacityList
 	};
+	//console.log(product);
+	
 	$.ajax({
-		url:"ProductListController",
+		url:"UploadController",
 		type:"post",
-		data:page,
+		data:product,
 		success:function(result){
+				$("#subTable").empty();
 				$("#subTable").append(result);
 				//console.log(result);
 				
 			}
 	});
+
 	
-	$("#subTable").append
-}
-function clicked(){
-	console.log("검정");
 }
