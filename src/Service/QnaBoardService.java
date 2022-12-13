@@ -21,12 +21,12 @@ public class QnaBoardService {
 		ds=(DataSource)application.getAttribute("dataSource");
 	}
 	
-	public int getTotalRow() {
+	public int getTotalRow(String loginId) {
 		Connection conn = null;
 		int totalRow=0;
 		try {
 			conn=ds.getConnection();
-			totalRow = qnaBoardDao.getTotalRow(conn);
+			totalRow = qnaBoardDao.getTotalRow(conn,loginId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -52,43 +52,17 @@ public class QnaBoardService {
 		return Output;
 	}
 	
-	public ArrayList<QnaBoard> readQnaBoard(String readQnaBoard) {
-		Connection conn = null;
-		ArrayList<QnaBoard> list = new ArrayList<>();
-		
-		try {
-			conn=ds.getConnection();
-			list = qnaBoardDao.ReadAll(readQnaBoard,conn);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			try{ conn.close(); }catch(Exception e) {}
-		}
-		return list;
-	}
 	
-	public QnaBoard selectQnaBoard(QnaBoard qnaBoard) {
-		Connection conn = null;
-		QnaBoard qnaBoard2 = new QnaBoard();
-		try {
-			conn=ds.getConnection();
-			qnaBoard2 = qnaBoardDao.readQnaBoard(qnaBoard,conn);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			try{ conn.close(); }catch(Exception e) {}
-		}
-		return qnaBoard2;
-	}
+	
 	
 	//o
-	public ArrayList<QnaBoard> readQnaBoardPager(Pager pager) {
+	public ArrayList<QnaBoard> readQnaBoardPager(Pager pager, String loginId) {
 		Connection conn = null;
 		ArrayList<QnaBoard> list = new ArrayList<>();
 		
 		try {
 			conn=ds.getConnection();
-			list = qnaBoardDao.readQnaBoardPager(pager,conn);
+			list = qnaBoardDao.readQnaBoardPager(pager,conn,loginId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -97,34 +71,6 @@ public class QnaBoardService {
 		return list;
 	}
 	
-	public ArrayList<QnaBoard> readMyPost(QnaBoard qnaBoard, Pager pager) {
-		Connection conn = null;
-		ArrayList<QnaBoard> list = new ArrayList<>();
-		
-		try {
-			conn=ds.getConnection();
-			list = qnaBoardDao.readMyPost(qnaBoard, pager,conn);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			try{ conn.close(); }catch(Exception e) {}
-		}
-		return list;
-	}
-	public int getUserIDBoardCount(QnaBoard qnaBoard) {
-		Connection conn = null;
-		
-		int getUserIDBoardCount = 0;
-		try {
-			conn=ds.getConnection();
-			getUserIDBoardCount = qnaBoardDao.getUserIDBoardCount(qnaBoard,conn);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			try{ conn.close(); }catch(Exception e) {}
-		}
-		return getUserIDBoardCount;
-	}
 	
 	//o
 	public String deleteQnaBoard(QnaBoard qnaBoard) {
@@ -140,19 +86,7 @@ public class QnaBoardService {
 		}
 		return Output;
 	}
-	//주문내역 가져오는 메소드
-	/*public String Or(String userId) {
-		Connection conn = ConnectionProvider.getConnection();
-		QnaBoardDao qnaBoardDao = (QnaBoardDao) application.getAttribute("qnaBoardDao");
-		String result=null;
-		try {
-			result=qnaBoardDao.ordered(userId,conn);
-			conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return result;
-	}*/
+	
 
 	//o
 	public String updateQnaBoard(QnaBoard qnaBoard) {

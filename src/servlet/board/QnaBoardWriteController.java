@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Service.QnaBoardService;
 import dto.QnaBoard;
@@ -20,13 +21,15 @@ public class QnaBoardWriteController extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 			ServletContext application = request.getServletContext();
 			QnaBoardService qnaBoardService = (QnaBoardService)application.getAttribute("qnaBoardService");
+			HttpSession session = request.getSession();
+			String loginId =(String)session.getAttribute("loginId");
 			
 			QnaBoard qnaBoard = new QnaBoard();
 			
 			System.out.println("글을 씁니다.");
 			qnaBoard.setQnaBtitle(request.getParameter("title"));
 			qnaBoard.setQnaBcontent(request.getParameter("inquiryContent"));
-			qnaBoard.setUserId("test");
+			qnaBoard.setUserId(loginId);
 			/*HttpSession session=request.getSession();
 			qnaBoard.setUserId((String)session.getAttribute("bwriter"));
 			*/
