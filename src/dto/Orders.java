@@ -1,6 +1,7 @@
 package dto;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -8,7 +9,6 @@ import lombok.Data;
 public class Orders {
 	   private String orderId;
 	   private Date orderDate;
-	   private String orderStatus;
 	   private int totalPrice;
 	   private String userId;
 	   private String receiverName;
@@ -16,4 +16,5 @@ public class Orders {
 	   private String receiverDetailAdrr;
 	   private int post;
 	   private String receiverPhone;
+	   private List<OrderDetail> orderDetail;
 }

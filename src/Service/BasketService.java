@@ -185,7 +185,7 @@ public class BasketService {
 		BasketDetail basketDetail = new BasketDetail();
 		try {
 			conn = ds.getConnection();
-			basketDetailDao.selectBasketDetailOne(basketDetailId, conn);
+			basketDetail = basketDetailDao.selectBasketDetailOne(basketDetailId, conn);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -193,6 +193,22 @@ public class BasketService {
 		}
 		
 		return basketDetail;
+	}
+
+	public String isOrdered(String colorId, String capacityId) {
+		String basketDetailId = "";
+		Connection conn = null;
+		try {
+			conn = ds.getConnection();
+			basketDetailId = basketDetailDao.selectBasketDetailId(colorId,capacityId, conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {conn.close();} catch(Exception e) {};
+		}
+		
+		return basketDetailId;
+		
 	}
 
 	
