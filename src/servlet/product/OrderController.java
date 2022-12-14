@@ -85,11 +85,7 @@ public class OrderController extends HttpServlet {
 			orderDetail.setOrderId(orderId);
 			orderService.insertOrderDetail(orderDetail);
 		}
-		
-		
-		
-	
-		
+
 		response.sendRedirect("ProductListController");
 		
 	}

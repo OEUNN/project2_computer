@@ -157,14 +157,39 @@ public class BasketDetailDao {
 
 	public BasketDetail selectBasketDetailOne(String basketDetailId, Connection conn) throws Exception {
 		BasketDetail basketDetail = new BasketDetail();
-		String sql = "select basket_detail_id, price, product_qnt, basket_id, color_id, capacity_id from basket_detail where basket_id=?";
+		String sql = "select b.BASKET_DETAIL_ID,b.BASKET_ID,PRODUCT_QNT, b.PRICE, " + 
+				"				p.product_id, p.PRODUCT_NAME,PRODUCT_price, " + 
+				"				c.color_id, c.color_name, " + 
+				"				ca.capacity_id, ca.capacity_name " + 
+				"				from basket_detail b, product p, product_color c, product_capacity ca " + 
+				"				where b.color_id= c.color_id and b.capacity_id=ca.capacity_id and " + 
+				"                b.product_id=p.product_id and basket_detail_id=?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, basketDetailId);
 		ResultSet rs = pstmt.executeQuery();
 		if(rs.next()) {
+			basketDetail = new BasketDetail();	
+			Product product = new Product();
+			Color color = new Color();
+			Capacity capacity = new Capacity();
+			
+			product.setProductId(rs.getString("product_id"));
+			product.setProductName(rs.getString("product_name"));
+			product.setProductPrice(rs.getInt("product_price"));
+			
+			color.setColorId(rs.getString("color_id"));
+			color.setColorName(rs.getString("color_name"));
+			
+			capacity.setCapacityId(rs.getString("capacity_id"));
+			capacity.setCapacityName(rs.getString("capacity_name"));
+			
 			basketDetail.setBasketDetailId(rs.getString("basket_detail_id"));
 			basketDetail.setBasketId(rs.getString("basket_id"));
+			basketDetail.setProductQnt(rs.getInt("product_qnt"));
 			basketDetail.setPrice(rs.getInt("price"));
+			basketDetail.setProduct(product);
+			basketDetail.setColor(color);
+			basketDetail.setCapacity(capacity);
 			basketDetail.setProductQnt(rs.getInt("product_qnt"));
 		}
 		
