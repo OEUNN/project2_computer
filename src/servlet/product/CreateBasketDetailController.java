@@ -20,6 +20,7 @@ import dto.Product;
 public class CreateBasketDetailController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		ProductService productService = (ProductService) request.getServletContext().getAttribute("productService");
 		ColorService colorService = (ColorService) request.getServletContext().getAttribute("colorService");
 		CapacityService capacityService = (CapacityService) request.getServletContext().getAttribute("capacityService");

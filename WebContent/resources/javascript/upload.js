@@ -7,6 +7,7 @@ function appendTable(){
 	$("input[name='capacity']:checked").each(function(){
 		capacityList.push(this.value);
 	});
+	
 	var product={
 		productId:$("input[name='productId']").val(),
 		productName:$("input[name='productName']").val(),
@@ -19,7 +20,7 @@ function appendTable(){
 		colors:colorList,
 		capacity:capacityList
 	};
-	//console.log(product);
+	console.log(product);
 	
 	$.ajax({
 		url:"UploadController",

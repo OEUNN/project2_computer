@@ -21,6 +21,7 @@ import dto.Product;
 public class BasketListController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		System.out.println("BasketListController doGet()실행");
 		BasketService basketService = (BasketService) request.getServletContext().getAttribute("basketService");
 		ProductService productService = (ProductService) request.getServletContext().getAttribute("productService");

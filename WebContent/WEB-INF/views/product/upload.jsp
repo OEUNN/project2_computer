@@ -10,7 +10,7 @@
 <%@ include file="/WEB-INF/views/common/adminMenu.jsp"%>
 
 <div id="centerBoard" class="col-12 col-md mt-5 ">
-	<form  enctype="multipart/form-data">
+	<form  method="post" enctype="multipart/form-data">
 		<table class="talbe table-bordered mb-5" style="background-color:white;">
 			<thead style="height:30px;">
 				<tr class="submitButton">
@@ -176,10 +176,10 @@
 					<!-- 이미지 -->
 					<td class="px-3">
 						<div class="form-group">
-							<label class="input-file-button" for="input-file">
+							<label class="input-file-button" for="proImg">
 							  업로드
 							</label>
-							<input type="file" id="input-file" style="display:none;" />
+							<input id="proImg" type="file" multiple="multiple"  style="display:none;" />
 						</div>
 					</td>
 				</tr>

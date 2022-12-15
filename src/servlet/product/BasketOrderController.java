@@ -24,6 +24,7 @@ import dto.ProductImage;
 public class BasketOrderController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		System.out.println("CreateOrderController doPost()실행");
 		BasketService basketService = (BasketService) request.getServletContext().getAttribute("basketService");
 		ProductService productService = (ProductService) request.getServletContext().getAttribute("productService");

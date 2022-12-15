@@ -22,6 +22,7 @@ import dto.ProductImage;
 public class CreateOrderController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		System.out.println("CreateOrderController doPost()실행");
 		ProductService productService = (ProductService) request.getServletContext().getAttribute("productService");
 		ColorService colorService = (ColorService) request.getServletContext().getAttribute("colorService");

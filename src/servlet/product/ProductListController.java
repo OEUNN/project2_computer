@@ -35,7 +35,7 @@ public class ProductListController extends HttpServlet {
 		int totalBoardNum = productService.getTotalRow(product);
 		
 		//Pager 생성
-		Pager pager = new Pager(3,5,totalBoardNum,pageNo);
+		Pager pager = new Pager(6,5,totalBoardNum,pageNo);
 		
 		//pageNo에 해당하는 게시물 가져오기
 		List<Product> productList=productService.getList(pager,product);
@@ -102,7 +102,7 @@ public class ProductListController extends HttpServlet {
 		int totalBoardNum = productService.getTotalRow(product);
 		
 		//Pager 생성
-		Pager pager = new Pager(3,5,totalBoardNum,pageNo);
+		Pager pager = new Pager(6,5,totalBoardNum,pageNo);
 		
 		//pageNo에 해당하는 게시물 가져오기
 		List<Product> productList=productService.getList(pager,product);
