@@ -154,4 +154,38 @@ public class BasketDetailDao {
 	}
 
 
+
+
+	public BasketDetail selectBasketDetailOne(String basketDetailId, Connection conn) throws Exception {
+		BasketDetail basketDetail = new BasketDetail();
+		String sql = "select basket_detail_id, price, product_qnt, basket_id, color_id, capacity_id from basket_detail where basket_id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, basketDetailId);
+		ResultSet rs = pstmt.executeQuery();
+		if(rs.next()) {
+			basketDetail.setBasketDetailId(rs.getString("basket_detail_id"));
+			basketDetail.setBasketId(rs.getString("basket_id"));
+			basketDetail.setPrice(rs.getInt("price"));
+			basketDetail.setProductQnt(rs.getInt("product_qnt"));
+		}
+		
+		return basketDetail;
+	}
+
+
+
+	public String selectBasketDetailId(String colorId,String capacityId, Connection conn) throws Exception{
+		String basketDetailId = "";
+		String sql = "select basket_detail_id from basket_detail where color_id=? and capacity_id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, colorId);
+		pstmt.setString(2, capacityId);
+		ResultSet rs = pstmt.executeQuery();
+		if(rs.next()) {
+			basketDetailId = rs.getString("basket_detail_id");
+		}
+		return basketDetailId;
+		
+	}
+	
 }

@@ -47,8 +47,9 @@
          				<tr class="basketDetailOne">
 	         				<td>
 	         					<div>
-	         						<input type="checkbox" onclick="check()" value="${basketDetail.basketDetailId}"name="basket"/>
+	         						<input type="checkbox" onclick="check()" name="basket"/>
 	         						<input type="hidden" name="colorId" value="${basketDetail.color.colorId }"/>
+	         						<input type="hidden" name="basketDetailId" value="${basketDetail.basketDetailId}"/>
        								<input type="hidden" name="capaId" value="${basketDetail.capacity.capacityId }"/>
        								<input type="hidden" name="price" value="${basketDetail.product.productPrice }"/>
        								<input type="hidden" name="productId" value="${basketDetail.product.productId }"/>
