@@ -29,12 +29,20 @@ public class QnaBoardDao {
 		return Output;
 	}
 
+<<<<<<< HEAD
 	
 	
 	public int getTotalRow(Connection conn, String loginId) throws SQLException {
 		String sql = "select count (*) as count from qna_board where user_id =? ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, loginId);
+=======
+
+
+	public int getTotalRow(Connection conn) throws SQLException {
+		String sql = "select count (*) as count from qna_board";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+>>>>>>> 42a3130f16755fd8a026f9741cae5050f59d9941
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next()) {
 			countRow = rs.getInt("count");
@@ -74,8 +82,12 @@ public class QnaBoardDao {
 		return list;
 	}
 
+<<<<<<< HEAD
 
 
+=======
+	
+>>>>>>> 42a3130f16755fd8a026f9741cae5050f59d9941
 
 	public String deleteQnaBoard(QnaBoard qnaBoard, Connection conn) throws SQLException {
 		String answer = "";
