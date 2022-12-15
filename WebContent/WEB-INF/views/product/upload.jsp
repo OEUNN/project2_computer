@@ -5,18 +5,19 @@
 <%@ include file="/WEB-INF/views/common/header1.jsp" %>
 <link rel="stylesheet" href="../resources/css/header.css">
 <link rel="stylesheet" href="../resources/css/upload.css">
+<script src="../resources/javascript/upload.js"></script>
 <%@ include file="/WEB-INF/views/common/header2.jsp"%>
 <%@ include file="/WEB-INF/views/common/adminMenu.jsp"%>
 
 <div id="centerBoard" class="col-12 col-md mt-5 ">
-	<form method="post" action="UploadController" onsubmit="return submit()" enctype="multipart/form-data">
+	<form  enctype="multipart/form-data">
 		<table class="talbe table-bordered mb-5" style="background-color:white;">
 			<thead style="height:30px;">
 				<tr class="submitButton">
 					<th colspan="7" >	
 					</th>	
 					<th class="px-5">
-						<button id="joinSubmit" type="submit" class="btn btn-sm btn-dark" value="추가하기" style="width:100%;">추가하기</button>
+						<button type="button" id="insertSubmit" onclick="appendTable()" class="btn btn-sm btn-dark" value="추가하기" style="width:100%;">추가하기</button>
 					</th>
 					<th class="px-5">
 						<button id="joinSubmit" type="submit" class="btn btn-sm btn-dark" value="저장하기" style="width:100%;">저장하기</button>
@@ -42,7 +43,7 @@
 				</tr>
 			</thead>
 			<tbody id="subTable" style="height:70px;">	
-				<tr>
+				<tr id="insertValue">
 					<td class="px-3">
 						<input type="text" name="productId" style="width:100px;"/>
 					</td>
@@ -56,7 +57,7 @@
 					<!-- 그래픽 카드 -->
 					<td class="px-3">
 						<div class="form-group">
-							<select class="form-control" id="sel1">
+							<select class="form-control" id="productGraphicCard">
 								<option>PTX 4080</option>
 								<option>RTX 3090 Ti</option>
 								<option>RTX 3060</option>
@@ -67,7 +68,7 @@
 					<!-- cpu -->
 					<td class="px-3">
 						<div class="form-group">
-							<select class="form-control" id="sel1">
+							<select class="form-control" id="CPU">
 								<option>AMD 7773X</option>
 								<option>Intel 8380</option>
 								<option>Intel Core i7</option>
@@ -78,7 +79,7 @@
 					<!-- main board -->
 					<td class="px-3">
 						<div class="form-group">
-							<select class="form-control" id="sel1">
+							<select class="form-control" id="mainboard">
 								<option>B450 AORUS</option>
 								<option>ASUS B550M-PLUS</option>
 								<option>GIGABYTE B550M</option>
@@ -89,7 +90,7 @@
 					<!-- os -->
 					<td class="px-3">
 						<div class="form-group" >
-							<select class="form-control" id="sel1">
+							<select class="form-control" id="os">
 								<option>Windows</option>
 								<option>Linux</option>
 								<option>MacOS</option>
@@ -100,7 +101,7 @@
 					<!-- memory -->
 					<td class="px-3">
 						<div class="form-group">
-							<select class="form-control" id="sel1">
+							<select class="form-control" id="memory">
 								<option>삼성전자 DDR4 8GB</option>
 								<option>South Bridge DDR3 8GB</option>
 								<option>G Skill DDR4 16G</option>

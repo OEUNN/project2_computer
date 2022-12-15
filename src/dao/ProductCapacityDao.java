@@ -29,5 +29,17 @@ public class ProductCapacityDao {
 		
 		return list;
 	}
+
+	public void insertCapacity(Capacity capacity, Connection conn)throws Exception {
+		String sql = "insert into product_capacity(capacity_id,capacity_name,product_id)" +
+				 "values('capa'||capacity_id.nextval,?,?)";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		// 입력됨.
+		pstmt.setString(1, capacity.getCapacityName());
+		pstmt.setString(2, capacity.getProductId());
+		
+		pstmt.executeUpdate();
+		pstmt.close();
+	}
 	
 }
