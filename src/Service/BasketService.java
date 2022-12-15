@@ -104,21 +104,6 @@ public class BasketService {
 		return basket;
 	}
 
-	public boolean CreateBasket(String userId) {
-		Connection conn = null;
-		boolean result = false;
-		try {
-			conn = ds.getConnection();
-			basketDao.Create(userId, conn);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			try {conn.close();} catch(Exception e) {};
-		}
-		
-		return result;
-	}
-
 
 	public List<BasketDetail> getBasketDetailList(String userId){
 		Connection conn = null;
@@ -178,21 +163,6 @@ public class BasketService {
 			try {conn.close();} catch(Exception e) {};
 		}
 		
-	}
-
-	public BasketDetail getBasketDetail(String basketDetailId) {
-		Connection conn = null;
-		BasketDetail basketDetail = new BasketDetail();
-		try {
-			conn = ds.getConnection();
-			basketDetailDao.selectBasketDetailOne(basketDetailId, conn);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			try {conn.close();} catch(Exception e) {};
-		}
-		
-		return basketDetail;
 	}
 
 	
