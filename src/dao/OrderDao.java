@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import dto.Orders;
 
@@ -43,6 +45,24 @@ public class OrderDao {
 				}
 			
 		return result;
+	}
+
+	public List<Orders> selectOrder(String userId, Connection conn) throws Exception {
+		String sql = "select order_id, order_date, total_price from orders where user_id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1,userId);
+		ResultSet rs = pstmt.executeQuery();
+		List<Orders> list = new ArrayList<>();
+		while (rs.next()) {
+			Orders order = new Orders();
+			order.setOrderId(rs.getString("order_id"));
+			order.setOrderDate(rs.getDate("order_date"));
+			order.setUserId(userId);
+			
+			list.add(order);
+		}
+			
+		return list;
 	}
 
 

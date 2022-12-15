@@ -170,5 +170,21 @@ public class BasketDetailDao {
 		
 		return basketDetail;
 	}
+
+
+
+	public String selectBasketDetailId(String colorId,String capacityId, Connection conn) throws Exception{
+		String basketDetailId = "";
+		String sql = "select basket_detail_id from basket_detail where color_id=? and capacity_id=?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, colorId);
+		pstmt.setString(2, capacityId);
+		ResultSet rs = pstmt.executeQuery();
+		if(rs.next()) {
+			basketDetailId = rs.getString("basket_detail_id");
+		}
+		return basketDetailId;
+		
+	}
 	
 }

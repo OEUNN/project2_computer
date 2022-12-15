@@ -52,6 +52,7 @@ public class CreateOrderController extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("orderDetail", list);
 		
+		
 		//JSP로 이동
 		request.getRequestDispatcher("/WEB-INF/views/product/order.jsp").forward(request, response);
 	}
