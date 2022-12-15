@@ -20,15 +20,19 @@
 			<img class="slides productImg" src="ImageAttachController?imageId=${product.productImageList[2].imageId}" style="width:100%;display:none"/>
 		</div>
 		<div class="row">
-			<div class="pt-4 col-2" style="width: 100%">
-				<img class="demo" src="ImageAttachController?imageId=${product.productImageList[0].imageId}" onclick="currentDiv(1)" />
-			</div>
-			<div class="pt-4 col-2" style="width: 100%">
+			<c:forEach var="productImg" items="${product.productImageList}" varStatus="proImg">
+				<div class="pt-4 col-2" style="width: 100%">
+					<c:if test="${proImg.index<3}">
+						<img class="demo" src="ImageAttachController?imageId=${productImg.imageId}" onclick="currentDiv(${proImg.count})" />
+					</c:if>
+				</div>	
+			</c:forEach>
+			<%-- <div class="pt-4 col-2" style="width: 100%">
 				<img class="demo" src="ImageAttachController?imageId=${product.productImageList[1].imageId}" onclick="currentDiv(2)" />
 			</div>
 			<div class="pt-4 col-2" style="width: 100%">
 				<img class="demo" src="ImageAttachController?imageId=${product.productImageList[2].imageId}" onclick="currentDiv(3)" />
-			</div>
+			</div> --%>
 		</div>
 	</div>
 	<div class=" col-1 col-md-1"></div>
@@ -256,9 +260,11 @@
 <div class="row">
 	<div class="col-1"></div>
 	<div class="col-10">
-		
-		<img src="ImageAttachController?imageId=${product.productImageList[3].imageId}" />
-		<img src="ImageAttachController?imageId=${product.productImageList[4].imageId}" />
+		<c:forEach var="ad" items="${product.productImageList}" varStatus="imgStatus">
+			<c:if test="${imgStatus.index>=3}">
+				<img src="ImageAttachController?imageId=${ad.imageId}" />
+			</c:if>
+		</c:forEach>
 	</div>
 	<div class="col-1"></div>
 
