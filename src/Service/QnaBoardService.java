@@ -21,12 +21,12 @@ public class QnaBoardService {
 		ds=(DataSource)application.getAttribute("dataSource");
 	}
 	
-	public int getTotalRow() {
+	public int getTotalRow(String loginId) {
 		Connection conn = null;
 		int totalRow=0;
 		try {
 			conn=ds.getConnection();
-			totalRow = qnaBoardDao.getTotalRow(conn);
+			totalRow = qnaBoardDao.getTotalRow(conn,loginId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -52,13 +52,13 @@ public class QnaBoardService {
 	}
 	
 	
-	public ArrayList<QnaBoard> readQnaBoardPager(Pager pager) {
+	public ArrayList<QnaBoard> readQnaBoardPager(Pager pager, String loginId) {
 		Connection conn = null;
 		ArrayList<QnaBoard> list = new ArrayList<>();
 		
 		try {
 			conn=ds.getConnection();
-			list = qnaBoardDao.readQnaBoardPager(pager,conn);
+			list = qnaBoardDao.readQnaBoardPager(pager,conn,loginId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
