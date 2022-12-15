@@ -28,5 +28,17 @@ public class ProductColorDao {
 
 		return list;
 	}
+
+	public void insertColor(Color color, Connection conn)throws Exception {
+		String sql = "insert into product_color(color_id,color_name,product_id)" +
+				 "values('color'||color_id.nextval,?,?)";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		// 입력됨.
+		pstmt.setString(1, color.getColorName());
+		pstmt.setString(2, color.getProductId());
+		
+		pstmt.executeUpdate();
+		pstmt.close();
+	}
 	
 }

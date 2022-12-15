@@ -1,6 +1,6 @@
 package Service;
 
-import java.sql.Connection; 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +11,8 @@ import dao.ProductCapacityDao;
 import dao.ProductColorDao;
 import dao.ProductDao;
 import dao.ProductImageDao;
+import dto.Capacity;
+import dto.Color;
 import dto.Product;
 import util.Pager;
  
@@ -104,6 +106,31 @@ public class ProductService {
 		}
 		
 		return product;
+	}
+
+	public void insertProduct(Product product) {
+		Connection conn = null;
+		
+		try {
+			conn=ds.getConnection();
+			productDao.inserProduct(product,conn);
+			for(Color color:product.getColorList()) {
+				color.setProductId(product.getProductId());
+				productColorDao.insertColor(color, conn);
+				
+			}
+			for(Capacity capacity:product.getCapacityList()) {
+				capacity.setProductId(product.getProductId());
+				productCapacityDao.insertCapacity(capacity,conn);
+				
+			}
+			//productImageDao.insertImage(product,conn);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try{ conn.close(); }catch(Exception e) {}
+		}
+		
 	}
 
 }
