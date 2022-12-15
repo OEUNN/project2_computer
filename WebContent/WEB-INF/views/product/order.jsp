@@ -15,7 +15,6 @@
 			<hr />
 			<div class="orderTable ">
 			<c:set var="sum" value="0"/>
-			
 						<table class=" table table-hover">
 							<thead >
 								<tr >		

@@ -48,7 +48,7 @@ public class OrderDao {
 	}
 
 	public List<Orders> selectOrder(String userId, Connection conn) throws Exception {
-		String sql = "select order_id, order_date, total_price from orders where user_id=?";
+		String sql = "select order_id, order_date, receiver_name, total_price from orders where user_id=?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1,userId);
 		ResultSet rs = pstmt.executeQuery();
@@ -57,6 +57,7 @@ public class OrderDao {
 			Orders order = new Orders();
 			order.setOrderId(rs.getString("order_id"));
 			order.setOrderDate(rs.getDate("order_date"));
+			order.setReceiverName(rs.getString("receiver_name"));
 			order.setUserId(userId);
 			
 			list.add(order);

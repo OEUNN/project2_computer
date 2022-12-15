@@ -39,20 +39,22 @@
          			<tr>
          			
          				<th>구매일자</th>
+         				<th>받는사람</th>
          				<th>주문번호</th>
          				<th>구매상품</th>
          				<th>수량</th>
          				
          			</tr>
-         			
+         		
 	         		<c:forEach  var="orders" items="${orders}" >	
-	         		
-	         	
 		         			<c:forEach  var="orderDetail" items="${orders.orderDetail}" >			
 		         				<tr class="basketDetailOne">
 			         				
 			         				<td >
 			         					${orders.orderDate}
+			         				</td>
+			         				<td >
+			         					${orders.receiverName}
 			         				</td>
 			         				<td>
 			         					${orders.orderId}
