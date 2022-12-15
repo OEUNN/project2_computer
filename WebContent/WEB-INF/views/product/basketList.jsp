@@ -17,7 +17,7 @@
 	<div id="basketMain" class="col-12 col-md mt-5 mr-5">
        		<h3 id="basketLogo" class="m-3">장바구니</h3>
        		<hr/>
-       		<form method="post" style="width:100%" class="row" action="${pageContext.request.contextPath}/product/CreateOrderController">
+       		<form method="post" style="width:100%" class="row" action="${pageContext.request.contextPath}/product/BasketOrderController">
        			
        			<div class="basketTable col-9">
         			<div id="deleteBasket"  style="text-align:right"><span class="btn" onclick="deleteBasket()">선택항목 삭제</span></div>
@@ -47,13 +47,8 @@
          				<tr class="basketDetailOne">
 	         				<td>
 	         					<div>
-	         						<input type="checkbox" onclick="check()" name="basket"/>
-	         						<input type="hidden" name="colorId" value="${basketDetail.color.colorId }"/>
-	         						<input type="hidden" name="basketDetailId" value="${basketDetail.basketDetailId}"/>
-       								<input type="hidden" name="capaId" value="${basketDetail.capacity.capacityId }"/>
-       								<input type="hidden" name="price" value="${basketDetail.product.productPrice }"/>
-       								<input type="hidden" name="productId" value="${basketDetail.product.productId }"/>
-       								<input type="hidden" name="quantity" value="${basketDetail.productQnt }"/>
+	         						<input type="checkbox" onclick="check()"value="${basketDetail.basketDetailId}" name="basket"/>
+	         						
 	         					</div>
 	         				</td>
 	         				<td >
